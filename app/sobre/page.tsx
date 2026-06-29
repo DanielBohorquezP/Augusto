@@ -1,12 +1,19 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
+import SchemaScript from "@/components/SchemaScript";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Sobre Augusto Ruiz | Investigador y Consultor en Innovación Tecnológica",
+  title: "Consultor en Innovación Tecnológica Colombia",
   description:
-    "Conoce la trayectoria de Augusto Ruiz: PhD(c) Universidad de los Andes, docente EAFIT, consultor especializado en gestión de innovación tecnológica con enfoque basado en evidencia.",
+    "Augusto Ruiz: consultor en innovación tecnológica en Colombia. PhD(c) Uniandes, docente EAFIT. Más de 50 organizaciones asesoradas en Colombia, México, Chile, Perú y Ecuador.",
   alternates: { canonical: "https://www.augustoruiz.org/sobre" },
+  openGraph: {
+    title: "Augusto Ruiz — Consultor en Innovación Tecnológica | Colombia",
+    description: "PhD(c) Uniandes · Docente EAFIT. Consultor en gestión de innovación tecnológica con base en Colombia. Más de 50 organizaciones asesoradas en LATAM.",
+    url: "https://www.augustoruiz.org/sobre",
+    type: "profile",
+  },
 };
 
 const timeline = [
@@ -39,6 +46,12 @@ const timeline = [
 export default function SobrePage() {
   return (
     <>
+      <SchemaScript
+        schema={breadcrumbSchema([
+          { name: "Inicio", url: "https://www.augustoruiz.org" },
+          { name: "Sobre mí", url: "https://www.augustoruiz.org/sobre" },
+        ])}
+      />
       {/* Hero */}
       <section className="bg-primary pt-32 pb-16">
         <div className="container-site">
@@ -63,14 +76,11 @@ export default function SobrePage() {
               </blockquote>
             </div>
             <div className="flex justify-center lg:justify-end">
-              <div className="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl bg-white/10 border-2 border-white/20 flex items-center justify-center">
-                <div className="text-center text-white/40">
-                  <svg className="w-20 h-20 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
-                  </svg>
-                  <p className="text-xs">Foto profesional</p>
-                </div>
-              </div>
+              <img
+                src="/profile-photo.png"
+                alt="Augusto Ruiz - Foto de perfil profesional"
+                className="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl object-cover shadow-lg"
+              />
             </div>
           </div>
         </div>
@@ -81,6 +91,13 @@ export default function SobrePage() {
         <div className="container-site max-w-4xl">
           <h2 className="section-heading text-2xl sm:text-3xl mb-6">Mi historia</h2>
           <div className="prose prose-slate max-w-none space-y-4 text-foreground text-base leading-relaxed">
+            <p>
+              Soy consultor especializado en gestión de innovación tecnológica con base en Colombia,
+              trabajando con organizaciones en Medellín, Bogotá y toda Latinoamérica. En más de
+              10 años de práctica he asesorado a más de 50 organizaciones en Colombia, México,
+              Chile, Perú y Ecuador —desde startups en etapa temprana hasta corporaciones del
+              sector financiero y energético.
+            </p>
             <p>
               Mi trayectoria nació de una convicción profunda: las organizaciones latinoamericanas
               merecen herramientas de toma de decisiones tan rigurosas como las que utilizan
@@ -100,8 +117,8 @@ export default function SobrePage() {
             </p>
             <p>
               Hoy combino la investigación activa en la Universidad de los Andes con la docencia
-              en EAFIT y una práctica consultora que me permite validar continuamente mis hallazgos
-              en organizaciones reales.
+              en EAFIT y una práctica consultora de innovación que me permite validar
+              continuamente mis hallazgos en organizaciones reales de Colombia y la región.
             </p>
           </div>
         </div>
