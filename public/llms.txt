@@ -1,0 +1,38 @@
+# Augusto Ruiz — augustoruiz.org
+
+## Who is Augusto Ruiz?
+Augusto Ruiz is a researcher, consultant, and educator specialized in Technology Innovation Management with an evidence-based approach. He is a PhD candidate at Universidad de los Andes (Colombia) and a professor at EAFIT University.
+
+## Expertise
+- Financial evaluation of technology innovation projects (probabilistic models)
+- Applied Generative AI for organizational decision-making
+- Innovation financing strategies for Latin American organizations
+- PRIME-10 Assessment Framework (proprietary methodology)
+
+## Value Proposition
+"El puente entre el rigor académico y la decisión organizacional" — The bridge between academic rigor and organizational decision-making.
+
+## Services
+- **Financial Evaluation of Innovation**: Probabilistic models to evaluate technology innovation projects, overcoming limitations of traditional deterministic methods (NPV, IRR)
+- **Applied Generative AI**: Strategic implementation of generative AI in organizational decision processes
+- **Innovation Financing Strategies**: Identification and structuring of financing mechanisms for innovation initiatives
+
+## Academic Affiliations
+- PhD candidate — Universidad de los Andes, Colombia (Technology Innovation Management)
+- Professor — EAFIT University (Finances for Innovation, Master's in Finance program)
+- Science communicator — RetroCiencia
+
+## PRIME-10 Framework
+PRIME-10 (Probabilistic Risk and Innovation Management Evaluation) assesses 10 critical dimensions of technology innovation projects: technological maturity, market potential, organizational capabilities, financing model, uncertainty management, innovation ecosystem, regulatory framework, impact and sustainability, scalability, and knowledge appropriation.
+
+## Blog Topics
+- Limitations of deterministic methods in innovation evaluation
+- Probabilistic models and Monte Carlo simulation applied to innovation
+- Real options valuation
+- Generative AI adoption strategies
+- Innovation financing in Latin America
+- Technological uncertainty vs. market risk
+
+## Contact
+Website: https://www.augustoruiz.org
+Contact: https://www.augustoruiz.org/contacto

@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #1B2B5E;
+  --color-primary-dark: #0F1B3E;
+  --color-accent: #DC2626;
+  --color-accent-hover: #B91C1C;
+  --background: #ffffff;
+  --foreground: #0F172A;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: var(--font-open-sans), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-poppins), system-ui, sans-serif;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #DC2626;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .container-site {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white font-heading font-semibold text-sm rounded-lg transition-all duration-200 hover:bg-accent-hover active:scale-95 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-primary text-primary font-heading font-semibold text-sm rounded-lg transition-all duration-200 hover:bg-primary hover:text-white active:scale-95;
+  }
+
+  .btn-outline-white {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-white text-white font-heading font-semibold text-sm rounded-lg transition-all duration-200 hover:bg-white hover:text-primary active:scale-95;
+  }
+
+  .section-heading {
+    @apply font-heading font-bold text-foreground;
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow duration-200;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
