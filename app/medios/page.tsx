@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import CTASection from "@/components/sections/CTASection";
+import SchemaScript from "@/components/SchemaScript";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Medios y Prensa | Augusto Ruiz",
+  title: "Medios y Prensa — Entrevistas y Ponencias",
   description:
     "Apariciones de Augusto Ruiz en medios, podcasts, congresos y entrevistas sobre gestión de innovación tecnológica, evaluación financiera e inteligencia artificial.",
   alternates: { canonical: "https://www.augustoruiz.org/medios" },
@@ -35,6 +37,12 @@ const mediaItems = [
 export default function MediosPage() {
   return (
     <>
+      <SchemaScript
+        schema={breadcrumbSchema([
+          { name: "Inicio", url: "https://www.augustoruiz.org" },
+          { name: "Medios", url: "https://www.augustoruiz.org/medios" },
+        ])}
+      />
       <section className="bg-primary pt-32 pb-16">
         <div className="container-site">
           <div className="max-w-3xl">
@@ -69,7 +77,7 @@ export default function MediosPage() {
                   </span>
                 </div>
                 <div className="flex-1">
-                  <p className="text-xs text-muted-foreground mb-1">{item.outlet} · {new Date(item.date).toLocaleDateString("es-CO", { year: "numeric", month: "long", day: "numeric" })}</p>
+                  <p className="text-xs text-muted-foreground mb-1">{item.outlet} · {new Date(item.date + "T12:00:00Z").toLocaleDateString("es-CO", { timeZone: "UTC", year: "numeric", month: "long", day: "numeric" })}</p>
                   <h2 className="font-heading font-semibold text-foreground text-base hover:text-primary transition-colors">
                     {item.title}
                   </h2>

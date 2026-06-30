@@ -1,12 +1,30 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
+import SchemaScript from "@/components/SchemaScript";
+import { faqSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Servicios de Consultoría en Gestión de Innovación Tecnológica",
+  title: "Consultoría en Innovación Tecnológica",
   description:
-    "Consultoría especializada en evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
+    "Consultoría en innovación empresarial para organizaciones en Colombia y LATAM. Evaluación financiera probabilística, IA generativa y estrategias de financiación.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios" },
+  openGraph: {
+    title: "Consultoría en Innovación Tecnológica en Colombia | Augusto Ruiz",
+    description: "Consultoría en innovación empresarial para organizaciones en Colombia. Evaluación financiera probabilística, IA generativa y estrategias de financiación.",
+    url: "https://www.augustoruiz.org/servicios",
+    type: "website",
+  },
+  keywords: [
+    "consultoría en innovación empresarial Colombia",
+    "consultoría en innovación tecnológica",
+    "consultoría en innovación digital",
+    "consultoría en innovación estratégica",
+    "consultoría en innovación para pymes",
+    "consultoría en innovación organizacional",
+    "consultoría innovación Medellín",
+    "consultoría innovación Bogotá",
+  ],
 };
 
 const services = [
@@ -85,21 +103,31 @@ const faqs = [
 ];
 
 export default function ServiciosPage() {
+  const schemas = [
+    faqSchema(faqs),
+    breadcrumbSchema([
+      { name: "Inicio", url: "https://www.augustoruiz.org" },
+      { name: "Servicios", url: "https://www.augustoruiz.org/servicios" },
+    ]),
+  ];
   return (
     <>
+      <SchemaScript schema={schemas} />
+
       {/* Hero */}
       <section className="bg-primary pt-32 pb-16">
         <div className="container-site text-center">
           <span className="inline-block bg-accent text-white text-xs font-heading font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
-            Consultoría especializada
+            Consultoría especializada · Colombia
           </span>
           <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white max-w-3xl mx-auto">
-            Servicios de Consultoría en Gestión de Innovación Tecnológica
+            Consultoría en Innovación Tecnológica para Empresas
           </h1>
           <p className="mt-5 text-white/80 text-base max-w-2xl mx-auto leading-relaxed">
-            Soluciones basadas en evidencia para organizaciones que quieren innovar
-            con rigor, tomar mejores decisiones de inversión y maximizar el impacto
-            de sus iniciativas tecnológicas.
+            Servicios de consultoría en innovación empresarial, innovación digital,
+            innovación estratégica e innovación organizacional para empresas en Colombia
+            — desde startups hasta corporaciones. Cada proyecto parte de evidencia
+            empírica y metodologías adaptadas al contexto real de la organización.
           </p>
         </div>
       </section>

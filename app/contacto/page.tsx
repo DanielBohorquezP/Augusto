@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contacto | Augusto Ruiz — Consultor en Gestión de Innovación",
+  title: "Contacto — Agendar consulta",
   description:
     "Agenda una consulta con Augusto Ruiz. Consultoría en evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
   alternates: { canonical: "https://www.augustoruiz.org/contacto" },

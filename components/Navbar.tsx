@@ -26,7 +26,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white shadow-md py-3"
+          ? "bg-primary/95 backdrop-blur-sm border-b border-primary-light/30 shadow-md py-3"
           : "bg-primary py-4"
       }`}
     >
@@ -34,9 +34,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className={`font-heading font-bold text-lg leading-tight transition-colors ${
-            scrolled ? "text-primary" : "text-white"
-          }`}
+          className="font-heading font-bold text-lg leading-tight text-white"
         >
           Augusto Ruiz
           <span className="block text-xs font-normal opacity-70">
@@ -50,9 +48,7 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`font-body text-sm font-medium transition-colors hover:text-accent ${
-                scrolled ? "text-foreground" : "text-white/90 hover:text-white"
-              }`}
+              className="font-body text-sm font-medium transition-colors text-white/90 hover:text-white hover:text-accent"
             >
               {link.label}
             </Link>
@@ -64,7 +60,7 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className={`lg:hidden p-2 rounded-md ${scrolled ? "text-foreground" : "text-white"}`}
+          className="lg:hidden p-2 rounded-md text-white"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
           aria-expanded={menuOpen}
@@ -81,14 +77,14 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-white border-t border-border shadow-lg">
+        <div className="lg:hidden bg-primary border-t border-primary-light/30 shadow-lg">
           <div className="container-site py-4 flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className="font-body text-sm font-medium text-foreground py-2 hover:text-accent transition-colors"
+                className="font-body text-sm font-medium text-white/90 py-2 hover:text-white transition-colors"
               >
                 {link.label}
               </Link>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/sections/HeroSection";
-import StatsSection from "@/components/sections/StatsSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import Prime10Banner from "@/components/sections/Prime10Banner";
 import AffiliationsSection from "@/components/sections/AffiliationsSection";
@@ -21,10 +20,9 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <StatsSection />
-      <AffiliationsSection />
       <ServicesSection />
       <Prime10Banner />
+      <AffiliationsSection />
       <TestimonialsSection />
       <BlogPreviewSection />
       <CTASection />

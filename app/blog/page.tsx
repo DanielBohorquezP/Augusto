@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
+import { allPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Blog — Investigación Aplicada en Gestión de Innovación | Augusto Ruiz",
+  title: "Blog — Investigación Aplicada en Gestión de Innovación",
   description:
-    "Artículos sobre gestión de innovación tecnológica, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación para organizaciones latinoamericanas.",
+    "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación para organizaciones latinoamericanas.",
   alternates: { canonical: "https://www.augustoruiz.org/blog" },
 };
 
 const categories = [
   "Todos",
+  "Consultoría",
   "Evaluación Financiera",
   "IA Generativa",
   "Financiación",
@@ -18,64 +20,10 @@ const categories = [
   "Casos de estudio",
 ];
 
-const posts = [
-  {
-    slug: "modelos-probabilisticos-innovacion",
-    category: "Evaluación Financiera",
-    title: "Por qué los modelos deterministas fallan en la evaluación de innovación",
-    excerpt: "El VPN y la TIR asumen un futuro predecible. En innovación tecnológica, esa suposición no solo es incorrecta, puede costarte millones en decisiones equivocadas.",
-    date: "2024-11-15",
-    readTime: "8 min",
-    featured: true,
-  },
-  {
-    slug: "ia-generativa-decisiones-organizacionales",
-    category: "IA Generativa",
-    title: "IA Generativa en la toma de decisiones: más allá del hype",
-    excerpt: "Cómo implementar IA generativa en procesos organizacionales reales, con métricas de éxito claras y sin caer en modas pasajeras.",
-    date: "2024-10-28",
-    readTime: "6 min",
-    featured: false,
-  },
-  {
-    slug: "financiacion-innovacion-latam",
-    category: "Financiación",
-    title: "Fuentes de financiación para innovación en Latinoamérica: guía 2024",
-    excerpt: "Fondos públicos, inversión privada y esquemas mixtos disponibles para proyectos de innovación tecnológica en la región.",
-    date: "2024-10-10",
-    readTime: "10 min",
-    featured: false,
-  },
-  {
-    slug: "incertidumbre-tecnologica-riesgo",
-    category: "Metodología",
-    title: "Incertidumbre tecnológica vs. riesgo de mercado: una distinción crítica",
-    excerpt: "Confundir estos dos conceptos es uno de los errores más frecuentes en la evaluación de proyectos de innovación. Esta distinción cambia completamente el modelo de análisis.",
-    date: "2024-09-20",
-    readTime: "7 min",
-    featured: false,
-  },
-  {
-    slug: "prime-10-caso-startup",
-    category: "Casos de estudio",
-    title: "Cómo el PRIME-10 ayudó a una startup a conseguir financiación pública",
-    excerpt: "Caso de estudio: cómo un diagnóstico de madurez de innovación transformó la propuesta de valor de una startup de agritech colombiana.",
-    date: "2024-08-30",
-    readTime: "9 min",
-    featured: false,
-  },
-  {
-    slug: "opciones-reales-innovacion",
-    category: "Evaluación Financiera",
-    title: "Valoración por opciones reales: el método que los CFOs deberían conocer",
-    excerpt: "Las opciones reales capturan el valor de la flexibilidad en proyectos de innovación. Aquí te explico cómo aplicarlas sin necesitar un doctorado en finanzas.",
-    date: "2024-08-05",
-    readTime: "11 min",
-    featured: false,
-  },
-];
+const posts = allPosts;
 
 const categoryColors: Record<string, string> = {
+  "Consultoría": "bg-primary/10 text-primary",
   "Evaluación Financiera": "bg-primary/10 text-primary",
   "IA Generativa": "bg-accent/10 text-accent",
   "Financiación": "bg-green-50 text-green-700",
@@ -154,7 +102,7 @@ export default function BlogPage() {
                   <div className="mt-5 flex items-center justify-between">
                     <div className="flex items-center gap-3 text-xs text-muted-foreground">
                       <time dateTime={featured.date}>
-                        {new Date(featured.date).toLocaleDateString("es-CO", { year: "numeric", month: "long", day: "numeric" })}
+                        {new Date(featured.date + "T12:00:00Z").toLocaleDateString("es-CO", { timeZone: "UTC", year: "numeric", month: "long", day: "numeric" })}
                       </time>
                       <span>·</span>
                       <span>{featured.readTime} lectura</span>
@@ -192,7 +140,7 @@ export default function BlogPage() {
                   <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{post.excerpt}</p>
                   <div className="flex items-center justify-between mt-auto">
                     <time className="text-xs text-muted-foreground" dateTime={post.date}>
-                      {new Date(post.date).toLocaleDateString("es-CO", { year: "numeric", month: "short", day: "numeric" })}
+                      {new Date(post.date + "T12:00:00Z").toLocaleDateString("es-CO", { timeZone: "UTC", year: "numeric", month: "short", day: "numeric" })}
                     </time>
                     <Link href={`/blog/${post.slug}`} className="text-xs font-semibold text-accent hover:text-accent-hover flex items-center gap-1 transition-colors">
                       Leer más

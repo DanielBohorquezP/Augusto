@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
+import SchemaScript from "@/components/SchemaScript";
+import { faqSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "PRIME-10 Assessment | Framework de Evaluación de Innovación Tecnológica",
+  title: "PRIME-10 Assessment — Framework de Evaluación de Innovación",
   description:
     "PRIME-10 es un framework basado en evidencia para evaluar la madurez y el potencial de proyectos de innovación tecnológica en organizaciones latinoamericanas. Desarrollado por Augusto Ruiz, PhD(c) Universidad de los Andes.",
   alternates: { canonical: "https://www.augustoruiz.org/prime-10" },
@@ -38,8 +40,16 @@ const faqs = [
 ];
 
 export default function Prime10Page() {
+  const schemas = [
+    breadcrumbSchema([
+      { name: "Inicio", url: "https://www.augustoruiz.org" },
+      { name: "PRIME-10 Assessment", url: "https://www.augustoruiz.org/prime-10" },
+    ]),
+    faqSchema(faqs),
+  ];
   return (
     <>
+      <SchemaScript schema={schemas} />
       {/* Hero */}
       <section className="bg-primary pt-32 pb-20 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full translate-x-1/2 -translate-y-1/2" aria-hidden="true" />

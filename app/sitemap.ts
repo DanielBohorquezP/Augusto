@@ -20,6 +20,10 @@ const blogSlugs = [
   "incertidumbre-tecnologica-riesgo",
   "prime-10-caso-startup",
   "opciones-reales-innovacion",
+  "consultoria-innovacion-empresarial-colombia",
+  "como-elegir-consultora-innovacion-colombia",
+  "consultoria-innovacion-pymes-colombia",
+  "tipos-consultoria-innovacion",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

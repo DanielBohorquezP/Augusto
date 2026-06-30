@@ -76,11 +76,15 @@ export default function SobrePage() {
               </blockquote>
             </div>
             <div className="flex justify-center lg:justify-end">
-              <img
-                src="/profile-photo.png"
-                alt="Augusto Ruiz - Foto de perfil profesional"
-                className="w-64 h-64 sm:w-72 sm:h-72 rounded-2xl object-cover shadow-lg"
-              />
+              <div className="relative overflow-hidden rounded-2xl lg:-translate-x-8">
+                <img
+                  src="/profile-photo.png"
+                  alt="Augusto Ruiz - Foto de perfil profesional"
+                  className="w-64 h-80 sm:w-72 sm:h-96 lg:w-[24rem] lg:h-[30rem] object-cover object-top block"
+                />
+                {/* Floating fade effect */}
+                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-primary via-primary/50 to-transparent pointer-events-none" aria-hidden="true" />
+              </div>
             </div>
           </div>
         </div>

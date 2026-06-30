@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SchemaScript from "@/components/SchemaScript";
-import { personSchema, websiteSchema } from "@/lib/schema";
+import { personSchema, websiteSchema, professionalServiceSchema } from "@/lib/schema";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -21,6 +21,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.augustoruiz.org"),
   title: {
     default: "Augusto Ruiz | Consultor en Gestión de Innovación Tecnológica",
     template: "%s | Augusto Ruiz",
@@ -28,13 +29,18 @@ export const metadata: Metadata = {
   description:
     "PhD(c) investigador, consultor y formador especializado en evaluación financiera de innovación tecnológica, IA generativa aplicada y estrategias de financiación. Universidad de los Andes · EAFIT.",
   keywords: [
+    "consultoría en innovación empresarial Colombia",
+    "consultoría en innovación tecnológica",
+    "consultoría en innovación digital",
+    "consultoría en innovación para pymes",
+    "consultor innovación Colombia",
     "gestión innovación tecnológica",
     "evaluación financiera innovación",
-    "consultor innovación Colombia",
-    "IA generativa organizaciones",
     "PRIME-10 assessment",
     "Augusto Ruiz",
-    "finanzas para la innovación",
+    "consultoría innovación Medellín",
+    "consultoría innovación Bogotá",
+    "innovación empresarial Colombia",
   ],
   authors: [{ name: "Augusto Ruiz" }],
   creator: "Augusto Ruiz",
@@ -78,7 +84,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${poppins.variable} ${openSans.variable}`}>
       <head>
-        <SchemaScript schema={[personSchema, websiteSchema]} />
+        <SchemaScript schema={[personSchema, websiteSchema, professionalServiceSchema]} />
       </head>
       <body className="font-body antialiased bg-background text-foreground">
         <Navbar />

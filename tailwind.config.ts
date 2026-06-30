@@ -10,19 +10,19 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#1B2B5E",
-          dark: "#0F1B3E",
-          light: "#2A3F80",
+          DEFAULT: "#0E1C3D",
+          dark: "#08112A",
+          light: "#1B2B5E",
         },
         accent: {
-          DEFAULT: "#DC2626",
-          hover: "#B91C1C",
+          DEFAULT: "#CE2222",
+          hover: "#B01A1A",
           light: "#FEE2E2",
         },
         background: "#FFFFFF",
         foreground: "#0F172A",
         muted: {
-          DEFAULT: "#F1F5F9",
+          DEFAULT: "#EEF2FA",
           foreground: "#64748B",
         },
         border: "#CBD5E1",

@@ -3,7 +3,7 @@ import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
 
 export const metadata: Metadata = {
-  title: "Docencia — Finanzas para la Innovación | Augusto Ruiz",
+  title: "Docencia — Finanzas para la Innovación en EAFIT",
   description:
     "Augusto Ruiz imparte el curso Finanzas para la Innovación en la Maestría en Finanzas de EAFIT University. Un enfoque que integra modelos de incertidumbre, evaluación probabilística y toma de decisiones bajo riesgo tecnológico.",
   alternates: { canonical: "https://www.augustoruiz.org/docencia" },

@@ -76,12 +76,16 @@ export default function HeroSection() {
 
           {/* Photo */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <div className="relative">
-              <img
-                src="/profile-photo.png"
-                alt="Augusto Ruiz - Foto de perfil profesional"
-                className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl object-cover shadow-lg"
-              />
+            <div className="relative lg:-translate-x-8">
+              <div className="relative overflow-hidden rounded-2xl">
+                <img
+                  src="/profile-photo.png"
+                  alt="Augusto Ruiz - Foto de perfil profesional"
+                  className="w-64 h-80 sm:w-80 sm:h-96 lg:w-[28rem] lg:h-[34rem] object-cover object-top block"
+                />
+                {/* Floating fade effect */}
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-primary via-primary/50 to-transparent pointer-events-none" aria-hidden="true" />
+              </div>
               {/* Decorative elements */}
               <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-accent/20 rounded-2xl -z-10" aria-hidden="true" />
               <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/10 rounded-xl -z-10" aria-hidden="true" />

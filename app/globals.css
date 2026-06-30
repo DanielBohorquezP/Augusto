@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #1B2B5E;
-  --color-primary-dark: #0F1B3E;
-  --color-accent: #DC2626;
-  --color-accent-hover: #B91C1C;
+  --color-primary: #0E1C3D;
+  --color-primary-dark: #08112A;
+  --color-accent: #CE2222;
+  --color-accent-hover: #B01A1A;
   --background: #ffffff;
   --foreground: #0F172A;
 }
@@ -29,7 +29,7 @@
   }
 
   *:focus-visible {
-    outline: 2px solid #DC2626;
+    outline: 2px solid #CE2222;
     outline-offset: 2px;
   }
 }
@@ -60,7 +60,7 @@
   }
 
   .card {
-    @apply bg-white rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow duration-200;
+    @apply bg-[#F8FAFF] rounded-xl border-l-4 border-l-accent shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200;
   }
 }
 
