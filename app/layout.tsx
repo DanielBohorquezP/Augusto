@@ -3,6 +3,7 @@ import { Poppins, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import SchemaScript from "@/components/SchemaScript";
 import { personSchema, websiteSchema, professionalServiceSchema } from "@/lib/schema";
 
@@ -52,21 +53,12 @@ export const metadata: Metadata = {
     title: "Augusto Ruiz | Consultor en Gestión de Innovación Tecnológica",
     description:
       "El puente entre el rigor académico y la decisión organizacional. PhD(c) Universidad de los Andes · Docente EAFIT.",
-    images: [
-      {
-        url: "/og-default.png",
-        width: 1200,
-        height: 630,
-        alt: "Augusto Ruiz — Consultor en Gestión de Innovación Tecnológica",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Augusto Ruiz | Consultor en Gestión de Innovación Tecnológica",
     description:
       "El puente entre el rigor académico y la decisión organizacional.",
-    images: ["/og-default.png"],
   },
   robots: {
     index: true,
@@ -90,6 +82,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <WhatsAppButton />
       </body>
     </html>
   );

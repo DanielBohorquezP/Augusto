@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
+// Suscripción al newsletter → Google Sheets.
+// Los correos se agregan como filas a una hoja de cálculo vía un Google Apps
+// Script desplegado como Web App. Pasos de configuración en docs/INTEGRACIONES.md.
+
 function isValidEmail(email: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -19,30 +23,28 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Valid email required" }, { status: 400 });
   }
 
-  const resendApiKey = process.env.RESEND_API_KEY;
-  const audienceId = process.env.RESEND_AUDIENCE_ID;
+  const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
 
-  if (!resendApiKey || !audienceId) {
-    console.error("Newsletter env vars not configured");
+  if (!webhookUrl) {
+    console.error("GOOGLE_SHEETS_WEBHOOK_URL not configured");
     return NextResponse.json({ error: "Service not configured" }, { status: 503 });
   }
 
   try {
-    const res = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
+    const res = await fetch(webhookUrl, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, unsubscribed: false }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email.trim().toLowerCase(),
+        fecha: new Date().toISOString(),
+        origen: "newsletter-web",
+      }),
+      // Apps Script responde con redirect 302 hacia el resultado
+      redirect: "follow",
     });
 
     if (!res.ok) {
-      const err = await res.text();
-      if (err.includes("already exists")) {
-        return NextResponse.json({ success: true }, { status: 200 });
-      }
-      console.error("Resend audience error:", err);
+      console.error("Google Sheets webhook error:", res.status, await res.text());
       return NextResponse.json({ error: "Subscription failed" }, { status: 500 });
     }
 

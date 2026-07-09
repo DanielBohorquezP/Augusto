@@ -52,7 +52,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         from: "contacto@augustoruiz.org",
-        to: ["contacto@augustoruiz.org"],
+        to: ["proyectos@augustoruiz.org", "oa.ruiz27@uniandes.edu.co"],
         reply_to: email,
         subject: `[Contacto Web] ${body.service ?? "Consulta"} — ${name}`,
         html: `

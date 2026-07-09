@@ -3,10 +3,9 @@
 import { useState } from "react";
 
 const services = [
-  "Evaluación Financiera de Innovación",
-  "IA Generativa Aplicada",
-  "Estrategias de Financiación",
-  "PRIME-10 Assessment",
+  "PRIME-10 Decision Assessment",
+  "Formación corporativa en IA generativa",
+  "Beneficios tributarios I+D+i y ambientales",
   "Charla / Taller",
   "Otro",
 ];
@@ -81,7 +80,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} noValidate className="space-y-5" aria-label="Formulario de contacto">
       {state === "error" && (
         <div role="alert" className="bg-accent/10 border border-accent/30 text-accent text-sm p-4 rounded-lg">
-          Hubo un error al enviar el mensaje. Por favor intenta de nuevo o escríbeme directamente a contacto@augustoruiz.org.
+          Hubo un error al enviar el mensaje. Por favor intenta de nuevo o escríbeme directamente a proyectos@augustoruiz.org.
         </div>
       )}
 

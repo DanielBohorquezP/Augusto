@@ -17,15 +17,24 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Preview de blog en home | `components/sections/BlogPreviewSection.tsx` |
 | Afiliaciones (logos) | `components/sections/AffiliationsSection.tsx` |
 | CTA final de home | `components/sections/CTASection.tsx` |
-| **Artículos del blog** | `lib/posts.ts` |
-| Página listado de blog | `app/blog/page.tsx` |
-| Página individual de artículo | `app/blog/[slug]/page.tsx` |
+| **Publicar un artículo nuevo** | `content/blog/COMO-PUBLICAR.md` — instrucciones para Claude |
+| **Artículos del blog** | `content/blog/*.md` — un archivo por artículo (hoy vacío, ver abajo) |
+| Página de blog (feed completo) | `app/blog/page.tsx` — muestra TODOS los artículos completos en una sola página |
+| Un artículo dentro del feed | `components/FeedArticle.tsx` |
+| Página individual de artículo (URL propia, para Google) | `app/blog/[slug]/page.tsx` |
+| Página de categoría de blog (feed filtrado) | `app/blog/categoria/[categoria]/page.tsx` |
+| Renderizador del cuerpo del artículo | `components/PostBody.tsx` — usado en el feed y en la página individual |
+| Cargador/parser de artículos | `lib/posts.ts` |
+| Imagen OG automática por artículo | `app/blog/[slug]/opengraph-image.tsx` |
+| Imagen OG por defecto del sitio | `app/opengraph-image.tsx` |
 | Página Sobre mí | `app/sobre/page.tsx` |
 | Página Servicios | `app/servicios/page.tsx` |
 | Página PRIME-10 | `app/prime-10/page.tsx` |
 | Página Docencia | `app/docencia/page.tsx` |
 | Página Medios | `app/medios/page.tsx` |
 | Página Contacto | `app/contacto/page.tsx` |
+| **Número de WhatsApp (todo el sitio)** | `lib/site.ts` — un solo lugar para cambiarlo |
+| Botón flotante de WhatsApp | `components/WhatsAppButton.tsx` — montado en `app/layout.tsx` |
 | Formulario de contacto | `components/ContactForm.tsx` |
 | Formulario newsletter | `components/NewsletterForm.tsx` |
 | Navbar (menú) | `components/Navbar.tsx` |
@@ -33,54 +42,97 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | SEO global (title, description, keywords) | `app/layout.tsx` |
 | SEO por página | Cada `app/[ruta]/page.tsx` — busca `export const metadata` |
 | Schema.org (datos estructurados) | `lib/schema.ts` |
-| Foto de perfil | `public/profile-photo.png` — reemplazar con mismo nombre |
+| Foto de perfil | `public/profile-photo.jpg` — reemplazar con mismo nombre (optimizada, ~70 KB) |
 | Colores, fuentes, estilos globales | `tailwind.config.ts` + `app/globals.css` |
-| API formulario de contacto | `app/api/contact/route.ts` |
-| API newsletter | `app/api/newsletter/route.ts` |
+| API formulario de contacto (→ Resend) | `app/api/contact/route.ts` |
+| API newsletter (→ Google Sheets) | `app/api/newsletter/route.ts` |
+| **Guía de integraciones** (Sheets, Resend, WhatsApp) | `docs/INTEGRACIONES.md` |
 | Sitemap | `app/sitemap.ts` |
 | Robots.txt | `app/robots.ts` |
 | llms.txt (visibilidad en IAs) | `public/llms.txt` |
 
 ---
 
-## Blog — todo está en un solo archivo
+## Blog — cómo funciona
 
-**`lib/posts.ts`** es el único lugar donde viven los artículos. No hay CMS ni base de datos.
+**El blog está vacío ahora mismo** (`content/blog/` solo tiene un `.gitkeep`) — se vació a propósito para empezar a publicar contenido real. Ver `content/blog/COMO-PUBLICAR.md` para el flujo de publicación.
 
-### Estructura de un artículo
+### Flujo de publicación (usuario → Claude)
 
-```ts
-{
-  slug: "url-del-articulo",          // → augustoruiz.org/blog/url-del-articulo
-  category: "Categoría visible",
-  title: "Título del artículo",
-  excerpt: "Resumen corto (aparece en el listado)",
-  metaDescription: "Texto para Google (opcional, si omites usa excerpt)",
-  date: "2025-06-01",               // formato YYYY-MM-DD
-  readTime: "8 min",
-  featured: true,                   // true = aparece destacado en home
-  tocItems: ["Sección 1", "…"],     // índice de contenido (opcional)
-  content: [ /* bloques de contenido */ ],
-}
-```
+El usuario envía a Claude **el título y el texto** del artículo (y opcionalmente la
+categoría). Claude se encarga de todo: elegir el slug con la keyword, redactar
+`excerpt`/`metaDescription`, formatear el cuerpo en Markdown, poner la fecha, correr el
+build y verificar en preview antes de dar por publicado. El detalle completo de este
+flujo está en **`content/blog/COMO-PUBLICAR.md`**.
 
-### Tipos de bloque de contenido (`content`)
+### Dónde se ve el contenido
 
-| Tipo | Para qué sirve |
-|---|---|
-| `paragraph` | Párrafo de texto |
-| `heading2` | Subtítulo H2 |
-| `heading3` | Subtítulo H3 |
-| `highlight` | Caja destacada con etiqueta y texto |
-| `list` | Lista con título opcional e ítems |
-| `cta` | Bloque de llamada a la acción con botones |
+- **`/blog`** — feed con el **contenido completo de todos los artículos**, uno debajo
+  del otro, sin necesidad de hacer clic para leerlos. El título de cada uno enlaza a su
+  URL propia.
+- **`/blog/categoria/[categoria]`** — mismo feed completo, filtrado por categoría.
+- **`/blog/[slug]`** — la página individual del artículo. Esta es la URL que se indexa
+  en Google (tiene su propio canonical, schema Article e imagen OG) — el feed de
+  `/blog` existe para que el visitante pueda leer todo sin salir de la página, pero el
+  posicionamiento por keyword ocurre en la página individual.
+
+### Los artículos viven en archivos Markdown
+
+Un archivo `.md` por artículo en **`content/blog/`**. No hay CMS ni base de datos. El
+nombre del archivo es el slug: `content/blog/mi-articulo.md` → `augustoruiz.org/blog/mi-articulo`.
 
 ### Para agregar un artículo nuevo
 
-1. Abre `lib/posts.ts`
-2. Agrega un objeto nuevo al array `allPosts`
-3. Si tiene contenido completo, agrega el campo `content: [...]`
-4. Si no tiene contenido (solo aparece en el listado), omite `content`
+Crea `content/blog/slug-con-keyword.md` y listo — aparece automáticamente en el feed de
+`/blog`, en su categoría, en el sitemap, con su imagen OG y su schema Article.
+**No hay que tocar ningún otro archivo.**
+
+### Formato del archivo
+
+```markdown
+---
+title: "Título del artículo con keyword principal"
+category: "Consultoría"
+excerpt: "Resumen corto (aparece en el listado del blog)."
+metaDescription: "Texto para Google, 150-160 caracteres (opcional, si omites usa excerpt)."
+date: "2025-06-01"
+dateModified: "2025-07-01"   # opcional — solo si actualizaste el artículo
+readTime: "8 min"            # opcional — se calcula solo si lo omites
+featured: true               # opcional — solo un artículo destacado a la vez
+---
+
+Párrafo de introducción en texto normal.
+
+## Título de sección (H2 — alimenta la tabla de contenidos automáticamente)
+
+### Subtítulo (H3)
+
+Listas con guiones:
+
+- Primer punto
+- Segundo punto
+
+**Título opcional de la lista:**
+- La línea en negrilla justo antes de la lista se vuelve su encabezado
+
+:::destacado Etiqueta del recuadro
+Texto de la caja destacada (borde azul a la izquierda).
+:::
+
+:::cta
+heading: ¿Listo para empezar?
+text: Descripción del llamado a la acción.
+primary: /contacto | Agendar consulta
+secondary: /servicios | Ver servicios
+:::
+```
+
+Notas:
+- La **tabla de contenidos** se genera sola con los títulos `##` (con enlaces ancla) — solo en la página individual, no en el feed (para no duplicar anclas entre artículos).
+- El **tiempo de lectura** se calcula solo si no pones `readTime`.
+- Las **categorías** generan páginas propias en `/blog/categoria/[nombre]` automáticamente.
+- La **imagen OG** (vista previa al compartir) se genera sola a partir del título y la categoría — no hay que crear ninguna imagen.
+- Todo artículo debe cerrar con un bloque `:::cta`. El canal principal es WhatsApp: usa `primary: https://wa.me/573005348153?text=... | Escribir por WhatsApp` (enlaces que empiezan por `http` se abren en pestaña nueva automáticamente).
 
 ### Para marcar un artículo como destacado en home
 
@@ -118,9 +170,25 @@ Ejemplo: para cambiar el title de la página de servicios, abre `app/servicios/p
 |---|---|---|
 | `Navbar` | `components/Navbar.tsx` | Todas las páginas (via layout) |
 | `Footer` | `components/Footer.tsx` | Todas las páginas (via layout) |
+| `WhatsAppButton` | `components/WhatsAppButton.tsx` | Botón flotante — todas las páginas (via layout) |
 | `SchemaScript` | `components/SchemaScript.tsx` | Layout global — inyecta JSON-LD |
 | `ContactForm` | `components/ContactForm.tsx` | `app/contacto/page.tsx` |
 | `NewsletterForm` | `components/NewsletterForm.tsx` | Varias páginas |
+| `FeedArticle` | `components/FeedArticle.tsx` | `/blog` y `/blog/categoria/[categoria]` — un artículo completo en el feed |
+| `PostBody` | `components/PostBody.tsx` | Renderiza el cuerpo Markdown parseado (feed y página individual) |
+| `BlogPostCard` | `components/BlogPostCard.tsx` | `BlogPreviewSection` (tarjetas en la homepage) |
+
+---
+
+## Contáctame por WhatsApp — canal principal de conversión
+
+Todos los CTA de "contáctame" del sitio (hero, servicios, PRIME-10, CTA final de home,
+contacto, botón flotante) abren un chat de WhatsApp en vez de llevar al formulario. El
+formulario de `/contacto` se conserva como alternativa para quien prefiera escribir por
+correo.
+
+**Para cambiar el número:** edita la constante `WHATSAPP_NUMBER` en `lib/site.ts` — se
+actualiza en todo el sitio automáticamente.
 
 ---
 
@@ -132,7 +200,11 @@ Copia `.env.local.example` a `.env.local` y rellena los valores:
 cp .env.local.example .env.local
 ```
 
-Las variables configuran el envío de formularios (contacto y newsletter).
+- `GOOGLE_SHEETS_WEBHOOK_URL` — a dónde se envían los correos del newsletter (Google Sheets)
+- `RESEND_API_KEY` — servicio de envío de correo del formulario de contacto
+
+Pasos de configuración completos (crear la hoja, el Apps Script, la cuenta Resend) en
+**`docs/INTEGRACIONES.md`**.
 
 ---
 
@@ -151,43 +223,59 @@ npm run start    # correr la build de producción
 ```
 augusto-ruiz-org/
 ├── app/                        # Rutas del sitio (Next.js App Router)
-│   ├── layout.tsx              # Layout global + SEO global + fuentes
+│   ├── layout.tsx              # Layout global + SEO global + fuentes + WhatsAppButton
 │   ├── page.tsx                # Página de inicio (/)
 │   ├── globals.css             # Estilos globales
 │   ├── robots.ts               # robots.txt dinámico
 │   ├── sitemap.ts              # sitemap.xml dinámico
+│   ├── opengraph-image.tsx     # Imagen OG por defecto del sitio (generada)
 │   ├── blog/
-│   │   ├── page.tsx            # Listado de artículos (/blog)
-│   │   └── [slug]/page.tsx     # Artículo individual (/blog/slug)
+│   │   ├── page.tsx            # Feed con el contenido COMPLETO de todos los artículos (/blog)
+│   │   ├── [slug]/
+│   │   │   ├── page.tsx            # Artículo individual — URL que indexa Google (/blog/slug)
+│   │   │   └── opengraph-image.tsx # Imagen OG generada para ese artículo
+│   │   └── categoria/[categoria]/page.tsx  # Feed filtrado por categoría
 │   ├── sobre/page.tsx          # Sobre mí (/sobre)
 │   ├── servicios/page.tsx      # Servicios (/servicios)
 │   ├── prime-10/page.tsx       # PRIME-10 (/prime-10)
 │   ├── docencia/page.tsx       # Docencia (/docencia)
 │   ├── medios/page.tsx         # Medios (/medios)
-│   ├── contacto/page.tsx       # Contacto (/contacto)
+│   ├── contacto/page.tsx       # Contacto (/contacto) — bloque de WhatsApp + formulario
 │   └── api/
-│       ├── contact/route.ts    # API endpoint formulario de contacto
-│       └── newsletter/route.ts # API endpoint newsletter
+│       ├── contact/route.ts    # API endpoint formulario de contacto → Resend
+│       └── newsletter/route.ts # API endpoint newsletter → Google Sheets
 ├── components/
 │   ├── Navbar.tsx              # Barra de navegación
 │   ├── Footer.tsx              # Pie de página
+│   ├── WhatsAppButton.tsx      # Botón flotante de WhatsApp (todo el sitio)
 │   ├── ContactForm.tsx         # Formulario de contacto
 │   ├── NewsletterForm.tsx      # Formulario newsletter
 │   ├── SchemaScript.tsx        # Inyector de JSON-LD
+│   ├── PostBody.tsx            # Renderiza el cuerpo Markdown parseado de un post
+│   ├── FeedArticle.tsx         # Un artículo completo dentro del feed de /blog
+│   ├── BlogPostCard.tsx        # Tarjeta de post (usada en la homepage)
 │   └── sections/               # Secciones de la página de inicio
 │       ├── HeroSection.tsx
 │       ├── StatsSection.tsx
 │       ├── ServicesSection.tsx
 │       ├── TestimonialsSection.tsx
-│       ├── BlogPreviewSection.tsx
+│       ├── BlogPreviewSection.tsx   # Se oculta sola si el blog está vacío
 │       ├── AffiliationsSection.tsx
 │       ├── Prime10Banner.tsx
 │       └── CTASection.tsx
+├── content/
+│   ├── COMO-PUBLICAR.md        # Flujo para publicar posts (usuario envía texto → Claude publica)
+│   └── blog/                   # ← LOS ARTÍCULOS DEL BLOG (un .md por artículo) — hoy vacío
+├── docs/
+│   └── INTEGRACIONES.md        # Cómo conectar Google Sheets (newsletter) y Resend (contacto)
 ├── lib/
-│   ├── posts.ts                # ← TODOS los artículos del blog viven aquí
-│   └── schema.ts               # Schemas JSON-LD (Schema.org)
+│   ├── posts.ts                # Cargador/parser de los .md del blog
+│   ├── schema.ts                # Schemas JSON-LD (Schema.org)
+│   └── site.ts                  # Número de WhatsApp y helper whatsappUrl()
+├── scripts/
+│   └── patch-vercel-og.mjs     # Corrige un bug de @vercel/og en Windows (se ejecuta en postinstall)
 ├── public/
-│   ├── profile-photo.png       # Foto de perfil (reemplazar con mismo nombre)
+│   ├── profile-photo.jpg       # Foto de perfil optimizada (~70 KB) — reemplazar con mismo nombre
 │   └── llms.txt                # Visibilidad para IAs (ChatGPT, Perplexity...)
 ├── tailwind.config.ts          # Colores, fuentes, breakpoints
 └── .env.local.example          # Variables de entorno de referencia

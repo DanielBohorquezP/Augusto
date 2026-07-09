@@ -73,7 +73,7 @@ export const personSchema = {
   "@type": "Person",
   name: "Augusto Ruiz",
   url: BASE_URL,
-  image: `${BASE_URL}/foto-augusto-ruiz.jpg`,
+  image: `${BASE_URL}/profile-photo.jpg`,
   jobTitle: "Investigador, Consultor y Formador en Gestión de Innovación Tecnológica",
   description:
     "El puente entre el rigor académico y la decisión organizacional. PhD(c) en gestión de innovación tecnológica. Especialista en evaluación financiera bajo incertidumbre e IA generativa aplicada.",
@@ -98,7 +98,7 @@ export const personSchema = {
     url: "https://www.eafit.edu.co",
   },
   sameAs: [
-    "https://www.linkedin.com/in/augusto-ruiz",
+    "https://www.linkedin.com/in/ruizaugusto/",
   ],
 };
 
@@ -147,7 +147,7 @@ export function articleSchema({
       name: "Augusto Ruiz",
       url: BASE_URL,
     },
-    image: `${BASE_URL}/og-blog-${slug}.png`,
+    image: `${BASE_URL}/blog/${slug}/opengraph-image`,
     inLanguage: "es",
   };
 }

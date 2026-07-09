@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
+import Prime10Phases from "@/components/sections/Prime10Phases";
 import SchemaScript from "@/components/SchemaScript";
 import { faqSchema, breadcrumbSchema } from "@/lib/schema";
+import { whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Consultoría en Innovación Tecnológica",
@@ -32,47 +34,49 @@ const services = [
     id: "evaluacion-financiera",
     icon: "📊",
     svgPath: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
-    title: "Evaluación Financiera de Innovación",
+    title: "PRIME-10 Decision Assessment",
     description:
-      "Los métodos financieros tradicionales (VPN, TIR, flujo de caja descontado) asumen un futuro predecible. En innovación tecnológica, esa suposición genera sesgos que pueden costar millones en decisiones equivocadas.",
+      "Los métodos financieros tradicionales (VPN, TIR, flujo de caja descontado) asumen un futuro predecible. En proyectos de innovación e inversión tecnológica, esa suposición genera errores de selección que pueden costar millones. PRIME-10 evalúa la decisión con el riesgo cuantificado, no supuesto.",
     benefits: [
       "Modelos probabilísticos que incorporan la incertidumbre real",
-      "Simulaciones Monte Carlo aplicadas a proyectos de innovación",
+      "Simulación Monte Carlo aplicada al proyecto",
       "Valoración de opciones reales en decisiones de inversión",
-      "Benchmarking con estándares internacionales",
-      "Informe ejecutivo con recomendaciones accionables",
+      "Identificación de las variables de mayor incertidumbre",
+      "Diseño del experimento crítico para reducir incertidumbre antes de comprometer la inversión",
     ],
-    forWho: "Direcciones de innovación, CFOs y equipos de gestión de proyectos tecnológicos",
+    forWho: "Direcciones de innovación, CFOs y equipos de gestión de innovación y proyectos tecnológicos",
   },
   {
     id: "ia-generativa",
     svgPath: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-    title: "IA Generativa Aplicada",
+    title: "Formación corporativa en IA generativa",
     description:
-      "La IA generativa es una de las transformaciones más importantes para las organizaciones, pero la mayoría de las implementaciones fallan por falta de estrategia. Te ayudo a implementarla con rigor y resultados medibles.",
+      "La formación se diseña por área, y/o nivel jerárquico. Antes de cada sesión, el área identifica retos de negocio concretos que podrían resolverse con IA. La sesión parte de las generalidades de IA, avanza hacia las herramientas que ya usa la empresa — Copilot, ChatGPT, Gemini, Claude — aplicadas al reto específico, y cierra con un artefacto funcional por participante y un demo day. El resultado no es un equipo de desarrollo: son personas con criterio para usar IA en su trabajo diario.",
     benefits: [
-      "Diagnóstico de casos de uso con mayor potencial en tu organización",
-      "Diseño de estrategia de adopción y gestión del cambio",
-      "Implementación de flujos de trabajo aumentados con IA",
-      "Marcos de evaluación del ROI de iniciativas de IA",
-      "Capacitación de equipos directivos y técnicos",
+      "Diagnóstico previo de retos de negocio por área",
+      "Formación contextualizada al lenguaje y dinámica de cada área",
+      "Uso de las herramientas de IA que ya tiene la empresa (Copilot, ChatGPT, Gemini, Claude)",
+      "Para áreas de I+D+i: incorporación de herramientas especializadas y enfoque basado en método científico",
+      "Construcción de un artefacto funcional por participante",
+      "Mentoría durante el proceso y demo day de cierre",
     ],
-    forWho: "CEOs, directores de transformación digital y equipos de innovación",
+    forWho: "Equipos de cualquier área funcional y niveles directivos que quieran elevar su productividad con IA generativa.",
   },
   {
     id: "financiacion",
     svgPath: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-    title: "Estrategias de Financiación de Innovación",
+    title: "Beneficios tributarios I+D+i y ambientales",
     description:
-      "Identificar y estructurar las fuentes de financiación adecuadas para proyectos de innovación es crítico pero complejo. Te ayudo a navegar el ecosistema de financiación latinoamericano con una estrategia clara.",
+      "Colombia ofrece dos regímenes de beneficios tributarios para empresas que inviertan en innovación o sostenibilidad. Acompaño la estructuración y postulación de proyectos en ambos regímenes: ante Minciencias para inversiones en I+D+i, y ante la ANLA y la UPME para inversiones en control ambiental, protección del medio ambiente y fuentes no convencionales de energía.",
     benefits: [
-      "Mapeo de fondos y convocatorias disponibles en LATAM",
-      "Estructuración de propuestas para fondos públicos (Colciencias, BPIN, etc.)",
-      "Preparación de pitch para inversionistas privados",
-      "Diseño de esquemas de financiación mixta",
-      "Acompañamiento en procesos de due diligence",
+      "Evaluación de elegibilidad del proyecto antes de cualquier compromiso formal",
+      "Estructuración técnica y formulación del proyecto",
+      "Gestión ante la entidad competente: Minciencias, ANLA o UPME según el régimen",
+      "Preparación de la documentación requerida",
+      "Seguimiento al proceso de aprobación",
+      "93% tasa de aprobación en proyectos gestionados",
     ],
-    forWho: "Startups, pymes innovadoras y grandes empresas con unidades de I+D",
+    forWho: "Empresas que inviertan en proyectos de I+D+i, en control y mejoramiento ambiental, o en energías renovables y eficiencia energética.",
   },
 ];
 
@@ -85,20 +89,24 @@ const process = [
 
 const faqs = [
   {
-    q: "¿Cuánto dura un proceso de consultoría?",
-    a: "Depende del alcance. Un diagnóstico inicial con el PRIME-10 puede completarse en 2–3 semanas. Un proyecto de evaluación financiera o estrategia de IA típicamente toma entre 4 y 8 semanas.",
+    q: "¿Qué es PRIME-10™ y en qué se diferencia de una evaluación financiera tradicional?",
+    a: "El VPN y el TIR producen un único número que asume un futuro predecible. PRIME-10™ es una metodología propia de evaluación financiera probabilística que trabaja con rangos de incertidumbre, no con valores fijos. Incorpora simulación Monte Carlo, análisis de opciones reales y diseño del experimento crítico que debe ejecutarse antes de comprometer la inversión. Está registrada en la Dirección Nacional de Derecho de Autor de Colombia (2025).",
   },
   {
     q: "¿Trabaja con organizaciones fuera de Colombia?",
-    a: "Sí. Trabajo con organizaciones en toda Latinoamérica, principalmente de manera remota. He asesorado a empresas en Colombia, México, Chile, Perú y Ecuador.",
+    a: "Sí. El trabajo de investigación doctoral incluyó visitas de campo y entrevistas con organizaciones en Brasil, Uruguay, Argentina y Chile. Para proyectos de I+D+i, el acompañamiento en beneficios tributarios aplica a Colombia y a otros países de la región con regímenes similares. La formación corporativa en IA se puede desarrollar de forma remota con organizaciones en cualquier país.",
   },
   {
-    q: "¿Cómo se diferencia su enfoque del de otras consultoras?",
-    a: "Mi enfoque combina investigación doctoral activa con práctica organizacional. No aplico frameworks genéricos: cada proyecto parte de evidencia empírica y se adapta al contexto específico de la organización.",
+    q: "¿La formación en IA generativa requiere conocimientos técnicos previos?",
+    a: "No. El programa está diseñado para equipos y líderes de cualquier área funcional, independientemente de su nivel técnico. Cada sesión parte de un reto de negocio concreto del área y usa las herramientas que la organización ya tiene disponibles — Copilot, ChatGPT, Gemini o Claude. El objetivo es que el empleado eleve su productividad con IA, no que desarrolle software.",
   },
   {
-    q: "¿Ofrece sesiones individuales o solo proyectos completos?",
-    a: "Ofrezco ambas modalidades. Puedo facilitar talleres de un día, mentorías a directivos o proyectos de consultoría de mayor duración.",
+    q: "¿Cómo funciona el proceso para acceder a beneficios tributarios por I+D+i?",
+    a: "El primer paso es establecer si el proyecto califica y bajo qué régimen, antes de cualquier compromiso formal. Si es elegible, se estructura técnicamente el proyecto, se prepara la documentación requerida y se gestiona la postulación ante la entidad competente: Minciencias para proyectos de I+D+i, o la ANLA y la UPME para inversiones ambientales y energéticas. La tasa de aprobación en proyectos gestionados es del 93%.",
+  },
+  {
+    q: "¿Con qué tipo de organizaciones ha trabajado?",
+    a: "Con empresas del sector real, universidades y organismos multilaterales en Colombia y América Latina. Entre los clientes y aliados se cuentan organizaciones como Ecopetrol, Connect Bogotá, SwissContact, el Instituto Humboldt y el BID-PRODEM, entre otros. Los proyectos cubren sectores como energía, alimentos, bioeconomía, manufactura y servicios.",
   },
 ];
 
@@ -118,16 +126,16 @@ export default function ServiciosPage() {
       <section className="bg-primary pt-32 pb-16">
         <div className="container-site text-center">
           <span className="inline-block bg-accent text-white text-xs font-heading font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
-            Consultoría especializada · Colombia
+            Consultoría especializada · I+D+i
           </span>
           <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white max-w-3xl mx-auto">
-            Consultoría en Innovación Tecnológica para Empresas
+            Consultoría especializada en gestión de la innovación tecnológica
           </h1>
           <p className="mt-5 text-white/80 text-base max-w-2xl mx-auto leading-relaxed">
-            Servicios de consultoría en innovación empresarial, innovación digital,
-            innovación estratégica e innovación organizacional para empresas en Colombia
-            — desde startups hasta corporaciones. Cada proyecto parte de evidencia
-            empírica y metodologías adaptadas al contexto real de la organización.
+            Soy investigador doctoral en gestión de la innovación y consultor con más
+            de 15 años en proyectos con organizaciones del sector real, universidades y
+            organismos multilaterales. Esa combinación define cómo trabajo: con el
+            rigor de la academia y la orientación a resultados de la práctica.
           </p>
         </div>
       </section>
@@ -136,8 +144,8 @@ export default function ServiciosPage() {
       <section className="py-20 bg-white">
         <div className="container-site space-y-16">
           {services.map((service, idx) => (
+            <div key={service.id}>
             <div
-              key={service.id}
               id={service.id}
               className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-start ${idx % 2 === 1 ? "lg:grid-flow-dense" : ""}`}
             >
@@ -152,9 +160,14 @@ export default function ServiciosPage() {
                 <p className="mt-3 text-xs text-muted-foreground">
                   <strong className="text-foreground">Para quién:</strong> {service.forWho}
                 </p>
-                <Link href="/contacto" className="btn-primary mt-6">
-                  Solicitar este servicio
-                </Link>
+                <a
+                  href={whatsappUrl(`Hola Augusto, quiero información sobre el servicio de ${service.title}.`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary mt-6"
+                >
+                  Contáctame por WhatsApp
+                </a>
               </div>
               <div className={`card p-6 ${idx % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
                 <h3 className="font-heading font-semibold text-sm text-foreground mb-4 uppercase tracking-wide">
@@ -171,6 +184,26 @@ export default function ServiciosPage() {
                   ))}
                 </ul>
               </div>
+            </div>
+            {idx === 0 && (
+              <div className="mt-12">
+                <h3 className="font-heading font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-4">
+                  ¿Cómo funciona?
+                </h3>
+                <Prime10Phases />
+              </div>
+            )}
+            {idx === 2 && (
+              <div className="relative mt-8 w-full aspect-[21/9] rounded-xl overflow-hidden">
+                <Image
+                  src="/images/servicios-beneficios-tributarios.jpg"
+                  alt="Documentación de beneficios tributarios"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
             </div>
           ))}
         </div>

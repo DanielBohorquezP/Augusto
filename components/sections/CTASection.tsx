@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { whatsappUrl } from "@/lib/site";
 
 export default function CTASection() {
   return (
@@ -23,11 +24,16 @@ export default function CTASection() {
           a tu organización a innovar con rigor y confianza.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/contacto" className="btn-primary text-base px-8 py-4">
-            Agendar consulta gratuita
-          </Link>
-          <Link href="/prime-10" className="btn-outline-white text-base px-8 py-4">
-            Solicitar PRIME-10
+          <a
+            href={whatsappUrl("Hola Augusto, quiero agendar una consulta gratuita sobre innovación.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-base px-8 py-4"
+          >
+            Contáctame por WhatsApp
+          </a>
+          <Link href="/contacto" className="btn-outline-white text-base px-8 py-4">
+            Escribir por el formulario
           </Link>
         </div>
       </div>

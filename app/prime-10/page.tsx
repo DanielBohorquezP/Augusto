@@ -1,28 +1,17 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
+import Prime10Phases from "@/components/sections/Prime10Phases";
 import SchemaScript from "@/components/SchemaScript";
 import { faqSchema, breadcrumbSchema } from "@/lib/schema";
+import { whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "PRIME-10 Assessment — Framework de Evaluación de Innovación",
+  title: "PRIME-10™ — Metodología de Evaluación Financiera de Innovación",
   description:
-    "PRIME-10 es un framework basado en evidencia para evaluar la madurez y el potencial de proyectos de innovación tecnológica en organizaciones latinoamericanas. Desarrollado por Augusto Ruiz, PhD(c) Universidad de los Andes.",
+    "PRIME-10™ es una metodología propia de evaluación financiera probabilística de proyectos de innovación e inversión tecnológica bajo alta incertidumbre. Desarrollada por Augusto Ruiz, PhD(c) Universidad de los Andes, registrada en la DNDA (2025).",
   alternates: { canonical: "https://www.augustoruiz.org/prime-10" },
 };
-
-const dimensions = [
-  { num: "01", name: "Madurez tecnológica", desc: "Nivel de desarrollo y validación de la tecnología base del proyecto." },
-  { num: "02", name: "Potencial de mercado", desc: "Tamaño, accesibilidad y dinamismo del mercado objetivo." },
-  { num: "03", name: "Capacidades organizacionales", desc: "Recursos humanos, financieros y tecnológicos disponibles." },
-  { num: "04", name: "Modelo de financiación", desc: "Viabilidad y diversificación de las fuentes de financiación." },
-  { num: "05", name: "Gestión de la incertidumbre", desc: "Protocolos y herramientas para identificar y mitigar riesgos." },
-  { num: "06", name: "Ecosistema de innovación", desc: "Alianzas, redes y colaboraciones estratégicas." },
-  { num: "07", name: "Marco regulatorio", desc: "Cumplimiento y anticipación de barreras regulatorias." },
-  { num: "08", name: "Impacto y sostenibilidad", desc: "Potencial de impacto económico, social y ambiental." },
-  { num: "09", name: "Escalabilidad", desc: "Capacidad de la iniciativa para crecer y replicarse." },
-  { num: "10", name: "Apropiación del conocimiento", desc: "Mecanismos de protección intelectual y transferencia tecnológica." },
-];
 
 const faqs = [
   {
@@ -31,11 +20,11 @@ const faqs = [
   },
   {
     q: "¿Qué entregables recibo al final del proceso?",
-    a: "Recibes un informe ejecutivo con el puntaje en las 10 dimensiones, análisis de brechas, comparativo sectorial y una hoja de ruta priorizada de mejoras.",
+    a: "Recibes un informe ejecutivo con el modelo probabilístico del proyecto, las variables de mayor incertidumbre identificadas y el diseño del experimento crítico a validar antes de comprometer la inversión.",
   },
   {
     q: "¿El PRIME-10 aplica a proyectos en etapa temprana?",
-    a: "Sí, de hecho es especialmente valioso en etapas tempranas, cuando las decisiones tienen mayor impacto. El framework identifica las brechas críticas antes de comprometer recursos.",
+    a: "Aplica mejor a proyectos con un nivel mínimo de madurez tecnológica validado. Para proyectos con TRL muy bajo, donde la incertidumbre es demasiado profunda para modelarse con distribuciones de probabilidad, se recomienda primero un proceso de validación tecnológica.",
   },
 ];
 
@@ -43,7 +32,7 @@ export default function Prime10Page() {
   const schemas = [
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },
-      { name: "PRIME-10 Assessment", url: "https://www.augustoruiz.org/prime-10" },
+      { name: "PRIME-10™", url: "https://www.augustoruiz.org/prime-10" },
     ]),
     faqSchema(faqs),
   ];
@@ -56,104 +45,200 @@ export default function Prime10Page() {
         <div className="container-site relative z-10">
           <div className="max-w-3xl">
             <span className="inline-block bg-accent text-white text-xs font-heading font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
-              Framework propietario
+              Metodología registrada · DNDA 2025
             </span>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
-              PRIME-10 Assessment
+              PRIME-10™
             </h1>
             <p className="mt-2 text-accent font-heading font-medium text-lg">
-              Probabilistic Risk and Innovation Management Evaluation
+              Evaluación financiera probabilística de proyectos de innovación
             </p>
             <p className="mt-5 text-white/80 text-base leading-relaxed">
-              Una metodología basada en evidencia para evaluar la madurez y el potencial de proyectos
-              de innovación tecnológica. Desarrollada a partir de investigación doctoral y validada
-              en organizaciones latinoamericanas.
+              Una metodología propia para evaluar decisiones de inversión en innovación y
+              tecnología bajo alta incertidumbre. Desarrollada a partir de investigación
+              doctoral y validada en organizaciones latinoamericanas.
             </p>
-            <Link href="/contacto" className="btn-primary mt-8">
-              Solicitar evaluación PRIME-10
-            </Link>
+            <a
+              href={whatsappUrl("Hola Augusto, quiero solicitar una evaluación PRIME-10 para mi organización.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary mt-8"
+            >
+              Solicitar evaluación por WhatsApp
+            </a>
           </div>
         </div>
       </section>
 
       {/* What is it */}
       <section className="py-16 bg-white">
-        <div className="container-site max-w-4xl">
+        <div className="container-site max-w-5xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>
-              <h2 className="section-heading text-2xl sm:text-3xl mb-4">¿Qué es el PRIME-10?</h2>
+              <h2 className="section-heading text-2xl sm:text-3xl mb-4">¿Qué es PRIME-10™?</h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                PRIME-10 es un framework de evaluación que mide 10 dimensiones críticas de los proyectos
-                de innovación tecnológica, combinando rigor cuantitativo con perspectiva estratégica.
+                PRIME-10™ es una metodología de evaluación financiera de proyectos de innovación e
+                inversión tecnológica bajo alta incertidumbre. Fue desarrollada por el ingeniero
+                Ober Augusto Ruiz Catanho en el marco de su investigación doctoral en la Universidad
+                de los Andes, Colombia y está registrada en la Dirección Nacional de Derecho de Autor
+                de Colombia (2025).
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                A diferencia de los métodos de evaluación financiera tradicionales, PRIME-10 incorpora
-                explícitamente la incertidumbre tecnológica y el riesgo de mercado como variables
-                centrales del análisis.
+                El nombre sintetiza las cinco fases del proceso — Problem framing, Readiness
+                validation, Investment modeling, Market experimentation y Ex post learning — y el
+                número 10 refiere al décimo cuadrante que la metodología agrega al Canvas de
+                Osterwalder: la evaluación financiera probabilística del modelo de negocio.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                El resultado es un diagnóstico integral que no solo dice &ldquo;el proyecto vale X&rdquo;,
-                sino que identifica exactamente qué factores limitarán su éxito y qué intervenciones
-                generarán mayor impacto.
+                PRIME-10™ no es un sistema de scoring ni un modelo de madurez. Es un proceso
+                estructurado de cinco fases que reemplaza el VPN puntual por una distribución de
+                probabilidad del valor del proyecto, identifica las variables de mayor incertidumbre
+                y define qué debe validarse experimentalmente antes de comprometer la inversión.
               </p>
             </div>
-            <div className="card p-6 space-y-3">
-              {[
-                { label: "Basado en evidencia empírica", icon: "research" },
-                { label: "10 dimensiones de evaluación", icon: "grid" },
-                { label: "Adaptado al contexto LATAM", icon: "globe" },
-                { label: "Informe ejecutivo accionable", icon: "doc" },
-                { label: "Benchmarking sectorial incluido", icon: "chart" },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <svg className="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
-                  </div>
-                  <span className="text-sm font-medium text-foreground">{item.label}</span>
-                </div>
-              ))}
+            <div className="relative w-full aspect-square rounded-xl overflow-hidden">
+              <Image
+                src="/images/prime10-canvas.jpg"
+                alt="Estructura del framework PRIME-10"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* 10 Dimensions */}
+      {/* The problem it solves */}
       <section className="py-16 bg-muted">
-        <div className="container-site">
-          <h2 className="section-heading text-2xl sm:text-3xl text-center mb-10">Las 10 dimensiones</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {dimensions.map((dim) => (
-              <div key={dim.num} className="card p-5">
-                <span className="font-heading font-bold text-2xl text-accent/30">{dim.num}</span>
-                <h3 className="font-heading font-semibold text-sm text-foreground mt-1 mb-2">{dim.name}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{dim.desc}</p>
-              </div>
-            ))}
+        <div className="container-site max-w-3xl">
+          <h2 className="section-heading text-2xl sm:text-3xl mb-4">El problema que resuelve</h2>
+          <p className="text-muted-foreground leading-relaxed mb-8">
+            Los métodos financieros tradicionales — VPN, TIR, flujo de caja descontado —
+            producen un único número que asume un futuro predecible. En proyectos de innovación,
+            esa suposición genera dos tipos de errores de selección documentados en la
+            investigación doctoral:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+            <div className="card p-6">
+              <span className="text-xs font-heading font-semibold text-accent uppercase tracking-wider">
+                Error tipo I
+              </span>
+              <p className="mt-2 text-sm text-foreground leading-relaxed">
+                Aprobar un proyecto que parece viable según el modelo pero que destruye valor —
+                porque las variables críticas se asumieron fijas con valores optimistas.
+              </p>
+            </div>
+            <div className="card p-6">
+              <span className="text-xs font-heading font-semibold text-accent uppercase tracking-wider">
+                Error tipo II
+              </span>
+              <p className="mt-2 text-sm text-foreground leading-relaxed">
+                Rechazar un proyecto que sí crea valor — porque el modelo no captura la
+                flexibilidad real de la decisión ni la posibilidad de validar antes de
+                comprometer toda la inversión.
+              </p>
+            </div>
           </div>
+          <p className="text-muted-foreground leading-relaxed">
+            La investigación doctoral analiza una muestra de proyectos de innovación en empresas
+            colombianas y encuentra que la incorporación de pilotos y MVPs reduce
+            significativamente la tasa de estos errores respecto a la evaluación determinista
+            tradicional. PRIME-10™ operacionaliza ese hallazgo: convierte la incertidumbre en un
+            insumo del modelo, no en un factor de corrección subjetivo.
+          </p>
+        </div>
+      </section>
+
+      {/* Five phases */}
+      <section id="fases" className="py-16 bg-white">
+        <div className="container-site">
+          <Prime10Phases />
         </div>
       </section>
 
       {/* For who */}
-      <section className="py-16 bg-white">
-        <div className="container-site max-w-4xl text-center">
-          <h2 className="section-heading text-2xl sm:text-3xl mb-4">¿Para quién es el PRIME-10?</h2>
-          <p className="text-muted-foreground mb-10 max-w-2xl mx-auto">
-            El framework es aplicable a cualquier organización que gestione proyectos de innovación
-            tecnológica, independientemente de su tamaño o industria.
+      <section className="py-16 bg-muted">
+        <div className="container-site max-w-3xl">
+          <h2 className="section-heading text-2xl sm:text-3xl mb-4">¿Para quién es PRIME-10™?</h2>
+          <p className="text-muted-foreground leading-relaxed mb-8">
+            PRIME-10™ está diseñado para organizaciones que enfrentan decisiones de inversión en
+            proyectos de innovación o tecnología donde la incertidumbre es alta y el método
+            tradicional produce un número que no refleja la realidad del proyecto. Es
+            especialmente relevante para:
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <ul className="space-y-4 mb-8">
             {[
-              { type: "Startups", desc: "Valida la solidez de tu propuesta antes de buscar inversión" },
-              { type: "Corporaciones", desc: "Evalúa y prioriza tu portafolio de proyectos de innovación" },
-              { type: "Entidades públicas", desc: "Selecciona con rigor los proyectos que merecen apoyo" },
-            ].map((audience) => (
-              <div key={audience.type} className="card p-6 text-left">
-                <h3 className="font-heading font-bold text-primary text-lg mb-2">{audience.type}</h3>
-                <p className="text-sm text-muted-foreground">{audience.desc}</p>
-              </div>
+              "Direcciones de innovación y tecnología que deben sustentar decisiones de inversión ante una junta o comité",
+              "CFOs y equipos financieros que evalúan proyectos de I+D+i con herramientas diseñadas para contextos predecibles",
+              "Equipos de gestión de proyectos tecnológicos que necesitan un criterio claro de go/no-go antes de comprometer recursos",
+              "Organizaciones que han aprobado o rechazado proyectos de innovación basándose en un VPN puntual y quieren una segunda opinión metodológicamente fundamentada",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3 text-sm text-foreground">
+                <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                {item}
+              </li>
             ))}
+          </ul>
+          <div className="card p-6 border-l-4 border-accent">
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              PRIME-10™ no es adecuado para proyectos con nivel de madurez tecnológica muy bajo
+              (TRL ≤ 3), donde la incertidumbre es tan profunda que no puede modelarse con
+              distribuciones de probabilidad.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Research */}
+      <section className="py-16 bg-white">
+        <div className="container-site max-w-3xl">
+          <h2 className="section-heading text-2xl sm:text-3xl mb-4">
+            Investigación que sustenta PRIME-10™
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-8">
+            PRIME-10™ no es una propuesta teórica. Es el resultado aplicado de una investigación
+            doctoral en curso en la Universidad de los Andes, bajo la dirección del profesor
+            Xavier Durán, centrada en los errores de selección que generan los modelos
+            financieros tradicionales cuando se aplican a proyectos de innovación. Los hallazgos
+            han sido presentados en dos conferencias académicas internacionales:
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="card p-6">
+              <span className="text-xs font-heading font-semibold text-accent uppercase tracking-wider">
+                BALAS 2026
+              </span>
+              <p className="mt-1 text-sm font-medium text-primary">
+                Business Association of Latin American Studies
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Ponencia: &ldquo;Deterministic financial appraisal and selection errors in
+                corporate innovation portfolios&rdquo;. Premio Lourdes S. Casanova al mejor
+                paper aplicado.
+              </p>
+            </div>
+            <div className="card p-6">
+              <span className="text-xs font-heading font-semibold text-accent uppercase tracking-wider">
+                R&amp;D Management Conference 2026
+              </span>
+              <p className="mt-1 text-sm font-medium text-primary">Manchester</p>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                Ponencia: &ldquo;How financial models shape innovation investment decisions:
+                empirical evidence from firm innovation projects portfolio in an emerging
+                market&rdquo;.
+              </p>
+            </div>
+          </div>
+          <div className="relative mt-8 w-full aspect-[21/9] rounded-xl overflow-hidden">
+            <Image
+              src="/images/prime10-investigacion.jpg"
+              alt="Investigación académica presentada en conferencias internacionales"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -170,6 +255,29 @@ export default function Prime10Page() {
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 bg-primary">
+        <div className="container-site max-w-2xl text-center">
+          <h2 className="font-heading font-bold text-2xl sm:text-3xl text-white">
+            ¿Quiere evaluar su proyecto con PRIME-10™?
+          </h2>
+          <p className="mt-4 text-white/80 leading-relaxed">
+            Si está ante una decisión de inversión en innovación o tecnología y el modelo
+            tradicional no le da claridad suficiente, podemos revisar si PRIME-10™ aplica a su
+            caso. El primer paso es una conversación para entender la decisión, el proyecto y la
+            información disponible — sin compromiso formal.
+          </p>
+          <a
+            href={whatsappUrl("Hola Augusto, quiero agendar una conversación sobre PRIME-10 para evaluar mi proyecto.")}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary mt-8"
+          >
+            Agendar una conversación
+          </a>
         </div>
       </section>
 

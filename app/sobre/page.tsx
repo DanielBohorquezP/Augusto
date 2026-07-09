@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -18,28 +19,40 @@ export const metadata: Metadata = {
 
 const timeline = [
   {
-    year: "2022 – Presente",
-    title: "Candidato Doctoral",
+    year: "2021 – Presente",
+    title: "Candidato doctoral",
     org: "Universidad de los Andes",
-    desc: "Investigación sobre modelos de evaluación financiera de proyectos de innovación tecnológica. Énfasis en enfoques probabilísticos vs. deterministas.",
+    desc: "Investigación sobre errores de selección en decisiones de inversión en I+D+i. Desarrollo de metodologías basadas en simulación Monte Carlo e IA generativa para mejorar la toma de decisiones bajo alta incertidumbre.",
   },
   {
-    year: "2020 – Presente",
-    title: "Docente — Finanzas para la Innovación",
-    org: "EAFIT University",
-    desc: "Profesor del curso de posgrado en el programa de Maestría en Finanzas. Integra modelos de incertidumbre y evaluación probabilística.",
+    year: "2019 – Presente",
+    title: "Consultor",
+    org: "Uno+Uno SAS",
+    desc: "Asesoría a organizaciones en evaluación financiera de proyectos de I+D+i, formación corporativa en IA generativa y acceso a beneficios tributarios. Profesor invitado en programas de posgrado y formación ejecutiva.",
   },
   {
-    year: "2018 – Presente",
-    title: "Consultor Independiente",
-    org: "Consultoría en innovación",
-    desc: "Asesoría a organizaciones latinoamericanas en evaluación financiera de proyectos de innovación, adopción de IA y estrategias de financiación.",
+    year: "2018 – 2023",
+    title: "Director de proyectos",
+    org: "Connect Bogotá Región",
+    desc: "Liderazgo de iniciativas estratégicas de innovación abierta, transferencia tecnológica y especialización inteligente. Coordinación de alianzas entre empresas, universidades y startups.",
   },
   {
-    year: "2015 – 2018",
-    title: "Roles anteriores",
-    org: "Sector empresarial",
-    desc: "Experiencia en gestión de proyectos y finanzas corporativas que fundamentó el enfoque práctico de su consultoría.",
+    year: "2015 – 2016",
+    title: "Gerente",
+    org: "Inventta Consultoría en Innovación",
+    desc: "Dirección del equipo consultor en I+D+i. Tasa de aprobación del 85% ante Colciencias en proyectos de beneficios tributarios.",
+  },
+  {
+    year: "2012 – 2013",
+    title: "Consultor",
+    org: "Minciencias",
+    desc: "Seguimiento financiero y técnico de más de 120 subproyectos financiados por el BID y el Banco Mundial.",
+  },
+  {
+    year: "2002 – 2012",
+    title: "Ingeniero de proyectos y operaciones",
+    org: "PepsiCo · Smurfit Kappa · Amcor / PAYC S.A.",
+    desc: "Gestión de proyectos industriales en los sectores de alimentos, papel y plásticos.",
   },
 ];
 
@@ -77,13 +90,15 @@ export default function SobrePage() {
             </div>
             <div className="flex justify-center lg:justify-end">
               <div className="relative overflow-hidden rounded-2xl lg:-translate-x-8">
-                <img
+                <Image
                   src="/profile-photo.png"
                   alt="Augusto Ruiz - Foto de perfil profesional"
+                  width={384}
+                  height={480}
+                  priority
+                  sizes="(max-width: 640px) 256px, (max-width: 1024px) 288px, 384px"
                   className="w-64 h-80 sm:w-72 sm:h-96 lg:w-[24rem] lg:h-[30rem] object-cover object-top block"
                 />
-                {/* Floating fade effect */}
-                <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-primary via-primary/50 to-transparent pointer-events-none" aria-hidden="true" />
               </div>
             </div>
           </div>
@@ -96,34 +111,41 @@ export default function SobrePage() {
           <h2 className="section-heading text-2xl sm:text-3xl mb-6">Mi historia</h2>
           <div className="prose prose-slate max-w-none space-y-4 text-foreground text-base leading-relaxed">
             <p>
-              Soy consultor especializado en gestión de innovación tecnológica con base en Colombia,
-              trabajando con organizaciones en Medellín, Bogotá y toda Latinoamérica. En más de
-              10 años de práctica he asesorado a más de 50 organizaciones en Colombia, México,
-              Chile, Perú y Ecuador —desde startups en etapa temprana hasta corporaciones del
-              sector financiero y energético.
+              Soy investigador doctoral en gestión de la innovación tecnológica en la Universidad
+              de los Andes y consultor independiente con más de 15 años de experiencia en
+              proyectos con organizaciones del sector real, universidades y organismos
+              multilaterales en Colombia y América Latina.
             </p>
             <p>
-              Mi trayectoria nació de una convicción profunda: las organizaciones latinoamericanas
-              merecen herramientas de toma de decisiones tan rigurosas como las que utilizan
-              las grandes corporaciones globales, adaptadas a nuestra realidad y contexto.
+              A lo largo de mi trayectoria he acompañado a más de 50 organizaciones en decisiones
+              de inversión en innovación, formación corporativa en IA generativa y acceso a
+              beneficios tributarios por I+D+i. Mi trabajo de campo en Brasil, Uruguay, Argentina
+              y Chile me permitió contrastar los retos de la evaluación financiera de innovación
+              en distintos ecosistemas de la región.
             </p>
             <p>
-              Llevo más de una década investigando cómo las organizaciones evalúan —y a menudo
-              subevalúan— sus proyectos de innovación tecnológica. El hallazgo central de mi
-              investigación doctoral es que los métodos financieros tradicionales (VPN, TIR, flujo
-              de caja descontado) generan sesgos sistemáticos cuando se aplican a innovación,
-              porque asumen un futuro predecible que simplemente no existe en ese contexto.
+              El hallazgo central de mi investigación es que los métodos financieros tradicionales
+              — VPN, TIR, flujo de caja descontado — generan errores sistemáticos de selección
+              cuando se aplican a proyectos de innovación, porque asumen un futuro predecible que
+              no existe en ese contexto. Esa conclusión me llevó a desarrollar PRIME-10™, una
+              metodología propia de evaluación financiera probabilística registrada en la
+              Dirección Nacional de Derecho de Autor de Colombia en 2025.
             </p>
-            <p>
-              Esta investigación me llevó a desarrollar el framework PRIME-10 y a especializarme
-              en modelos probabilísticos que incorporan la incertidumbre tecnológica y el riesgo
-              de mercado como variables centrales, no como factores de corrección.
-            </p>
-            <p>
-              Hoy combino la investigación activa en la Universidad de los Andes con la docencia
-              en EAFIT y una práctica consultora de innovación que me permite validar
-              continuamente mis hallazgos en organizaciones reales de Colombia y la región.
-            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Secondary photo */}
+      <section className="py-16 bg-white">
+        <div className="container-site max-w-4xl">
+          <div className="relative w-full aspect-[21/9] rounded-xl overflow-hidden">
+            <Image
+              src="/images/sobre-secundaria.jpg"
+              alt="Decisiones estratégicas bajo incertidumbre"
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
@@ -157,8 +179,10 @@ export default function SobrePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { title: "PhD(c)", org: "Universidad de los Andes", detail: "Gestión de Innovación Tecnológica" },
-              { title: "Docente", org: "EAFIT University", detail: "Maestría en Finanzas — Finanzas para la Innovación" },
-              { title: "Divulgador científico", org: "RetroCiencia", detail: "Comunicación de investigación aplicada" },
+              { title: "CQRM", org: "Certified Quantitative Risk Management", detail: "No. LA-3437" },
+              { title: "PMP", org: "Project Management Professional", detail: "PMI · No. 1649915" },
+              { title: "Formación", org: "Tecnológico de Monterrey", detail: "Gestión y transferencia de tecnología · 2021" },
+              { title: "DEEI", org: "BID-PRODEM", detail: "Diploma en Estrategia de Ecosistemas de Innovación" },
             ].map((cred) => (
               <div key={cred.org} className="card p-5">
                 <p className="font-heading font-bold text-primary text-sm">{cred.title}</p>

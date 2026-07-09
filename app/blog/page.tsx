@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
-import { allPosts } from "@/lib/posts";
+import FeedArticle from "@/components/FeedArticle";
+import { allPosts, getAllCategories, slugifyCategory } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "Blog — Investigación Aplicada en Gestión de Innovación",
@@ -10,30 +11,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.augustoruiz.org/blog" },
 };
 
-const categories = [
-  "Todos",
-  "Consultoría",
-  "Evaluación Financiera",
-  "IA Generativa",
-  "Financiación",
-  "Metodología",
-  "Casos de estudio",
-];
-
-const posts = allPosts;
-
-const categoryColors: Record<string, string> = {
-  "Consultoría": "bg-primary/10 text-primary",
-  "Evaluación Financiera": "bg-primary/10 text-primary",
-  "IA Generativa": "bg-accent/10 text-accent",
-  "Financiación": "bg-green-50 text-green-700",
-  "Metodología": "bg-purple-50 text-purple-700",
-  "Casos de estudio": "bg-amber-50 text-amber-700",
-};
-
 export default function BlogPage() {
-  const featured = posts.find((p) => p.featured);
-  const rest = posts.filter((p) => !p.featured);
+  const categories = getAllCategories();
 
   return (
     <>
@@ -58,101 +37,51 @@ export default function BlogPage() {
       <section className="py-16 bg-white">
         <div className="container-site">
           {/* Category filter */}
-          <div className="flex flex-wrap gap-2 mb-10" role="navigation" aria-label="Filtrar por categoría">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`px-4 py-1.5 rounded-full text-sm font-heading font-medium transition-colors border ${
-                  cat === "Todos"
-                    ? "bg-primary text-white border-primary"
-                    : "border-border text-foreground hover:border-primary hover:text-primary"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
-          {/* Featured post */}
-          {featured && (
-            <article className="card overflow-hidden mb-10">
-              <div className="grid grid-cols-1 lg:grid-cols-5">
-                <div className="lg:col-span-2 h-48 lg:h-auto bg-primary/10 flex items-center justify-center min-h-[200px]">
-                  <svg className="w-16 h-16 text-primary/30" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div className="lg:col-span-3 p-6 lg:p-8 flex flex-col">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="bg-accent text-white text-xs font-heading font-semibold px-2 py-0.5 rounded-full">
-                      Destacado
-                    </span>
-                    <span className={`text-xs font-heading font-semibold px-2 py-0.5 rounded-full ${categoryColors[featured.category] ?? ""}`}>
-                      {featured.category}
-                    </span>
-                  </div>
-                  <h2 className="font-heading font-bold text-xl sm:text-2xl text-foreground mb-3">
-                    <Link href={`/blog/${featured.slug}`} className="hover:text-primary transition-colors">
-                      {featured.title}
-                    </Link>
-                  </h2>
-                  <p className="text-muted-foreground text-sm leading-relaxed flex-1">
-                    {featured.excerpt}
-                  </p>
-                  <div className="mt-5 flex items-center justify-between">
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <time dateTime={featured.date}>
-                        {new Date(featured.date + "T12:00:00Z").toLocaleDateString("es-CO", { timeZone: "UTC", year: "numeric", month: "long", day: "numeric" })}
-                      </time>
-                      <span>·</span>
-                      <span>{featured.readTime} lectura</span>
-                    </div>
-                    <Link href={`/blog/${featured.slug}`} className="btn-primary text-sm px-4 py-2">
-                      Leer artículo
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </article>
+          {categories.length > 0 && (
+            <nav className="flex flex-wrap gap-2 mb-12 justify-center" aria-label="Filtrar por categoría">
+              <span className="px-4 py-1.5 rounded-full text-sm font-heading font-medium border bg-primary text-white border-primary">
+                Todos
+              </span>
+              {categories.map((cat) => (
+                <Link
+                  key={cat}
+                  href={`/blog/categoria/${slugifyCategory(cat)}`}
+                  className="px-4 py-1.5 rounded-full text-sm font-heading font-medium transition-colors border border-border text-foreground hover:border-primary hover:text-primary"
+                >
+                  {cat}
+                </Link>
+              ))}
+            </nav>
           )}
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {rest.map((post) => (
-              <article key={post.slug} className="card overflow-hidden flex flex-col">
-                <div className="h-40 bg-primary/10 flex items-center justify-center">
-                  <svg className="w-10 h-10 text-primary/30" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
+          {/* Feed de artículos completos */}
+          {allPosts.length > 0 ? (
+            <div className="space-y-16">
+              {allPosts.map((post, i) => (
+                <div key={post.slug}>
+                  {i > 0 && <hr className="border-border mb-16 max-w-3xl mx-auto" />}
+                  <FeedArticle post={post} />
                 </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className={`text-xs font-heading font-semibold px-2 py-0.5 rounded-full ${categoryColors[post.category] ?? "bg-muted text-muted-foreground"}`}>
-                      {post.category}
-                    </span>
-                    <span className="text-xs text-muted-foreground">{post.readTime}</span>
-                  </div>
-                  <h2 className="font-heading font-semibold text-foreground text-base leading-snug mb-2 flex-1">
-                    <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
-                      {post.title}
-                    </Link>
-                  </h2>
-                  <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{post.excerpt}</p>
-                  <div className="flex items-center justify-between mt-auto">
-                    <time className="text-xs text-muted-foreground" dateTime={post.date}>
-                      {new Date(post.date + "T12:00:00Z").toLocaleDateString("es-CO", { timeZone: "UTC", year: "numeric", month: "short", day: "numeric" })}
-                    </time>
-                    <Link href={`/blog/${post.slug}`} className="text-xs font-semibold text-accent hover:text-accent-hover flex items-center gap-1 transition-colors">
-                      Leer más
-                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </Link>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            /* Estado vacío */
+            <div className="max-w-xl mx-auto text-center py-16">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-primary/40" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+              </div>
+              <h2 className="font-heading font-bold text-2xl text-foreground mb-3">
+                Artículos próximamente
+              </h2>
+              <p className="text-muted-foreground text-sm leading-relaxed">
+                Estoy preparando contenido sobre gestión de innovación, evaluación financiera
+                bajo incertidumbre e IA generativa aplicada. Suscríbete abajo para recibir
+                los primeros artículos.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 

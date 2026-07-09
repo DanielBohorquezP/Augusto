@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import NewsletterForm from "@/components/NewsletterForm";
 import SchemaScript from "@/components/SchemaScript";
+import PostBody, { headingId } from "@/components/PostBody";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
-import { allPosts, getPostBySlug, type ContentBlock } from "@/lib/posts";
+import { allPosts, getPostBySlug, getRelatedPosts } from "@/lib/posts";
+
+// Solo se generan las rutas de posts reales; cualquier otro slug devuelve 404
+export const dynamicParams = false;
 
 export async function generateStaticParams() {
   return allPosts.map((p) => ({ slug: p.slug }));
@@ -11,12 +16,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
-  if (!post) {
-    return {
-      title: "Artículo | Augusto Ruiz",
-      description: "Artículo sobre gestión de innovación tecnológica por Augusto Ruiz, PhD(c) Universidad de los Andes.",
-    };
-  }
+  if (!post) return {};
   const description = post.metaDescription ?? post.excerpt;
   return {
     title: post.title,
@@ -28,6 +28,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
       description,
       url: `https://www.augustoruiz.org/blog/${post.slug}`,
       publishedTime: post.date,
+      modifiedTime: post.dateModified ?? post.date,
       authors: ["Augusto Ruiz"],
     },
     twitter: {
@@ -38,115 +39,41 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-function renderBlocks(blocks: ContentBlock[]) {
-  return blocks.map((block, i) => {
-    switch (block.type) {
-      case "paragraph":
-        return (
-          <p key={i} className="text-foreground text-base leading-relaxed">
-            {block.text}
-          </p>
-        );
-      case "heading2":
-        return (
-          <h2 key={i} className="font-heading font-bold text-2xl text-foreground mt-10 mb-4">
-            {block.text}
-          </h2>
-        );
-      case "heading3":
-        return (
-          <h3 key={i} className="font-heading font-semibold text-lg text-foreground mt-7 mb-3">
-            {block.text}
-          </h3>
-        );
-      case "highlight":
-        return (
-          <div key={i} className="bg-muted border-l-4 border-primary p-5 rounded-r-lg my-6">
-            <p className="font-heading font-semibold text-foreground text-sm mb-1">{block.label}</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">{block.text}</p>
-          </div>
-        );
-      case "list":
-        return (
-          <div key={i} className="my-5">
-            {block.heading && (
-              <p className="font-heading font-semibold text-foreground text-sm mb-3">{block.heading}</p>
-            )}
-            <ul className="space-y-2.5 pl-1">
-              {block.items.map((item, j) => (
-                <li key={j} className="flex items-start gap-3 text-sm text-foreground leading-relaxed">
-                  <svg
-                    className="w-4 h-4 text-accent shrink-0 mt-0.5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        );
-      case "cta":
-        return (
-          <div key={i} className="my-10 bg-primary rounded-2xl p-8 text-center">
-            <h3 className="font-heading font-bold text-xl text-white mb-3">{block.heading}</h3>
-            <p className="text-white/80 text-sm leading-relaxed mb-6 max-w-lg mx-auto">{block.text}</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href={block.primaryLink} className="btn-primary">
-                {block.primaryText}
-              </Link>
-              {block.secondaryLink && block.secondaryText && (
-                <Link href={block.secondaryLink} className="btn-outline-white">
-                  {block.secondaryText}
-                </Link>
-              )}
-            </div>
-          </div>
-        );
-      default:
-        return null;
-    }
-  });
-}
-
-const relatedPostSlugs = [
-  "ia-generativa-decisiones-organizacionales",
-  "financiacion-innovacion-latam",
-  "opciones-reales-innovacion",
-];
-
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = getPostBySlug(params.slug);
-  const hasContent = !!post?.content;
+  if (!post) notFound();
 
-  const relatedPosts = allPosts
-    .filter((p) => relatedPostSlugs.includes(p.slug) && p.slug !== params.slug)
-    .slice(0, 3);
+  const postUrl = `https://www.augustoruiz.org/blog/${post.slug}`;
+  const relatedPosts = getRelatedPosts(post.slug);
+
+  const shareLinks = [
+    {
+      label: "LinkedIn",
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`,
+    },
+    {
+      label: "Twitter/X",
+      href: `https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(post.title)}`,
+    },
+    {
+      label: "WhatsApp",
+      href: `https://wa.me/?text=${encodeURIComponent(`${post.title} ${postUrl}`)}`,
+    },
+  ];
 
   const schemas = [
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },
       { name: "Blog", url: "https://www.augustoruiz.org/blog" },
-      { name: post?.title ?? "Artículo", url: `https://www.augustoruiz.org/blog/${params.slug}` },
+      { name: post.title, url: postUrl },
     ]),
-    ...(post
-      ? [
-          articleSchema({
-            title: post.title,
-            description: post.metaDescription ?? post.excerpt,
-            slug: post.slug,
-            datePublished: post.date,
-            dateModified: post.date,
-          }),
-        ]
-      : []),
+    articleSchema({
+      title: post.title,
+      description: post.metaDescription ?? post.excerpt,
+      slug: post.slug,
+      datePublished: post.date,
+      dateModified: post.dateModified ?? post.date,
+    }),
   ];
 
   return (
@@ -164,20 +91,20 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               <li><Link href="/blog" className="hover:text-white transition-colors">Blog</Link></li>
               <li aria-hidden="true">›</li>
               <li className="text-white/90 truncate max-w-[200px]">
-                {post?.category ?? "Artículo"}
+                {post.category}
               </li>
             </ol>
           </nav>
 
           <div className="mb-4 flex items-center gap-2">
             <span className="bg-accent text-white text-xs font-heading font-semibold px-2 py-0.5 rounded-full">
-              {post?.category ?? "Innovación"}
+              {post.category}
             </span>
-            <span className="text-white/60 text-xs">{post?.readTime ?? "8 min"} lectura</span>
+            <span className="text-white/60 text-xs">{post.readTime} lectura</span>
           </div>
 
           <h1 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-white leading-tight">
-            {post?.title ?? "Por qué los modelos deterministas fallan en la evaluación de innovación"}
+            {post.title}
           </h1>
 
           <div className="mt-5 flex items-center gap-4">
@@ -190,18 +117,29 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <p className="text-white/60 text-xs">PhD(c) · Universidad de los Andes</p>
               </div>
             </div>
-            {post?.date && (
-              <div className="text-white/60 text-xs">
-                <time dateTime={post.date}>
-                  {new Date(post.date + "T12:00:00Z").toLocaleDateString("es-CO", {
-                    timeZone: "UTC",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </time>
-              </div>
-            )}
+            <div className="text-white/60 text-xs">
+              <time dateTime={post.date}>
+                {new Date(post.date + "T12:00:00Z").toLocaleDateString("es-CO", {
+                  timeZone: "UTC",
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </time>
+              {post.dateModified && (
+                <span>
+                  {" "}· Actualizado el{" "}
+                  <time dateTime={post.dateModified}>
+                    {new Date(post.dateModified + "T12:00:00Z").toLocaleDateString("es-CO", {
+                      timeZone: "UTC",
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -213,19 +151,21 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             {/* Main content */}
             <article className="lg:col-span-3">
               {/* Table of contents */}
-              {post?.tocItems && post.tocItems.length > 0 && (
+              {post.tocItems && post.tocItems.length > 0 && (
                 <nav aria-label="Tabla de contenidos" className="card p-5 mb-8">
                   <p className="font-heading font-semibold text-sm text-foreground mb-3">
                     En este artículo
                   </p>
                   <ol className="space-y-2">
                     {post.tocItems.map((item, i) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
+                      <li key={item} className="flex items-start gap-2 text-sm">
                         <span className="text-accent font-heading font-semibold shrink-0">{i + 1}.</span>
-                        {item}
+                        <a
+                          href={`#${headingId(item)}`}
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          {item}
+                        </a>
                       </li>
                     ))}
                   </ol>
@@ -233,47 +173,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
               )}
 
               {/* Content */}
-              <div className="space-y-5">
-                {hasContent ? (
-                  renderBlocks(post!.content!)
-                ) : (
-                  /* Placeholder content for posts without real content yet */
-                  <div className="space-y-6 text-foreground text-base leading-relaxed prose prose-slate max-w-none">
-                    <p>
-                      Cuando una organización decide invertir en un proyecto de innovación tecnológica,
-                      típicamente recurre a las mismas herramientas que usa para evaluar cualquier otro
-                      proyecto de inversión: el valor presente neto (VPN), la tasa interna de retorno (TIR)
-                      o el período de recuperación de la inversión.
-                    </p>
-                    <p>
-                      El problema es que estas herramientas fueron diseñadas para un mundo predecible.
-                      Y la innovación, por definición, ocurre en mundos impredecibles.
-                    </p>
-                    <h2 className="font-heading font-bold text-2xl text-foreground mt-8 mb-4">
-                      El problema con el VPN en proyectos de innovación
-                    </h2>
-                    <p>
-                      El VPN descuenta flujos de caja futuros a una tasa que refleja el costo del capital.
-                      Para que este cálculo tenga sentido, necesitas estimar esos flujos futuros con
-                      razonable precisión. En un proyecto de expansión de una línea de producción existente,
-                      eso es factible. En un proyecto de innovación tecnológica, es casi imposible.
-                    </p>
-                    <div className="bg-muted border-l-4 border-primary p-5 rounded-r-lg not-prose">
-                      <p className="font-heading font-semibold text-foreground text-sm mb-1">
-                        Dato de investigación
-                      </p>
-                      <p className="text-sm text-muted-foreground">
-                        Estudios muestran que más del 70% de los proyectos de innovación tecnológica
-                        se desvían de sus proyecciones iniciales en más de un 50%, tanto en costos
-                        como en tiempos y beneficios esperados.
-                      </p>
-                    </div>
-                    <p className="text-muted-foreground italic text-sm">
-                      [Contenido completo próximamente — este artículo está en desarrollo.]
-                    </p>
-                  </div>
-                )}
-              </div>
+              {post.content ? (
+                <PostBody blocks={post.content} />
+              ) : (
+                <div className="space-y-6 text-foreground text-base leading-relaxed">
+                  <p>{post.excerpt}</p>
+                  <p className="text-muted-foreground italic text-sm">
+                    [Contenido completo próximamente — este artículo está en desarrollo.]
+                  </p>
+                </div>
+              )}
 
               {/* Share buttons */}
               <div className="mt-10 pt-8 border-t border-border">
@@ -281,13 +190,16 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   Compartir este artículo
                 </p>
                 <div className="flex gap-3">
-                  {["LinkedIn", "Twitter/X", "WhatsApp"].map((platform) => (
-                    <button
-                      key={platform}
+                  {shareLinks.map(({ label, href }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="px-4 py-2 border border-border rounded-lg text-sm font-heading font-medium text-foreground hover:border-primary hover:text-primary transition-colors"
                     >
-                      {platform}
-                    </button>
+                      {label}
+                    </a>
                   ))}
                 </div>
               </div>
@@ -319,32 +231,34 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Related posts */}
-      <section className="py-14 bg-muted">
-        <div className="container-site">
-          <h2 className="section-heading text-xl mb-6">Artículos relacionados</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            {relatedPosts.map((rp) => (
-              <div key={rp.slug} className="card p-5">
-                <span className="text-xs font-heading font-semibold text-accent">{rp.category}</span>
-                <h3 className="font-heading font-semibold text-sm text-foreground mt-2 mb-3 leading-snug">
-                  <Link href={`/blog/${rp.slug}`} className="hover:text-primary transition-colors">
-                    {rp.title}
+      {relatedPosts.length > 0 && (
+        <section className="py-14 bg-muted">
+          <div className="container-site">
+            <h2 className="section-heading text-xl mb-6">Artículos relacionados</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              {relatedPosts.map((rp) => (
+                <div key={rp.slug} className="card p-5">
+                  <span className="text-xs font-heading font-semibold text-accent">{rp.category}</span>
+                  <h3 className="font-heading font-semibold text-sm text-foreground mt-2 mb-3 leading-snug">
+                    <Link href={`/blog/${rp.slug}`} className="hover:text-primary transition-colors">
+                      {rp.title}
+                    </Link>
+                  </h3>
+                  <Link
+                    href={`/blog/${rp.slug}`}
+                    className="text-xs font-semibold text-accent hover:text-accent-hover flex items-center gap-1 transition-colors"
+                  >
+                    Leer
+                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                   </Link>
-                </h3>
-                <Link
-                  href={`/blog/${rp.slug}`}
-                  className="text-xs font-semibold text-accent hover:text-accent-hover flex items-center gap-1 transition-colors"
-                >
-                  Leer
-                  <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            ))}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Newsletter */}
       <section className="py-14 bg-white">
