@@ -197,8 +197,8 @@ export default function ServiciosPage() {
             {idx === 1 && (
               <div className="relative mt-8 w-full aspect-[21/9] rounded-xl overflow-hidden">
                 <Image
-                  src="/images/docencia-taller.jpg"
-                  alt="Sesión de formación corporativa en IA generativa"
+                  src="/images/servicios-ia-generativa.jpg"
+                  alt="Workshop de aplicaciones de inteligencia artificial generativa"
                   fill
                   sizes="100vw"
                   className="object-cover"
