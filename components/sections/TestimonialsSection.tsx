@@ -1,24 +1,45 @@
 const testimonials = [
   {
     quote:
-      "Augusto transformó nuestra forma de evaluar proyectos de innovación. Su enfoque probabilístico nos ayudó a tomar decisiones de inversión con mucha más confianza.",
-    name: "María González",
-    title: "Directora de Innovación",
-    company: "Empresa del sector financiero",
+      "¡Augusto ya sos parte de este equipo! Gracias por recordarnos que la innovación también es repensar nuestras herramientas, que la IA no reemplaza la intuición ni la experiencia, sino que la potencia.",
+    name: "Melissa Londoño Avila",
+    title: "Jefe de transferencia tecnológica",
+    company: "Universidad EAFIT",
   },
   {
     quote:
-      "La implementación de IA generativa en nuestros procesos de decisión fue mucho más ágil gracias a la metodología de Augusto. Resultados concretos desde el primer mes.",
-    name: "Carlos Restrepo",
-    title: "CEO",
-    company: "Startup tecnológica",
+      "Gracias Augusto Ruiz !!! Un espacio enriquecedor que nos permite consolidar el uso de nuevas herramientas en el ámbito investigativo!!!",
+    name: "Andrés Felipe Gutiérrez",
+    title: "Ingeniero Industrial",
+    company: "Desarrollo de producto",
   },
   {
     quote:
-      "El PRIME-10 nos dio claridad absoluta sobre dónde estaba nuestra iniciativa de innovación y qué necesitábamos para escalar. Altamente recomendado.",
-    name: "Ana Martínez",
-    title: "Gerente de Proyectos",
-    company: "Multinacional del sector energía",
+      "Augusto, tu taller ha sido sin duda uno de los highlights del Olsummit. Estuvo muy amplio, práctico y me generó más curiosidad por seguir aprendiendo el adecuado uso de la IA en emprendimiento.",
+    name: "Leonardo Quiñonez Lerma",
+    title: "Consultor Financiero",
+    company: "Modelamiento financiero y due diligence",
+  },
+  {
+    quote:
+      "Excelente MasterClass, muy instructivo y Augusto brilla por su pedagogía, buen humor y dinamismo!",
+    name: "Alexis Kucheida",
+    title: "Humanitarian Project Manager",
+    company: "Financial management",
+  },
+  {
+    quote:
+      "Súper recomendado! Gracias Augusto Ruiz por acompañarnos en este reto de romper paradigmas y mostrarnos el potencial de la IA y su aplicación en nuestro negocio.",
+    name: "Viviana Montoya Cataño",
+    title: "Directora de Ventas y Marketing",
+    company: "",
+  },
+  {
+    quote:
+      "Estuvo espectacular! Aprendí un montón y me has ayudado a empezar a derribar muchos paradigmas. Me dejas muchas tareas de incorporar y sumar conocimientos y prácticas.",
+    name: "Juan Sánchez",
+    title: "Design thinker",
+    company: "Visual storyteller",
   },
 ];
 
@@ -59,7 +80,10 @@ export default function TestimonialsSection() {
                 </div>
                 <div>
                   <p className="font-heading font-semibold text-sm text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">{t.title} · {t.company}</p>
+                  <p className="text-xs text-muted-foreground">
+                    {t.title}
+                    {t.company ? ` · ${t.company}` : ""}
+                  </p>
                 </div>
               </figcaption>
             </figure>

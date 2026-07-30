@@ -1,7 +1,9 @@
-const affiliations = [
-  { name: "Universidad de los Andes", short: "Uniandes", role: "PhD(c) Investigador" },
-  { name: "EAFIT University", short: "EAFIT", role: "Docente - Finanzas para la Innovación" },
-  { name: "RetroCiencia", short: "RetroCiencia", role: "Divulgación científica" },
+const credentials = [
+  { label: "PhD(c)", title: "Universidad de los Andes", detail: "Gestión de Innovación Tecnológica" },
+  { label: "CQRM", title: "Certified Quantitative Risk Management", detail: "No. LA-3437" },
+  { label: "PMP", title: "Project Management Professional", detail: "PMI · No. 1649915" },
+  { label: "Formación", title: "Tecnológico de Monterrey", detail: "Gestión y transferencia de tecnología · 2021" },
+  { label: "DEEI", title: "BID-PRODEM", detail: "Diploma en Estrategia de Ecosistemas de Innovación" },
 ];
 
 export default function AffiliationsSection() {
@@ -11,13 +13,12 @@ export default function AffiliationsSection() {
         <p className="text-center text-xs font-body font-semibold uppercase tracking-widest text-muted-foreground mb-8">
           Afiliaciones académicas e institucionales
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
-          {affiliations.map((aff) => (
-            <div key={aff.name} className="text-center">
-              <div className="w-24 h-16 bg-muted rounded-lg flex items-center justify-center mx-auto mb-2">
-                <span className="font-heading font-bold text-primary text-sm">{aff.short}</span>
-              </div>
-              <p className="text-xs text-muted-foreground max-w-[120px]">{aff.role}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {credentials.map((cred) => (
+            <div key={cred.label} className="card p-5">
+              <p className="font-heading font-bold text-primary text-sm">{cred.label}</p>
+              <p className="font-heading font-semibold text-foreground text-base mt-1">{cred.title}</p>
+              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{cred.detail}</p>
             </div>
           ))}
         </div>

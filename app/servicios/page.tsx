@@ -3,6 +3,7 @@ import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import Prime10Phases from "@/components/sections/Prime10Phases";
 import SchemaScript from "@/components/SchemaScript";
+import FAQAccordion from "@/components/FAQAccordion";
 import { faqSchema, breadcrumbSchema } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/site";
 
@@ -193,6 +194,17 @@ export default function ServiciosPage() {
                 <Prime10Phases />
               </div>
             )}
+            {idx === 1 && (
+              <div className="relative mt-8 w-full aspect-[21/9] rounded-xl overflow-hidden">
+                <Image
+                  src="/images/docencia-taller.jpg"
+                  alt="Sesión de formación corporativa en IA generativa"
+                  fill
+                  sizes="100vw"
+                  className="object-cover"
+                />
+              </div>
+            )}
             {idx === 2 && (
               <div className="relative mt-8 w-full aspect-[21/9] rounded-xl overflow-hidden">
                 <Image
@@ -231,14 +243,7 @@ export default function ServiciosPage() {
       <section className="py-16 bg-white">
         <div className="container-site max-w-3xl">
           <h2 className="section-heading text-2xl sm:text-3xl mb-8">Preguntas frecuentes</h2>
-          <dl className="space-y-6">
-            {faqs.map((faq) => (
-              <div key={faq.q} className="card p-6">
-                <dt className="font-heading font-semibold text-foreground text-base mb-2">{faq.q}</dt>
-                <dd className="text-sm text-muted-foreground leading-relaxed">{faq.a}</dd>
-              </div>
-            ))}
-          </dl>
+          <FAQAccordion faqs={faqs} />
         </div>
       </section>
 

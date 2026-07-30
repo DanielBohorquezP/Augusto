@@ -86,7 +86,7 @@ export default function HeroSection() {
             <div className="relative lg:-translate-x-8">
               <div className="relative overflow-hidden rounded-2xl">
                 <Image
-                  src="/profile-photo.png"
+                  src="/profile-photo.jpg"
                   alt="Augusto Ruiz - Foto de perfil profesional"
                   width={448}
                   height={544}

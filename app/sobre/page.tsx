@@ -91,7 +91,7 @@ export default function SobrePage() {
             <div className="flex justify-center lg:justify-end">
               <div className="relative overflow-hidden rounded-2xl lg:-translate-x-8">
                 <Image
-                  src="/profile-photo.png"
+                  src="/profile-photo-about.jpg"
                   alt="Augusto Ruiz - Foto de perfil profesional"
                   width={384}
                   height={480}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import Prime10Phases from "@/components/sections/Prime10Phases";
 import SchemaScript from "@/components/SchemaScript";
+import FAQAccordion from "@/components/FAQAccordion";
 import { faqSchema, breadcrumbSchema } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/site";
 
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "¿Cuánto tiempo toma una evaluación PRIME-10?",
-    a: "Una evaluación completa típicamente toma entre 2 y 3 semanas, incluyendo la recopilación de información, el análisis y la presentación de resultados.",
+    a: "Una evaluación completa típicamente toma entre 3 y 5 días, incluyendo la recopilación de información, el análisis y la presentación de resultados.",
   },
   {
     q: "¿Qué entregables recibo al final del proceso?",
@@ -247,14 +248,7 @@ export default function Prime10Page() {
       <section className="py-16 bg-muted">
         <div className="container-site max-w-3xl">
           <h2 className="section-heading text-2xl sm:text-3xl mb-8">Preguntas frecuentes</h2>
-          <dl className="space-y-5">
-            {faqs.map((faq) => (
-              <div key={faq.q} className="card p-6">
-                <dt className="font-heading font-semibold text-foreground text-base mb-2">{faq.q}</dt>
-                <dd className="text-sm text-muted-foreground leading-relaxed">{faq.a}</dd>
-              </div>
-            ))}
-          </dl>
+          <FAQAccordion faqs={faqs} />
         </div>
       </section>
 
