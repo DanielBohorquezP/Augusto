@@ -57,7 +57,7 @@ export default function OgImage() {
             textAlign: "center",
           }}
         >
-          PhD(c) Universidad de los Andes · Docente EAFIT
+          PhD(c) Universidad de los Andes
         </div>
         <div
           style={{

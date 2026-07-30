@@ -45,7 +45,7 @@ export default function Footer() {
               Investigador, consultor y formador en gestión de innovación tecnológica.
             </p>
             <p className="mt-2 text-xs text-white/50">
-              PhD(c) · Universidad de los Andes · Docente EAFIT
+              PhD(c) · Universidad de los Andes
             </p>
             <div className="mt-4 flex gap-3">
               {socialLinks.map((s) => (

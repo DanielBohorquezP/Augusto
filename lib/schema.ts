@@ -94,8 +94,8 @@ export const personSchema = {
   },
   worksFor: {
     "@type": "CollegeOrUniversity",
-    name: "EAFIT University",
-    url: "https://www.eafit.edu.co",
+    name: "Universidad de los Andes",
+    url: "https://uniandes.edu.co",
   },
   sameAs: [
     "https://www.linkedin.com/in/ruizaugusto/",

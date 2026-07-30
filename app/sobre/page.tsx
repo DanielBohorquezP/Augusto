@@ -7,11 +7,11 @@ import { breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Consultor en Innovación Tecnológica Colombia",
   description:
-    "Augusto Ruiz: consultor en innovación tecnológica en Colombia. PhD(c) Uniandes, docente EAFIT. Más de 50 organizaciones asesoradas en Colombia, México, Chile, Perú y Ecuador.",
+    "Augusto Ruiz: consultor en innovación tecnológica en Colombia. PhD(c) Uniandes. Más de 50 organizaciones asesoradas en Colombia, México, Chile, Perú y Ecuador.",
   alternates: { canonical: "https://www.augustoruiz.org/sobre" },
   openGraph: {
     title: "Augusto Ruiz — Consultor en Innovación Tecnológica | Colombia",
-    description: "PhD(c) Uniandes · Docente EAFIT. Consultor en gestión de innovación tecnológica con base en Colombia. Más de 50 organizaciones asesoradas en LATAM.",
+    description: "PhD(c) Uniandes. Consultor en gestión de innovación tecnológica con base en Colombia. Más de 50 organizaciones asesoradas en LATAM.",
     url: "https://www.augustoruiz.org/sobre",
     type: "profile",
   },

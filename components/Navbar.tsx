@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Sobre mí", href: "/sobre" },
@@ -15,12 +16,27 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Safety net: always close the mobile menu when the route changes,
+  // in case a link's onClick doesn't fire in time (common on iOS Safari).
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  // Prevent the page from scrolling behind the open mobile menu.
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
 
   return (
     <header
@@ -75,9 +91,18 @@ export default function Navbar() {
         </button>
       </nav>
 
+      {/* Backdrop — tapping outside the mobile menu closes it */}
+      {menuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 z-40 bg-black/30"
+          onClick={() => setMenuOpen(false)}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-primary border-t border-primary-light/30 shadow-lg">
+        <div className="lg:hidden relative z-50 bg-primary border-t border-primary-light/30 shadow-lg">
           <div className="container-site py-4 flex flex-col gap-3">
             {navLinks.map((link) => (
               <Link

@@ -214,7 +214,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                   </div>
                   <div>
                     <p className="font-heading font-semibold text-sm text-foreground">Augusto Ruiz</p>
-                    <p className="text-xs text-muted-foreground">PhD(c) Uniandes · Docente EAFIT</p>
+                    <p className="text-xs text-muted-foreground">PhD(c) Uniandes</p>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground leading-relaxed mb-4">

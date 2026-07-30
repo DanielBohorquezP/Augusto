@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     template: "%s | Augusto Ruiz",
   },
   description:
-    "PhD(c) investigador, consultor y formador especializado en evaluación financiera de innovación tecnológica, IA generativa aplicada y estrategias de financiación. Universidad de los Andes · EAFIT.",
+    "PhD(c) investigador, consultor y formador especializado en evaluación financiera de innovación tecnológica, IA generativa aplicada y estrategias de financiación. Universidad de los Andes.",
   keywords: [
     "consultoría en innovación empresarial Colombia",
     "consultoría en innovación tecnológica",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "Augusto Ruiz",
     title: "Augusto Ruiz | Consultor en Gestión de Innovación Tecnológica",
     description:
-      "El puente entre el rigor académico y la decisión organizacional. PhD(c) Universidad de los Andes · Docente EAFIT.",
+      "El puente entre el rigor académico y la decisión organizacional. PhD(c) Universidad de los Andes.",
   },
   twitter: {
     card: "summary_large_image",
