@@ -83,15 +83,24 @@ export default function HeroSection() {
 
           {/* Photo */}
           <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <Image
-              src="/profile-photo-cutout.png"
-              alt="Augusto Ruiz - Foto de perfil profesional"
-              width={593}
-              height={695}
-              priority
-              sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 448px"
-              className="w-64 h-auto sm:w-80 lg:w-[28rem] object-contain block"
-            />
+            <div className="relative lg:-translate-x-8">
+              <Image
+                src="/profile-photo-cutout.png"
+                alt="Augusto Ruiz - Foto de perfil profesional"
+                width={593}
+                height={695}
+                priority
+                sizes="(max-width: 640px) 256px, (max-width: 1024px) 320px, 448px"
+                className="w-64 h-auto sm:w-80 lg:w-[28rem] object-contain block"
+                style={{
+                  WebkitMaskImage: "linear-gradient(to bottom, black 92%, transparent 100%)",
+                  maskImage: "linear-gradient(to bottom, black 92%, transparent 100%)",
+                }}
+              />
+              {/* Decorative elements */}
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-accent/20 rounded-2xl -z-10" aria-hidden="true" />
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/10 rounded-xl -z-10" aria-hidden="true" />
+            </div>
           </div>
         </div>
       </div>
