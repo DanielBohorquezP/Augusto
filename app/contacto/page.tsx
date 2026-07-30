@@ -22,8 +22,7 @@ export default function ContactoPage() {
               Agendemos una conversación
             </h1>
             <p className="mt-4 text-white/80 text-base leading-relaxed">
-              Cuéntame sobre tu proyecto o desafío de innovación. La consulta inicial es gratuita
-              y sin compromiso.
+              Cuéntame sobre tu proyecto o desafío de innovación, sin compromiso.
             </p>
           </div>
         </div>

@@ -20,12 +20,11 @@ export default function CTASection() {
           ¿Listo para tomar mejores decisiones de innovación?
         </h2>
         <p className="mt-4 text-white/80 text-base max-w-xl mx-auto leading-relaxed">
-          Agenda una consulta inicial gratuita y exploremos juntos cómo puedo ayudar
-          a tu organización a innovar con rigor y confianza.
+          Agenda una consulta inicial y exploremos cómo innovar con rigor y confianza.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href={whatsappUrl("Hola Augusto, quiero agendar una consulta gratuita sobre innovación.")}
+            href={whatsappUrl("Hola Augusto, quiero agendar una consulta sobre innovación.")}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary text-base px-8 py-4"
