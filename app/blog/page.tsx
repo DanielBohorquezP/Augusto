@@ -3,6 +3,8 @@ import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
 import FeedArticle from "@/components/FeedArticle";
 import { allPosts, getAllCategories, slugifyCategory } from "@/lib/posts";
+import SchemaScript from "@/components/SchemaScript";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export function generateMetadata(): Metadata {
   return {
@@ -22,6 +24,12 @@ export default function BlogPage() {
 
   return (
     <>
+      <SchemaScript
+        schema={breadcrumbSchema([
+          { name: "Inicio", url: "https://www.augustoruiz.org" },
+          { name: "Blog", url: "https://www.augustoruiz.org/blog" },
+        ])}
+      />
       {/* Hero */}
       <section className="bg-primary pt-32 pb-16">
         <div className="container-site">

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { whatsappUrl } from "@/lib/site";
+import SchemaScript from "@/components/SchemaScript";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Contacto — Agendar consulta",
@@ -12,6 +14,12 @@ export const metadata: Metadata = {
 export default function ContactoPage() {
   return (
     <>
+      <SchemaScript
+        schema={breadcrumbSchema([
+          { name: "Inicio", url: "https://www.augustoruiz.org" },
+          { name: "Contacto", url: "https://www.augustoruiz.org/contacto" },
+        ])}
+      />
       <section className="bg-primary pt-32 pb-16">
         <div className="container-site">
           <div className="max-w-2xl">

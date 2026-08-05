@@ -27,12 +27,14 @@ function fileLastModified(relativePath: string): Date {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const static_ = staticRoutes.map(({ path: route, file, priority, changeFrequency }) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: fileLastModified(file),
-    changeFrequency,
-    priority,
-  }));
+  const static_ = staticRoutes
+    .filter(({ path: route }) => !(route === "/blog" && allPosts.length === 0))
+    .map(({ path: route, file, priority, changeFrequency }) => ({
+      url: `${baseUrl}${route}`,
+      lastModified: fileLastModified(file),
+      changeFrequency,
+      priority,
+    }));
 
   const blogPosts = allPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,

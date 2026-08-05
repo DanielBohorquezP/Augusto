@@ -3,6 +3,7 @@ const BASE_URL = "https://www.augustoruiz.org";
 export const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
+  "@id": `${BASE_URL}/#professional-service`,
   name: "Augusto Ruiz — Consultoría en Innovación Tecnológica",
   url: BASE_URL,
   description:
@@ -61,17 +62,14 @@ export const professionalServiceSchema = {
       },
     ],
   },
-  provider: {
-    "@type": "Person",
-    name: "Augusto Ruiz",
-    url: BASE_URL,
-  },
+  provider: { "@id": `${BASE_URL}/#person` },
   sameAs: ["https://www.linkedin.com/in/ruizaugusto/"],
 };
 
 export const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${BASE_URL}/#person`,
   name: "Augusto Ruiz",
   url: BASE_URL,
   image: `${BASE_URL}/profile-photo.jpg`,
@@ -106,10 +104,11 @@ export const personSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
+  "@id": `${BASE_URL}/#website`,
   name: "Augusto Ruiz",
   url: BASE_URL,
   description: "Consultor, investigador y formador en gestión de innovación tecnológica.",
-  author: { "@type": "Person", name: "Augusto Ruiz" },
+  author: { "@id": `${BASE_URL}/#person` },
   potentialAction: {
     "@type": "SearchAction",
     target: { "@type": "EntryPoint", urlTemplate: `${BASE_URL}/blog?q={search_term_string}` },
@@ -132,22 +131,14 @@ export function articleSchema({
 }) {
   return {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: title,
     description,
     url: `${BASE_URL}/blog/${slug}`,
     datePublished,
     dateModified,
-    author: {
-      "@type": "Person",
-      name: "Augusto Ruiz",
-      url: BASE_URL,
-    },
-    publisher: {
-      "@type": "Person",
-      name: "Augusto Ruiz",
-      url: BASE_URL,
-    },
+    author: { "@id": `${BASE_URL}/#person` },
+    publisher: { "@id": `${BASE_URL}/#person` },
     image: `${BASE_URL}/blog/${slug}/opengraph-image`,
     inLanguage: "es",
   };
