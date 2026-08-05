@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 import SchemaScript from "@/components/SchemaScript";
 import { personSchema, websiteSchema, professionalServiceSchema } from "@/lib/schema";
 
@@ -88,8 +89,22 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <WhatsAppButton />
+        <CookieConsentBanner />
         {GA_MEASUREMENT_ID && (
           <>
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('consent', 'default', {
+                    analytics_storage: (typeof localStorage !== 'undefined' && localStorage.getItem('cookie_consent') === 'granted') ? 'granted' : 'denied',
+                    ad_storage: 'denied',
+                    wait_for_update: 500
+                  });
+                `,
+              }}
+            />
             {/* eslint-disable-next-line @next/next/no-sync-scripts */}
             <script
               async
@@ -98,8 +113,6 @@ export default function RootLayout({
             <script
               dangerouslySetInnerHTML={{
                 __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
                   gtag('config', '${GA_MEASUREMENT_ID}');
                 `,
