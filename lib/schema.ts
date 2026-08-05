@@ -66,6 +66,7 @@ export const professionalServiceSchema = {
     name: "Augusto Ruiz",
     url: BASE_URL,
   },
+  sameAs: ["https://www.linkedin.com/in/ruizaugusto/"],
 };
 
 export const personSchema = {

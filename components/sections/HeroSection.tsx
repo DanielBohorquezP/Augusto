@@ -71,10 +71,16 @@ export default function HeroSection() {
                 { value: "+15", label: "Años de experiencia" },
                 { value: "50+", label: "Organizaciones asesoradas" },
                 { value: "93%", label: "Beneficios Tributarios" },
-                { value: "PRIME-10", label: "Decisiones bajo incertidumbre" },
+                { value: "PRIME-10", label: "Decisiones bajo incertidumbre", href: "/prime-10" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="font-heading font-bold text-2xl text-white">{stat.value}</p>
+                  {stat.href ? (
+                    <Link href={stat.href} className="font-heading font-bold text-2xl text-white hover:text-accent transition-colors">
+                      {stat.value}
+                    </Link>
+                  ) : (
+                    <p className="font-heading font-bold text-2xl text-white">{stat.value}</p>
+                  )}
                   <p className="text-white/55 text-xs mt-0.5">{stat.label}</p>
                 </div>
               ))}

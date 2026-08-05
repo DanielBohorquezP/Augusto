@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Poppins, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -6,6 +7,8 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import SchemaScript from "@/components/SchemaScript";
 import { personSchema, websiteSchema, professionalServiceSchema } from "@/lib/schema";
+
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -68,6 +71,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.augustoruiz.org",
   },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
+  }),
 };
 
 export default function RootLayout({
@@ -77,6 +83,22 @@ export default function RootLayout({
     <html lang="es" className={`${poppins.variable} ${openSans.variable}`}>
       <head>
         <SchemaScript schema={[personSchema, websiteSchema, professionalServiceSchema]} />
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
       </head>
       <body className="font-body antialiased bg-background text-foreground">
         <Navbar />

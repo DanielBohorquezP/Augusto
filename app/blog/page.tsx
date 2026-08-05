@@ -4,12 +4,18 @@ import NewsletterForm from "@/components/NewsletterForm";
 import FeedArticle from "@/components/FeedArticle";
 import { allPosts, getAllCategories, slugifyCategory } from "@/lib/posts";
 
-export const metadata: Metadata = {
-  title: "Blog — Investigación Aplicada en Gestión de Innovación",
-  description:
-    "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación para organizaciones latinoamericanas.",
-  alternates: { canonical: "https://www.augustoruiz.org/blog" },
-};
+export function generateMetadata(): Metadata {
+  return {
+    title: "Blog — Investigación Aplicada en Gestión de Innovación",
+    description:
+      "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación para organizaciones latinoamericanas.",
+    alternates: { canonical: "https://www.augustoruiz.org/blog" },
+    // Sin posts publicados aún: se pide no indexar para evitar que Google indexe
+    // una página de listado vacía bajo una URL de alto intent. Se retira solo
+    // cuando allPosts.length > 0 (primer post publicado).
+    ...(allPosts.length === 0 && { robots: { index: false, follow: true } }),
+  };
+}
 
 export default function BlogPage() {
   const categories = getAllCategories();

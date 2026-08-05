@@ -9,6 +9,7 @@ const services = [
       </svg>
     ),
     title: "PRIME-10 Decision Assessment",
+    href: "/prime-10",
     description:
       "Evaluación financiera probabilística de proyectos de innovación e inversión tecnológica. Más allá del VPN tradicional, identifico las variables de mayor incertidumbre, cuantifico el riesgo con simulación Monte Carlo y defino qué debe validarse experimentalmente antes de comprometer la inversión.",
     highlights: [
@@ -25,6 +26,7 @@ const services = [
       </svg>
     ),
     title: "Formación corporativa en IA",
+    href: undefined as string | undefined,
     description:
       "Programas de adopción de IA generativa para equipos corporativos, diseñados por área y reto de negocio. Cada participante parte de su propio problema real y termina la sesión con un artefacto funcional que puede usar al día siguiente.",
     highlights: [
@@ -41,6 +43,7 @@ const services = [
       </svg>
     ),
     title: "Beneficios tributarios I+D+i",
+    href: undefined as string | undefined,
     description:
       "Acompañamiento en la estructuración y postulación de proyectos para acceder a beneficios tributarios por inversiones en I+D+i ante Minciencias, e inversiones ambientales.",
     highlights: [
@@ -75,7 +78,13 @@ export default function ServicesSection() {
                 {service.icon}
               </div>
               <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
-                {service.title}
+                {service.href ? (
+                  <Link href={service.href} className="hover:text-primary transition-colors">
+                    {service.title}
+                  </Link>
+                ) : (
+                  service.title
+                )}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed flex-1">
                 {service.description}
