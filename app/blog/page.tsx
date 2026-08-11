@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
-import FeedArticle from "@/components/FeedArticle";
+import BlogPostCard from "@/components/BlogPostCard";
 import { allPosts, getAllCategories, slugifyCategory } from "@/lib/posts";
 import SchemaScript from "@/components/SchemaScript";
 import { breadcrumbSchema } from "@/lib/schema";
@@ -75,14 +75,11 @@ export default function BlogPage() {
             </nav>
           )}
 
-          {/* Feed de artículos completos */}
+          {/* Grid de previews de artículos */}
           {allPosts.length > 0 ? (
-            <div className="space-y-16">
-              {allPosts.map((post, i) => (
-                <div key={post.slug}>
-                  {i > 0 && <hr className="border-border mb-16 max-w-3xl mx-auto" />}
-                  <FeedArticle post={post} />
-                </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {allPosts.map((post) => (
+                <BlogPostCard key={post.slug} post={post} />
               ))}
             </div>
           ) : (

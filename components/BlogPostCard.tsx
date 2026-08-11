@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Post } from "@/lib/posts";
 
@@ -13,11 +14,15 @@ export const categoryColors: Record<string, string> = {
 export default function BlogPostCard({ post }: { post: Post }) {
   return (
     <article className="card overflow-hidden flex flex-col">
-      <div className="h-40 bg-primary/10 flex items-center justify-center">
-        <svg className="w-10 h-10 text-primary/30" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-        </svg>
-      </div>
+      <Link href={`/blog/${post.slug}`} className="relative block h-44 w-full bg-primary/10">
+        <Image
+          src={`/blog/${post.slug}/opengraph-image`}
+          alt={post.title}
+          fill
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover"
+        />
+      </Link>
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-3">
           <span className={`text-xs font-heading font-semibold px-2 py-0.5 rounded-full ${categoryColors[post.category] ?? "bg-muted text-muted-foreground"}`}>
@@ -31,11 +36,14 @@ export default function BlogPostCard({ post }: { post: Post }) {
           </Link>
         </h2>
         <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{post.excerpt}</p>
-        <div className="flex items-center justify-between mt-auto">
-          <time className="text-xs text-muted-foreground" dateTime={post.date}>
+        <div className="flex items-center justify-between mt-auto gap-3">
+          <time className="text-xs text-muted-foreground shrink-0" dateTime={post.date}>
             {new Date(post.date + "T12:00:00Z").toLocaleDateString("es-CO", { timeZone: "UTC", year: "numeric", month: "short", day: "numeric" })}
           </time>
-          <Link href={`/blog/${post.slug}`} className="text-xs font-semibold text-accent hover:text-accent-hover flex items-center gap-1 transition-colors">
+          <Link
+            href={`/blog/${post.slug}`}
+            className="btn-secondary text-xs px-4 py-2 flex items-center gap-1"
+          >
             Leer más
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

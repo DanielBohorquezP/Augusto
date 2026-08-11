@@ -18,11 +18,11 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Afiliaciones (logos) | `components/sections/AffiliationsSection.tsx` |
 | CTA final de home | `components/sections/CTASection.tsx` |
 | **Publicar un artículo nuevo** | `content/blog/COMO-PUBLICAR.md` — instrucciones para Claude |
-| **Artículos del blog** | `content/blog/*.md` — un archivo por artículo (hoy vacío, ver abajo) |
-| Página de blog (feed completo) | `app/blog/page.tsx` — muestra TODOS los artículos completos en una sola página |
-| Un artículo dentro del feed | `components/FeedArticle.tsx` |
+| **Artículos del blog** | `content/blog/*.md` — un archivo por artículo |
+| Página de blog (grid de previews) | `app/blog/page.tsx` — muestra tarjetas (título, imagen, extracto, botón) que enlazan a cada artículo |
+| Tarjeta de preview en el grid | `components/BlogPostCard.tsx` |
 | Página individual de artículo (URL propia, para Google) | `app/blog/[slug]/page.tsx` |
-| Página de categoría de blog (feed filtrado) | `app/blog/categoria/[categoria]/page.tsx` |
+| Página de categoría de blog (grid filtrado) | `app/blog/categoria/[categoria]/page.tsx` |
 | Renderizador del cuerpo del artículo | `components/PostBody.tsx` — usado en el feed y en la página individual |
 | Cargador/parser de artículos | `lib/posts.ts` |
 | Imagen OG automática por artículo | `app/blog/[slug]/opengraph-image.tsx` |
@@ -174,9 +174,8 @@ Ejemplo: para cambiar el title de la página de servicios, abre `app/servicios/p
 | `SchemaScript` | `components/SchemaScript.tsx` | Layout global — inyecta JSON-LD |
 | `ContactForm` | `components/ContactForm.tsx` | `app/contacto/page.tsx` |
 | `NewsletterForm` | `components/NewsletterForm.tsx` | Varias páginas |
-| `FeedArticle` | `components/FeedArticle.tsx` | `/blog` y `/blog/categoria/[categoria]` — un artículo completo en el feed |
-| `PostBody` | `components/PostBody.tsx` | Renderiza el cuerpo Markdown parseado (feed y página individual) |
-| `BlogPostCard` | `components/BlogPostCard.tsx` | `BlogPreviewSection` (tarjetas en la homepage) |
+| `PostBody` | `components/PostBody.tsx` | Renderiza el cuerpo Markdown parseado (página individual del artículo) |
+| `BlogPostCard` | `components/BlogPostCard.tsx` | `/blog`, `/blog/categoria/[categoria]` y `BlogPreviewSection` (homepage) — tarjeta de preview: título, imagen, extracto y botón "Leer más" |
 
 ---
 
@@ -252,8 +251,7 @@ augusto-ruiz-org/
 │   ├── NewsletterForm.tsx      # Formulario newsletter
 │   ├── SchemaScript.tsx        # Inyector de JSON-LD
 │   ├── PostBody.tsx            # Renderiza el cuerpo Markdown parseado de un post
-│   ├── FeedArticle.tsx         # Un artículo completo dentro del feed de /blog
-│   ├── BlogPostCard.tsx        # Tarjeta de post (usada en la homepage)
+│   ├── BlogPostCard.tsx        # Tarjeta de preview de post (/blog, categorías, homepage)
 │   └── sections/               # Secciones de la página de inicio
 │       ├── HeroSection.tsx
 │       ├── StatsSection.tsx

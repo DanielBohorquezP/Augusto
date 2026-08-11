@@ -260,16 +260,20 @@ se **borraron definitivamente** para empezar a publicar contenido real desde cer
 `content/blog/` solo contiene `.gitkeep`. El flujo de publicación queda documentado en
 `content/blog/COMO-PUBLICAR.md` (ver sección 13).
 
-### Cómo se lee el blog (decisión de producto, 2026-07-06)
+### Cómo se lee el blog (decisión de producto, actualizada 2026-08-11)
 
-- **`/blog` es un feed**: muestra el **contenido completo** de todos los artículos, uno
-  debajo del otro — el visitante lee todo sin hacer clic ni ser redirigido.
-- Cada artículo **conserva su URL individual** (`/blog/[slug]`) porque es la que
-  Google indexa y posiciona por keyword — el feed no reemplaza el SEO, lo complementa.
-- `/blog/categoria/[categoria]` es el mismo feed, filtrado.
-- El componente `components/FeedArticle.tsx` renderiza un artículo dentro del feed;
-  `components/PostBody.tsx` es el renderizador compartido del cuerpo (usado tanto en
-  el feed como en la página individual).
+- **`/blog` es un grid de previews**: muestra tarjetas (`BlogPostCard`) con título,
+  imagen (la OG image auto-generada del post), un extracto corto y un botón "Leer
+  más" — no el contenido completo. El visitante hace clic para ir al artículo.
+- Cada artículo tiene su URL individual (`/blog/[slug]`), que es la que Google indexa
+  y posiciona por keyword, y la única página que renderiza el cuerpo completo.
+- `/blog/categoria/[categoria]` es el mismo grid de previews, filtrado.
+- El componente `components/BlogPostCard.tsx` renderiza cada tarjeta en el grid (se
+  reusa también en `BlogPreviewSection` de la homepage); `components/PostBody.tsx`
+  es el renderizador del cuerpo, usado solo en la página individual del artículo.
+- (Decisión anterior, 2026-07-06, revertida: `/blog` mostraba el contenido completo
+  de todos los artículos en una sola página vía `components/FeedArticle.tsx`, hoy
+  eliminado.)
 
 ### Infraestructura técnica
 
@@ -334,11 +338,11 @@ Posts profundos sobre las metodologías de Augusto (modelos probabilísticos, op
 
 ### Componentes del blog
 
-- **`app/blog/page.tsx`** — feed con el contenido completo de todos los artículos, filtro por categoría (enlaza a `/blog/categoria/[categoria]`), estado vacío con mensaje + newsletter
-- **`app/blog/categoria/[categoria]/page.tsx`** — mismo feed, filtrado
+- **`app/blog/page.tsx`** — grid de previews (`BlogPostCard`) de todos los artículos, filtro por categoría (enlaza a `/blog/categoria/[categoria]`), estado vacío con mensaje + newsletter
+- **`app/blog/categoria/[categoria]/page.tsx`** — mismo grid, filtrado
 - **`app/blog/[slug]/page.tsx`** — página individual (la que indexa Google): breadcrumb, tabla de contenidos con anclas, cuerpo vía `<PostBody>`, sidebar con perfil, posts relacionados, newsletter
-- **`components/FeedArticle.tsx`** — un artículo completo dentro del feed (título enlazado a su URL propia + cuerpo sin anclas duplicadas)
-- **`components/PostBody.tsx`** — renderizador compartido del cuerpo (`ContentBlock[]` → JSX), con prop `withAnchors` para activar/desactivar los ids de sección
+- **`components/BlogPostCard.tsx`** — tarjeta de preview (título, imagen OG del post, extracto, botón "Leer más"), usada en `/blog`, `/blog/categoria/[categoria]` y `BlogPreviewSection`
+- **`components/PostBody.tsx`** — renderizador del cuerpo (`ContentBlock[]` → JSX) en la página individual del artículo
 - **`components/NewsletterForm.tsx`** — formulario de captura de email (conectado a `/api/newsletter` → Google Sheets)
 - **Artículos relacionados** — dinámicos, misma categoría (`getRelatedPosts()` en `lib/posts.ts`)
 
