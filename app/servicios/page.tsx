@@ -104,7 +104,7 @@ const faqs = [
   },
   {
     q: "¿Cómo funciona el proceso para acceder a beneficios tributarios por I+D+i?",
-    a: "El primer paso es establecer si el proyecto califica y bajo qué régimen, antes de cualquier compromiso formal. Si es elegible, se estructura técnicamente el proyecto, se prepara la documentación requerida y se gestiona la postulación ante la entidad competente: Minciencias para proyectos de I+D+i, o la ANLA y la UPME para inversiones ambientales y energéticas. La tasa de aprobación en proyectos gestionados es del 93%.",
+    a: "El primer paso es establecer si el proyecto califica y bajo qué régimen, antes de cualquier compromiso formal. Si es elegible, se estructura técnicamente el proyecto, se prepara la documentación requerida y se gestiona la postulación ante la entidad competente: Minciencias para proyectos de I+D+i, o la ANLA y la UPME para inversiones ambientales y energéticas. La tasa de aprobación en proyectos gestionados en mi práctica actual de consultoría es del 93%.",
   },
   {
     q: "¿Con qué tipo de organizaciones ha trabajado?",

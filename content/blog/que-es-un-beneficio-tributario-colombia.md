@@ -91,7 +91,7 @@ Los beneficios tributarios por I+D+i y por inversiones energéticas y ambientale
 En mi práctica actual de consultoría, la tasa de aprobación en proyectos gestionados ante estas entidades es del 93%. Si su empresa invierte en innovación, en energías renovables o en mejoras ambientales y quiere establecer si califica, el primer paso es una [evaluación de elegibilidad.](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion)
 
 :::destacado Nota
-Este artículo es información general sobre el marco normativo vigente en Colombia a la fecha de publicación y no constituye asesoría tributaria o legal individualizada. Cifras, topes y cupos (UVT, convocatorias) se ajustan periódicamente: verifique los valores vigentes del año en curso o consulte con un asesor antes de tomar decisiones basadas en este contenido.
+Este artículo es información general sobre el marco normativo vigente en Colombia a la fecha de publicación y no constituye asesoría tributaria o legal individualizada. Cifras, topes y cupos (UVT, convocatorias) se ajustan periódicamente: verifique los valores vigentes del año en curso o consulte con un asesor antes de tomar decisiones basadas en este contenido. Si detecta un dato desactualizado o un error, [contácteme](https://www.augustoruiz.org/contacto) para corregirlo.
 :::
 
 :::cta

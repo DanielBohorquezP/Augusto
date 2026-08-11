@@ -27,12 +27,16 @@ const postFaqs: Record<string, { q: string; a: string }[]> = {
   ],
 };
 
-const postAbout: Record<string, { name: string; type?: string }[]> = {
+const postAbout: Record<string, { name: string; type?: string; sameAs?: string }[]> = {
   "que-es-un-beneficio-tributario-colombia": [
     { name: "Beneficios tributarios I+D+i en Colombia" },
-    { name: "Consejo Nacional de Beneficios Tributarios (CNBT)", type: "GovernmentOrganization" },
-    { name: "Minciencias", type: "GovernmentOrganization" },
-    { name: "DIAN", type: "GovernmentOrganization" },
+    {
+      name: "Consejo Nacional de Beneficios Tributarios (CNBT)",
+      type: "GovernmentOrganization",
+      sameAs: "https://minciencias.gov.co/viceministerios/conocimiento/direccion_transferencia/beneficios-tributarios/cuales-son",
+    },
+    { name: "Minciencias", type: "GovernmentOrganization", sameAs: "https://minciencias.gov.co" },
+    { name: "DIAN", type: "GovernmentOrganization", sameAs: "https://www.dian.gov.co" },
   ],
   "beneficios-tributarios-idi-america-latina-comparativo": [
     { name: "Incentivos fiscales a la I+D+i en América Latina" },

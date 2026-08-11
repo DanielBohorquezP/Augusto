@@ -176,6 +176,18 @@ Los principales beneficios documentados de contratar consultoría especializada 
 
 ---
 
+## ¿Quién puede acceder a los beneficios tributarios por I+D+i en Colombia?
+
+Cualquier empresa contribuyente del impuesto de renta en Colombia, sin restricción de tamaño o sector. El filtro real es que el proyecto califique en la tipología del CNBT (I+D+i) o corresponda a FNCE/eficiencia energética certificada por la UPME y la ANLA. El crédito fiscal del 50% y los TIDIS están diseñados para las MiPymes.
+
+## ¿Qué pasa si un proyecto de beneficios tributarios es rechazado en Colombia?
+
+Un proyecto no aprobado puede ajustarse y presentarse de nuevo; el rechazo no inhabilita a la empresa. Lo determinante es diagnosticar la causa: si el proyecto no encaja en la tipología del CNBT, ningún ajuste de forma lo salvará; si el problema fue de formulación o soporte documental, la corrección es viable.
+
+## ¿Qué beneficios tributarios a la I+D+i ofrecen otros países de América Latina?
+
+Brasil (Lei do Bem, exclusión del 60%-100% de gastos en I+D), Chile (Ley 20.241, crédito del 35%, extendido hasta 2035), Argentina (Economía del Conocimiento, Ley 27.506), Uruguay (Ley 19.739, crédito del 35%-45%), México (estímulo EFIDT, crédito del 30%) y Perú (Ley 30309, deducción del 160%-240%, prorrogada hasta 2028).
+
 ## Blog: investigación aplicada
 
 - ¿Qué es un beneficio tributario y cómo acceder a él en Colombia? — descuentos y créditos fiscales por I+D+i ante Minciencias, y por energías renovables/eficiencia energética ante la UPME y la ANLA: https://www.augustoruiz.org/blog/que-es-un-beneficio-tributario-colombia

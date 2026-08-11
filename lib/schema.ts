@@ -139,7 +139,7 @@ export function articleSchema({
   slug: string;
   datePublished: string;
   dateModified: string;
-  about?: { name: string; type?: string }[];
+  about?: { name: string; type?: string; sameAs?: string }[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -156,7 +156,13 @@ export function articleSchema({
     mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}` },
     isPartOf: { "@id": `${BASE_URL}/#website` },
     ...(about && about.length > 0
-      ? { about: about.map(({ name, type }) => ({ "@type": type ?? "Thing", name })) }
+      ? {
+          about: about.map(({ name, type, sameAs }) => ({
+            "@type": type ?? "Thing",
+            name,
+            ...(sameAs ? { sameAs } : {}),
+          })),
+        }
       : {}),
   };
 }
