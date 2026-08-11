@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   description:
     "Estructuración y gestión de beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA. Asesoría en Colombia.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion" },
+  openGraph: {
+    title: "Beneficios Tributarios por Innovación, FNCE y Eficiencia Energética | Augusto Ruiz",
+    description:
+      "Estructuración y gestión de beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
+    url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion",
+    type: "website",
+  },
 };
 
 const problema = [

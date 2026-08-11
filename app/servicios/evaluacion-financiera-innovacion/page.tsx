@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   description:
     "Evaluación financiera probabilística de proyectos de innovación con simulación Monte Carlo. Más allá del VPN y la TIR tradicionales. Consultoría en Colombia y LATAM.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
+  openGraph: {
+    title: "Evaluación Financiera de Proyectos de Innovación | Augusto Ruiz",
+    description:
+      "Evaluación financiera probabilística de proyectos de innovación con simulación Monte Carlo. Más allá del VPN y la TIR tradicionales.",
+    url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion",
+    type: "website",
+  },
 };
 
 const problema = [

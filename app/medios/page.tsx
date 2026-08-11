@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "Apariciones de Augusto Ruiz en medios, podcasts, congresos y entrevistas sobre gestión de innovación tecnológica, evaluación financiera e inteligencia artificial.",
   alternates: { canonical: "https://www.augustoruiz.org/medios" },
+  openGraph: {
+    title: "Medios y Prensa — Entrevistas y Ponencias | Augusto Ruiz",
+    description:
+      "Apariciones de Augusto Ruiz en medios, podcasts, congresos y entrevistas sobre gestión de innovación tecnológica, evaluación financiera e inteligencia artificial.",
+    url: "https://www.augustoruiz.org/medios",
+    type: "website",
+  },
 };
 
 const podcasts = [

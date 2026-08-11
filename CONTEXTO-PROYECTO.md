@@ -1,7 +1,8 @@
 # Contexto Completo del Proyecto — augustoruiz.org
 
 > Documento de referencia para cualquier sesión de trabajo en este proyecto.
-> Última actualización: 2026-08-11 — agregada la checklist SEO obligatoria (sección 8.1)
+> Última actualización: 2026-08-11 — checklist SEO (8.1) + lección sobre aplicar fixes
+> retroactivamente a todas las páginas, no solo a las tocadas en el momento del fix
 
 ---
 
@@ -233,9 +234,14 @@ breadcrumbSchema(items: { name, url }[])
 ### robots.ts — AI crawlers permitidos
 
 ```
-GPTBot ✓ | ClaudeBot ✓ | PerplexityBot ✓ | Googlebot-Extended ✓ | anthropic-ai ✓
+GPTBot ✓ | ClaudeBot ✓ | PerplexityBot ✓ | Google-Extended ✓ | anthropic-ai ✓
 ```
-`/api/` y `/studio/` están bloqueados.
+`/api/` está bloqueado. **Ojo con el nombre exacto de los tokens de user-agent** — el
+token real de Google para IA es `Google-Extended`, no `Googlebot-Extended`; ese typo
+estuvo en el código hasta el 2026-08-11 (funcionalmente inofensivo porque la regla
+wildcard `*` ya permitía todo, pero la regla explícita nunca aplicaba). No hay ruta
+`/studio/` en este proyecto (no hay CMS headless) — si `robots.ts` alguna vez vuelve a
+listar `/studio/`, es un error de copiar/pegar, no una regla real.
 
 ### sitemap.ts
 
@@ -271,6 +277,16 @@ Esta sección existe para no tener que volver a correr una auditoría completa c
 que se agrega contenido. Es la lista de archivos que el SEO de este sitio depende y que
 **no se actualizan solos** salvo que se indique lo contrario. Verificar antes de dar por
 terminado cualquier cambio.
+
+> **Lección del 2026-08-11 (segunda auditoría):** el primer fix de `openGraph` faltante
+> solo se aplicó a las 3 páginas que la auditoría de ese momento cubrió
+> (`/prime-10`, `/docencia`, `/blog`). Una segunda auditoría, días después, encontró el
+> **mismo bug en 5 páginas más** que ya existían pero que esa primera pasada no había
+> revisado (`/servicios/*` × 3, `/medios`, `/contacto`, `/blog/categoria/[categoria]`).
+> La checklist no se aplicó retroactivamente a páginas existentes, solo a las tocadas en
+> ese momento. **Al corregir un patrón de bug (ej. `openGraph` faltante), correr un grep
+> sobre TODO `app/**/page.tsx` (`grep -L "openGraph:" app/**/page.tsx`) en vez de asumir
+> que ya se cubrió con el fix anterior.**
 
 ### A. Nueva página de nivel superior (ej. `/algo/page.tsx`, como pasó con `/docencia`)
 
@@ -530,15 +546,23 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 ### SEO / GEO
 - [x] Foto de perfil optimizada + `next/image` (2026-07)
 - [x] OG title/url específico por página en `/prime-10`, `/docencia`, `/blog` (2026-08-11 — antes heredaban el de la home)
+- [x] OG title/url en las 3 subpáginas de `/servicios`, `/medios`, `/contacto` y `/blog/categoria/[categoria]` (2026-08-11 — mismo bug encontrado en una segunda pasada, ver nota en 8.1)
 - [x] `BreadcrumbList` en `/docencia` — era la única página del sitio sin ningún JSON-LD (2026-08-11)
 - [x] `@id`/`url` en cada `Offer.itemOffered` del catálogo de servicios, apuntando a su subpágina real (2026-08-11)
 - [x] `mainEntityOfPage`/`isPartOf` en el schema `BlogPosting` (2026-08-11)
+- [x] Token de user-agent corregido: `Google-Extended` (no `Googlebot-Extended`) en `app/robots.ts` (2026-08-11)
+- [x] Regla `/studio/` eliminada de `robots.ts` — no existe esa ruta en el proyecto (2026-08-11)
+- [x] `public/llms.txt` actualizado con los 2 posts del blog y `/docencia` (2026-08-11)
 - [ ] Agregar `dateModified` diferente a `datePublished` en posts actualizados (ya soportado por el sistema, falta usarlo al editar posts)
 - [ ] Foto real en sidebar del blog post (actualmente usa iniciales "AR")
-- [ ] Agregar más entidades a `sameAs` en PersonSchema (TikTok/Spotify ya enlazados en `/medios`, ResearchGate/Google Scholar/ORCID pendientes de confirmar con Augusto)
+- [ ] Agregar más entidades a `sameAs` en PersonSchema — **necesita confirmación de Augusto**: ¿la cuenta TikTok @retro_ciencia y el show de Spotify de RetroCiencia son de su propiedad/operación directa? (no asumir); ¿existe ORCID o Google Scholar para la investigación doctoral?
+- [ ] Estadística "93% tasa de aprobación" en `/servicios` sin fuente/fecha/muestra — **necesita el dato real de Augusto** (rango de fechas, N de proyectos) para poder citarla igual que los posts del blog
+- [ ] Sin fecha "última actualización" visible en `/sobre`, `/servicios`, `/prime-10`, `/docencia` (sí la tienen `/politica-privacidad` y los posts del blog) — mecánico de agregar una vez se defina el patrón
+- [ ] Copy del newsletter promete "cada semana" con solo 2 posts publicados en 2 días — decisión de Augusto: suavizar el texto o sostener la cadencia semanal en los próximos posts
+- [ ] Sin política editorial/de corrección visible en el sitio
+- [ ] Credenciales de Augusto más delgadas en `/prime-10` y `/docencia` que en `/sobre` — falta franja de crédito consistente
 - [ ] Actualizar `/medios` con apariciones reales (URLs reales, no `#`)
 - [ ] Considerar agregar `VideoObject` schema si hay charlas en YouTube
-- [ ] `public/llms.txt` no se actualiza solo — no menciona el post publicado ni /docencia; revisar si vale la pena agregarlos
 
 ### Nuevos posts recomendados (por intención de búsqueda)
 - "evaluación financiera de proyectos de innovación Colombia" 

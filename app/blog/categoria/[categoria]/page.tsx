@@ -15,10 +15,18 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: { categoria: string } }): Promise<Metadata> {
   const category = getCategoryBySlug(params.categoria);
   if (!category) return {};
+  const description = `Artículos sobre ${category.toLowerCase()} en innovación tecnológica por Augusto Ruiz, PhD(c) Universidad de los Andes. Investigación aplicada para organizaciones latinoamericanas.`;
+  const url = `https://www.augustoruiz.org/blog/categoria/${params.categoria}`;
   return {
     title: `${category} — Artículos del Blog`,
-    description: `Artículos sobre ${category.toLowerCase()} en innovación tecnológica por Augusto Ruiz, PhD(c) Universidad de los Andes. Investigación aplicada para organizaciones latinoamericanas.`,
-    alternates: { canonical: `https://www.augustoruiz.org/blog/categoria/${params.categoria}` },
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${category} — Artículos del Blog | Augusto Ruiz`,
+      description,
+      url,
+      type: "website",
+    },
   };
 }
 

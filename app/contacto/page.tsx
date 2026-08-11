@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description:
     "Agenda una consulta con Augusto Ruiz. Consultoría en evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
   alternates: { canonical: "https://www.augustoruiz.org/contacto" },
+  openGraph: {
+    title: "Contacto — Agendar consulta | Augusto Ruiz",
+    description:
+      "Agenda una consulta con Augusto Ruiz. Consultoría en evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
+    url: "https://www.augustoruiz.org/contacto",
+    type: "website",
+  },
 };
 
 export default function ContactoPage() {

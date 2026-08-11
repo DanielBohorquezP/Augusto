@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   description:
     "Programas de capacitación en inteligencia artificial generativa para equipos corporativos en Colombia. Diseño por área y reto de negocio, con ROI medible.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios/capacitacion-ia-generativa" },
+  openGraph: {
+    title: "Capacitación en IA Generativa para Empresas | Augusto Ruiz",
+    description:
+      "Programas de capacitación en inteligencia artificial generativa para equipos corporativos en Colombia. Diseño por área y reto de negocio, con ROI medible.",
+    url: "https://www.augustoruiz.org/servicios/capacitacion-ia-generativa",
+    type: "website",
+  },
 };
 
 const problema = [
