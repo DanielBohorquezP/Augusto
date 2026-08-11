@@ -43,7 +43,7 @@ const services = [
       </svg>
     ),
     title: "Beneficios tributarios I+D+i",
-    href: undefined as string | undefined,
+    href: "/servicios/beneficios-tributarios-innovacion" as string | undefined,
     description:
       "Acompañamiento en la estructuración y postulación de proyectos para acceder a beneficios tributarios por inversiones en I+D+i ante Minciencias, e inversiones ambientales.",
     highlights: [

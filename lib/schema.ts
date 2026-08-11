@@ -90,6 +90,7 @@ export const personSchema = {
     "Modelos Probabilísticos",
     "Inteligencia Artificial Generativa",
     "Financiación de Innovación",
+    "Beneficios tributarios para I+D+i",
     "PRIME-10 Assessment",
     "Opciones Reales",
     "Simulación Monte Carlo",
@@ -116,6 +117,7 @@ export const websiteSchema = {
   name: "Augusto Ruiz",
   url: BASE_URL,
   description: "Consultor, investigador y formador en gestión de innovación tecnológica.",
+  inLanguage: "es",
   author: { "@id": `${BASE_URL}/#person` },
   potentialAction: {
     "@type": "SearchAction",
@@ -130,12 +132,14 @@ export function articleSchema({
   slug,
   datePublished,
   dateModified,
+  about,
 }: {
   title: string;
   description: string;
   slug: string;
   datePublished: string;
   dateModified: string;
+  about?: { name: string; type?: string }[];
 }) {
   return {
     "@context": "https://schema.org",
@@ -151,6 +155,9 @@ export function articleSchema({
     inLanguage: "es",
     mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}` },
     isPartOf: { "@id": `${BASE_URL}/#website` },
+    ...(about && about.length > 0
+      ? { about: about.map(({ name, type }) => ({ "@type": type ?? "Thing", name })) }
+      : {}),
   };
 }
 

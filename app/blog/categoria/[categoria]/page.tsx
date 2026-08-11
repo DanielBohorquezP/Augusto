@@ -27,6 +27,11 @@ export async function generateMetadata({ params }: { params: { categoria: string
       url,
       type: "website",
     },
+    twitter: {
+      card: "summary_large_image",
+      title: `${category} — Artículos del Blog | Augusto Ruiz`,
+      description,
+    },
   };
 }
 

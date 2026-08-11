@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Post } from "@/lib/posts";
+import { slugifyCategory } from "@/lib/posts";
 
 export const categoryColors: Record<string, string> = {
   "Consultoría": "bg-primary/10 text-primary",
@@ -40,9 +41,12 @@ export default function BlogPostCard({ post }: { post: Post }) {
       </Link>
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-3">
-          <span className={`text-xs font-heading font-semibold px-2 py-0.5 rounded-full ${categoryColors[post.category] ?? "bg-muted text-muted-foreground"}`}>
+          <Link
+            href={`/blog/categoria/${slugifyCategory(post.category)}`}
+            className={`text-xs font-heading font-semibold px-2 py-0.5 rounded-full hover:opacity-80 transition-opacity ${categoryColors[post.category] ?? "bg-muted text-muted-foreground"}`}
+          >
             {post.category}
-          </span>
+          </Link>
           <span className="text-xs text-muted-foreground">{post.readTime}</span>
         </div>
         <h2 className="font-heading font-semibold text-foreground text-base leading-snug mb-2 flex-1">

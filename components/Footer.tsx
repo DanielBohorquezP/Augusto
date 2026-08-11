@@ -4,7 +4,7 @@ const footerLinks = {
   Servicios: [
     { label: "PRIME-10 Decision Assessment", href: "/servicios#evaluacion-financiera" },
     { label: "Formación corporativa en IA", href: "/servicios#ia-generativa" },
-    { label: "Beneficios tributarios I+D+i", href: "/servicios#financiacion" },
+    { label: "Beneficios tributarios I+D+i", href: "/servicios/beneficios-tributarios-innovacion" },
     { label: "PRIME-10™", href: "/prime-10" },
   ],
   Explorar: [

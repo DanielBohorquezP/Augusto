@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
 import Prime10Phases from "@/components/sections/Prime10Phases";
 import SchemaScript from "@/components/SchemaScript";
@@ -75,7 +76,7 @@ const services = [
       "Gestión ante la entidad competente: Minciencias, ANLA o UPME según el régimen",
       "Preparación de la documentación requerida",
       "Seguimiento al proceso de aprobación",
-      "93% tasa de aprobación en proyectos gestionados",
+      "93% tasa de aprobación en proyectos gestionados en mi práctica actual de consultoría",
     ],
     forWho: "Empresas que inviertan en proyectos de I+D+i, en control y mejoramiento ambiental, o en energías renovables y eficiencia energética.",
   },
@@ -161,14 +162,21 @@ export default function ServiciosPage() {
                 <p className="mt-3 text-xs text-muted-foreground">
                   <strong className="text-foreground">Para quién:</strong> {service.forWho}
                 </p>
-                <a
-                  href={whatsappUrl(`Hola Augusto, quiero información sobre el servicio de ${service.title}.`)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary mt-6"
-                >
-                  Contáctame por WhatsApp
-                </a>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    href={whatsappUrl(`Hola Augusto, quiero información sobre el servicio de ${service.title}.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    Contáctame por WhatsApp
+                  </a>
+                  {service.id === "financiacion" && (
+                    <Link href="/servicios/beneficios-tributarios-innovacion" className="btn-secondary">
+                      Ver el servicio completo
+                    </Link>
+                  )}
+                </div>
               </div>
               <div className={`card p-6 ${idx % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}`}>
                 <h3 className="font-heading font-semibold text-sm text-foreground mb-4 uppercase tracking-wide">

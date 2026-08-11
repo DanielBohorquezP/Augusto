@@ -58,6 +58,10 @@ La región ofrece incentivos reales y significativos a la I+D+i empresarial, per
 
 Si su empresa invierte en I+D+i en Colombia o en la región y quiere establecer a qué beneficios puede acceder, el primer paso es una [evaluación de elegibilidad sin compromiso formal.](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion)
 
+:::destacado Nota
+Este artículo es información general sobre los regímenes vigentes en cada país a la fecha de publicación (2026) y no constituye asesoría tributaria o legal individualizada. Topes, tarifas y vigencias cambian con la normativa local de cada país: verifique los valores actuales o consulte con un asesor en la jurisdicción correspondiente antes de tomar decisiones basadas en este contenido.
+:::
+
 :::cta
 heading: ¿Su empresa invierte en I+D+i en la región?
 text: El primer paso es una evaluación de elegibilidad para establecer a qué beneficios puede acceder, en Colombia o en otros países de América Latina.
