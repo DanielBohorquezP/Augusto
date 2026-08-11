@@ -553,11 +553,21 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 - [x] Token de user-agent corregido: `Google-Extended` (no `Googlebot-Extended`) en `app/robots.ts` (2026-08-11)
 - [x] Regla `/studio/` eliminada de `robots.ts` — no existe esa ruta en el proyecto (2026-08-11)
 - [x] `public/llms.txt` actualizado con los 2 posts del blog y `/docencia` (2026-08-11)
-- [ ] Agregar `dateModified` diferente a `datePublished` en posts actualizados (ya soportado por el sistema, falta usarlo al editar posts)
+- [x] `/servicios/beneficios-tributarios-innovacion` agregada a `sitemap.ts` (faltaba por completo — solo era alcanzable vía los 2 posts del blog) (2026-08-11)
+- [x] Enlaces internos home → servicio de beneficios tributarios (tarjeta H3 en `ServicesSection.tsx` sin `href`, footer apuntaba al ancla `#financiacion` en vez de la página completa) (2026-08-11)
+- [x] Botón "Ver el servicio completo" en la sección de financiación de `/servicios`, además del CTA de WhatsApp (2026-08-11)
+- [x] Badge de categoría en `BlogPostCard.tsx` ahora enlaza a `/blog/categoria/[categoria]` (antes era texto plano, sin ruta desde el home hacia la categoría) (2026-08-11)
+- [x] `FAQPage` schema en `/blog/que-es-un-beneficio-tributario-colombia` a partir de sus H2 en formato pregunta (2026-08-11)
+- [x] `about` (CNBT, Minciencias, DIAN, países) en `BlogPosting` de ambos posts de beneficios tributarios + "Beneficios tributarios para I+D+i" en `knowsAbout` del `PersonSchema` + `inLanguage` en `WebSite` (2026-08-11)
+- [x] Byline del autor en los posts del blog enlazado a `/sobre` (hero + sidebar) (2026-08-11)
+- [x] Disclaimer YMYL ("no constituye asesoría tributaria/legal individualizada") en ambos posts de beneficios tributarios (2026-08-11)
+- [x] `og:image` propio + `twitter:title/description` explícitos en `/blog/categoria/[categoria]` (heredaban los del home) (2026-08-11)
+- [ ] Agregar `dateModified` diferente a `datePublished` en posts actualizados (ya soportado por el sistema, falta usarlo al editar posts) — **para los posts de beneficios tributarios en particular: revisar cada enero, cuando la DIAN publica el UVT del año**, y los equivalentes UTM/UIT/pesos de los países citados en el comparativo. Aunque las cifras no cambien, marcar `dateModified` como "revisado, sin cambios" mantiene la señal de frescura para Google y los motores de IA.
 - [ ] Foto real en sidebar del blog post (actualmente usa iniciales "AR")
 - [ ] Agregar más entidades a `sameAs` en PersonSchema — **necesita confirmación de Augusto**: ¿la cuenta TikTok @retro_ciencia y el show de Spotify de RetroCiencia son de su propiedad/operación directa? (no asumir); ¿existe ORCID o Google Scholar para la investigación doctoral?
-- [ ] Estadística "93% tasa de aprobación" en `/servicios` sin fuente/fecha/muestra — **necesita el dato real de Augusto** (rango de fechas, N de proyectos) para poder citarla igual que los posts del blog
+- [x] Estadística "93% tasa de aprobación" acotada a "en mi práctica actual de consultoría" en `/servicios` y en el post, para no confundirse con el 85% (Inventta, 2015-2016) de `/sobre` (2026-08-11) — sigue sin fuente/fecha/muestra verificable si se quiere citar con más rigor
 - [ ] Sin fecha "última actualización" visible en `/sobre`, `/servicios`, `/prime-10`, `/docencia` (sí la tienen `/politica-privacidad` y los posts del blog) — mecánico de agregar una vez se defina el patrón
+- [ ] LCP móvil en 4.3s (PageSpeed Insights, 2026-08-11, sobre el sitio en producción) — Performance 84/100 en móvil, SEO 100/100. Insights de PSI: "Improve image delivery" (51 KiB) y "Render-blocking requests" (840ms). No es una regresión de esta sesión; queda pendiente investigar con más profundidad (Chrome DevTools Performance panel) qué recurso específico bloquea el render antes de tocar nada — priorizar sobre todo si el LCP no baja de 2.5s tras el próximo deploy.
 - [ ] Copy del newsletter promete "cada semana" con solo 2 posts publicados en 2 días — decisión de Augusto: suavizar el texto o sostener la cadencia semanal en los próximos posts
 - [ ] Sin política editorial/de corrección visible en el sitio
 - [ ] Credenciales de Augusto más delgadas en `/prime-10` y `/docencia` que en `/sobre` — falta franja de crédito consistente
