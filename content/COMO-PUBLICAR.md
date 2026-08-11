@@ -11,17 +11,38 @@
 2. **Frontmatter**: redacta `excerpt` (1-2 frases para el listado) y `metaDescription`
    (150–160 caracteres, con keyword + propuesta de valor, para Google).
 3. **Categoría**: una de: `Consultoría` · `Evaluación Financiera` · `IA Generativa` ·
-   `Financiación` · `Metodología` · `Casos de estudio` (o nueva si tiene sentido).
+   `Financiación` · `Beneficios Tributarios` · `Metodología` · `Casos de estudio` (o
+   nueva si tiene sentido). Si es una categoría nueva, agregar su color en
+   `categoryColors` dentro de `components/BlogPostCard.tsx` — si no, la tarjeta cae en
+   gris por defecto (funciona, pero es inconsistente).
 4. **Formato del cuerpo**: estructura el texto con `##` (secciones que alimentan la
-   tabla de contenidos), listas `- `, recuadros `:::destacado` para datos clave, y
-   **siempre cierra con un bloque `:::cta`** hacia WhatsApp, `/contacto` o `/servicios`.
+   tabla de contenidos), listas `- `, tablas GFM (`| Col A | Col B |` + fila separadora
+   `|---|---|`) cuando el contenido sea comparativo, recuadros `:::destacado` para
+   datos clave, enlaces a fuentes con `[texto](url)` (funciona en párrafos, listas y
+   `:::destacado` — se subrayan automáticamente y abren en pestaña nueva si son
+   externos), y **siempre cierra con un bloque `:::cta`** hacia WhatsApp, `/contacto` o
+   `/servicios`.
 5. **Fecha**: la del día de publicación (`YYYY-MM-DD`). Si se actualiza un post viejo,
    agregar `dateModified`.
 6. **Verificación**: correr `npm run build` y revisar el post en el preview antes de dar
-   por terminado. Actualizar `ESTRUCTURA.md`/`CONTEXTO-PROYECTO.md` si algo estructural cambió.
+   por terminado — **incluyendo mobile (375px) y tablet (768px)**, no solo desktop.
+   Prestar atención especial a tablas anchas (deben scrollear horizontalmente dentro de
+   su propio contenedor, nunca desbordar la página) e imágenes. Actualizar
+   `ESTRUCTURA.md`/`CONTEXTO-PROYECTO.md` si algo estructural cambió.
 
-Nada más hay que tocar: sitemap, feed de /blog, página de categoría, imagen OG
-(auto-generada), schema Article, tabla de contenidos y tiempo de lectura salen solos.
+Nada más hay que tocar: sitemap, listado de `/blog` (tarjetas de preview), página de
+categoría, imagen OG (auto-generada), schema `BlogPosting`, tabla de contenidos y
+tiempo de lectura salen solos.
+
+### Imágenes de las tarjetas — NO usar la imagen OG como thumbnail
+
+La tarjeta de preview (`components/BlogPostCard.tsx`, usada en `/blog`,
+`/blog/categoria/[categoria]` y la homepage) muestra un fondo de marca liso, sin texto
+— nunca la imagen OG generada del post. La imagen OG (`app/blog/[slug]/opengraph-image.tsx`)
+ya lleva el título grabado como píxeles para compartir en redes; usarla como thumbnail
+duplica el título (una vez ilegible dentro de la imagen, otra vez como texto real
+debajo) y se ve mal en mobile/tablet — bug real detectado y corregido el 2026-08-11. No
+reintroducir ese patrón al tocar `BlogPostCard.tsx`.
 
 ## Template del archivo
 

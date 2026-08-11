@@ -317,9 +317,18 @@ manual:
    pero evita duplicar temas).
 10. Si el post cita fuentes externas o internas, usar el formato `[texto](url)` dentro
     del Markdown — `PostBody.tsx` lo convierte en un link subrayado (nueva pestaña si es
-    externo). Funciona en párrafos y en bloques `:::destacado`.
+    externo). Funciona en párrafos, listas y bloques `:::destacado`.
 11. Si el post aporta un dato o metodología citable, considerar agregarlo a
     `public/llms.txt`.
+12. Si el post tiene contenido comparativo, usar tablas GFM (`| Col A | Col B |` +
+    `|---|---|`) — el parser las soporta y `PostBody.tsx` las renderiza con scroll
+    horizontal propio (nunca desbordan la página).
+13. **Verificar SIEMPRE en mobile (375px) y tablet (768px)**, no solo desktop — bug real
+    encontrado el 2026-08-11: la tarjeta de preview usaba la imagen OG (que ya lleva el
+    título grabado como píxeles) como thumbnail, duplicando el título y viéndose mal en
+    pantallas chicas. `BlogPostCard.tsx` ahora usa un fondo de marca sin texto — no
+    reutilizar la imagen OG como thumbnail en ningún rediseño futuro de la tarjeta.
+    Detalle completo en `content/COMO-PUBLICAR.md`.
 
 ### D. Editar una sección/página existente
 
