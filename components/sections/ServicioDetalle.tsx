@@ -1,19 +1,39 @@
+import Image from "next/image";
 import Link from "next/link";
 import { whatsappUrl } from "@/lib/site";
+import FAQAccordion from "@/components/FAQAccordion";
+import Reveal from "@/components/Reveal";
 
 type Faq = { q: string; a: string };
+type MetodologiaStep = { title: string; desc: string };
+type Imagen = { src: string; alt: string };
 
 export type ServicioDetalleProps = {
   badge: string;
   h1: string;
   intro: string;
   breadcrumbLabel: string;
+  imagen?: Imagen;
+  problema: string[];
+  incluye: string[];
+  incluyeNota?: string;
+  metodologia: MetodologiaStep[];
+  paraQuien: string[];
   faqs: Faq[];
 };
 
-const PLACEHOLDER = "[Contenido pendiente — Augusto completa]";
-
-export default function ServicioDetalle({ badge, h1, intro, faqs }: ServicioDetalleProps) {
+export default function ServicioDetalle({
+  badge,
+  h1,
+  intro,
+  imagen,
+  problema,
+  incluye,
+  incluyeNota,
+  metodologia,
+  paraQuien,
+  faqs,
+}: ServicioDetalleProps) {
   return (
     <>
       {/* Hero */}
@@ -31,48 +51,91 @@ export default function ServicioDetalle({ badge, h1, intro, faqs }: ServicioDeta
         </div>
       </section>
 
+      {/* Imagen destacada */}
+      {imagen && (
+        <section className="bg-white pt-10">
+          <div className="container-site">
+            <div className="relative w-full aspect-[21/9] rounded-xl overflow-hidden">
+              <Image
+                src={imagen.src}
+                alt={imagen.alt}
+                fill
+                sizes="100vw"
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* El problema / contexto */}
       <section className="py-16 bg-white">
         <div className="container-site max-w-3xl">
-          <h2 className="section-heading text-2xl sm:text-3xl mb-6">El problema</h2>
-          <p className="text-muted-foreground leading-relaxed">{PLACEHOLDER}</p>
+          <Reveal>
+            <h2 className="section-heading text-2xl sm:text-3xl mb-6">El problema</h2>
+          </Reveal>
+          <div className="space-y-4">
+            {problema.map((p, i) => (
+              <Reveal key={i} delay={i * 80}>
+                <p className="text-muted-foreground leading-relaxed">{p}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Qué incluye */}
       <section className="py-16 bg-muted">
         <div className="container-site max-w-3xl">
-          <h2 className="section-heading text-2xl sm:text-3xl mb-6">Qué incluye el servicio</h2>
-          <div className="card p-6">
-            <ul className="space-y-3">
-              {[1, 2, 3].map((i) => (
-                <li key={i} className="flex items-start gap-3 text-sm text-foreground">
-                  <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  {PLACEHOLDER}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Reveal>
+            <h2 className="section-heading text-2xl sm:text-3xl mb-6">Qué incluye el servicio</h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <div className="card p-6">
+              <ul className="space-y-3">
+                {incluye.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-foreground">
+                    <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              {incluyeNota && (
+                <p className="mt-5 pt-5 border-t border-border text-sm font-heading font-semibold text-primary">
+                  {incluyeNota}
+                </p>
+              )}
+            </div>
+          </Reveal>
         </div>
       </section>
 
       {/* Metodología */}
       <section className="py-16 bg-white">
         <div className="container-site">
-          <h2 className="section-heading text-2xl sm:text-3xl text-center mb-12">Cómo funciona</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {["01", "02", "03", "04"].map((step) => (
-              <div key={step} className="card p-6 text-center">
-                <div className="w-12 h-12 rounded-full bg-accent text-white font-heading font-bold text-lg flex items-center justify-center mx-auto mb-4">
-                  {step}
+          <Reveal>
+            <h2 className="section-heading text-2xl sm:text-3xl text-center mb-12">Cómo funciona</h2>
+          </Reveal>
+          <div
+            className={`grid grid-cols-1 sm:grid-cols-2 gap-6 ${
+              metodologia.length >= 5 ? "lg:grid-cols-5" : "lg:grid-cols-4"
+            }`}
+          >
+            {metodologia.map((step, i) => (
+              <Reveal key={step.title} delay={i * 90} className="h-full">
+                <div className="card p-6 text-center h-full flex flex-col">
+                  <div className="w-12 h-12 rounded-full bg-accent text-white font-heading font-bold text-lg flex items-center justify-center mx-auto mb-4">
+                    {String(i + 1).padStart(2, "0")}
+                  </div>
+                  <h3 className="font-heading font-semibold text-base text-foreground mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{step.desc}</p>
                 </div>
-                <h3 className="font-heading font-semibold text-base text-foreground mb-2">
-                  {PLACEHOLDER}
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{PLACEHOLDER}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -81,15 +144,19 @@ export default function ServicioDetalle({ badge, h1, intro, faqs }: ServicioDeta
       {/* Para quién es */}
       <section className="py-16 bg-muted">
         <div className="container-site max-w-3xl">
-          <h2 className="section-heading text-2xl sm:text-3xl mb-6">Para quién es</h2>
+          <Reveal>
+            <h2 className="section-heading text-2xl sm:text-3xl mb-6">Para quién es</h2>
+          </Reveal>
           <ul className="space-y-3">
-            {[1, 2, 3].map((i) => (
-              <li key={i} className="flex items-start gap-3 text-sm text-foreground">
-                <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                {PLACEHOLDER}
-              </li>
+            {paraQuien.map((item, i) => (
+              <Reveal key={i} delay={i * 70}>
+                <li className="flex items-start gap-3 text-sm text-foreground">
+                  <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  {item}
+                </li>
+              </Reveal>
             ))}
           </ul>
         </div>
@@ -98,17 +165,12 @@ export default function ServicioDetalle({ badge, h1, intro, faqs }: ServicioDeta
       {/* FAQ */}
       <section className="py-16 bg-white">
         <div className="container-site max-w-3xl">
-          <h2 className="section-heading text-2xl sm:text-3xl mb-8">Preguntas frecuentes</h2>
-          <dl className="space-y-4">
-            {faqs.map((faq) => (
-              <div key={faq.q} className="card p-6">
-                <dt className="font-heading font-semibold text-foreground text-base mb-2">
-                  {faq.q}
-                </dt>
-                <dd className="text-sm text-muted-foreground leading-relaxed">{faq.a}</dd>
-              </div>
-            ))}
-          </dl>
+          <Reveal>
+            <h2 className="section-heading text-2xl sm:text-3xl mb-8">Preguntas frecuentes</h2>
+          </Reveal>
+          <Reveal delay={80}>
+            <FAQAccordion faqs={faqs} />
+          </Reveal>
         </div>
       </section>
 
