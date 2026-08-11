@@ -31,7 +31,7 @@ Las empresas que invierten en proyectos de ciencia, tecnología e innovación ca
 El requisito de fondo es doble: el proyecto debe calificar como investigación, desarrollo tecnológico o innovación según la tipología del CNBT, y debe ejecutarse en alianza con un actor reconocido por Minciencias, como un grupo de investigación, un centro de desarrollo tecnológico o una universidad.
 
 :::destacado Fuente
-Minciencias, Beneficios Tributarios en CTeI.
+[Minciencias, Beneficios Tributarios en CTeI.](https://minciencias.gov.co/viceministerios/conocimiento/direccion_transferencia/beneficios-tributarios/cuales-son)
 :::
 
 ## Beneficios tributarios por inversiones en energía y medio ambiente
@@ -46,7 +46,7 @@ El segundo régimen premia inversiones en activos, no proyectos de investigació
 Para inversiones en control y mejoramiento del medio ambiente certificadas por la ANLA aplica además un descuento del 25% del valor de la inversión sobre el impuesto de renta (artículo 255 del Estatuto Tributario).
 
 :::destacado Fuente
-Minambiente, Beneficios tributarios por inversiones FNCE y eficiencia energética.
+[Minambiente, Beneficios tributarios por inversiones FNCE y eficiencia energética.](https://beneficios-tributarios.minambiente.gov.co/beneficios-tributarios-por-inversiones-fnce-y-eficiencia-energetica/)
 :::
 
 ## ¿Quién puede acceder?
@@ -82,13 +82,13 @@ México. El estímulo EFIDT (artículo 202 de la Ley del ISR) es un crédito fis
 
 Perú. La Ley 30309, prorrogada hasta 2028 por la Ley 32539, permite deducciones adicionales de entre el 160% y el 240% del gasto en I+D+i según el tamaño del contribuyente y el tipo de centro ejecutor, con calificación previa de CONCYTEC. Es la tasa nominal más alta de la región, aunque opera como deducción de base, no como crédito.
 
-La comparación completa, con tabla de mecanismos, topes y entidades por país, está en el artículo Beneficios tributarios a la I+D+i en América Latina.
+La comparación completa, con tabla de mecanismos, topes y entidades por país, está en el artículo [Beneficios tributarios a la I+D+i en América Latina.](https://www.augustoruiz.org/blog/beneficios-tributarios-idi-america-latina-comparativo)
 
 ## Conclusión
 
 Los beneficios tributarios por I+D+i y por inversiones energéticas y ambientales son de los incentivos más significativos que ofrece la legislación colombiana a las empresas que innovan, y Colombia compite razonablemente bien en el contexto regional. La diferencia entre usarlos y dejarlos sin reclamar suele estar en dos decisiones: verificar la elegibilidad antes de comprometerse y formular el proyecto con el rigor técnico que exigen las entidades.
 
-En mi práctica de consultoría, la tasa de aprobación en proyectos gestionados ante estas entidades es del 93%. Si su empresa invierte en innovación, en energías renovables o en mejoras ambientales y quiere establecer si califica, el primer paso es una evaluación de elegibilidad.
+En mi práctica de consultoría, la tasa de aprobación en proyectos gestionados ante estas entidades es del 93%. Si su empresa invierte en innovación, en energías renovables o en mejoras ambientales y quiere establecer si califica, el primer paso es una [evaluación de elegibilidad.](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion)
 
 :::cta
 heading: ¿Quiere saber si su proyecto califica?

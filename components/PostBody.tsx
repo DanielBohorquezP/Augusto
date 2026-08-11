@@ -11,6 +11,50 @@ export function headingId(text: string): string {
     .replace(/\s+/g, "-");
 }
 
+// Detecta enlaces en formato Markdown `[texto](url)` dentro de un texto plano
+// y los convierte en <a> subrayados (nueva pestaña si son externos).
+function renderInlineText(text: string): React.ReactNode {
+  const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let key = 0;
+
+  while ((match = linkPattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+    const [, label, href] = match;
+    const isExternal = href.startsWith("http");
+    parts.push(
+      isExternal ? (
+        <a
+          key={key++}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline decoration-1 underline-offset-2 hover:text-primary transition-colors"
+        >
+          {label}
+        </a>
+      ) : (
+        <Link
+          key={key++}
+          href={href}
+          className="underline decoration-1 underline-offset-2 hover:text-primary transition-colors"
+        >
+          {label}
+        </Link>
+      )
+    );
+    lastIndex = match.index + match[0].length;
+  }
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+  return parts.length > 0 ? parts : text;
+}
+
 function CtaLink({
   href,
   className,
@@ -52,7 +96,7 @@ export default function PostBody({
           case "paragraph":
             return (
               <p key={i} className="text-foreground text-base leading-relaxed">
-                {block.text}
+                {renderInlineText(block.text)}
               </p>
             );
           case "heading2":
@@ -75,7 +119,7 @@ export default function PostBody({
             return (
               <div key={i} className="bg-muted border-l-4 border-primary p-5 rounded-r-lg my-6">
                 <p className="font-heading font-semibold text-foreground text-sm mb-1">{block.label}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">{block.text}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{renderInlineText(block.text)}</p>
               </div>
             );
           case "list":
