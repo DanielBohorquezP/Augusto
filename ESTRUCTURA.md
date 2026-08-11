@@ -160,7 +160,10 @@ Ejemplo: para cambiar el title de la página de servicios, abre `app/servicios/p
 - `breadcrumbSchema()` — migas de pan
 
 ### Sitemap
-→ `app/sitemap.ts` — se genera automáticamente con todas las rutas y posts.
+→ `app/sitemap.ts` — los posts y páginas de categoría se derivan automáticamente de
+`content/blog/`; las rutas estáticas (páginas que no son de blog) están en un array
+`staticRoutes` que hay que actualizar a mano al crear una página nueva. Checklist SEO
+completa para páginas/posts nuevos: **`CONTEXTO-PROYECTO.md`, sección 8.1**.
 
 ---
 

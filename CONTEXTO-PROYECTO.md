@@ -1,7 +1,7 @@
 # Contexto Completo del Proyecto — augustoruiz.org
 
 > Documento de referencia para cualquier sesión de trabajo en este proyecto.
-> Última actualización: 2026-07-06
+> Última actualización: 2026-08-11 — agregada la checklist SEO obligatoria (sección 8.1)
 
 ---
 
@@ -217,9 +217,11 @@ Schemas activos en producción:
 - **`ProfessionalService`** — tipo de servicio, areaServed (5 países), knowsAbout, hasOfferCatalog (4 servicios)
 
 Schemas adicionales por página:
-- **`Article`** — en cada post del blog (`datePublished`, `dateModified`, autor)
+- **`BlogPosting`** — en cada post del blog (`datePublished`, `dateModified`, autor,
+  `mainEntityOfPage`, `isPartOf` → `#website`)
 - **`FAQPage`** — en `/servicios` y `/prime-10`
-- **`BreadcrumbList`** — en todas las páginas interiores
+- **`BreadcrumbList`** — en todas las páginas interiores (agregarla a mano en cada
+  página nueva — no es automática, ver checklist 8.1)
 
 Funciones disponibles en `lib/schema.ts`:
 ```ts
@@ -237,7 +239,15 @@ GPTBot ✓ | ClaudeBot ✓ | PerplexityBot ✓ | Googlebot-Extended ✓ | anthro
 
 ### sitemap.ts
 
-Genera sitemap dinámico con 8 rutas estáticas + slugs de blog + páginas de categoría (se derivan de `content/blog/`, hoy vacío → 8 URLs).
+Genera sitemap dinámico: rutas estáticas listadas a mano en `staticRoutes` (array en
+`app/sitemap.ts`) + slugs de blog y páginas de categoría, estas últimas **derivadas
+automáticamente** de `content/blog/` (no hay que tocar `sitemap.ts` al publicar un post).
+`lastModified` de las rutas estáticas usa la fecha real de modificación del archivo
+fuente (`fs.statSync(...).mtime`), no la fecha del build.
+
+**Importante:** `staticRoutes` NO se actualiza solo — cualquier página nueva de nivel
+superior (`/algo/page.tsx`) que no sea un post de blog debe agregarse a mano a ese
+array, o quedará fuera del sitemap. Ver checklist en 8.1.
 
 ### llms.txt (`/public/llms.txt`)
 
@@ -249,16 +259,91 @@ Archivo optimizado para IA. Estructura de preguntas y respuestas que responde di
 - Ecosistema de financiación colombiano
 - Cómo elegir consultoría de innovación
 
+Es un archivo **estático**, no se regenera solo. Si una página o post nuevo aporta un
+hecho, cifra o metodología citable que valga la pena que un motor de IA use como
+respuesta directa, agrégalo aquí a mano (ver checklist 8.1).
+
+---
+
+## 8.1 Checklist SEO obligatorio — correr SIEMPRE que se publique algo nuevo
+
+Esta sección existe para no tener que volver a correr una auditoría completa cada vez
+que se agrega contenido. Es la lista de archivos que el SEO de este sitio depende y que
+**no se actualizan solos** salvo que se indique lo contrario. Verificar antes de dar por
+terminado cualquier cambio.
+
+### A. Nueva página de nivel superior (ej. `/algo/page.tsx`, como pasó con `/docencia`)
+
+1. **`app/sitemap.ts`** — agregar una entrada al array `staticRoutes` (path, file,
+   priority, changeFrequency). Sin esto la página no aparece en `sitemap.xml`.
+2. **Metadata de la página** — en el `export const metadata` (o `generateMetadata`):
+   - `title` (sin repetir "Augusto Ruiz": el layout ya agrega `| Augusto Ruiz` vía
+     template — ver bug real encontrado en `/docencia` el 2026-08-11).
+   - `description` única.
+   - `alternates.canonical` con la URL absoluta.
+   - **`openGraph: { title, description, url, type: "website" }` explícito.** Si se
+     omite, Next hereda el OG del layout raíz (título/URL de la home) y los enlaces
+     compartidos de esa página muestran la portada del sitio, no la página real — bug
+     real que tuvieron `/prime-10`, `/docencia` y `/blog` hasta el fix del 2026-08-11.
+3. **`BreadcrumbList` schema** — importar `SchemaScript` + `breadcrumbSchema` de
+   `@/lib/schema` y renderizarlo como primer hijo del `return`, con el mismo patrón que
+   usan todas las páginas interiores. Sin esto la página queda sin ningún JSON-LD
+   (pasó con `/docencia`, que fue la única página del sitio con cero structured data).
+4. **Navegación interna** — enlazar la página nueva desde donde tenga sentido
+   (`Navbar`, `Footer`, la home, u otras páginas relacionadas). Una página sin enlaces
+   entrantes internos es más difícil de rastrear y de posicionar internamente.
+5. Si la página representa un servicio o entidad nueva relevante para IA, considerar
+   agregarla a `public/llms.txt`.
+
+### B. Nueva subpágina de servicio (`app/servicios/algo/page.tsx`)
+
+Todo lo de la sección A, más:
+6. **`lib/schema.ts` → `professionalServiceSchema.hasOfferCatalog.itemListElement`** —
+   agregar (o actualizar) la entrada `Offer.itemOffered` correspondiente con `@id` y
+   `url` apuntando a la nueva subpágina (patrón: `${BASE_URL}/servicios/slug#service` /
+   `${BASE_URL}/servicios/slug`). Si no se hace, el catálogo de servicios en el schema
+   global queda desincronizado de las páginas reales.
+7. Enlazar la subpágina desde `/servicios` (sección o tarjeta correspondiente).
+
+### C. Nuevo post de blog (`content/blog/slug.md`)
+
+**Ya es mayormente automático** — ver sección 13 para el flujo completo. Solo falta
+manual:
+8. Si la categoría del post es nueva, agregar su color en
+   `categoryColors` dentro de `components/BlogPostCard.tsx` (si no, cae en el gris por
+   defecto — funciona pero es inconsistente visualmente).
+9. Mover la fila del artículo de "Pendientes" a "Publicados" en
+   `docs/PLAN-CONTENIDO-BLOG.md` (registro de contenido del proyecto, no afecta SEO
+   pero evita duplicar temas).
+10. Si el post cita fuentes externas o internas, usar el formato `[texto](url)` dentro
+    del Markdown — `PostBody.tsx` lo convierte en un link subrayado (nueva pestaña si es
+    externo). Funciona en párrafos y en bloques `:::destacado`.
+11. Si el post aporta un dato o metodología citable, considerar agregarlo a
+    `public/llms.txt`.
+
+### D. Editar una sección/página existente
+
+12. Si el cambio afecta un hecho verificable (estadística, fecha, credencial), revisar
+    si ese mismo dato está duplicado en `lib/schema.ts` o `public/llms.txt` y
+    actualizarlo ahí también — evita que el JSON-LD o el llms.txt queden desactualizados
+    respecto al contenido visible.
+13. Si se agregan imágenes, siempre con `alt` descriptivo (no genérico) — regla ya
+    cumplida en todo el sitio, mantenerla.
+14. Actualizar este documento y `ESTRUCTURA.md` en el mismo turno si el cambio es
+    estructural (regla ya establecida, ver arriba).
+
 ---
 
 ## 9. Blog — arquitectura y estrategia de contenido
 
-### Estado actual: vacío a propósito (desde 2026-07-06)
+### Estado actual: primer post publicado (2026-08-10)
 
 Los 10 posts anteriores (6 de expertise en placeholder + 4 con contenido SEO completo)
-se **borraron definitivamente** para empezar a publicar contenido real desde cero.
-`content/blog/` solo contiene `.gitkeep`. El flujo de publicación queda documentado en
-`content/blog/COMO-PUBLICAR.md` (ver sección 13).
+se **borraron definitivamente** el 2026-07-06 para empezar a publicar contenido real
+desde cero. El primer post real (`que-es-un-beneficio-tributario-colombia`) se publicó
+el 2026-08-10 — ver `docs/PLAN-CONTENIDO-BLOG.md` para el calendario de los siguientes.
+El flujo de publicación queda documentado en `content/blog/COMO-PUBLICAR.md` (ver
+sección 13).
 
 ### Cómo se lee el blog (decisión de producto, actualizada 2026-08-11)
 
@@ -418,12 +503,14 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 ## 12. Deuda técnica y tareas pendientes
 
 ### Contenido del blog (alta prioridad)
-- [ ] Escribir y publicar los primeros posts reales (blog vacío desde 2026-07-06, ver `content/blog/COMO-PUBLICAR.md`)
-- [x] Feed de contenido completo en `/blog` sin redirección, con URL propia por artículo (2026-07)
+- [x] Publicar el primer post real (`que-es-un-beneficio-tributario-colombia`, 2026-08-10)
+- [ ] Publicar los siguientes posts del calendario (ver `docs/PLAN-CONTENIDO-BLOG.md`)
+- [x] `/blog` como grid de previews (título, imagen, extracto, botón), con URL propia por artículo (2026-08-11, reemplaza el feed de contenido completo de 2026-07)
 - [x] Hacer dinámico el bloque de "artículos relacionados" (misma categoría, 2026-07)
 - [x] Filtro funcional por categoría — páginas estáticas `/blog/categoria/[categoria]` (2026-07)
 - [x] Migrar posts a archivos Markdown en `content/blog/` (2026-07)
 - [x] Imagen OG automática por artículo (2026-07)
+- [x] Links `[texto](url)` a fuentes dentro del cuerpo del post (2026-08-11)
 
 ### Funcionalidad
 - [x] Conectar `/api/contact` a Resend (código listo, falta que el usuario cree la cuenta — ver `docs/INTEGRACIONES.md`)
@@ -433,11 +520,16 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 
 ### SEO / GEO
 - [x] Foto de perfil optimizada + `next/image` (2026-07)
+- [x] OG title/url específico por página en `/prime-10`, `/docencia`, `/blog` (2026-08-11 — antes heredaban el de la home)
+- [x] `BreadcrumbList` en `/docencia` — era la única página del sitio sin ningún JSON-LD (2026-08-11)
+- [x] `@id`/`url` en cada `Offer.itemOffered` del catálogo de servicios, apuntando a su subpágina real (2026-08-11)
+- [x] `mainEntityOfPage`/`isPartOf` en el schema `BlogPosting` (2026-08-11)
 - [ ] Agregar `dateModified` diferente a `datePublished` en posts actualizados (ya soportado por el sistema, falta usarlo al editar posts)
 - [ ] Foto real en sidebar del blog post (actualmente usa iniciales "AR")
-- [ ] Agregar más entidades a `sameAs` en PersonSchema (ResearchGate, Google Scholar, ORCID)
+- [ ] Agregar más entidades a `sameAs` en PersonSchema (TikTok/Spotify ya enlazados en `/medios`, ResearchGate/Google Scholar/ORCID pendientes de confirmar con Augusto)
 - [ ] Actualizar `/medios` con apariciones reales (URLs reales, no `#`)
 - [ ] Considerar agregar `VideoObject` schema si hay charlas en YouTube
+- [ ] `public/llms.txt` no se actualiza solo — no menciona el post publicado ni /docencia; revisar si vale la pena agregarlos
 
 ### Nuevos posts recomendados (por intención de búsqueda)
 - "evaluación financiera de proyectos de innovación Colombia" 
@@ -468,8 +560,11 @@ Instrucciones detalladas y el template completo viven en
 este resumen).
 
 Al crear el archivo en `content/blog/slug-con-keyword.md` no hay que tocar nada más: el
-post aparece automáticamente en el feed de `/blog`, en su página de categoría, en el
-sitemap, con imagen OG generada y con schema `Article`.
+post aparece automáticamente en el grid de previews de `/blog`, en su página de
+categoría, en el sitemap, con imagen OG generada y con schema `BlogPosting`. Lo que
+**no** es automático (revisar checklist completo en 8.1-C): el color de categoría en
+`BlogPostCard.tsx` si es una categoría nueva, mover la fila en
+`docs/PLAN-CONTENIDO-BLOG.md`, y los links `[texto](url)` a fuentes si el post las cita.
 
 ---
 
