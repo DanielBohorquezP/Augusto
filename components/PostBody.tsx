@@ -143,10 +143,40 @@ export default function PostBody({
                           clipRule="evenodd"
                         />
                       </svg>
-                      {item}
+                      <span>{renderInlineText(item)}</span>
                     </li>
                   ))}
                 </ul>
+              </div>
+            );
+          case "table":
+            return (
+              <div key={i} className="my-6 overflow-x-auto rounded-lg border border-border">
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-muted">
+                      {block.headers.map((h, j) => (
+                        <th
+                          key={j}
+                          className="text-left font-heading font-semibold text-foreground px-4 py-3 whitespace-nowrap border-b border-border"
+                        >
+                          {h}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {block.rows.map((row, r) => (
+                      <tr key={r} className="border-b border-border last:border-b-0">
+                        {row.map((cell, c) => (
+                          <td key={c} className="px-4 py-3 text-foreground leading-relaxed align-top">
+                            {renderInlineText(cell)}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             );
           case "cta":

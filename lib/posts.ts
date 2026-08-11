@@ -20,7 +20,8 @@ import path from "node:path";
 //
 //   Párrafos en Markdown. `## Título` para secciones (alimentan la tabla de
 //   contenidos), `### Subtítulo`, listas con `- item` (con encabezado opcional
-//   en una línea `**En negrilla**` justo antes), y dos directivas propias:
+//   en una línea `**En negrilla**` justo antes), tablas en formato GFM
+//   (`| Col A | Col B |` + fila separadora `|---|---|`), y dos directivas propias:
 //
 //   :::destacado Etiqueta del recuadro
 //   Texto del recuadro destacado.
@@ -40,6 +41,7 @@ export type ContentBlock =
   | { type: "heading3"; text: string }
   | { type: "highlight"; label: string; text: string }
   | { type: "list"; heading?: string; items: string[] }
+  | { type: "table"; headers: string[]; rows: string[][] }
   | {
       type: "cta";
       heading: string;
@@ -147,6 +149,27 @@ function parseBody(body: string): ContentBlock[] {
       continue;
     }
 
+    if (line.startsWith("|") && line.endsWith("|")) {
+      const parseCells = (row: string) =>
+        row
+          .slice(1, -1)
+          .split("|")
+          .map((c) => c.trim());
+      const headers = parseCells(line);
+      i++;
+      // Fila separadora GFM (|---|---|) — se descarta.
+      if (i < lines.length && /^\|[\s:|-]+\|$/.test(lines[i].trim())) {
+        i++;
+      }
+      const rows: string[][] = [];
+      while (i < lines.length && lines[i].trim().startsWith("|") && lines[i].trim().endsWith("|")) {
+        rows.push(parseCells(lines[i].trim()));
+        i++;
+      }
+      blocks.push({ type: "table", headers, rows });
+      continue;
+    }
+
     if (line.startsWith("- ")) {
       const items: string[] = [];
       while (i < lines.length && lines[i].trim().startsWith("- ")) {
@@ -204,6 +227,8 @@ function estimateReadTime(blocks: ContentBlock[]): string {
           return `${b.label} ${b.text}`;
         case "list":
           return `${b.heading ?? ""} ${b.items.join(" ")}`;
+        case "table":
+          return `${b.headers.join(" ")} ${b.rows.map((r) => r.join(" ")).join(" ")}`;
         case "cta":
           return `${b.heading} ${b.text}`;
       }

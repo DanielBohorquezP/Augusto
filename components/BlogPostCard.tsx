@@ -7,6 +7,7 @@ export const categoryColors: Record<string, string> = {
   "Evaluación Financiera": "bg-primary/10 text-primary",
   "IA Generativa": "bg-accent/10 text-accent",
   "Financiación": "bg-green-50 text-green-700",
+  "Beneficios Tributarios": "bg-green-50 text-green-700",
   "Metodología": "bg-purple-50 text-purple-700",
   "Casos de estudio": "bg-amber-50 text-amber-700",
 };
