@@ -28,6 +28,8 @@ export const professionalServiceSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
+          "@id": `${BASE_URL}/servicios/evaluacion-financiera-innovacion#service`,
+          url: `${BASE_URL}/servicios/evaluacion-financiera-innovacion`,
           name: "Evaluación Financiera de Innovación",
           description:
             "Modelos probabilísticos para evaluar proyectos de innovación tecnológica superando las limitaciones del VPN y la TIR.",
@@ -37,6 +39,8 @@ export const professionalServiceSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
+          "@id": `${BASE_URL}/servicios/capacitacion-ia-generativa#service`,
+          url: `${BASE_URL}/servicios/capacitacion-ia-generativa`,
           name: "IA Generativa Aplicada",
           description:
             "Estrategia de adopción e implementación de IA generativa en procesos organizacionales con ROI medible.",
@@ -46,6 +50,8 @@ export const professionalServiceSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
+          "@id": `${BASE_URL}/servicios/beneficios-tributarios-innovacion#service`,
+          url: `${BASE_URL}/servicios/beneficios-tributarios-innovacion`,
           name: "Estrategias de Financiación de Innovación",
           description:
             "Identificación y estructuración de fuentes de financiación para innovación en Colombia y Latinoamérica.",
@@ -55,6 +61,8 @@ export const professionalServiceSchema = {
         "@type": "Offer",
         itemOffered: {
           "@type": "Service",
+          "@id": `${BASE_URL}/prime-10#service`,
+          url: `${BASE_URL}/prime-10`,
           name: "PRIME-10 Assessment",
           description:
             "Diagnóstico de madurez e innovación en 10 dimensiones para organizaciones latinoamericanas.",
@@ -141,6 +149,8 @@ export function articleSchema({
     publisher: { "@id": `${BASE_URL}/#person` },
     image: `${BASE_URL}/blog/${slug}/opengraph-image`,
     inLanguage: "es",
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}` },
+    isPartOf: { "@id": `${BASE_URL}/#website` },
   };
 }
 

@@ -12,6 +12,13 @@ export function generateMetadata(): Metadata {
     description:
       "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación para organizaciones latinoamericanas.",
     alternates: { canonical: "https://www.augustoruiz.org/blog" },
+    openGraph: {
+      title: "Blog — Investigación Aplicada en Gestión de Innovación | Augusto Ruiz",
+      description:
+        "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación.",
+      url: "https://www.augustoruiz.org/blog",
+      type: "website",
+    },
     // Sin posts publicados aún: se pide no indexar para evitar que Google indexe
     // una página de listado vacía bajo una URL de alto intent. Se retira solo
     // cuando allPosts.length > 0 (primer post publicado).

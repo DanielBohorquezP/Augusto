@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   description:
     "PRIME-10™ es una metodología propia de evaluación financiera probabilística de proyectos de innovación e inversión tecnológica bajo alta incertidumbre. Desarrollada por Augusto Ruiz, PhD(c) Universidad de los Andes, registrada en la DNDA (2025).",
   alternates: { canonical: "https://www.augustoruiz.org/prime-10" },
+  openGraph: {
+    title: "PRIME-10™ — Metodología de Evaluación Financiera de Innovación | Augusto Ruiz",
+    description:
+      "PRIME-10™ es una metodología propia de evaluación financiera probabilística de proyectos de innovación e inversión tecnológica bajo alta incertidumbre.",
+    url: "https://www.augustoruiz.org/prime-10",
+    type: "website",
+  },
 };
 
 const faqs = [

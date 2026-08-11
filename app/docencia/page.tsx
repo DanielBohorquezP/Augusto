@@ -2,12 +2,21 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
+import SchemaScript from "@/components/SchemaScript";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Docencia y Formación Ejecutiva — Augusto Ruiz",
+  title: "Docencia y Formación Ejecutiva",
   description:
     "Augusto Ruiz es profesor invitado en programas de posgrado y pregrado en Colombia (Universidad de los Andes, EAFIT, UIS, Universidad del Bosque, Universidad de América) y ofrece formación ejecutiva corporativa en evaluación financiera de innovación, I+D+i e IA generativa.",
   alternates: { canonical: "https://www.augustoruiz.org/docencia" },
+  openGraph: {
+    title: "Docencia y Formación Ejecutiva | Augusto Ruiz",
+    description:
+      "Augusto Ruiz es profesor invitado en programas de posgrado y pregrado en Colombia y ofrece formación ejecutiva corporativa en evaluación financiera de innovación, I+D+i e IA generativa.",
+    url: "https://www.augustoruiz.org/docencia",
+    type: "website",
+  },
 };
 
 const programs = [
@@ -37,6 +46,12 @@ const formats = [
 export default function DocenciaPage() {
   return (
     <>
+      <SchemaScript
+        schema={breadcrumbSchema([
+          { name: "Inicio", url: "https://www.augustoruiz.org" },
+          { name: "Docencia", url: "https://www.augustoruiz.org/docencia" },
+        ])}
+      />
       {/* Hero */}
       <section className="bg-primary pt-32 pb-16">
         <div className="container-site">
