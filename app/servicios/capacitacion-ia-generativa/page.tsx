@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
-import { faqSchema, breadcrumbSchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
 export const metadata: Metadata = {
@@ -14,6 +14,13 @@ export const metadata: Metadata = {
       "Programas de capacitación en inteligencia artificial generativa para equipos corporativos en Colombia. Diseño por área y reto de negocio, con ROI medible.",
     url: "https://www.augustoruiz.org/servicios/capacitacion-ia-generativa",
     type: "website",
+    images: ["https://www.augustoruiz.org/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Capacitación en IA Generativa para Empresas | Augusto Ruiz",
+    description:
+      "Programas de capacitación en inteligencia artificial generativa para equipos corporativos en Colombia. Diseño por área y reto de negocio, con ROI medible.",
   },
 };
 
@@ -84,6 +91,13 @@ export default function CapacitacionIaGenerativaPage() {
       { name: "Servicios", url: "https://www.augustoruiz.org/servicios" },
       { name: "Capacitación en IA generativa", url: "https://www.augustoruiz.org/servicios/capacitacion-ia-generativa" },
     ]),
+    serviceSchema({
+      slug: "servicios/capacitacion-ia-generativa",
+      name: "IA Generativa Aplicada",
+      description:
+        "Estrategia de adopción e implementación de IA generativa en procesos organizacionales con ROI medible.",
+      serviceType: "Formación Corporativa en IA Generativa",
+    }),
   ];
   return (
     <>

@@ -18,6 +18,13 @@ export function generateMetadata(): Metadata {
         "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación.",
       url: "https://www.augustoruiz.org/blog",
       type: "website",
+      images: ["https://www.augustoruiz.org/opengraph-image"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Blog — Investigación Aplicada en Gestión de Innovación | Augusto Ruiz",
+      description:
+        "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación.",
     },
     // Sin posts publicados aún: se pide no indexar para evitar que Google indexe
     // una página de listado vacía bajo una URL de alto intent. Se retira solo

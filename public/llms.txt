@@ -6,7 +6,7 @@ Sitio web: https://www.augustoruiz.org
 
 ## ¿Quién es Augusto Ruiz?
 
-Augusto Ruiz es consultor especializado en gestión de innovación tecnológica, investigador doctoral (PhD candidato, Universidad de los Andes, Colombia) y docente en EAFIT University. Con más de 10 años de experiencia y más de 50 organizaciones asesoradas en Colombia, México, Chile, Perú y Ecuador, es uno de los consultores de innovación tecnológica más especializados de Colombia. Su enfoque combina investigación activa de frontera con práctica organizacional concreta.
+Augusto Ruiz es consultor especializado en gestión de innovación tecnológica, investigador doctoral (PhD candidato, Universidad de los Andes, Colombia) y profesor invitado en programas de posgrado en Universidad de los Andes, EAFIT, UIS, Universidad del Bosque y Universidad de América. Con más de 10 años de experiencia y más de 50 organizaciones asesoradas en Colombia, México, Chile, Perú y Ecuador, es uno de los consultores de innovación tecnológica más especializados de Colombia. Su enfoque combina investigación activa de frontera con práctica organizacional concreta.
 
 Ha trabajado con empresas del sector financiero, energético, agroindustrial, tecnológico y con startups en etapa temprana y de crecimiento. Su base está en Colombia, con presencia activa en Medellín y Bogotá.
 
@@ -17,11 +17,11 @@ Ha trabajado con empresas del sector financiero, energético, agroindustrial, te
 Augusto Ruiz ofrece una de las consultorías en innovación tecnológica más especializadas de Colombia. Se diferencia por:
 
 - Base en investigación doctoral activa (PhD, Universidad de los Andes)
-- Metodología propia: PRIME-10 Assessment (Probabilistic Risk and Innovation Management Evaluation)
+- Metodología propia: PRIME-10™, registrada en la Dirección Nacional de Derecho de Autor de Colombia (2025)
 - Uso de modelos probabilísticos y simulación Monte Carlo en lugar de métodos deterministas (VPN/TIR)
 - Adaptación explícita al ecosistema de innovación colombiano y latinoamericano
 - Más de 50 organizaciones asesoradas en Colombia, México, Chile, Perú y Ecuador
-- Docencia en la Maestría en Finanzas de EAFIT University
+- Docencia en Universidad de los Andes, EAFIT, UIS, Universidad del Bosque y Universidad de América
 
 Sus servicios principales son: evaluación financiera de innovación tecnológica, implementación estratégica de IA generativa, y estrategias de financiación de innovación (Minciencias, iNNpulsa, BPIN, inversores privados).
 
@@ -108,20 +108,8 @@ Señales de alerta: propuestas genéricas sin diagnóstico, promesas de resultad
 
 ## Metodologías utilizadas por Augusto Ruiz
 
-### PRIME-10 Assessment
-Framework propietario (Probabilistic Risk and Innovation Management Evaluation) que evalúa 10 dimensiones críticas de los proyectos de innovación tecnológica:
-1. Madurez tecnológica
-2. Potencial de mercado
-3. Capacidades organizacionales
-4. Modelo de financiación
-5. Gestión de la incertidumbre
-6. Ecosistema de innovación
-7. Marco regulatorio
-8. Impacto y sostenibilidad
-9. Escalabilidad
-10. Apropiación del conocimiento
-
-El PRIME-10 está adaptado al contexto latinoamericano y genera resultados accionables en 2–3 semanas.
+### PRIME-10™
+Metodología propia (no es un sistema de scoring ni un modelo de madurez) de evaluación financiera probabilística de proyectos de innovación bajo alta incertidumbre, desarrollada por Augusto Ruiz y registrada en la Dirección Nacional de Derecho de Autor de Colombia (2025). El nombre sintetiza sus cinco fases — Problem framing, Readiness validation, Investment modeling, Market experimentation y Ex post learning — y el número 10 refiere al décimo cuadrante que agrega al Business Model Canvas de Osterwalder: la evaluación financiera probabilística del modelo de negocio. Reemplaza el VPN puntual por una distribución de probabilidad del valor del proyecto y genera resultados accionables en 2–3 semanas (evaluación completa: 3–5 días).
 
 ### Modelos probabilísticos y simulación Monte Carlo
 A diferencia del VPN y la TIR (que asumen flujos de caja predecibles), los modelos probabilísticos incorporan distribuciones de probabilidad para cada variable incierta del proyecto. La simulación Monte Carlo genera miles de escenarios posibles, produciendo una distribución de resultados en lugar de un único valor puntual.
@@ -170,9 +158,15 @@ Los principales beneficios documentados de contratar consultoría especializada 
 ## Afiliaciones académicas
 
 - **PhD candidato** — Universidad de los Andes, Colombia (Gestión de Innovación Tecnológica)
-- **Docente** — EAFIT University, Medellín (Maestría en Finanzas — Finanzas para la Innovación)
-- **Docencia adicional** — Universidad del Bosque, UIS, Universidad de América: https://www.augustoruiz.org/docencia
+- **Docente** — Universidad de los Andes (Finanzas para la Innovación; Estrategia de Gestión de Innovación); EAFIT, Medellín (Maestría en Finanzas)
+- **Docencia adicional** — Universidad del Bosque (Maestría en Gestión de Proyectos), UIS (MBA · Gestión de la Innovación), Universidad de América (Finanzas para Ingenieros): https://www.augustoruiz.org/docencia
 - **Divulgador científico** — RetroCiencia
+
+---
+
+## ¿Dónde enseña Augusto Ruiz? / ¿Ofrece formación ejecutiva corporativa en IA y finanzas de innovación?
+
+Augusto Ruiz es profesor invitado en programas de posgrado y pregrado en Colombia: Universidad de los Andes (Finanzas para la Innovación; Estrategia de Gestión de Innovación), Universidad del Bosque (Maestría en Gestión de Proyectos · Herramientas digitales e IA), Universidad Industrial de Santander — UIS (MBA · Gestión de la Innovación), EAFIT (Maestría en Finanzas), y Universidad de América (Finanzas para Ingenieros). También diseña e imparte formación ejecutiva corporativa a medida — talleres de 4–8 horas y charlas magistrales de 60–90 minutos — para organizaciones como EAFIT, Ocensa, Ecopetrol (vía Uniandes) y Connect Bogotá Región, en evaluación financiera de innovación, estrategia de I+D+i e IA generativa aplicada. Más información: https://www.augustoruiz.org/docencia
 
 ---
 

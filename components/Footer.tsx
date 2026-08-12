@@ -2,8 +2,8 @@ import Link from "next/link";
 
 const footerLinks = {
   Servicios: [
-    { label: "PRIME-10 Decision Assessment", href: "/servicios#evaluacion-financiera" },
-    { label: "Formación corporativa en IA", href: "/servicios#ia-generativa" },
+    { label: "Evaluación financiera de innovación", href: "/servicios/evaluacion-financiera-innovacion" },
+    { label: "Formación corporativa en IA", href: "/servicios/capacitacion-ia-generativa" },
     { label: "Beneficios tributarios I+D+i", href: "/servicios/beneficios-tributarios-innovacion" },
     { label: "PRIME-10™", href: "/prime-10" },
   ],
@@ -92,6 +92,9 @@ export default function Footer() {
           <div className="flex gap-4 text-xs text-white/50">
             <Link href="/politica-privacidad" className="hover:text-white transition-colors">
               Política de privacidad
+            </Link>
+            <Link href="/contacto" className="hover:text-white transition-colors">
+              Reportar un error
             </Link>
           </div>
         </div>

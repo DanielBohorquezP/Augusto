@@ -15,6 +15,13 @@ export const metadata: Metadata = {
       "Agenda una consulta con Augusto Ruiz. Consultoría en evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
     url: "https://www.augustoruiz.org/contacto",
     type: "website",
+    images: ["https://www.augustoruiz.org/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contacto — Agendar consulta | Augusto Ruiz",
+    description:
+      "Agenda una consulta con Augusto Ruiz. Consultoría en evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
   },
 };
 

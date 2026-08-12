@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     description: "PhD(c) Uniandes. Consultor en gestión de innovación tecnológica con base en Colombia. Más de 50 organizaciones asesoradas en LATAM.",
     url: "https://www.augustoruiz.org/sobre",
     type: "profile",
+    images: ["https://www.augustoruiz.org/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Augusto Ruiz — Consultor en Innovación Tecnológica | Colombia",
+    description: "PhD(c) Uniandes. Consultor en gestión de innovación tecnológica con base en Colombia. Más de 50 organizaciones asesoradas en LATAM.",
   },
 };
 
@@ -79,6 +85,7 @@ export default function SobrePage() {
               <p className="mt-3 text-white/80 text-lg font-medium">
                 PhD(c) · Investigador · Consultor · Formador
               </p>
+              <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
               <p className="mt-4 text-white/70 text-sm leading-relaxed max-w-lg">
                 Especializado en gestión de innovación tecnológica con un enfoque basado en evidencia.
                 Mi trabajo cierra la brecha entre el rigor de la investigación académica y

@@ -18,6 +18,12 @@ export const metadata: Metadata = {
     description: "Consultoría en innovación empresarial para organizaciones en Colombia. Evaluación financiera probabilística, IA generativa y estrategias de financiación.",
     url: "https://www.augustoruiz.org/servicios",
     type: "website",
+    images: ["https://www.augustoruiz.org/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Consultoría en Innovación Tecnológica en Colombia | Augusto Ruiz",
+    description: "Consultoría en innovación empresarial para organizaciones en Colombia. Evaluación financiera probabilística, IA generativa y estrategias de financiación.",
   },
   keywords: [
     "consultoría en innovación empresarial Colombia",
@@ -29,6 +35,12 @@ export const metadata: Metadata = {
     "consultoría innovación Medellín",
     "consultoría innovación Bogotá",
   ],
+};
+
+const serviceSlugs: Record<string, string> = {
+  "evaluacion-financiera": "evaluacion-financiera-innovacion",
+  "ia-generativa": "capacitacion-ia-generativa",
+  financiacion: "beneficios-tributarios-innovacion",
 };
 
 const services = [
@@ -133,6 +145,7 @@ export default function ServiciosPage() {
           <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white max-w-3xl mx-auto">
             Consultoría especializada en gestión de la innovación tecnológica
           </h1>
+          <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
           <p className="mt-5 text-white/80 text-base max-w-2xl mx-auto leading-relaxed">
             Soy investigador doctoral en gestión de la innovación y consultor con más
             de 15 años en proyectos con organizaciones del sector real, universidades y
@@ -171,8 +184,8 @@ export default function ServiciosPage() {
                   >
                     Contáctame por WhatsApp
                   </a>
-                  {service.id === "financiacion" && (
-                    <Link href="/servicios/beneficios-tributarios-innovacion" className="btn-secondary">
+                  {serviceSlugs[service.id] && (
+                    <Link href={`/servicios/${serviceSlugs[service.id]}`} className="btn-secondary">
                       Ver el servicio completo
                     </Link>
                   )}

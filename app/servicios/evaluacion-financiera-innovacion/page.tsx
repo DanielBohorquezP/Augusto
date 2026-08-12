@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
-import { faqSchema, breadcrumbSchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
 export const metadata: Metadata = {
@@ -14,6 +14,13 @@ export const metadata: Metadata = {
       "Evaluación financiera probabilística de proyectos de innovación con simulación Monte Carlo. Más allá del VPN y la TIR tradicionales.",
     url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion",
     type: "website",
+    images: ["https://www.augustoruiz.org/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Evaluación Financiera de Proyectos de Innovación | Augusto Ruiz",
+    description:
+      "Evaluación financiera probabilística de proyectos de innovación con simulación Monte Carlo. Más allá del VPN y la TIR tradicionales.",
   },
 };
 
@@ -96,6 +103,13 @@ export default function EvaluacionFinancieraInnovacionPage() {
       { name: "Servicios", url: "https://www.augustoruiz.org/servicios" },
       { name: "Evaluación financiera de innovación", url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
     ]),
+    serviceSchema({
+      slug: "servicios/evaluacion-financiera-innovacion",
+      name: "Evaluación Financiera de Innovación",
+      description:
+        "Modelos probabilísticos para evaluar proyectos de innovación tecnológica superando las limitaciones del VPN y la TIR.",
+      serviceType: "Evaluación Financiera de Innovación",
+    }),
   ];
   return (
     <>

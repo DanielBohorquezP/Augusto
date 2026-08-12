@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, mediaAppearancesSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Medios y Prensa — Entrevistas y Ponencias",
@@ -15,6 +15,13 @@ export const metadata: Metadata = {
       "Apariciones de Augusto Ruiz en medios, podcasts, congresos y entrevistas sobre gestión de innovación tecnológica, evaluación financiera e inteligencia artificial.",
     url: "https://www.augustoruiz.org/medios",
     type: "website",
+    images: ["https://www.augustoruiz.org/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Medios y Prensa — Entrevistas y Ponencias | Augusto Ruiz",
+    description:
+      "Apariciones de Augusto Ruiz en medios, podcasts, congresos y entrevistas sobre gestión de innovación tecnológica, evaluación financiera e inteligencia artificial.",
   },
 };
 
@@ -38,7 +45,7 @@ const podcasts = [
     description:
       "Aplicación de modelos de gestión de riesgos en proyectos tecnológicos usando inteligencia artificial generativa como herramienta de análisis y decisión.",
     linkLabel: "Ver en YouTube",
-    url: "http://youtube.com/watch?v=-DPePS1nqMw",
+    url: "https://www.youtube.com/watch?v=-DPePS1nqMw",
     image: "medios-webinar-pmi.jpg",
   },
 ];
@@ -74,10 +81,18 @@ export default function MediosPage() {
   return (
     <>
       <SchemaScript
-        schema={breadcrumbSchema([
-          { name: "Inicio", url: "https://www.augustoruiz.org" },
-          { name: "Medios", url: "https://www.augustoruiz.org/medios" },
-        ])}
+        schema={[
+          breadcrumbSchema([
+            { name: "Inicio", url: "https://www.augustoruiz.org" },
+            { name: "Medios", url: "https://www.augustoruiz.org/medios" },
+          ]),
+          mediaAppearancesSchema([
+            { type: "PodcastEpisode", name: podcasts[0].title, url: podcasts[0].url, datePublished: "2025-11" },
+            { type: "CreativeWork", name: podcasts[1].title, url: podcasts[1].url, datePublished: "2025-09" },
+            { type: "CreativeWork", name: talks[0].title, url: talks[0].url },
+            { type: "CreativeWork", name: talks[1].title, url: talks[1].url },
+          ]),
+        ]}
       />
       <section className="bg-primary pt-32 pb-16">
         <div className="container-site">
@@ -88,6 +103,7 @@ export default function MediosPage() {
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white">
               Apariciones en medios
             </h1>
+            <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
             <p className="mt-4 text-white/80 text-base leading-relaxed">
               Entrevistas, artículos, podcasts y ponencias sobre gestión de innovación,
               evaluación financiera e inteligencia artificial.

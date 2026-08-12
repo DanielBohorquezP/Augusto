@@ -65,13 +65,24 @@ export const professionalServiceSchema = {
           url: `${BASE_URL}/prime-10`,
           name: "PRIME-10 Assessment",
           description:
-            "Diagnóstico de madurez e innovación en 10 dimensiones para organizaciones latinoamericanas.",
+            "Evaluación financiera probabilística de proyectos de innovación en cinco fases, para organizaciones latinoamericanas.",
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          "@id": `${BASE_URL}/docencia#service`,
+          url: `${BASE_URL}/docencia`,
+          name: "Docencia y Formación Ejecutiva",
+          description:
+            "Formación ejecutiva corporativa y docencia de posgrado en evaluación financiera de innovación, estrategia de I+D+i e IA generativa aplicada.",
         },
       },
     ],
   },
   provider: { "@id": `${BASE_URL}/#person` },
-  sameAs: ["https://www.linkedin.com/in/ruizaugusto/"],
+  sameAs: ["https://www.linkedin.com/in/ruizaugusto/", "https://www.tiktok.com/@retro_ciencia"],
 };
 
 export const personSchema = {
@@ -79,6 +90,7 @@ export const personSchema = {
   "@type": "Person",
   "@id": `${BASE_URL}/#person`,
   name: "Augusto Ruiz",
+  alternateName: "Ober Augusto Ruiz Catanho",
   url: BASE_URL,
   image: `${BASE_URL}/profile-photo.jpg`,
   jobTitle: "Investigador, Consultor y Formador en Gestión de Innovación Tecnológica",
@@ -105,8 +117,36 @@ export const personSchema = {
     name: "Universidad de los Andes",
     url: "https://uniandes.edu.co",
   },
+  hasCredential: [
+    {
+      "@type": "EducationalOccupationalCredential",
+      name: "CQRM — Certified Quantitative Risk Management",
+      credentialCategory: "certification",
+      identifier: "LA-3437",
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      name: "PMP — Project Management Professional",
+      credentialCategory: "certification",
+      identifier: "1649915",
+      recognizedBy: { "@type": "Organization", name: "Project Management Institute" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      name: "Gestión y transferencia de tecnología",
+      credentialCategory: "formación",
+      recognizedBy: { "@type": "CollegeOrUniversity", name: "Tecnológico de Monterrey" },
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      name: "DEEI — Diploma en Estrategia de Ecosistemas de Innovación",
+      credentialCategory: "diploma",
+      recognizedBy: { "@type": "Organization", name: "BID-PRODEM" },
+    },
+  ],
   sameAs: [
     "https://www.linkedin.com/in/ruizaugusto/",
+    "https://www.tiktok.com/@retro_ciencia",
   ],
 };
 
@@ -188,6 +228,80 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
       position: i + 1,
       name: item.name,
       item: item.url,
+    })),
+  };
+}
+
+// Ancla en la propia página un nodo Service con el mismo @id que ya la
+// referencia desde professionalServiceSchema.hasOfferCatalog, para que el
+// servicio no dependa solo del stub inline en el schema sitewide del home.
+export function serviceSchema({
+  slug,
+  name,
+  description,
+  serviceType,
+}: {
+  slug: string;
+  name: string;
+  description: string;
+  serviceType?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${BASE_URL}/${slug}#service`,
+    url: `${BASE_URL}/${slug}`,
+    name,
+    description,
+    ...(serviceType ? { serviceType } : {}),
+    provider: { "@id": `${BASE_URL}/#person` },
+    areaServed: ["Colombia", "México", "Chile", "Perú", "Ecuador"],
+  };
+}
+
+export const prime10MethodologySchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": `${BASE_URL}/prime-10#methodology`,
+  name: "PRIME-10™",
+  creator: { "@id": `${BASE_URL}/#person` },
+  dateCreated: "2025",
+  description:
+    "Metodología propia de evaluación financiera probabilística de proyectos de innovación bajo alta incertidumbre, estructurada en cinco fases: Problem framing, Readiness validation, Investment modeling, Market experimentation y Ex post learning. No es un sistema de scoring ni un modelo de madurez.",
+};
+
+export function docenciaAffiliationsSchema(institutions: { name: string; url?: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${BASE_URL}/docencia#webpage`,
+    url: `${BASE_URL}/docencia`,
+    about: { "@id": `${BASE_URL}/#person` },
+    mentions: institutions.map((i) => ({
+      "@type": "EducationalOrganization",
+      name: i.name,
+      ...(i.url ? { url: i.url } : {}),
+    })),
+  };
+}
+
+export function mediaAppearancesSchema(
+  items: { type: string; name: string; url: string; datePublished?: string }[]
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${BASE_URL}/medios#appearances`,
+    itemListElement: items.map((it, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": it.type,
+        name: it.name,
+        url: it.url,
+        ...(it.datePublished ? { datePublished: it.datePublished } : {}),
+        author: { "@id": `${BASE_URL}/#person` },
+      },
     })),
   };
 }

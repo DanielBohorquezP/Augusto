@@ -4,13 +4,13 @@ import CTASection from "@/components/sections/CTASection";
 import Prime10Phases from "@/components/sections/Prime10Phases";
 import SchemaScript from "@/components/SchemaScript";
 import FAQAccordion from "@/components/FAQAccordion";
-import { faqSchema, breadcrumbSchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, serviceSchema, prime10MethodologySchema } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "PRIME-10™ — Metodología de Evaluación Financiera de Innovación",
   description:
-    "PRIME-10™ es una metodología propia de evaluación financiera probabilística de proyectos de innovación e inversión tecnológica bajo alta incertidumbre. Desarrollada por Augusto Ruiz, PhD(c) Universidad de los Andes, registrada en la DNDA (2025).",
+    "PRIME-10™: metodología propia de evaluación financiera probabilística de proyectos de innovación bajo alta incertidumbre. Por Augusto Ruiz, PhD(c) Uniandes.",
   alternates: { canonical: "https://www.augustoruiz.org/prime-10" },
   openGraph: {
     title: "PRIME-10™ — Metodología de Evaluación Financiera de Innovación | Augusto Ruiz",
@@ -18,6 +18,13 @@ export const metadata: Metadata = {
       "PRIME-10™ es una metodología propia de evaluación financiera probabilística de proyectos de innovación e inversión tecnológica bajo alta incertidumbre.",
     url: "https://www.augustoruiz.org/prime-10",
     type: "website",
+    images: ["https://www.augustoruiz.org/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PRIME-10™ — Metodología de Evaluación Financiera de Innovación | Augusto Ruiz",
+    description:
+      "PRIME-10™ es una metodología propia de evaluación financiera probabilística de proyectos de innovación e inversión tecnológica bajo alta incertidumbre.",
   },
 };
 
@@ -42,6 +49,14 @@ export default function Prime10Page() {
       { name: "Inicio", url: "https://www.augustoruiz.org" },
       { name: "PRIME-10™", url: "https://www.augustoruiz.org/prime-10" },
     ]),
+    prime10MethodologySchema,
+    serviceSchema({
+      slug: "prime-10",
+      name: "PRIME-10 Assessment",
+      description:
+        "Evaluación financiera probabilística de proyectos de innovación en cinco fases, para organizaciones latinoamericanas.",
+      serviceType: "Evaluación de Innovación",
+    }),
     faqSchema(faqs),
   ];
   return (
@@ -58,6 +73,7 @@ export default function Prime10Page() {
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
               PRIME-10™
             </h1>
+            <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
             <p className="mt-2 text-accent font-heading font-medium text-lg">
               Evaluación financiera probabilística de proyectos de innovación
             </p>
@@ -215,9 +231,14 @@ export default function Prime10Page() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div className="card p-6">
-              <span className="text-xs font-heading font-semibold text-accent uppercase tracking-wider">
+              <a
+                href="https://www.balas.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-heading font-semibold text-accent uppercase tracking-wider hover:underline"
+              >
                 BALAS 2026
-              </span>
+              </a>
               <p className="mt-1 text-sm font-medium text-primary">
                 Business Association of Latin American Studies
               </p>
@@ -228,9 +249,14 @@ export default function Prime10Page() {
               </p>
             </div>
             <div className="card p-6">
-              <span className="text-xs font-heading font-semibold text-accent uppercase tracking-wider">
+              <a
+                href="https://www.rdmanagement.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-heading font-semibold text-accent uppercase tracking-wider hover:underline"
+              >
                 R&amp;D Management Conference 2026
-              </span>
+              </a>
               <p className="mt-1 text-sm font-medium text-primary">Manchester</p>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
                 Ponencia: &ldquo;How financial models shape innovation investment decisions:

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
-import { faqSchema, breadcrumbSchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
 export const metadata: Metadata = {
@@ -14,6 +14,13 @@ export const metadata: Metadata = {
       "Estructuración y gestión de beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
     url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion",
     type: "website",
+    images: ["https://www.augustoruiz.org/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Beneficios Tributarios por Innovación, FNCE y Eficiencia Energética | Augusto Ruiz",
+    description:
+      "Estructuración y gestión de beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
   },
 };
 
@@ -96,6 +103,13 @@ export default function BeneficiosTributariosInnovacionPage() {
       { name: "Servicios", url: "https://www.augustoruiz.org/servicios" },
       { name: "Beneficios tributarios", url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion" },
     ]),
+    serviceSchema({
+      slug: "servicios/beneficios-tributarios-innovacion",
+      name: "Beneficios Tributarios por Innovación, FNCE y Eficiencia Energética",
+      description:
+        "Identificación y estructuración de fuentes de financiación para innovación en Colombia y Latinoamérica.",
+      serviceType: "Beneficios Tributarios I+D+i",
+    }),
   ];
   return (
     <>

@@ -3,12 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, docenciaAffiliationsSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Docencia y Formación Ejecutiva",
   description:
-    "Augusto Ruiz es profesor invitado en programas de posgrado y pregrado en Colombia (Universidad de los Andes, EAFIT, UIS, Universidad del Bosque, Universidad de América) y ofrece formación ejecutiva corporativa en evaluación financiera de innovación, I+D+i e IA generativa.",
+    "Augusto Ruiz es profesor invitado en posgrados en Colombia y ofrece formación ejecutiva corporativa en evaluación financiera de innovación, I+D+i e IA generativa.",
   alternates: { canonical: "https://www.augustoruiz.org/docencia" },
   openGraph: {
     title: "Docencia y Formación Ejecutiva | Augusto Ruiz",
@@ -16,16 +16,25 @@ export const metadata: Metadata = {
       "Augusto Ruiz es profesor invitado en programas de posgrado y pregrado en Colombia y ofrece formación ejecutiva corporativa en evaluación financiera de innovación, I+D+i e IA generativa.",
     url: "https://www.augustoruiz.org/docencia",
     type: "website",
+    images: ["https://www.augustoruiz.org/opengraph-image"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Docencia y Formación Ejecutiva | Augusto Ruiz",
+    description:
+      "Augusto Ruiz es profesor invitado en programas de posgrado y pregrado en Colombia y ofrece formación ejecutiva corporativa en evaluación financiera de innovación, I+D+i e IA generativa.",
   },
 };
 
+// Nota: no se agregan años/periodos por curso porque no hay una fecha
+// confirmada por Augusto para cada uno — mejor omitirlo que inventar una.
 const programs = [
-  { institution: "Universidad de los Andes", course: "Finanzas para la Innovación" },
-  { institution: "Universidad de los Andes", course: "Estrategia de Gestión de Innovación" },
-  { institution: "Universidad del Bosque", course: "Maestría en Gestión de Proyectos · Herramientas digitales e IA" },
-  { institution: "Universidad Industrial de Santander (UIS)", course: "MBA · Gestión de la Innovación" },
-  { institution: "EAFIT", course: "Maestría en Finanzas" },
-  { institution: "Universidad de América", course: "Finanzas para Ingenieros" },
+  { institution: "Universidad de los Andes", course: "Finanzas para la Innovación", url: "https://uniandes.edu.co" },
+  { institution: "Universidad de los Andes", course: "Estrategia de Gestión de Innovación", url: "https://uniandes.edu.co" },
+  { institution: "Universidad del Bosque", course: "Maestría en Gestión de Proyectos · Herramientas digitales e IA", url: "https://www.unbosque.edu.co" },
+  { institution: "Universidad Industrial de Santander (UIS)", course: "MBA · Gestión de la Innovación", url: "https://www.uis.edu.co" },
+  { institution: "EAFIT", course: "Maestría en Finanzas", url: "https://www.eafit.edu.co" },
+  { institution: "Universidad de América", course: "Finanzas para Ingenieros", url: "https://www.uamerica.edu.co" },
 ];
 
 const corporateOrgs = ["EAFIT", "Ocensa", "Ecopetrol (vía Uniandes)", "Connect Bogotá Región"];
@@ -47,10 +56,15 @@ export default function DocenciaPage() {
   return (
     <>
       <SchemaScript
-        schema={breadcrumbSchema([
-          { name: "Inicio", url: "https://www.augustoruiz.org" },
-          { name: "Docencia", url: "https://www.augustoruiz.org/docencia" },
-        ])}
+        schema={[
+          breadcrumbSchema([
+            { name: "Inicio", url: "https://www.augustoruiz.org" },
+            { name: "Docencia", url: "https://www.augustoruiz.org/docencia" },
+          ]),
+          docenciaAffiliationsSchema(
+            Array.from(new Map(programs.map((p) => [p.institution, { name: p.institution, url: p.url }])).values())
+          ),
+        ]}
       />
       {/* Hero */}
       <section className="bg-primary pt-32 pb-16">
@@ -63,6 +77,7 @@ export default function DocenciaPage() {
               <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white">
                 Docencia y formación ejecutiva
               </h1>
+              <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
               <p className="mt-5 text-white/80 text-base leading-relaxed">
                 Profesor invitado en programas de posgrado y pregrado en Colombia. Formación
                 ejecutiva corporativa en evaluación financiera de innovación, estrategia de I+D+i
@@ -96,7 +111,15 @@ export default function DocenciaPage() {
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
                 <span className="text-sm text-foreground">
-                  <strong className="font-heading font-semibold">{p.institution}</strong> — {p.course}
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-heading font-semibold hover:text-primary hover:underline"
+                  >
+                    {p.institution}
+                  </a>{" "}
+                  — {p.course}
                 </span>
               </div>
             ))}

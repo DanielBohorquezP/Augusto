@@ -46,6 +46,7 @@ export default function ServicioDetalle({
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white">
               {h1}
             </h1>
+            <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
             <p className="mt-4 text-white/80 text-base leading-relaxed">{intro}</p>
           </div>
         </div>
