@@ -17,9 +17,11 @@ const poppins = Poppins({
   display: "swap",
 });
 
+// Open Sans es fuente variable: al omitir `weight`, next/font sirve UN solo
+// archivo que cubre todo el rango de pesos, en vez de cinco estaticos en la
+// ruta critica de renderizado. El peso 300 ademas no se usaba en ningun lado.
 const openSans = Open_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-open-sans",
   display: "swap",
 });
@@ -92,6 +94,13 @@ export default function RootLayout({
         <CookieConsentBanner />
         {GA_MEASUREMENT_ID && (
           <>
+            {/*
+              GTM pesa ~160 KiB y provoca un reflow forzado; cargarlo en la ruta
+              critica retrasaba el LCP. La cola de consentimiento y dataLayer se
+              define de inmediato (no se pierde ningun evento), pero el script
+              remoto solo se inyecta cuando el navegador esta inactivo o el
+              usuario interactua — lo que ocurra primero.
+            */}
             <script
               dangerouslySetInnerHTML={{
                 __html: `
@@ -102,19 +111,35 @@ export default function RootLayout({
                     ad_storage: 'denied',
                     wait_for_update: 500
                   });
-                `,
-              }}
-            />
-            {/* eslint-disable-next-line @next/next/no-sync-scripts */}
-            <script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-            />
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
                   gtag('js', new Date());
                   gtag('config', '${GA_MEASUREMENT_ID}');
+
+                  (function () {
+                    var loaded = false;
+                    function loadGtag() {
+                      if (loaded) return;
+                      loaded = true;
+                      cleanup();
+                      var s = document.createElement('script');
+                      s.async = true;
+                      s.src = 'https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}';
+                      document.head.appendChild(s);
+                    }
+                    var events = ['pointerdown', 'keydown', 'touchstart', 'scroll'];
+                    function cleanup() {
+                      events.forEach(function (e) {
+                        window.removeEventListener(e, loadGtag, { passive: true });
+                      });
+                    }
+                    events.forEach(function (e) {
+                      window.addEventListener(e, loadGtag, { passive: true, once: true });
+                    });
+                    if ('requestIdleCallback' in window) {
+                      requestIdleCallback(loadGtag, { timeout: 5000 });
+                    } else {
+                      setTimeout(loadGtag, 3000);
+                    }
+                  })();
                 `,
               }}
             />

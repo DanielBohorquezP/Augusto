@@ -36,6 +36,7 @@ export default function BlogPostCard({ post }: { post: Post }) {
       <Link
         href={`/blog/${post.slug}`}
         className="relative flex h-40 w-full items-center justify-center bg-primary"
+        aria-label={post.title}
       >
         <CategoryIcon className="w-12 h-12 text-white/25" />
       </Link>

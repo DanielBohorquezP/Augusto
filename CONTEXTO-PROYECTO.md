@@ -632,6 +632,58 @@ Sin verificar (`needs_api`, requieren el sitio en vivo o APIs no disponibles):
 - [ ] Vigencia del enlace OCDE citado en el comparativo — dio 403, probablemente anti-bot y no enlace roto
 - [ ] Rich Results Test sobre `/`, `/blog/[slug]`, `/prime-10`, `/servicios`, `/docencia`
 
+#### Rendimiento móvil — PageSpeed del 2026-08-15 (Moto G Power emulado, 4G lento)
+
+Punto de partida: **Rendimiento 78**, FCP 2,6 s, **LCP 4,4 s**, TBT 40 ms, CLS 0, SI 4,9 s.
+Accesibilidad 89, Prácticas recomendadas 100, SEO 100.
+
+Diagnóstico real (**no** era peso de imágenes, que fue la hipótesis inicial equivocada
+al medir con caché caliente — el culpable principal era JS de terceros):
+
+| Hallazgo de PSI | Coste |
+| --- | --- |
+| Google Tag Manager | **161,6 KiB**, 67,4 sin usar, + reflow forzado de 37 ms |
+| CSS que bloquea el renderizado | 450 ms de ahorro estimado |
+| Fuentes en la ruta crítica | 46,3 KiB + 22,7 KiB, cadena máxima de 834 ms |
+| Logos del carrusel | 51 KiB desperdiciados (se sirven a 384 px para mostrarse a 160) |
+| Polyfills de JS heredado | 12 KiB |
+
+Aplicado:
+- [x] **GTM diferido**: `dataLayer`, la cola de consentimiento y `gtag('config')` se definen
+  inline de inmediato (no se pierde ningún evento), pero el script remoto solo se inyecta
+  con `requestIdleCallback` o en la primera interacción del usuario, lo que ocurra primero.
+  Verificado en el build: 0 etiquetas `<script src="googletagmanager">` en el HTML inicial (2026-08-15)
+- [x] **Open Sans como fuente variable**: se quitó el array `weight` — al omitirlo, next/font
+  sirve UN archivo variable en vez de cinco estáticos. El peso 300 no se usaba en ningún
+  sitio (0 ocurrencias de `font-light` en el código) (2026-08-15)
+- [x] **`browserslist` en package.json** apuntando a navegadores modernos, para que el build
+  deje de transpilar features que ya son estándar (2026-08-15)
+- [x] **`quality={50}` en los logos del carrusel** — se muestran a 160 px, en escala de grises
+  y al 60% de opacidad; no justifican la calidad por defecto (2026-08-15)
+
+**Pendiente de medir**: hay que volver a correr PageSpeed sobre producción para conocer el
+efecto real. No se puede estimar desde el código, y el dato de campo (CrUX) es un promedio
+móvil de 28 días, así que tardará en reflejar los cambios.
+
+No aplicado a propósito: quitar las cursivas de las fuentes ahorraría bytes, pero `italic`
+se usa en 4 sitios reales (`/docencia` incluso con `font-heading italic`), así que
+eliminarlas dejaría que el navegador las simule con inclinación sintética — degrada la
+tipografía y es una decisión de diseño, no técnica.
+
+#### Accesibilidad — hallazgos de Lighthouse del 2026-08-15 (puntuación 89)
+
+- [x] `aria-label` sobre un `<div>` genérico está **prohibido por ARIA** y los lectores de
+  pantalla lo ignoran: las 6 filas de estrellas de `TestimonialsSection` ahora llevan
+  `role="img"` (2026-08-15)
+- [x] Enlaces sin nombre reconocible: las tarjetas de blog envuelven solo un icono
+  decorativo, sin texto; se les añadió `aria-label={post.title}` (2026-08-15)
+- [x] Enlaces con el mismo texto y distinto destino: el enlace del hero decía "beneficios
+  tributarios" igual que la etiqueta de categoría del blog. Se amplió a "beneficios
+  tributarios por inversión en I+D+i" (2026-08-15)
+- [ ] **Contraste insuficiente** en `text-muted-foreground` sobre `bg-muted` (sección de
+  servicios de la home). Requiere decisión de diseño sobre el token de color, no es un
+  arreglo mecánico — tocar `--muted-foreground` afecta a todo el sitio.
+
 #### Auditoría GEO del 2026-08-15 — keywords "consultoría / asesoría / consultor beneficios tributarios"
 
 Auditoría sobre el **sitio en vivo** con objetivo comercial explícito. AI Visibility para

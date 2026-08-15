@@ -54,10 +54,10 @@ export default function HeroSection() {
                 href="/servicios/beneficios-tributarios-innovacion"
                 className="text-white/90 font-medium underline underline-offset-4 decoration-white/30 hover:decoration-white transition-colors"
               >
-                beneficios tributarios
+                beneficios tributarios por inversión en I+D+i
               </Link>{" "}
-              por inversión en I+D+i ante Minciencias, y en energías renovables y
-              eficiencia energética ante la UPME y la ANLA.
+              ante Minciencias, y en energías renovables y eficiencia energética
+              ante la UPME y la ANLA.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">

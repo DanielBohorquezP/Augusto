@@ -34,6 +34,9 @@ export default function LogosCarousel() {
                 alt={logo.name}
                 fill
                 sizes="160px"
+                // Se muestran a 160px, en escala de grises y al 60% de opacidad:
+                // no justifican la calidad por defecto (75) ni el ancho de 384.
+                quality={50}
                 className="object-contain"
               />
             </div>
