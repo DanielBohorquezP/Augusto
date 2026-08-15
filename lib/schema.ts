@@ -52,9 +52,9 @@ export const professionalServiceSchema = {
           "@type": "Service",
           "@id": `${BASE_URL}/servicios/beneficios-tributarios-innovacion#service`,
           url: `${BASE_URL}/servicios/beneficios-tributarios-innovacion`,
-          name: "Estrategias de Financiación de Innovación",
+          name: "Consultoría en Beneficios Tributarios I+D+i, FNCE y Eficiencia Energética",
           description:
-            "Identificación y estructuración de fuentes de financiación para innovación en Colombia y Latinoamérica.",
+            "Asesoría y consultoría especializada en beneficios tributarios: identificación y estructuración de proyectos de I+D+i, FNCE y eficiencia energética en Colombia y Latinoamérica.",
         },
       },
       {

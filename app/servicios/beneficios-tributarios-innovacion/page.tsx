@@ -4,23 +4,23 @@ import { faqSchema, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
 export const metadata: Metadata = {
-  title: "Beneficios Tributarios por Innovación, FNCE y Eficiencia Energética",
+  title: "Consultoría en Beneficios Tributarios I+D+i — Asesoría ante Minciencias",
   description:
-    "Estructuración y gestión de beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA. Asesoría en Colombia.",
+    "Consultoría y asesoría especializada en beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA. Colombia.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion" },
   openGraph: {
-    title: "Beneficios Tributarios por Innovación, FNCE y Eficiencia Energética | Augusto Ruiz",
+    title: "Consultoría en Beneficios Tributarios I+D+i — Asesoría ante Minciencias | Augusto Ruiz",
     description:
-      "Estructuración y gestión de beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
+      "Consultoría y asesoría especializada en beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
     url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion",
     type: "website",
     images: ["https://www.augustoruiz.org/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Beneficios Tributarios por Innovación, FNCE y Eficiencia Energética | Augusto Ruiz",
+    title: "Consultoría en Beneficios Tributarios I+D+i — Asesoría ante Minciencias | Augusto Ruiz",
     description:
-      "Estructuración y gestión de beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
+      "Consultoría y asesoría especializada en beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
   },
 };
 
@@ -66,6 +66,10 @@ const paraQuien = [
 
 const faqs = [
   {
+    q: "¿En qué se diferencia esta consultoría en beneficios tributarios de la de una firma tributaria general?",
+    a: "Las firmas de consultoría tributaria general (auditoras, boutiques legales) resuelven planeación fiscal amplia: renta, IVA, precios de transferencia. Esta es una asesoría especializada específicamente en beneficios tributarios por I+D+i ante Minciencias y por FNCE/eficiencia energética ante la UPME y la ANLA — el foco es la formulación técnica del proyecto ante la entidad certificadora, que es donde se decide la aprobación, no la parte contable del beneficio una vez aprobado.",
+  },
+  {
     q: "¿Qué son los beneficios tributarios por inversión en I+D+i en Colombia?",
     a: "Son incentivos fiscales para empresas que invierten en proyectos de ciencia, tecnología e innovación calificados por el Consejo Nacional de Beneficios Tributarios (CNBT) de Minciencias. Los dos principales son: un descuento del 30% del valor invertido sobre el impuesto de renta a cargo, sin superar el 30% del impuesto a pagar y con traslado de excedentes hasta por cuatro declaraciones siguientes, y un crédito fiscal del 50% de la inversión certificada, aplicable a la compensación de impuestos nacionales; las MiPymes con créditos superiores a 1.000 UVT pueden solicitar TIDIS libremente comercializables. El requisito de fondo es que el proyecto califique como investigación, desarrollo tecnológico o innovación en alianza con un actor reconocido por el ministerio.",
   },
@@ -105,19 +109,19 @@ export default function BeneficiosTributariosInnovacionPage() {
     ]),
     serviceSchema({
       slug: "servicios/beneficios-tributarios-innovacion",
-      name: "Beneficios Tributarios por Innovación, FNCE y Eficiencia Energética",
+      name: "Consultoría en Beneficios Tributarios I+D+i, FNCE y Eficiencia Energética",
       description:
-        "Identificación y estructuración de fuentes de financiación para innovación en Colombia y Latinoamérica.",
-      serviceType: "Beneficios Tributarios I+D+i",
+        "Asesoría y consultoría especializada en beneficios tributarios: identificación y estructuración de proyectos de I+D+i, FNCE y eficiencia energética en Colombia y Latinoamérica.",
+      serviceType: "Consultoría en Beneficios Tributarios I+D+i",
     }),
   ];
   return (
     <>
       <SchemaScript schema={schemas} />
       <ServicioDetalle
-        badge="Beneficios tributarios"
-        h1="Beneficios tributarios por inversión en I+D+i, FNCE y eficiencia energética"
-        intro="Estructuración y gestión de proyectos ante Minciencias, la UPME y la ANLA, con una tasa de aprobación del 93% en los proyectos gestionados."
+        badge="Consultoría en beneficios tributarios"
+        h1="Consultoría en beneficios tributarios: I+D+i, FNCE y eficiencia energética"
+        intro="Asesoría y consultoría especializada en beneficios tributarios: estructuración y gestión de proyectos ante Minciencias, la UPME y la ANLA, con una tasa de aprobación del 93% en los proyectos gestionados en mi práctica actual de consultoría."
         breadcrumbLabel="Beneficios tributarios"
         imagen={{
           src: "/images/20221126_083837.jpg",
