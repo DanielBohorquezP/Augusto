@@ -680,9 +680,15 @@ tipografía y es una decisión de diseño, no técnica.
 - [x] Enlaces con el mismo texto y distinto destino: el enlace del hero decía "beneficios
   tributarios" igual que la etiqueta de categoría del blog. Se amplió a "beneficios
   tributarios por inversión en I+D+i" (2026-08-15)
-- [ ] **Contraste insuficiente** en `text-muted-foreground` sobre `bg-muted` (sección de
-  servicios de la home). Requiere decisión de diseño sobre el token de color, no es un
-  arreglo mecánico — tocar `--muted-foreground` afecta a todo el sitio.
+- [x] **Contraste insuficiente** en `text-muted-foreground`: el token era `#64748B`
+  (slate-500), que daba 4,76:1 sobre blanco —pasaba— pero solo **4,24:1 sobre `bg-muted`
+  (`#EEF2FA`)**, por debajo del 4,5:1 que exige WCAG AA. Por eso solo fallaba en la sección
+  de servicios de la home: es donde ese gris cae sobre el fondo azulado. Cambiado a
+  **`#475569` (slate-600)** → 6,75:1 sobre `bg-muted` y 7,58:1 sobre blanco (AAA).
+  Se eligió slate-600 en vez de un valor apenas suficiente (`#5A6A80`, 4,92:1) para tener
+  margen ante futuros ajustes de fondo. Verificados los 3 únicos fondos donde aparece el
+  token: `#eef2fa` (6,75), `#f8faff` (7,26) y `#ffffff` (7,58); 107 usos en 8 páginas,
+  0 fallos (2026-08-15)
 
 #### Auditoría GEO del 2026-08-15 — keywords "consultoría / asesoría / consultor beneficios tributarios"
 

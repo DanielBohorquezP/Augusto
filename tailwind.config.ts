@@ -23,7 +23,10 @@ const config: Config = {
         foreground: "#0F172A",
         muted: {
           DEFAULT: "#EEF2FA",
-          foreground: "#64748B",
+          // slate-600. El anterior (#64748B, slate-500) daba 4.24:1 sobre
+          // bg-muted y no llegaba al 4.5:1 que exige WCAG AA. Este da 6.75:1
+          // sobre bg-muted y 7.58:1 sobre blanco (AAA).
+          foreground: "#475569",
         },
         border: "#CBD5E1",
       },
