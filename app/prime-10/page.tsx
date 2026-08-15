@@ -8,12 +8,12 @@ import { faqSchema, breadcrumbSchema, serviceSchema, prime10MethodologySchema } 
 import { whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "PRIME-10™ — Metodología de Evaluación Financiera de Innovación",
+  title: "PRIME-10™ — Evaluación Financiera de Innovación",
   description:
     "PRIME-10™: metodología propia de evaluación financiera probabilística de proyectos de innovación bajo alta incertidumbre. Por Augusto Ruiz, PhD(c) Uniandes.",
   alternates: { canonical: "https://www.augustoruiz.org/prime-10" },
   openGraph: {
-    title: "PRIME-10™ — Metodología de Evaluación Financiera de Innovación | Augusto Ruiz",
+    title: "PRIME-10™ — Evaluación Financiera de Innovación | Augusto Ruiz",
     description:
       "PRIME-10™ es una metodología propia de evaluación financiera probabilística de proyectos de innovación e inversión tecnológica bajo alta incertidumbre.",
     url: "https://www.augustoruiz.org/prime-10",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "PRIME-10™ — Metodología de Evaluación Financiera de Innovación | Augusto Ruiz",
+    title: "PRIME-10™ — Evaluación Financiera de Innovación | Augusto Ruiz",
     description:
       "PRIME-10™ es una metodología propia de evaluación financiera probabilística de proyectos de innovación e inversión tecnológica bajo alta incertidumbre.",
   },

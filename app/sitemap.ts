@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import fs from "fs";
 import path from "path";
-import { allPosts, getAllCategories, slugifyCategory } from "@/lib/posts";
+import { allPosts } from "@/lib/posts";
 
 const baseUrl = "https://www.augustoruiz.org";
 
@@ -46,12 +46,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
-  const categoryPages = getAllCategories().map((category) => ({
-    url: `${baseUrl}/blog/categoria/${slugifyCategory(category)}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 0.6,
-  }));
-
-  return [...static_, ...blogPosts, ...categoryPages];
+  return [...static_, ...blogPosts];
 }

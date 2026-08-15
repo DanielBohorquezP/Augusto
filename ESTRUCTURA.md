@@ -22,7 +22,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Página de blog (grid de previews) | `app/blog/page.tsx` — muestra tarjetas (título, imagen, extracto, botón) que enlazan a cada artículo |
 | Tarjeta de preview en el grid | `components/BlogPostCard.tsx` |
 | Página individual de artículo (URL propia, para Google) | `app/blog/[slug]/page.tsx` |
-| Página de categoría de blog (grid filtrado) | `app/blog/categoria/[categoria]/page.tsx` |
+| Filtro por categoría de blog (query param, misma página) | `app/blog/page.tsx` — `?categoria=slug` |
 | Renderizador del cuerpo del artículo | `components/PostBody.tsx` — usado en el feed y en la página individual |
 | Cargador/parser de artículos | `lib/posts.ts` |
 | Imagen OG automática por artículo | `app/blog/[slug]/opengraph-image.tsx` |
@@ -70,7 +70,7 @@ flujo está en **`content/blog/COMO-PUBLICAR.md`**.
 - **`/blog`** — feed con el **contenido completo de todos los artículos**, uno debajo
   del otro, sin necesidad de hacer clic para leerlos. El título de cada uno enlaza a su
   URL propia.
-- **`/blog/categoria/[categoria]`** — mismo feed completo, filtrado por categoría.
+- **`/blog?categoria=slug`** — mismo feed completo, filtrado por categoría (query param, no ruta propia).
 - **`/blog/[slug]`** — la página individual del artículo. Esta es la URL que se indexa
   en Google (tiene su propio canonical, schema Article e imagen OG) — el feed de
   `/blog` existe para que el visitante pueda leer todo sin salir de la página, pero el
@@ -130,7 +130,7 @@ secondary: /servicios | Ver servicios
 Notas:
 - La **tabla de contenidos** se genera sola con los títulos `##` (con enlaces ancla) — solo en la página individual, no en el feed (para no duplicar anclas entre artículos).
 - El **tiempo de lectura** se calcula solo si no pones `readTime`.
-- Las **categorías** generan páginas propias en `/blog/categoria/[nombre]` automáticamente.
+- Las **categorías** se filtran en `/blog?categoria=slug` (query param sobre la misma página, no páginas propias).
 - La **imagen OG** (vista previa al compartir) se genera sola a partir del título y la categoría — no hay que crear ninguna imagen.
 - Todo artículo debe cerrar con un bloque `:::cta`. El canal principal es WhatsApp: usa `primary: https://wa.me/573005348153?text=... | Escribir por WhatsApp` (enlaces que empiezan por `http` se abren en pestaña nueva automáticamente).
 
@@ -178,7 +178,7 @@ completa para páginas/posts nuevos: **`CONTEXTO-PROYECTO.md`, sección 8.1**.
 | `ContactForm` | `components/ContactForm.tsx` | `app/contacto/page.tsx` |
 | `NewsletterForm` | `components/NewsletterForm.tsx` | Varias páginas |
 | `PostBody` | `components/PostBody.tsx` | Renderiza el cuerpo Markdown parseado (página individual del artículo) |
-| `BlogPostCard` | `components/BlogPostCard.tsx` | `/blog`, `/blog/categoria/[categoria]` y `BlogPreviewSection` (homepage) — tarjeta de preview: título, imagen, extracto y botón "Leer más" |
+| `BlogPostCard` | `components/BlogPostCard.tsx` | `/blog`, `/blog?categoria=slug` y `BlogPreviewSection` (homepage) — tarjeta de preview: título, imagen, extracto y botón "Leer más" |
 
 ---
 

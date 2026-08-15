@@ -37,7 +37,7 @@ tiempo de lectura salen solos.
 ### Imágenes de las tarjetas — NO usar la imagen OG como thumbnail
 
 La tarjeta de preview (`components/BlogPostCard.tsx`, usada en `/blog`,
-`/blog/categoria/[categoria]` y la homepage) muestra un fondo de marca liso, sin texto
+`/blog?categoria=` y la homepage) muestra un fondo de marca liso, sin texto
 — nunca la imagen OG generada del post. La imagen OG (`app/blog/[slug]/opengraph-image.tsx`)
 ya lleva el título grabado como píxeles para compartir en redes; usarla como thumbnail
 duplica el título (una vez ilegible dentro de la imagen, otra vez como texto real

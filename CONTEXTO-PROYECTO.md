@@ -377,7 +377,8 @@ sección 13).
   más" — no el contenido completo. El visitante hace clic para ir al artículo.
 - Cada artículo tiene su URL individual (`/blog/[slug]`), que es la que Google indexa
   y posiciona por keyword, y la única página que renderiza el cuerpo completo.
-- `/blog/categoria/[categoria]` es el mismo grid de previews, filtrado.
+- `/blog?categoria=slug` es el mismo grid de previews, filtrado por query param
+  sobre la misma página (no una ruta propia — decisión 2026-08-15, ver nota abajo).
 - El componente `components/BlogPostCard.tsx` renderiza cada tarjeta en el grid (se
   reusa también en `BlogPreviewSection` de la homepage); `components/PostBody.tsx`
   es el renderizador del cuerpo, usado solo en la página individual del artículo.
@@ -390,7 +391,7 @@ sección 13).
 - **Fuente de datos:** `content/blog/*.md` — un archivo Markdown por artículo (el nombre del archivo es el slug)
 - **Cargador:** `lib/posts.ts` lee la carpeta en build time y parsea frontmatter + Markdown a `ContentBlock[]` (cero dependencias externas). Tolera que la carpeta no exista o esté vacía.
 - **Renderizado:** SSG vía `generateStaticParams()` en `app/blog/[slug]/page.tsx`; slugs desconocidos devuelven 404 (`dynamicParams = false`)
-- **Páginas de categoría:** `/blog/categoria/[categoria]` — estáticas, generadas de las categorías existentes
+- **Filtro de categoría:** `/blog?categoria=slug` — query param sobre `app/blog/page.tsx`, no rutas propias (ver nota 2026-08-15)
 - **Derivados automáticos:** tabla de contenidos (de los `##`), tiempo de lectura (si falta `readTime`), sitemap, posts relacionados (misma categoría), imagen OG (`app/blog/[slug]/opengraph-image.tsx`, generada con `next/og` a partir del título y la categoría)
 - **Tipo `ContentBlock`:** sistema de bloques tipados que produce el parser
 - **`components/sections/BlogPreviewSection.tsx`**: muestra los 3 posts más recientes en la homepage; retorna `null` si el blog está vacío (no genera enlaces rotos)
@@ -448,10 +449,9 @@ Posts profundos sobre las metodologías de Augusto (modelos probabilísticos, op
 
 ### Componentes del blog
 
-- **`app/blog/page.tsx`** — grid de previews (`BlogPostCard`) de todos los artículos, filtro por categoría (enlaza a `/blog/categoria/[categoria]`), estado vacío con mensaje + newsletter
-- **`app/blog/categoria/[categoria]/page.tsx`** — mismo grid, filtrado
+- **`app/blog/page.tsx`** — grid de previews (`BlogPostCard`) de todos los artículos, filtro por categoría vía `?categoria=slug` (mismo componente, sin ruta propia), estado vacío con mensaje + newsletter
 - **`app/blog/[slug]/page.tsx`** — página individual (la que indexa Google): breadcrumb, tabla de contenidos con anclas, cuerpo vía `<PostBody>`, sidebar con perfil, posts relacionados, newsletter
-- **`components/BlogPostCard.tsx`** — tarjeta de preview (título, imagen OG del post, extracto, botón "Leer más"), usada en `/blog`, `/blog/categoria/[categoria]` y `BlogPreviewSection`
+- **`components/BlogPostCard.tsx`** — tarjeta de preview (título, imagen OG del post, extracto, botón "Leer más"), usada en `/blog`, `/blog?categoria=slug` y `BlogPreviewSection`
 - **`components/PostBody.tsx`** — renderizador del cuerpo (`ContentBlock[]` → JSX) en la página individual del artículo
 - **`components/NewsletterForm.tsx`** — formulario de captura de email (conectado a `/api/newsletter` → Google Sheets)
 - **Artículos relacionados** — dinámicos, misma categoría (`getRelatedPosts()` en `lib/posts.ts`)
@@ -567,6 +567,8 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 - [ ] Agregar más entidades a `sameAs` en PersonSchema — **necesita confirmación de Augusto**: ¿la cuenta TikTok @retro_ciencia y el show de Spotify de RetroCiencia son de su propiedad/operación directa? (no asumir); ¿existe ORCID o Google Scholar para la investigación doctoral?
 - [x] Estadística "93% tasa de aprobación" acotada a "en mi práctica actual de consultoría" en `/servicios` y en el post, para no confundirse con el 85% (Inventta, 2015-2016) de `/sobre` (2026-08-11) — sigue sin fuente/fecha/muestra verificable si se quiere citar con más rigor
 - [ ] Sin fecha "última actualización" visible en `/sobre`, `/servicios`, `/prime-10`, `/docencia` (sí la tienen `/politica-privacidad` y los posts del blog) — mecánico de agregar una vez se defina el patrón
+- [x] `/blog/categoria/[categoria]` eliminada: el filtro por categoría ahora vive en `/blog?categoria=slug` (query param sobre la misma página) en vez de páginas casi-duplicadas por categoría — pedido explícito de Augusto, "no quiero una página extra". Se quitó de `sitemap.ts`, se actualizaron los enlaces en `BlogPostCard.tsx` y las referencias en `llms.txt`/`ESTRUCTURA.md`/`COMO-PUBLICAR.md` (2026-08-15)
+- [x] 5 `<title>` recortados a menos de 65 caracteres (incluyendo el sufijo `" | Augusto Ruiz"` de 16 caracteres que agrega el template en `app/layout.tsx`) en `/blog`, los 2 posts de beneficios tributarios, `/prime-10` y `/servicios/beneficios-tributarios-innovacion` — hallazgo de auditoría SEO (2026-08-15)
 - [ ] LCP móvil en 4.3s (PageSpeed Insights, 2026-08-11, sobre el sitio en producción) — Performance 84/100 en móvil, SEO 100/100. Insights de PSI: "Improve image delivery" (51 KiB) y "Render-blocking requests" (840ms). No es una regresión de esta sesión; queda pendiente investigar con más profundidad (Chrome DevTools Performance panel) qué recurso específico bloquea el render antes de tocar nada — priorizar sobre todo si el LCP no baja de 2.5s tras el próximo deploy.
 - [ ] Copy del newsletter promete "cada semana" con solo 2 posts publicados en 2 días — decisión de Augusto: suavizar el texto o sostener la cadencia semanal en los próximos posts
 - [ ] Sin política editorial/de corrección visible en el sitio

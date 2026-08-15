@@ -2,29 +2,42 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
 import BlogPostCard from "@/components/BlogPostCard";
-import { allPosts, getAllCategories, slugifyCategory } from "@/lib/posts";
+import { allPosts, getAllCategories, getCategoryBySlug, slugifyCategory } from "@/lib/posts";
 import SchemaScript from "@/components/SchemaScript";
 import { breadcrumbSchema } from "@/lib/schema";
 
-export function generateMetadata(): Metadata {
+// El filtro por categoría vive en /blog?categoria=slug (query param), no en
+// rutas propias — evita multiplicar páginas casi-duplicadas solo para filtrar
+// el mismo grid de previews. Ver nota 2026-08-15 en CONTEXTO-PROYECTO.md.
+export function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { categoria?: string };
+}): Metadata {
+  const category = searchParams.categoria ? getCategoryBySlug(searchParams.categoria) : undefined;
+  const title = category ? `${category} — Blog` : "Blog — Innovación y Gestión Tecnológica";
+  const description = category
+    ? `Artículos sobre ${category.toLowerCase()} en innovación tecnológica por Augusto Ruiz, PhD(c) Universidad de los Andes. Investigación aplicada para organizaciones latinoamericanas.`
+    : "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación para organizaciones latinoamericanas.";
+  const url = category
+    ? `https://www.augustoruiz.org/blog?categoria=${searchParams.categoria}`
+    : "https://www.augustoruiz.org/blog";
+
   return {
-    title: "Blog — Investigación Aplicada en Gestión de Innovación",
-    description:
-      "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación para organizaciones latinoamericanas.",
+    title,
+    description,
     alternates: { canonical: "https://www.augustoruiz.org/blog" },
     openGraph: {
-      title: "Blog — Investigación Aplicada en Gestión de Innovación | Augusto Ruiz",
-      description:
-        "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación.",
-      url: "https://www.augustoruiz.org/blog",
+      title: `${title} | Augusto Ruiz`,
+      description,
+      url,
       type: "website",
       images: ["https://www.augustoruiz.org/opengraph-image"],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Blog — Investigación Aplicada en Gestión de Innovación | Augusto Ruiz",
-      description:
-        "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación.",
+      title: `${title} | Augusto Ruiz`,
+      description,
     },
     // Sin posts publicados aún: se pide no indexar para evitar que Google indexe
     // una página de listado vacía bajo una URL de alto intent. Se retira solo
@@ -33,8 +46,14 @@ export function generateMetadata(): Metadata {
   };
 }
 
-export default function BlogPage() {
+export default function BlogPage({
+  searchParams,
+}: {
+  searchParams: { categoria?: string };
+}) {
   const categories = getAllCategories();
+  const activeCategory = searchParams.categoria ? getCategoryBySlug(searchParams.categoria) : undefined;
+  const posts = activeCategory ? allPosts.filter((p) => p.category === activeCategory) : allPosts;
 
   return (
     <>
@@ -42,6 +61,9 @@ export default function BlogPage() {
         schema={breadcrumbSchema([
           { name: "Inicio", url: "https://www.augustoruiz.org" },
           { name: "Blog", url: "https://www.augustoruiz.org/blog" },
+          ...(activeCategory
+            ? [{ name: activeCategory, url: `https://www.augustoruiz.org/blog?categoria=${searchParams.categoria}` }]
+            : []),
         ])}
       />
       {/* Hero */}
@@ -52,11 +74,12 @@ export default function BlogPage() {
               Blog
             </span>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white">
-              Investigación aplicada a la decisión organizacional
+              {activeCategory ?? "Investigación aplicada a la decisión organizacional"}
             </h1>
             <p className="mt-4 text-white/80 text-base leading-relaxed">
-              Artículos que conectan la investigación académica de frontera con los desafíos
-              reales de las organizaciones que gestionan innovación tecnológica.
+              {activeCategory
+                ? `${posts.length} ${posts.length === 1 ? "artículo" : "artículos"} sobre ${activeCategory.toLowerCase()} en gestión de innovación tecnológica.`
+                : "Artículos que conectan la investigación académica de frontera con los desafíos reales de las organizaciones que gestionan innovación tecnológica."}
             </p>
           </div>
         </div>
@@ -67,25 +90,43 @@ export default function BlogPage() {
           {/* Category filter */}
           {categories.length > 0 && (
             <nav className="flex flex-wrap gap-2 mb-12 justify-center" aria-label="Filtrar por categoría">
-              <span className="px-4 py-1.5 rounded-full text-sm font-heading font-medium border bg-primary text-white border-primary">
-                Todos
-              </span>
-              {categories.map((cat) => (
+              {activeCategory ? (
                 <Link
-                  key={cat}
-                  href={`/blog/categoria/${slugifyCategory(cat)}`}
+                  href="/blog"
                   className="px-4 py-1.5 rounded-full text-sm font-heading font-medium transition-colors border border-border text-foreground hover:border-primary hover:text-primary"
                 >
-                  {cat}
+                  Todos
                 </Link>
-              ))}
+              ) : (
+                <span className="px-4 py-1.5 rounded-full text-sm font-heading font-medium border bg-primary text-white border-primary">
+                  Todos
+                </span>
+              )}
+              {categories.map((cat) =>
+                cat === activeCategory ? (
+                  <span
+                    key={cat}
+                    className="px-4 py-1.5 rounded-full text-sm font-heading font-medium border bg-primary text-white border-primary"
+                  >
+                    {cat}
+                  </span>
+                ) : (
+                  <Link
+                    key={cat}
+                    href={`/blog?categoria=${slugifyCategory(cat)}`}
+                    className="px-4 py-1.5 rounded-full text-sm font-heading font-medium transition-colors border border-border text-foreground hover:border-primary hover:text-primary"
+                  >
+                    {cat}
+                  </Link>
+                )
+              )}
             </nav>
           )}
 
           {/* Grid de previews de artículos */}
-          {allPosts.length > 0 ? (
+          {posts.length > 0 ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {allPosts.map((post) => (
+              {posts.map((post) => (
                 <BlogPostCard key={post.slug} post={post} />
               ))}
             </div>

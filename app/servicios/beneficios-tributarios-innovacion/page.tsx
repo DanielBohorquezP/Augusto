@@ -4,12 +4,12 @@ import { faqSchema, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
 export const metadata: Metadata = {
-  title: "Consultoría en Beneficios Tributarios I+D+i — Asesoría ante Minciencias",
+  title: "Consultoría en Beneficios Tributarios I+D+i",
   description:
     "Consultoría y asesoría especializada en beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA. Colombia.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion" },
   openGraph: {
-    title: "Consultoría en Beneficios Tributarios I+D+i — Asesoría ante Minciencias | Augusto Ruiz",
+    title: "Consultoría en Beneficios Tributarios I+D+i | Augusto Ruiz",
     description:
       "Consultoría y asesoría especializada en beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
     url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consultoría en Beneficios Tributarios I+D+i — Asesoría ante Minciencias | Augusto Ruiz",
+    title: "Consultoría en Beneficios Tributarios I+D+i | Augusto Ruiz",
     description:
       "Consultoría y asesoría especializada en beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
   },

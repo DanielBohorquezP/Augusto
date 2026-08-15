@@ -1,5 +1,5 @@
 ---
-title: "Beneficios tributarios a la I+D+i en América Latina: comparativo 2026"
+title: "Beneficios tributarios I+D+i en LatAm 2026"
 category: "Beneficios Tributarios"
 excerpt: "Comparativo 2026 de los incentivos fiscales a la I+D+i empresarial en Colombia, Brasil, Chile, Argentina, Uruguay, México y Perú, con fuentes oficiales."
 metaDescription: "Comparativo 2026 de los incentivos fiscales a la I+D+i empresarial en Colombia, Brasil, Chile, Argentina, Uruguay, México y Perú, con fuentes oficiales."

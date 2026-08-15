@@ -42,7 +42,7 @@ export default function BlogPostCard({ post }: { post: Post }) {
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-3">
           <Link
-            href={`/blog/categoria/${slugifyCategory(post.category)}`}
+            href={`/blog?categoria=${slugifyCategory(post.category)}`}
             className={`text-xs font-heading font-semibold px-2 py-0.5 rounded-full hover:opacity-80 transition-opacity ${categoryColors[post.category] ?? "bg-muted text-muted-foreground"}`}
           >
             {post.category}

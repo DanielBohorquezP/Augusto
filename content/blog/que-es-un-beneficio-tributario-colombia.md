@@ -1,5 +1,5 @@
 ---
-title: "¿Qué es un beneficio tributario y cómo acceder a él en Colombia?"
+title: "¿Qué es un beneficio tributario en Colombia?"
 category: "Beneficios Tributarios"
 excerpt: "Qué es un beneficio tributario, qué tipos existen en Colombia para I+D+i y energía, cómo acceder a ellos y qué ofrecen otros países de la región."
 metaDescription: "Qué es un beneficio tributario, qué tipos existen en Colombia para I+D+i y energía, cómo acceder a ellos y qué ofrecen otros países de la región."
