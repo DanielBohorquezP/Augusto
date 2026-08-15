@@ -60,7 +60,7 @@ Un error frecuente es asumir que estos incentivos son solo para grandes empresas
 - Evaluar la elegibilidad. Antes de cualquier compromiso formal, establecer si el proyecto o la inversión califica, bajo qué régimen y por cuál beneficio conviene postular. Este paso evita invertir esfuerzo en postulaciones que no tienen posibilidad.
 - Estructurar y formular. Formular el proyecto según los criterios de la entidad: la tipología del CNBT para I+D+i, o los requisitos técnicos de certificación para inversiones energéticas y ambientales. Aquí se decide la aprobación: un proyecto real de innovación mal formulado se rechaza igual que uno que no califica.
 - Postular ante la entidad competente. Minciencias para I+D+i, a través de la plataforma SIGP dentro de las convocatorias vigentes; la UPME y la ANLA para inversiones energéticas y ambientales.
-- Hacer seguimiento hasta la resolución. Atender subsanaciones y requerimientos hasta la decisión final y la obtención del soporte del beneficio ante la DIAN.
+- Hacer seguimiento hasta la resolución. Atender subsanaciones y requerimientos hasta la decisión final y la obtención del soporte del beneficio ante la [DIAN](https://www.dian.gov.co).
 
 ## ¿Y si el proyecto es rechazado?
 

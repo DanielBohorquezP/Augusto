@@ -17,6 +17,7 @@ const staticRoutes = [
   { path: "/blog", file: "app/blog/page.tsx", priority: 0.85, changeFrequency: "weekly" as const },
   { path: "/medios", file: "app/medios/page.tsx", priority: 0.7, changeFrequency: "monthly" as const },
   { path: "/contacto", file: "app/contacto/page.tsx", priority: 0.8, changeFrequency: "yearly" as const },
+  { path: "/politica-privacidad", file: "app/politica-privacidad/page.tsx", priority: 0.3, changeFrequency: "yearly" as const },
 ];
 
 // Usa la fecha real de última modificación del archivo fuente en vez de la fecha

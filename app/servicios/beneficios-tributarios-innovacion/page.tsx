@@ -66,12 +66,20 @@ const paraQuien = [
 
 const faqs = [
   {
+    q: "¿Quién ofrece consultoría en beneficios tributarios en Colombia?",
+    a: "Augusto Ruiz presta asesoría especializada en beneficios tributarios en Colombia para empresas que invierten en I+D+i (régimen de Minciencias y el CNBT) y en energías renovables, eficiencia energética o control ambiental (régimen de la UPME y la ANLA). Es investigador doctoral en gestión de innovación tecnológica de la Universidad de los Andes y profesor invitado en posgrados de Uniandes, EAFIT, UIS, Universidad del Bosque y Universidad de América. La tasa de aprobación es del 93% en los proyectos gestionados en su práctica actual de consultoría. El servicio cubre todo el territorio colombiano y empieza siempre por una evaluación de elegibilidad, antes de cualquier compromiso formal.",
+  },
+  {
+    q: "¿Cómo elijo un consultor de beneficios tributarios?",
+    a: "Cuatro criterios prácticos. Primero, que el foco esté en la formulación técnica del proyecto ante la entidad certificadora (Minciencias, UPME, ANLA) y no solo en el tratamiento contable del beneficio una vez aprobado: la aprobación se decide en la formulación. Segundo, que haga un diagnóstico de elegibilidad antes de cobrar por una postulación, porque un proyecto que no encaja en la tipología del CNBT no se salva con ajustes de forma. Tercero, que conozca los dos regímenes —I+D+i y FNCE/ambiental— y sepa cuál inversión conviene postular por cuál, ya que una misma inversión no puede generar doble beneficio. Cuarto, que declare su experiencia de forma verificable: convocatorias en las que ha participado, tipos de proyecto y resultados, no promesas de aprobación garantizada.",
+  },
+  {
     q: "¿En qué se diferencia esta consultoría en beneficios tributarios de la de una firma tributaria general?",
     a: "Las firmas de consultoría tributaria general (auditoras, boutiques legales) resuelven planeación fiscal amplia: renta, IVA, precios de transferencia. Esta es una asesoría especializada específicamente en beneficios tributarios por I+D+i ante Minciencias y por FNCE/eficiencia energética ante la UPME y la ANLA — el foco es la formulación técnica del proyecto ante la entidad certificadora, que es donde se decide la aprobación, no la parte contable del beneficio una vez aprobado.",
   },
   {
     q: "¿Qué son los beneficios tributarios por inversión en I+D+i en Colombia?",
-    a: "Son incentivos fiscales para empresas que invierten en proyectos de ciencia, tecnología e innovación calificados por el Consejo Nacional de Beneficios Tributarios (CNBT) de Minciencias. Los dos principales son: un descuento del 30% del valor invertido sobre el impuesto de renta a cargo, sin superar el 30% del impuesto a pagar y con traslado de excedentes hasta por cuatro declaraciones siguientes, y un crédito fiscal del 50% de la inversión certificada, aplicable a la compensación de impuestos nacionales; las MiPymes con créditos superiores a 1.000 UVT pueden solicitar TIDIS libremente comercializables. El requisito de fondo es que el proyecto califique como investigación, desarrollo tecnológico o innovación en alianza con un actor reconocido por el ministerio.",
+    a: "Son incentivos fiscales regulados por los artículos 256 y 256-1 del Estatuto Tributario colombiano, para empresas que invierten en proyectos de ciencia, tecnología e innovación calificados por el Consejo Nacional de Beneficios Tributarios (CNBT) de Minciencias. Los dos principales son: un descuento del 30% del valor invertido sobre el impuesto de renta a cargo, sin superar el 30% del impuesto a pagar y con traslado de excedentes hasta por cuatro declaraciones siguientes, y un crédito fiscal del 50% de la inversión certificada, aplicable a la compensación de impuestos nacionales; las MiPymes con créditos superiores a 1.000 UVT pueden solicitar TIDIS libremente comercializables. El requisito de fondo es que el proyecto califique como investigación, desarrollo tecnológico o innovación en alianza con un actor reconocido por el ministerio.",
   },
   {
     q: "¿Qué son los beneficios tributarios por inversiones FNCE y eficiencia energética?",
@@ -121,7 +129,7 @@ export default function BeneficiosTributariosInnovacionPage() {
       <ServicioDetalle
         badge="Consultoría en beneficios tributarios"
         h1="Consultoría en beneficios tributarios: I+D+i, FNCE y eficiencia energética"
-        intro="Asesoría y consultoría especializada en beneficios tributarios: estructuración y gestión de proyectos ante Minciencias, la UPME y la ANLA, con una tasa de aprobación del 93% en los proyectos gestionados en mi práctica actual de consultoría."
+        intro="Augusto Ruiz es consultor en beneficios tributarios en Colombia, especializado en la estructuración y gestión de proyectos de I+D+i ante Minciencias y el CNBT, y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA. La tasa de aprobación es del 93% en los proyectos gestionados en mi práctica actual de consultoría."
         breadcrumbLabel="Beneficios tributarios"
         imagen={{
           src: "/images/20221126_083837.jpg",

@@ -229,12 +229,14 @@ Funciones disponibles en `lib/schema.ts`:
 articleSchema({ title, description, slug, datePublished, dateModified })
 faqSchema(faqs: { q, a }[])
 breadcrumbSchema(items: { name, url }[])
+courseListSchema(programs: { institution, course, url? }[])  // → array de Course, usado en /docencia
 ```
 
 ### robots.ts — AI crawlers permitidos
 
 ```
 GPTBot ✓ | ClaudeBot ✓ | PerplexityBot ✓ | Google-Extended ✓ | anthropic-ai ✓
+OAI-SearchBot ✓ | Applebot-Extended ✓ | Amazonbot ✓ | Meta-ExternalAgent ✓
 ```
 `/api/` está bloqueado. **Ojo con el nombre exacto de los tokens de user-agent** — el
 token real de Google para IA es `Google-Extended`, no `Googlebot-Extended`; ese typo
@@ -485,7 +487,36 @@ Posts profundos sobre las metodologías de Augusto (modelos probabilísticos, op
 
 ### `<SchemaScript>` (`components/SchemaScript.tsx`)
 - Inyecta JSON-LD como `<script type="application/ld+json">` en el `<head>`
-- Acepta un array de schemas
+- Acepta un array de schemas y los emite en **un solo bloque `@graph`** (no N scripts
+  sueltos), para que las referencias cruzadas por `@id` (`author`, `publisher`,
+  `provider` → `/#person`) vivan en el mismo documento. El `@context` de cada nodo se
+  quita y se declara una sola vez en la raíz del grafo (2026-08-15)
+
+### Íconos de marca e imagen OG (2026-08-15)
+
+Los tres íconos se detectan por **convención de archivo** de Next (no hay `<link>` escrito
+a mano en `layout.tsx`; Next los inyecta y les pone hash de caché):
+
+| Archivo | Tamaño | Uso |
+| --- | --- | --- |
+| `app/favicon.ico` | 256×256 | Pestaña del navegador |
+| `app/icon.png` | 512×512 | Android, PWA |
+| `app/apple-icon.png` | 180×180 | iOS, "Añadir a pantalla de inicio" |
+
+Los dos PNG se generaron a partir del `.ico` existente (cruz blanca sobre el azul de
+marca). **Sin transparencia a propósito**: iOS aplica sus propias esquinas redondeadas y
+un PNG transparente saldría con fondo negro.
+
+`app/opengraph-image.tsx` ya no es una tarjeta solo-texto: muestra la foto recortada
+(`public/profile-photo-cutout.png`) sobre el azul con el patrón de puntos del hero. La
+foto se embebe como **data URI leyendo el archivo con `fs` en build** — Satori no resuelve
+rutas de `/public` ni hace fetch. Ojo con el gradiente de puntos: Satori exige unidad en
+cada parada (`transparent 1px`); escribir `transparent 0` rompe el render con
+`Missing )` y devuelve 500.
+
+Nota: si el favicon "no aparece" en el navegador o en resultados de Google, casi siempre
+es caché — los favicons viven en un almacén aparte que `Ctrl+Shift+R` no limpia, y Google
+refresca el suyo solo al volver a rastrear el sitio (puede tardar semanas).
 
 ### `<WhatsAppButton>` (`components/WhatsAppButton.tsx`)
 - Botón flotante fijo abajo a la derecha, visible en todo el sitio
@@ -575,6 +606,59 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 - [ ] Credenciales de Augusto más delgadas en `/prime-10` y `/docencia` que en `/sobre` — falta franja de crédito consistente
 - [ ] Actualizar `/medios` con apariciones reales (URLs reales, no `#`)
 - [ ] Considerar agregar `VideoObject` schema si hay charlas en YouTube
+
+#### Auditoría SEO/GEO del 2026-08-15 (4 especialistas en paralelo, Tier 0 — solo código fuente)
+
+Scores: **Search SEO 87/100 (B+)** · **AI Visibility 82/100 (B)**.
+
+Aplicado en esa sesión:
+- [x] `/politica-privacidad` agregada a `staticRoutes` en `app/sitemap.ts` — tenía `robots: index:true` y canonical propio pero estaba fuera del sitemap (2026-08-15)
+- [x] Meta description de la home recortada de 208 a ~157 caracteres en `app/page.tsx` (2026-08-15)
+- [x] 4 AI crawlers explícitos agregados a `app/robots.ts`: `OAI-SearchBot` (ChatGPT Search), `Applebot-Extended`, `Amazonbot`, `Meta-ExternalAgent`. Ya pasaban por la regla `*` — esto es blindaje ante un futuro cambio del wildcard, no un desbloqueo (2026-08-15)
+- [x] `SchemaScript` unificado en un solo `@graph` por documento (2026-08-15)
+- [x] `courseListSchema()` + 6 nodos `Course` en `/docencia` — sin `hasCourseInstance`/`startDate`, se mantiene la omisión deliberada de fechas no confirmadas (2026-08-15)
+- [x] Enlace a `dian.gov.co` en el paso 4 de `que-es-un-beneficio-tributario-colombia.md` — era la única entidad citada como autoridad sin fuente enlazada, a diferencia de Minciencias y Minambiente (2026-08-15)
+
+Pendiente, **bloqueado por datos que solo tiene Augusto**:
+- [ ] `sameAs` de `personSchema` sin ORCID / Google Scholar / perfil docente Uniandes — hallazgo levantado de forma independiente por el especialista GEO y el de schema. "Augusto Ruiz" es un nombre ambiguo y todo el posicionamiento descansa en credenciales de investigación; sin anclas académicas los motores de IA no pueden desambiguar la entidad. **No inventar URLs.**
+- [ ] Cifra "93% de aprobación" sin denominador ni ventana temporal, repetida en 3 lugares (`app/servicios/beneficios-tributarios-innovacion/page.tsx:124,132` y `que-es-un-beneficio-tributario-colombia.md:91`). Es el mejor dato original del sitio —justo lo que los motores de IA citan— pero sin "sobre N proyectos entre 20XX-20XX" se descarta como marketing.
+- [ ] Registro DNDA de PRIME-10 afirmado 4 veces sin número de registro verificable (`lib/schema.ts`, `llms.txt`, `/prime-10`)
+- [ ] Título "…en LatAm 2026" ancla un año fijo (`beneficios-tributarios-idi-america-latina-comparativo.md:2-5`) — decisión editorial: o refresco anual comprometido, o desanclar y dejar que la columna "Vigencia" comunique actualidad
+- [ ] Ningún post usa `dateModified` pese a que `lib/posts.ts` y `app/blog/[slug]/page.tsx:177-190` ya lo soportan y renderizan "Actualizado el…". Falta la práctica, no el código — con contenido normativo (UVT, cupos, prórrogas) esto envejece rápido
+
+Sin verificar (`needs_api`, requieren el sitio en vivo o APIs no disponibles):
+- [ ] **Si el CDN/Vercel bloquea a los AI crawlers pese a `robots.ts`** — potencialmente el hallazgo de mayor impacto: invalidaría todo el trabajo GEO. Verificar con `curl -A "GPTBot" -I https://www.augustoruiz.org/` o en el panel de Vercel → Firewall/Bot Protection
+- [ ] Core Web Vitals de campo y mobile-friendliness renderizado (sin PSI ni Playwright en esa sesión)
+- [ ] Vigencia del enlace OCDE citado en el comparativo — dio 403, probablemente anti-bot y no enlace roto
+- [ ] Rich Results Test sobre `/`, `/blog/[slug]`, `/prime-10`, `/servicios`, `/docencia`
+
+#### Auditoría GEO del 2026-08-15 — keywords "consultoría / asesoría / consultor beneficios tributarios"
+
+Auditoría sobre el **sitio en vivo** con objetivo comercial explícito. AI Visibility para
+ese nicho: **78/100 (C+)**. Diagnóstico: el sitio respondía muy bien la consulta
+informativa ("¿qué es un beneficio tributario?") pero no la **transaccional**
+("¿quién me asesora?"). El H1, el `<title>` y el `Service` schema ya usaban el vocabulario
+de búsqueda correcto — el hueco era de redacción, no de infraestructura.
+
+Verificado en vivo y **descartado como problema**: GPTBot, ClaudeBot, PerplexityBot y
+OAI-SearchBot reciben **200 OK** en `https://www.augustoruiz.org/`. El CDN no los bloquea.
+
+Contexto competitivo (búsqueda real, 2026-08-15): para estas consultas aparecen EY, PwC,
+AM&C, Russell Bedford y Cidei — todas *firmas*. augustoruiz.org no aparecía en ninguna. La
+consulta ganable no es "mejores firmas de beneficios tributarios" sino "consultor
+especializado en beneficios tributarios I+D+i Colombia", donde el rigor académico y el
+foco en Minciencias/CNBT son ventaja.
+
+Aplicado:
+- [x] **Frase ancla de entidad** en el intro de `/servicios/beneficios-tributarios-innovacion`: ahora abre con sujeto explícito ("Augusto Ruiz es consultor en beneficios tributarios en Colombia…"). Antes describía el servicio sin nombrar a nadie, y ese es justo el patrón (entidad + servicio + geografía) que un motor de IA necesita extraer (2026-08-15)
+- [x] **2 FAQs transaccionales al inicio del array** (el orden importa para la extracción): "¿Quién ofrece consultoría en beneficios tributarios en Colombia?" y "¿Cómo elijo un consultor de beneficios tributarios?". La segunda permite definir los criterios de selección en los que Augusto gana. Ambas usan solo datos ya verificables en el sitio — sin inventar años de experiencia ni nº de proyectos (2026-08-15)
+- [x] **Artículos 256 y 256-1 del Estatuto Tributario** citados en el FAQ de I+D+i de la página comercial; antes la cita normativa vivía solo en el blog, obligando al motor a cruzar dos URLs (2026-08-15)
+- [x] **Mención en el hero del home** con enlace interno a la página de servicio (2026-08-15)
+
+Pendiente (ítem 3 del plan, **bloqueado por datos de Augusto**):
+- [ ] Bloque de atributos comparables en la página de servicio: años de experiencia, nº de proyectos gestionados, cobertura geográfica. Son los atributos discretos que un motor de IA necesita para incluir la entidad en una respuesta tipo lista comparativa. Sin ellos es difícil aparecer junto a EY/PwC.
+
+Anotado sin acción: los testimonios muestran **5 estrellas fijas e idénticas** para los 6 casos (`components/sections/TestimonialsSection.tsx:63-69`) sin fuente de rating real. Correctamente **no** hay `AggregateRating`/`Review` en el JSON-LD —eso está bien y debe seguir así mientras no exista una fuente verificable— pero el elemento visual en sí puede leerse como reseña simulada. Vale la pena reconsiderarlo con Augusto.
 
 ### Nuevos posts recomendados (por intención de búsqueda)
 - "evaluación financiera de proyectos de innovación Colombia" 

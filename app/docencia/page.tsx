@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
-import { breadcrumbSchema, docenciaAffiliationsSchema } from "@/lib/schema";
+import { breadcrumbSchema, courseListSchema, docenciaAffiliationsSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Docencia y Formación Ejecutiva",
@@ -64,6 +64,7 @@ export default function DocenciaPage() {
           docenciaAffiliationsSchema(
             Array.from(new Map(programs.map((p) => [p.institution, { name: p.institution, url: p.url }])).values())
           ),
+          ...courseListSchema(programs),
         ]}
       />
       {/* Hero */}

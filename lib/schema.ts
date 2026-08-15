@@ -285,6 +285,24 @@ export function docenciaAffiliationsSchema(institutions: { name: string; url?: s
   };
 }
 
+// Un nodo Course por curso dictado. No se agrega hasCourseInstance/startDate:
+// no hay fechas confirmadas por curso (ver nota en app/docencia/page.tsx).
+export function courseListSchema(
+  programs: { institution: string; course: string; url?: string }[]
+) {
+  return programs.map((p) => ({
+    "@context": "https://schema.org",
+    "@type": "Course",
+    name: p.course,
+    provider: {
+      "@type": "EducationalOrganization",
+      name: p.institution,
+      ...(p.url ? { url: p.url } : {}),
+    },
+    instructor: { "@id": `${BASE_URL}/#person` },
+  }));
+}
+
 export function mediaAppearancesSchema(
   items: { type: string; name: string; url: string; datePublished?: string }[]
 ) {

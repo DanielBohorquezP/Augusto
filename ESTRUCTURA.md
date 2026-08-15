@@ -27,6 +27,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Cargador/parser de artículos | `lib/posts.ts` |
 | Imagen OG automática por artículo | `app/blog/[slug]/opengraph-image.tsx` |
 | Imagen OG por defecto del sitio | `app/opengraph-image.tsx` |
+| Íconos de marca (pestaña, Android, iOS) | `app/favicon.ico`, `app/icon.png`, `app/apple-icon.png` |
 | Página Sobre mí | `app/sobre/page.tsx` |
 | Página Servicios | `app/servicios/page.tsx` |
 | Página PRIME-10 | `app/prime-10/page.tsx` |
@@ -158,6 +159,10 @@ Ejemplo: para cambiar el title de la página de servicios, abre `app/servicios/p
 - `articleSchema()` — función usada en cada artículo del blog
 - `faqSchema()` — para agregar preguntas frecuentes
 - `breadcrumbSchema()` — migas de pan
+- `courseListSchema()` — un `Course` por cada curso dictado, usado en `/docencia`
+
+Todos se inyectan vía `<SchemaScript>`, que los emite en **un solo bloque `@graph`**
+por documento (no un `<script>` por schema).
 
 ### Sitemap
 → `app/sitemap.ts` — los posts y páginas de categoría se derivan automáticamente de
@@ -231,6 +236,9 @@ augusto-ruiz-org/
 │   ├── robots.ts               # robots.txt dinámico
 │   ├── sitemap.ts              # sitemap.xml dinámico
 │   ├── opengraph-image.tsx     # Imagen OG por defecto del sitio (generada)
+│   ├── favicon.ico             # Ícono de pestaña 256×256
+│   ├── icon.png                # Ícono 512×512 (Android / PWA)
+│   ├── apple-icon.png          # Ícono 180×180 (iOS "Añadir a inicio")
 │   ├── blog/
 │   │   ├── page.tsx            # Feed con el contenido COMPLETO de todos los artículos (/blog)
 │   │   ├── [slug]/

@@ -5,17 +5,25 @@ function safeSerialize(obj: object): string {
     .replace(/&/g, "\\u0026");
 }
 
+// Emite un unico bloque JSON-LD con @graph en vez de N scripts sueltos: asi las
+// referencias cruzadas por @id (author, publisher, provider) viven en el mismo
+// documento y no dependen de que el parser correlacione scripts separados.
 export default function SchemaScript({ schema }: { schema: object | object[] }) {
-  const data = Array.isArray(schema) ? schema : [schema];
+  const nodes = (Array.isArray(schema) ? schema : [schema]).flat();
+  const graph = {
+    "@context": "https://schema.org",
+    // El @context se declara una sola vez en la raiz del grafo, asi que se
+    // descarta el de cada nodo.
+    "@graph": nodes.map((node) => {
+      const rest = { ...(node as Record<string, unknown>) };
+      delete rest["@context"];
+      return rest;
+    }),
+  };
   return (
-    <>
-      {data.map((s, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: safeSerialize(s) }}
-        />
-      ))}
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: safeSerialize(graph) }}
+    />
   );
 }

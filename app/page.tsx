@@ -11,7 +11,7 @@ import CTASection from "@/components/sections/CTASection";
 export const metadata: Metadata = {
   title: "Augusto Ruiz | Consultor en Gestión de Innovación Tecnológica",
   description:
-    "PhD(c) investigador, consultor y formador en gestión de innovación tecnológica. Especialista en evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación. Universidad de los Andes.",
+    "Consultor y formador en gestión de innovación tecnológica. Evaluación financiera bajo incertidumbre, IA generativa y financiación de I+D+i. PhD(c) Uniandes.",
   alternates: {
     canonical: "https://www.augustoruiz.org",
   },
