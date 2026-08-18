@@ -1,5 +1,19 @@
 const BASE_URL = "https://www.augustoruiz.org";
 
+// Logo de marca como entidad reutilizable. Google lee `logo` en entidades de tipo
+// Organization (ProfessionalService lo es) para el panel de conocimiento y los
+// resultados enriquecidos. El favicon del buscador es un canal aparte: se sirve
+// desde app/icon.png y app/favicon.ico, y lo rastrea un bot propio de Google.
+export const logoSchema = {
+  "@type": "ImageObject",
+  "@id": `${BASE_URL}/#logo`,
+  url: `${BASE_URL}/icon.png`,
+  contentUrl: `${BASE_URL}/icon.png`,
+  width: 512,
+  height: 512,
+  caption: "Augusto Ruiz — Consultoría en Innovación Tecnológica",
+};
+
 export const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -9,6 +23,8 @@ export const professionalServiceSchema = {
   description:
     "Consultoría especializada en gestión de innovación tecnológica, evaluación financiera bajo incertidumbre e implementación de IA generativa para organizaciones en Colombia y Latinoamérica.",
   serviceType: "Consultoría en Innovación Tecnológica",
+  logo: logoSchema,
+  image: { "@id": `${BASE_URL}/#logo` },
   areaServed: ["Colombia", "México", "Chile", "Perú", "Ecuador"],
   knowsAbout: [
     "consultoría en innovación empresarial",
@@ -167,6 +183,8 @@ export const websiteSchema = {
   description: "Consultor, investigador y formador en gestión de innovación tecnológica.",
   inLanguage: "es",
   author: { "@id": `${BASE_URL}/#person` },
+  publisher: { "@id": `${BASE_URL}/#professional-service` },
+  image: { "@id": `${BASE_URL}/#logo` },
   potentialAction: {
     "@type": "SearchAction",
     target: { "@type": "EntryPoint", urlTemplate: `${BASE_URL}/blog?q={search_term_string}` },
