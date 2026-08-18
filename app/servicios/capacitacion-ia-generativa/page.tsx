@@ -104,8 +104,8 @@ export default function CapacitacionIaGenerativaPage() {
       <SchemaScript schema={schemas} />
       <ServicioDetalle
         badge="Formación corporativa"
-        h1="Formación corporativa en IA generativa aplicada a tu negocio"
-        intro="Capacitación diseñada por área y reto de negocio, con las herramientas de IA que tu empresa ya usa."
+        h1="Capacitación en IA generativa para empresas"
+        intro="Formación corporativa en IA generativa aplicada a tu negocio: diseñada por área y por reto concreto, con las herramientas de IA que tu empresa ya usa."
         breadcrumbLabel="Capacitación en IA generativa"
         imagen={{
           src: "/images/IMG_5823.png",

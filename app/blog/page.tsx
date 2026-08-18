@@ -74,12 +74,12 @@ export default function BlogPage({
               Blog
             </span>
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white">
-              {activeCategory ?? "Investigación aplicada a la decisión organizacional"}
+              {activeCategory ?? "Blog de innovación y gestión tecnológica"}
             </h1>
             <p className="mt-4 text-white/80 text-base leading-relaxed">
               {activeCategory
                 ? `${posts.length} ${posts.length === 1 ? "artículo" : "artículos"} sobre ${activeCategory.toLowerCase()} en gestión de innovación tecnológica.`
-                : "Artículos que conectan la investigación académica de frontera con los desafíos reales de las organizaciones que gestionan innovación tecnológica."}
+                : "Investigación aplicada a la decisión organizacional: artículos que conectan la investigación académica de frontera con los desafíos reales de las organizaciones que gestionan innovación tecnológica."}
             </p>
           </div>
         </div>

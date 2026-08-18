@@ -26,12 +26,19 @@ export default function HeroSection() {
             </div>
 
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight text-balance">
+              Consultoría en innovación tecnológica
+            </h1>
+
+            {/* El lema de marca baja del H1 a esta linea: sigue siendo lo primero
+                que se lee despues del titulo, pero deja el H1 libre para la frase
+                que se quiere posicionar. */}
+            <p className="mt-5 font-heading font-medium text-white text-lg sm:text-xl leading-snug text-balance">
               El puente entre el{" "}
               <span className="text-accent">rigor académico</span>{" "}
               y la decisión organizacional
-            </h1>
+            </p>
 
-            <p className="mt-5 text-white/80 text-base sm:text-lg leading-relaxed">
+            <p className="mt-3 text-white/80 text-base leading-relaxed">
               Investigador · Consultor · Formador en{" "}
               <strong className="text-white font-semibold">
                 Gestión de Innovación Tecnológica

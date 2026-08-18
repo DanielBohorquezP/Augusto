@@ -9,7 +9,7 @@ import { faqSchema, breadcrumbSchema } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Consultoría en Innovación Tecnológica",
+  title: "Servicios de Consultoría en Innovación Tecnológica",
   description:
     "Consultoría en innovación empresarial para organizaciones en Colombia y LATAM. Evaluación financiera probabilística, IA generativa y estrategias de financiación.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios" },
@@ -146,9 +146,15 @@ export default function ServiciosPage() {
           <span className="inline-block bg-accent text-white text-xs font-heading font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
             Consultoría especializada · I+D+i
           </span>
+          {/* Diferenciado del H1 de la home ("Consultoria en innovacion tecnologica")
+              para que las dos paginas no compitan por el mismo termino. */}
           <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white max-w-3xl mx-auto">
-            Consultoría especializada en gestión de la innovación tecnológica
+            Servicios de consultoría en innovación tecnológica
           </h1>
+          <p className="mt-4 font-heading font-medium text-white/90 text-lg max-w-2xl mx-auto leading-snug">
+            Especializada en gestión de la innovación, evaluación financiera bajo
+            incertidumbre y beneficios tributarios por I+D+i
+          </p>
           <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
           <p className="mt-5 text-white/80 text-base max-w-2xl mx-auto leading-relaxed">
             Soy investigador doctoral en gestión de la innovación y consultor con más
