@@ -17,6 +17,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Preview de blog en home | `components/sections/BlogPreviewSection.tsx` |
 | Afiliaciones (logos) | `components/sections/AffiliationsSection.tsx` |
 | CTA final de home | `components/sections/CTASection.tsx` |
+| Plantilla de las 3 páginas de servicio | `components/sections/ServicioDetalle.tsx` — props en `ServicioDetalleProps`; `comparativa` es opcional (con `enlace` opcional dentro) y hoy la usan beneficios tributarios y evaluación financiera |
 | **Publicar un artículo nuevo** | `content/blog/COMO-PUBLICAR.md` — instrucciones para Claude |
 | **Artículos del blog** | `content/blog/*.md` — un archivo por artículo |
 | Página de blog (grid de previews) | `app/blog/page.tsx` — muestra tarjetas (título, imagen, extracto, botón) que enlazan a cada artículo |
@@ -48,9 +49,11 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | API formulario de contacto (→ Resend) | `app/api/contact/route.ts` |
 | API newsletter (→ Google Sheets) | `app/api/newsletter/route.ts` |
 | **Guía de integraciones** (Sheets, Resend, WhatsApp) | `docs/INTEGRACIONES.md` |
+| **Calendario de contenido del blog** | `docs/PLAN-CONTENIDO-BLOG.md` |
+| **Mapa de keywords** (clústeres UPME/ANLA y rechazos CNBT) | `docs/MAPA-KEYWORDS-UPME-RECHAZOS.md` |
 | Sitemap | `app/sitemap.ts` |
 | Robots.txt | `app/robots.ts` |
-| llms.txt (visibilidad en IAs) | `public/llms.txt` |
+| llms.txt (visibilidad en IAs) | `public/llms.txt` — Markdown válido: H1 + blockquote + enlaces `[texto](url)` |
 
 ---
 

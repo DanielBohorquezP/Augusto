@@ -3,29 +3,42 @@ import SchemaScript from "@/components/SchemaScript";
 import { faqSchema, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
+// El template de app/layout.tsx anade " | Augusto Ruiz" (15 caracteres). Aqui se usa
+// `absolute` para prescindir de ese sufijo: es la unica forma de que quepan las dos
+// familias de terminos ("consultoria tributaria para empresas" + "beneficios I+D+i")
+// dentro del limite de 65 caracteres que sigue el resto del sitio.
 export const metadata: Metadata = {
-  title: "Consultoría en Beneficios Tributarios I+D+i",
+  title: { absolute: "Consultoría Tributaria para Empresas en Beneficios I+D+i" },
   description:
-    "Consultoría y asesoría especializada en beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA. Colombia.",
+    "Consultoría tributaria para empresas en Colombia especializada en beneficios tributarios: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
+  keywords: [
+    "consultoría tributaria para empresas",
+    "consultoría tributaria empresarial Colombia",
+    "consultoría en beneficios tributarios",
+    "asesoría tributaria especializada",
+    "beneficios tributarios I+D+i",
+    "consultor beneficios tributarios Colombia",
+  ],
   alternates: { canonical: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion" },
   openGraph: {
-    title: "Consultoría en Beneficios Tributarios I+D+i | Augusto Ruiz",
+    title: "Consultoría Tributaria para Empresas en Beneficios I+D+i | Augusto Ruiz",
     description:
-      "Consultoría y asesoría especializada en beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
+      "Consultoría tributaria para empresas en Colombia especializada en beneficios tributarios: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
     url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion",
     type: "website",
     images: ["https://www.augustoruiz.org/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consultoría en Beneficios Tributarios I+D+i | Augusto Ruiz",
+    title: "Consultoría Tributaria para Empresas en Beneficios I+D+i | Augusto Ruiz",
     description:
-      "Consultoría y asesoría especializada en beneficios tributarios por inversión en I+D+i ante Minciencias, y en FNCE y eficiencia energética ante la UPME y la ANLA.",
+      "Consultoría tributaria para empresas en Colombia especializada en beneficios tributarios: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
   },
 };
 
 const problema = [
   "Su empresa invierte en innovación, en energías renovables o en mejoras ambientales, y paga el impuesto de renta como si esas inversiones no existieran. Colombia ofrece incentivos fiscales significativos por esas mismas inversiones: hasta un 30% de descuento en renta o un crédito fiscal del 50% por proyectos de I+D+i ante Minciencias, y una deducción del 50% más exclusión de IVA por inversiones en energías renovables y eficiencia energética. La mayoría de las empresas que califican no los usa.",
+  "Y casi siempre ocurre con un contador, un revisor fiscal o una firma tributaria ya trabajando en la empresa. No es negligencia de ellos: la consultoría tributaria general se ocupa del cumplimiento —renta, IVA, precios de transferencia, requerimientos de la DIAN— y estos beneficios no se ganan en la declaración, sino antes, en la formulación técnica del proyecto ante la entidad que lo certifica. Son dos oficios distintos que rara vez viven en la misma persona.",
   "Las razones se repiten: no saben que su proyecto puede calificar, asumen que el trámite es solo para grandes empresas o intentaron una postulación sin la formulación técnica que exige la misma y fueron rechazadas. El resultado es el mismo: dinero que la ley permite recuperar y que se queda sin reclamar, año tras año.",
   "El problema rara vez es la elegibilidad del proyecto. Es la formulación. Un proyecto real de innovación mal estructurado se rechaza igual que uno que no califica. Por eso este servicio empieza por la pregunta correcta: antes de cualquier compromiso formal, establecer si su proyecto califica y bajo qué régimen.",
 ];
@@ -37,6 +50,40 @@ const incluye = [
   "Preparación de la documentación requerida para la postulación o la certificación",
   "Seguimiento al proceso hasta la resolución",
 ];
+
+const comparativa = {
+  titulo: "Consultoría tributaria general y consultoría en beneficios: en qué se diferencian",
+  columnaGeneral: "Consultoría tributaria general",
+  columnaEspecializada: "Consultoría en beneficios tributarios",
+  filas: [
+    {
+      criterio: "Qué resuelve",
+      general: "Cumplimiento y planeación fiscal: renta, IVA, precios de transferencia, requerimientos de la DIAN, revisoría fiscal.",
+      especializada: "Que una inversión concreta en I+D+i, energía o medio ambiente se convierta en un beneficio tributario efectivo.",
+    },
+    {
+      criterio: "Dónde se decide el resultado",
+      general: "En la declaración: en la correcta aplicación de la norma sobre hechos ya ocurridos.",
+      especializada: "En la formulación técnica del proyecto ante la entidad certificadora, meses antes de declarar.",
+    },
+    {
+      criterio: "Ante quién se gestiona",
+      general: "Ante la DIAN.",
+      especializada: "Ante Minciencias y el CNBT (I+D+i), o ante la UPME y la ANLA (FNCE, eficiencia energética, ambiental). La DIAN entra después, con la certificación ya emitida.",
+    },
+    {
+      criterio: "Cuándo se activa",
+      general: "De forma permanente, con el calendario tributario.",
+      especializada: "Con la convocatoria vigente o el cronograma de la inversión: fuera de esa ventana, el beneficio del año se pierde.",
+    },
+    {
+      criterio: "Qué perfil lo ejecuta",
+      general: "Contador, revisor fiscal o abogado tributarista.",
+      especializada: "Perfil técnico en gestión de innovación o ingeniería, capaz de sustentar la novedad y la incertidumbre del proyecto ante evaluadores técnicos.",
+    },
+  ],
+  nota: "Los dos servicios son complementarios y conviven sin problema: este servicio no reemplaza a su contador ni a su firma tributaria, se ocupa del tramo que ellos normalmente no cubren.",
+};
 
 const metodologia = [
   {
@@ -58,6 +105,7 @@ const metodologia = [
 ];
 
 const paraQuien = [
+  "Empresas que ya tienen contador, revisor fiscal o firma de consultoría tributaria, pero ningún especialista en la formulación técnica del proyecto ante Minciencias, la UPME o la ANLA: este servicio complementa al asesor tributario, no lo reemplaza",
   "Empresas que invierten en proyectos de I+D+i (nuevos productos, procesos o desarrollos tecnológicos) y no están usando los beneficios de Minciencias",
   "Empresas que invierten en energías renovables, eficiencia energética o control y mejoramiento ambiental, con inversiones certificables ante la UPME o la ANLA",
   "MiPymes que asumen que estos incentivos son solo para grandes empresas: el crédito fiscal del 50% y los TIDIS están diseñados precisamente para ellas",
@@ -65,6 +113,14 @@ const paraQuien = [
 ];
 
 const faqs = [
+  {
+    q: "¿Qué es una consultoría tributaria para empresas y cuándo conviene una especializada?",
+    a: "Una consultoría tributaria para empresas es el servicio profesional que ayuda a una organización a gestionar sus obligaciones e incentivos fiscales. En la práctica se divide en dos oficios distintos. El primero es el de cumplimiento y planeación general: declaración de renta, IVA, precios de transferencia, requerimientos de la DIAN, revisoría fiscal. Lo prestan firmas contables, auditoras y boutiques legales, y toda empresa lo necesita de forma permanente. El segundo es el de beneficios tributarios por inversión: identificar qué proyectos de la empresa califican para un incentivo, formularlos técnicamente y gestionarlos ante la entidad que los certifica —Minciencias y el CNBT para I+D+i, la UPME y la ANLA para energía y medio ambiente—. Conviene una consultoría especializada cuando la empresa invierte en desarrollo tecnológico, energías renovables o eficiencia energética, porque ahí la aprobación no se decide en la declaración de renta sino en la formulación del proyecto, meses antes, con criterios técnicos que no son de naturaleza contable. Los dos servicios son complementarios: uno no sustituye al otro.",
+  },
+  {
+    q: "¿Puedo trabajar con mi contador o mi firma tributaria actual?",
+    a: "Sí, y es lo habitual. Este servicio no reemplaza a su contador, a su revisor fiscal ni a su firma de consultoría tributaria: se ocupa de la parte que ellos normalmente no cubren, que es la formulación técnica del proyecto y su gestión ante Minciencias, la UPME o la ANLA. El reparto natural del trabajo es este: yo estructuro y postulo el proyecto ante la entidad certificadora, y su asesor tributario aplica el beneficio ya certificado en la declaración de renta y lo soporta ante la DIAN. De hecho, buena parte de los proyectos llegan por recomendación del propio contador de la empresa, que identifica la oportunidad pero no gestiona la certificación.",
+  },
   {
     q: "¿Quién ofrece consultoría en beneficios tributarios en Colombia?",
     a: "Augusto Ruiz presta asesoría especializada en beneficios tributarios en Colombia para empresas que invierten en I+D+i (régimen de Minciencias y el CNBT) y en energías renovables, eficiencia energética o control ambiental (régimen de la UPME y la ANLA). Es investigador doctoral en gestión de innovación tecnológica de la Universidad de los Andes y profesor invitado en posgrados de Uniandes, EAFIT, UIS, Universidad del Bosque y Universidad de América. La tasa de aprobación es del 93% en los proyectos gestionados en su práctica actual de consultoría. El servicio cubre todo el territorio colombiano y empieza siempre por una evaluación de elegibilidad, antes de cualquier compromiso formal.",
@@ -117,19 +173,19 @@ export default function BeneficiosTributariosInnovacionPage() {
     ]),
     serviceSchema({
       slug: "servicios/beneficios-tributarios-innovacion",
-      name: "Consultoría en Beneficios Tributarios I+D+i, FNCE y Eficiencia Energética",
+      name: "Consultoría Tributaria para Empresas en Beneficios Tributarios I+D+i, FNCE y Eficiencia Energética",
       description:
-        "Asesoría y consultoría especializada en beneficios tributarios: identificación y estructuración de proyectos de I+D+i, FNCE y eficiencia energética en Colombia y Latinoamérica.",
-      serviceType: "Consultoría en Beneficios Tributarios I+D+i",
+        "Consultoría tributaria para empresas especializada en beneficios tributarios: identificación, formulación y gestión de proyectos de I+D+i ante Minciencias y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA, en Colombia y Latinoamérica.",
+      serviceType: "Consultoría tributaria para empresas — beneficios tributarios por inversión",
     }),
   ];
   return (
     <>
       <SchemaScript schema={schemas} />
       <ServicioDetalle
-        badge="Consultoría en beneficios tributarios"
-        h1="Consultoría en beneficios tributarios: I+D+i, FNCE y eficiencia energética"
-        intro="Augusto Ruiz es consultor en beneficios tributarios en Colombia, especializado en la estructuración y gestión de proyectos de I+D+i ante Minciencias y el CNBT, y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA. La tasa de aprobación es del 93% en los proyectos gestionados en mi práctica actual de consultoría."
+        badge="Consultoría tributaria especializada"
+        h1="Consultoría tributaria para empresas: beneficios por I+D+i, FNCE y eficiencia energética"
+        intro="Augusto Ruiz presta consultoría tributaria para empresas en Colombia, especializada en beneficios tributarios por inversión: estructuración y gestión de proyectos de I+D+i ante Minciencias y el CNBT, y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA. La tasa de aprobación es del 93% en los proyectos gestionados en mi práctica actual de consultoría."
         breadcrumbLabel="Beneficios tributarios"
         imagen={{
           src: "/images/20221126_083837.jpg",
@@ -138,6 +194,7 @@ export default function BeneficiosTributariosInnovacionPage() {
         problema={problema}
         incluye={incluye}
         incluyeNota="Tasa de aprobación en proyectos gestionados: 93%."
+        comparativa={comparativa}
         metodologia={metodologia}
         paraQuien={paraQuien}
         faqs={faqs}

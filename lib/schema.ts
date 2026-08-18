@@ -19,6 +19,14 @@ export const professionalServiceSchema = {
     "evaluación financiera de innovación",
     "PRIME-10 Assessment",
     "innovación en Colombia",
+    "consultoría tributaria para empresas",
+    "consultoría en beneficios tributarios",
+    "asesoría tributaria especializada",
+    "beneficios tributarios I+D+i",
+    "consultoría financiera para proyectos de innovación",
+    "evaluación de proyectos bajo incertidumbre",
+    "simulación Monte Carlo",
+    "opciones reales",
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
@@ -30,9 +38,9 @@ export const professionalServiceSchema = {
           "@type": "Service",
           "@id": `${BASE_URL}/servicios/evaluacion-financiera-innovacion#service`,
           url: `${BASE_URL}/servicios/evaluacion-financiera-innovacion`,
-          name: "Evaluación Financiera de Innovación",
+          name: "Consultoría Financiera para Proyectos de Innovación",
           description:
-            "Modelos probabilísticos para evaluar proyectos de innovación tecnológica superando las limitaciones del VPN y la TIR.",
+            "Consultoría financiera especializada en decisiones de inversión en innovación y tecnología: modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
         },
       },
       {
@@ -52,9 +60,9 @@ export const professionalServiceSchema = {
           "@type": "Service",
           "@id": `${BASE_URL}/servicios/beneficios-tributarios-innovacion#service`,
           url: `${BASE_URL}/servicios/beneficios-tributarios-innovacion`,
-          name: "Consultoría en Beneficios Tributarios I+D+i, FNCE y Eficiencia Energética",
+          name: "Consultoría Tributaria para Empresas en Beneficios Tributarios I+D+i, FNCE y Eficiencia Energética",
           description:
-            "Asesoría y consultoría especializada en beneficios tributarios: identificación y estructuración de proyectos de I+D+i, FNCE y eficiencia energética en Colombia y Latinoamérica.",
+            "Consultoría tributaria para empresas especializada en beneficios tributarios: identificación, formulación y gestión de proyectos de I+D+i ante Minciencias y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA, en Colombia y Latinoamérica.",
         },
       },
       {

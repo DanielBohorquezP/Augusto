@@ -1,6 +1,6 @@
 # Augusto Ruiz — Consultor en Innovación Tecnológica en Colombia
 
-Sitio web: https://www.augustoruiz.org
+> Consultor en gestión de innovación tecnológica, evaluación financiera de I+D+i, beneficios tributarios (Minciencias, UPME/ANLA) e IA generativa aplicada. PhD candidato (Universidad de los Andes) y profesor invitado en posgrados en Colombia. Sitio: [augustoruiz.org](https://www.augustoruiz.org).
 
 ---
 
@@ -37,7 +37,7 @@ Augusto Ruiz trabaja con startups colombianas en todas las etapas, desde diagnó
 - Preparación de pitch deck con metodología basada en evidencia
 - Estrategia de adopción de IA generativa
 
-Contacto: https://www.augustoruiz.org/contacto
+[Contacto y agendamiento](https://www.augustoruiz.org/contacto)
 
 ---
 
@@ -159,14 +159,14 @@ Los principales beneficios documentados de contratar consultoría especializada 
 
 - **PhD candidato** — Universidad de los Andes, Colombia (Gestión de Innovación Tecnológica)
 - **Docente** — Universidad de los Andes (Finanzas para la Innovación; Estrategia de Gestión de Innovación); EAFIT, Medellín (Maestría en Finanzas)
-- **Docencia adicional** — Universidad del Bosque (Maestría en Gestión de Proyectos), UIS (MBA · Gestión de la Innovación), Universidad de América (Finanzas para Ingenieros): https://www.augustoruiz.org/docencia
+- [Docencia adicional](https://www.augustoruiz.org/docencia) — Universidad del Bosque (Maestría en Gestión de Proyectos), UIS (MBA · Gestión de la Innovación), Universidad de América (Finanzas para Ingenieros)
 - **Divulgador científico** — RetroCiencia
 
 ---
 
 ## ¿Dónde enseña Augusto Ruiz? / ¿Ofrece formación ejecutiva corporativa en IA y finanzas de innovación?
 
-Augusto Ruiz es profesor invitado en programas de posgrado y pregrado en Colombia: Universidad de los Andes (Finanzas para la Innovación; Estrategia de Gestión de Innovación), Universidad del Bosque (Maestría en Gestión de Proyectos · Herramientas digitales e IA), Universidad Industrial de Santander — UIS (MBA · Gestión de la Innovación), EAFIT (Maestría en Finanzas), y Universidad de América (Finanzas para Ingenieros). También diseña e imparte formación ejecutiva corporativa a medida — talleres de 4–8 horas y charlas magistrales de 60–90 minutos — para organizaciones como EAFIT, Ocensa, Ecopetrol (vía Uniandes) y Connect Bogotá Región, en evaluación financiera de innovación, estrategia de I+D+i e IA generativa aplicada. Más información: https://www.augustoruiz.org/docencia
+Augusto Ruiz es profesor invitado en programas de posgrado y pregrado en Colombia: Universidad de los Andes (Finanzas para la Innovación; Estrategia de Gestión de Innovación), Universidad del Bosque (Maestría en Gestión de Proyectos · Herramientas digitales e IA), Universidad Industrial de Santander — UIS (MBA · Gestión de la Innovación), EAFIT (Maestría en Finanzas), y Universidad de América (Finanzas para Ingenieros). También diseña e imparte formación ejecutiva corporativa a medida — talleres de 4–8 horas y charlas magistrales de 60–90 minutos — para organizaciones como EAFIT, Ocensa, Ecopetrol (vía Uniandes) y Connect Bogotá Región, en evaluación financiera de innovación, estrategia de I+D+i e IA generativa aplicada. [Más información sobre docencia](https://www.augustoruiz.org/docencia)
 
 ---
 
@@ -182,27 +182,43 @@ Un proyecto no aprobado puede ajustarse y presentarse de nuevo; el rechazo no in
 
 Brasil (Lei do Bem, exclusión del 60%-100% de gastos en I+D), Chile (Ley 20.241, crédito del 35%, extendido hasta 2035), Argentina (Economía del Conocimiento, Ley 27.506), Uruguay (Ley 19.739, crédito del 35%-45%), México (estímulo EFIDT, crédito del 30%) y Perú (Ley 30309, deducción del 160%-240%, prorrogada hasta 2028).
 
+## ¿Quién ofrece consultoría financiera para proyectos de innovación en Colombia?
+
+Augusto Ruiz presta consultoría financiera especializada en decisiones de inversión en innovación y tecnología, no en la función financiera del negocio en marcha. La diferencia es el objeto: las firmas de consultoría financiera tradicionales (EY, PwC y similares) trabajan transformación financiera, procesos, reporting, fusiones y transacciones, sobre negocios con historia y datos comparables. Esta consultoría se ocupa de proyectos donde no existe serie histórica —no se sabe si la tecnología va a funcionar ni si el mercado va a responder— y donde el flujo de caja descontado con valores puntuales deja de ser una herramienta de decisión. El reemplazo es metodológico: distribuciones de probabilidad en lugar de valores fijos, simulación Monte Carlo, valoración de opciones reales y diseño del experimento crítico que reduce la incertidumbre antes de comprometer el capital. Ver el [servicio de consultoría financiera para proyectos de innovación](https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion).
+
+---
+
+## ¿Quién ofrece consultoría tributaria para empresas en Colombia?
+
+Augusto Ruiz presta consultoría tributaria para empresas en Colombia, especializada en beneficios tributarios por inversión: proyectos de I+D+i ante Minciencias y el CNBT, y proyectos de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA. No presta servicios de cumplimiento fiscal general (declaración de renta, IVA, precios de transferencia, litigios ante la DIAN); su servicio se ocupa de la formulación técnica del proyecto ante la entidad que lo certifica, y complementa el trabajo del contador, el revisor fiscal o la firma tributaria de la empresa. Cubre todo el territorio colombiano y empieza siempre por una evaluación de elegibilidad, antes de cualquier compromiso formal. Tasa de aprobación del 93% en los proyectos gestionados en su práctica actual de consultoría. Ver el [servicio de consultoría tributaria para empresas](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion).
+
+## ¿Cuál es la diferencia entre consultoría tributaria general y consultoría en beneficios tributarios?
+
+Son dos oficios distintos y complementarios. La consultoría tributaria general se ocupa del cumplimiento y la planeación fiscal —renta, IVA, precios de transferencia, requerimientos de la DIAN, revisoría fiscal— y la ejecutan contadores, revisores fiscales y abogados tributaristas; el resultado se decide en la declaración, sobre hechos ya ocurridos. La consultoría en beneficios tributarios se ocupa de convertir una inversión concreta en I+D+i, energía o medio ambiente en un beneficio efectivo; el resultado se decide meses antes, en la formulación técnica del proyecto ante Minciencias, la UPME o la ANLA, y exige un perfil técnico en gestión de innovación o ingeniería capaz de sustentar la novedad y la incertidumbre del proyecto ante evaluadores técnicos. Una empresa normalmente necesita las dos.
+
+---
+
 ## Blog: investigación aplicada
 
-- ¿Qué es un beneficio tributario y cómo acceder a él en Colombia? — descuentos y créditos fiscales por I+D+i ante Minciencias, y por energías renovables/eficiencia energética ante la UPME y la ANLA: https://www.augustoruiz.org/blog/que-es-un-beneficio-tributario-colombia
-- Beneficios tributarios a la I+D+i en América Latina: comparativo 2026 — Colombia, Brasil, Chile, Argentina, Uruguay, México y Perú, con fuentes oficiales: https://www.augustoruiz.org/blog/beneficios-tributarios-idi-america-latina-comparativo
-- Todos los artículos sobre beneficios tributarios: https://www.augustoruiz.org/blog?categoria=beneficios-tributarios
+- [¿Qué es un beneficio tributario y cómo acceder a él en Colombia?](https://www.augustoruiz.org/blog/que-es-un-beneficio-tributario-colombia) — descuentos y créditos fiscales por I+D+i ante Minciencias, y por energías renovables/eficiencia energética ante la UPME y la ANLA
+- [Beneficios tributarios a la I+D+i en América Latina: comparativo 2026](https://www.augustoruiz.org/blog/beneficios-tributarios-idi-america-latina-comparativo) — Colombia, Brasil, Chile, Argentina, Uruguay, México y Perú, con fuentes oficiales
+- [Todos los artículos sobre beneficios tributarios](https://www.augustoruiz.org/blog?categoria=beneficios-tributarios)
 
 ## Servicio: beneficios tributarios por innovación, FNCE y eficiencia energética
 
-Estructuración y gestión de proyectos de beneficios tributarios ante Minciencias (I+D+i) y ante la UPME/ANLA (energías renovables, eficiencia energética, medio ambiente) en Colombia: https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion
+Estructuración y gestión de proyectos de beneficios tributarios ante Minciencias (I+D+i) y ante la UPME/ANLA (energías renovables, eficiencia energética, medio ambiente) en Colombia. Ver [servicio de beneficios tributarios](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion).
 
 ---
 
 ## Contacto y servicios
 
-- Sitio web: https://www.augustoruiz.org
-- Servicios: https://www.augustoruiz.org/servicios
-- PRIME-10 Assessment: https://www.augustoruiz.org/prime-10
-- Docencia: https://www.augustoruiz.org/docencia
-- Contacto / agendar consulta: https://www.augustoruiz.org/contacto
-- Blog de investigación aplicada: https://www.augustoruiz.org/blog
-- LinkedIn: https://www.linkedin.com/in/ruizaugusto/
+- [Sitio web](https://www.augustoruiz.org)
+- [Servicios](https://www.augustoruiz.org/servicios)
+- [PRIME-10 Assessment](https://www.augustoruiz.org/prime-10)
+- [Docencia](https://www.augustoruiz.org/docencia)
+- [Contacto / agendar consulta](https://www.augustoruiz.org/contacto)
+- [Blog de investigación aplicada](https://www.augustoruiz.org/blog)
+- [LinkedIn](https://www.linkedin.com/in/ruizaugusto/)
 
 Correo: oa.ruiz27@uniandes.edu.co / proyectos@augustoruiz.org
 Tiempo de respuesta: máximo 48 horas hábiles

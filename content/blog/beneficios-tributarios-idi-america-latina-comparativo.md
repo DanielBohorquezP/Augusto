@@ -56,7 +56,7 @@ Los incentivos fiscales son la vía dominante de apoyo público a la I+D empresa
 
 La región ofrece incentivos reales y significativos a la I+D+i empresarial, pero el mapa cambia rápido: Chile y Perú renovaron sus marcos en 2025, México ajustó sus reglas y Argentina tiene su instrumento en pausa. Para una empresa con operaciones en varios países, la pregunta no es solo cuánto ofrece cada régimen, sino cuánto vale efectivamente cada mecanismo, qué certeza temporal da y qué exige la entidad calificadora.
 
-Si su empresa invierte en I+D+i en Colombia o en la región y quiere establecer a qué beneficios puede acceder, el primer paso es una [evaluación de elegibilidad sin compromiso formal.](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion)
+Si su empresa invierte en I+D+i en Colombia o en la región y quiere establecer a qué beneficios puede acceder, el primer paso es una evaluación de elegibilidad sin compromiso formal, con una [consultoría tributaria para empresas especializada en beneficios](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion).
 
 :::destacado Nota
 Este artículo es información general sobre los regímenes vigentes en cada país a la fecha de publicación (2026) y no constituye asesoría tributaria o legal individualizada. Topes, tarifas y vigencias cambian con la normativa local de cada país: verifique los valores actuales o consulte con un asesor en la jurisdicción correspondiente antes de tomar decisiones basadas en este contenido. Si detecta un dato desactualizado o un error, [contácteme](https://www.augustoruiz.org/contacto) para corregirlo.

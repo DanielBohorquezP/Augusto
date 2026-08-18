@@ -7,6 +7,15 @@ import Reveal from "@/components/Reveal";
 type Faq = { q: string; a: string };
 type MetodologiaStep = { title: string; desc: string };
 type Imagen = { src: string; alt: string };
+type ComparativaFila = { criterio: string; general: string; especializada: string };
+type Comparativa = {
+  titulo: string;
+  columnaGeneral: string;
+  columnaEspecializada: string;
+  filas: ComparativaFila[];
+  nota?: string;
+  enlace?: { href: string; texto: string };
+};
 
 export type ServicioDetalleProps = {
   badge: string;
@@ -17,6 +26,8 @@ export type ServicioDetalleProps = {
   problema: string[];
   incluye: string[];
   incluyeNota?: string;
+  /** Tabla comparativa opcional. Solo la usa la pagina de beneficios tributarios. */
+  comparativa?: Comparativa;
   metodologia: MetodologiaStep[];
   paraQuien: string[];
   faqs: Faq[];
@@ -30,6 +41,7 @@ export default function ServicioDetalle({
   problema,
   incluye,
   incluyeNota,
+  comparativa,
   metodologia,
   paraQuien,
   faqs,
@@ -113,6 +125,66 @@ export default function ServicioDetalle({
           </Reveal>
         </div>
       </section>
+
+      {/* Comparativa (opcional) */}
+      {comparativa && (
+        <section className="py-16 bg-white">
+          <div className="container-site max-w-3xl">
+            <Reveal>
+              <h2 className="section-heading text-2xl sm:text-3xl mb-6">{comparativa.titulo}</h2>
+            </Reveal>
+            <Reveal delay={80}>
+              <div className="card p-0 overflow-x-auto">
+                <table className="w-full min-w-[36rem] text-sm text-left border-collapse">
+                  <thead>
+                    <tr className="bg-muted">
+                      <th scope="col" className="font-heading font-semibold text-foreground p-4 align-bottom">
+                        Criterio
+                      </th>
+                      <th scope="col" className="font-heading font-semibold text-foreground p-4 align-bottom">
+                        {comparativa.columnaGeneral}
+                      </th>
+                      <th scope="col" className="font-heading font-semibold text-primary p-4 align-bottom">
+                        {comparativa.columnaEspecializada}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {comparativa.filas.map((fila) => (
+                      <tr key={fila.criterio} className="border-t border-border align-top">
+                        <th scope="row" className="font-heading font-semibold text-foreground p-4 text-left">
+                          {fila.criterio}
+                        </th>
+                        <td className="text-muted-foreground p-4 leading-relaxed">{fila.general}</td>
+                        <td className="text-foreground p-4 leading-relaxed">{fila.especializada}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </Reveal>
+            {(comparativa.nota || comparativa.enlace) && (
+              <Reveal delay={140}>
+                <p className="mt-5 text-sm text-muted-foreground leading-relaxed">
+                  {comparativa.nota}
+                  {comparativa.enlace && (
+                    <>
+                      {comparativa.nota ? " " : null}
+                      <Link
+                        href={comparativa.enlace.href}
+                        className="font-semibold text-primary underline underline-offset-2"
+                      >
+                        {comparativa.enlace.texto}
+                      </Link>
+                      .
+                    </>
+                  )}
+                </p>
+              </Reveal>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Metodología */}
       <section className="py-16 bg-white">

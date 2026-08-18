@@ -3,24 +3,36 @@ import SchemaScript from "@/components/SchemaScript";
 import { faqSchema, breadcrumbSchema, serviceSchema } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
+// "Evaluación financiera de proyectos" tiene una SERP educativa (cursos, programas y
+// PDFs universitarios): Google no quiere una pagina de servicio ahi. El titulo apunta
+// a "consultoria financiera de proyectos de innovacion", que si es una SERP comercial
+// y donde los que rankean (EY, PwC) no mencionan Monte Carlo ni opciones reales.
 export const metadata: Metadata = {
-  title: "Evaluación Financiera de Proyectos de Innovación",
+  title: "Consultoría Financiera de Proyectos de Innovación",
   description:
-    "Evaluación financiera probabilística de proyectos de innovación con simulación Monte Carlo. Más allá del VPN y la TIR tradicionales. Consultoría en Colombia y LATAM.",
+    "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
+  keywords: [
+    "consultoría financiera para proyectos de innovación",
+    "consultoría financiera de innovación Colombia",
+    "evaluación financiera de proyectos de innovación",
+    "evaluación de proyectos bajo incertidumbre",
+    "simulación Monte Carlo proyectos de inversión",
+    "opciones reales valoración de proyectos",
+  ],
   alternates: { canonical: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
   openGraph: {
-    title: "Evaluación Financiera de Proyectos de Innovación | Augusto Ruiz",
+    title: "Consultoría Financiera de Proyectos de Innovación | Augusto Ruiz",
     description:
-      "Evaluación financiera probabilística de proyectos de innovación con simulación Monte Carlo. Más allá del VPN y la TIR tradicionales.",
+      "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
     url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion",
     type: "website",
     images: ["https://www.augustoruiz.org/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Evaluación Financiera de Proyectos de Innovación | Augusto Ruiz",
+    title: "Consultoría Financiera de Proyectos de Innovación | Augusto Ruiz",
     description:
-      "Evaluación financiera probabilística de proyectos de innovación con simulación Monte Carlo. Más allá del VPN y la TIR tradicionales.",
+      "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
   },
 };
 
@@ -37,6 +49,47 @@ const incluye = [
   "Diseño del experimento crítico: hipótesis a validar, métricas y valores mínimos aceptables para la decisión go/no-go",
   "Informe ejecutivo con la recomendación de inversión sustentada",
 ];
+
+// La SERP de "consultoria financiera para proyectos de innovacion" esta ocupada por
+// firmas de FORMULACION de proyectos (marco logico, postulacion ante Minciencias).
+// Ninguna menciona evaluacion bajo incertidumbre. Esta tabla marca esa diferencia.
+const comparativa = {
+  titulo: "Formular un proyecto no es lo mismo que evaluar si conviene hacerlo",
+  columnaGeneral: "Formulación de proyectos",
+  columnaEspecializada: "Evaluación de la decisión de inversión",
+  filas: [
+    {
+      criterio: "Qué produce",
+      general: "Un proyecto documentado y postulable ante la entidad: marco lógico, cronograma, presupuesto, indicadores.",
+      especializada: "Una decisión de inversión sustentada: invertir, no invertir, o validar primero una hipótesis crítica.",
+    },
+    {
+      criterio: "Qué pregunta responde",
+      general: "¿Cómo presento este proyecto para que lo aprueben?",
+      especializada: "¿Este proyecto merece la inversión, en qué monto y bajo qué condiciones?",
+    },
+    {
+      criterio: "Cuándo ocurre",
+      general: "Cuando la organización ya decidió hacer el proyecto y necesita presentarlo.",
+      especializada: "Antes de decidir, cuando todavía es barato cambiar de rumbo.",
+    },
+    {
+      criterio: "Qué pasa si el proyecto no conviene",
+      general: "Se presenta igual: la formulación no evalúa la conveniencia económica, la documenta.",
+      especializada: "Se detecta antes de comprometer el capital, que es donde está el ahorro real.",
+    },
+    {
+      criterio: "Con qué herramientas",
+      general: "Marco lógico, cadena de valor del proyecto, presupuesto y cronograma.",
+      especializada: "Distribuciones de probabilidad, simulación Monte Carlo, valoración de opciones reales y diseño del experimento crítico.",
+    },
+  ],
+  nota: "Los dos pasos son secuenciales y complementarios, no alternativas: primero se evalúa si el proyecto merece la inversión, después se formula para postularlo. Ambos se pueden contratar juntos —",
+  enlace: {
+    href: "/servicios/beneficios-tributarios-innovacion",
+    texto: "ver el servicio de formulación y beneficios tributarios",
+  },
+};
 
 const metodologia = [
   {
@@ -69,6 +122,18 @@ const paraQuien = [
 ];
 
 const faqs = [
+  {
+    q: "¿Cuál es la diferencia entre formular un proyecto de innovación y evaluarlo financieramente?",
+    a: "Formular es documentar el proyecto para que una entidad lo apruebe: marco lógico, objetivos, cronograma, presupuesto e indicadores, en el formato que exige Minciencias, una convocatoria o un inversionista. Evaluar financieramente es responder una pregunta anterior y distinta: si ese proyecto merece la inversión, en qué monto y bajo qué condiciones. Son dos oficios complementarios que el mercado suele confundir, porque la mayoría de las consultorías de innovación en Colombia se dedica a formular. La consecuencia práctica es que un proyecto puede estar impecablemente formulado, ser aprobado, y aun así destruir valor para la empresa: la formulación no evalúa la conveniencia económica, la documenta. El orden correcto es evaluar primero y formular después, cuando ya se sabe que el proyecto vale la pena.",
+  },
+  {
+    q: "¿Necesito una evaluación financiera antes de postular a beneficios tributarios o a una convocatoria?",
+    a: "No es un requisito de la entidad, pero cambia dos cosas. Primero, la calidad del proyecto que se postula: los evaluadores del CNBT y de las convocatorias valoran que la incertidumbre técnica esté identificada y que el presupuesto responda a una lógica de decisión, no a una cifra redonda. Segundo, y más importante, evita el peor escenario posible, que no es que le rechacen el proyecto: es que se lo aprueben y resulte ser una mala inversión. El beneficio tributario recupera una fracción de lo invertido; si el proyecto en sí destruye valor, ese descuento no compensa la pérdida. Por eso el orden que recomiendo es evaluar la decisión primero y formular después.",
+  },
+  {
+    q: "¿En qué se diferencia esta consultoría financiera de la de una firma de consultoría tradicional?",
+    a: "Las grandes firmas de consultoría financiera trabajan sobre negocios en marcha: transformación de la función financiera, procesos, reporting, fusiones y adquisiciones, transacciones. Su instrumental está diseñado para contextos donde existe historia y las proyecciones se apoyan en datos comparables. Esta consultoría se ocupa de la decisión de inversión en proyectos de innovación y tecnología, donde por definición no hay serie histórica: no se sabe si la tecnología va a funcionar, ni si el mercado va a responder. Ahí el flujo de caja descontado con valores puntuales deja de ser una herramienta de decisión y se vuelve un ejercicio de confirmación de lo que ya se quería hacer. El reemplazo es metodológico: distribuciones de probabilidad en vez de valores fijos, valoración de la flexibilidad mediante opciones reales, y diseño del experimento que reduce la incertidumbre crítica antes de comprometer el capital.",
+  },
   {
     q: "¿Por qué el VPN y la TIR no son suficientes para evaluar un proyecto de innovación?",
     a: "Porque el VPN y la TIR producen un único número que asume un futuro predecible, y en proyectos de innovación ese futuro no existe. Ambos métodos fijan las variables críticas del proyecto en valores puntuales, con frecuencia optimistas, y no capturan la flexibilidad real de la decisión ni la posibilidad de validar antes de comprometer toda la inversión. El resultado son errores de selección en dos direcciones: aprobar proyectos que destruyen valor y rechazar proyectos que sí lo crean. La evaluación probabilística no descarta el VPN: lo reemplaza como número único por una distribución de probabilidad del valor del proyecto.",
@@ -105,19 +170,20 @@ export default function EvaluacionFinancieraInnovacionPage() {
     ]),
     serviceSchema({
       slug: "servicios/evaluacion-financiera-innovacion",
-      name: "Evaluación Financiera de Innovación",
+      name: "Consultoría Financiera para Proyectos de Innovación",
       description:
-        "Modelos probabilísticos para evaluar proyectos de innovación tecnológica superando las limitaciones del VPN y la TIR.",
-      serviceType: "Evaluación Financiera de Innovación",
+        "Consultoría financiera especializada en decisiones de inversión en innovación y tecnología: modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
+      serviceType: "Consultoría financiera para proyectos de innovación",
     }),
   ];
   return (
     <>
       <SchemaScript schema={schemas} />
       <ServicioDetalle
-        badge="Evaluación financiera"
-        h1="Evaluación financiera de proyectos de innovación bajo incertidumbre"
-        intro="Más allá del VPN y la TIR tradicionales: evaluación probabilística con simulación Monte Carlo y opciones reales."
+        badge="Consultoría financiera especializada"
+        h1="Consultoría financiera para proyectos de innovación: evaluación bajo incertidumbre"
+        intro="Consultoría financiera especializada en proyectos de innovación y tecnología, donde el VPN y la TIR se quedan cortos: evaluación probabilística con simulación Monte Carlo, opciones reales y diseño del experimento crítico antes de comprometer la inversión."
+        comparativa={comparativa}
         breadcrumbLabel="Evaluación financiera de innovación"
         imagen={{
           src: "/images/20200117_083026.jpg",

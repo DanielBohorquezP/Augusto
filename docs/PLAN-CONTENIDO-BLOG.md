@@ -15,7 +15,15 @@ importar a Google Drive.
 **Investigación de palabras clave completa:** ver
 [INVESTIGACION-PALABRAS-CLAVE.md](INVESTIGACION-PALABRAS-CLAVE.md) — todos los
 temas investigados, volumen/KD por término, y cuáles ya están asignados a un
-artículo de este calendario vs. cuáles siguen sin usar.
+artículo de este calendario vs. cuáles siguen sin usar. **Ojo: ese archivo no
+existe en el repositorio** (referencia rota detectada el 2026-08-18); si se
+perdió, hay que rehacerlo o eliminar esta nota.
+
+**Mapa de keywords UPME/ANLA y rechazos:** ver
+[MAPA-KEYWORDS-UPME-RECHAZOS.md](MAPA-KEYWORDS-UPME-RECHAZOS.md) — los 8
+artículos de los meses 4-5, con H2s, ángulo y arquitectura de enlazado. Este
+clúster también alimenta el posicionamiento de "consultoría tributaria para
+empresas", término al que se reorientó la página de servicio el 2026-08-18.
 
 ## Cómo usar este archivo
 
@@ -69,11 +77,28 @@ artículo de este calendario vs. cuáles siguen sin usar.
 
 URLs completas: `https://www.augustoruiz.org` + la ruta de la columna URL final.
 
-### Mes 4 en adelante
+### Meses 4-5 — Noviembre-diciembre 2026 (clústeres UPME + rechazos)
 
-_Pendiente de definir — repetir investigación de keywords o revisar métricas
-reales de los 12 artículos anteriores antes de planear el siguiente
-trimestre._
+Ocho artículos en dos clústeres, detallados en
+[MAPA-KEYWORDS-UPME-RECHAZOS.md](MAPA-KEYWORDS-UPME-RECHAZOS.md). Objetivo:
+salir de las keywords cabeza (donde compiten Minciencias, la DIAN y las Big
+Four) hacia cola larga con intención transaccional y competencia casi nula.
+Orden de publicación alternando clústeres, con los dos pilares primero.
+
+| # | Título | Estado | Palabra clave principal | Vol./KD (est.) | URL final | Enlaza con |
+|---|---|---|---|---|---|---|
+| 13 | Por qué Minciencias rechaza proyectos de I+D+i: las 6 causas más frecuentes | Pendiente | por qué rechazan proyectos Minciencias | medio · muy baja | `/blog/por-que-minciencias-rechaza-proyectos-idi` | Pilar del clúster rechazos + página beneficios tributarios |
+| 14 | Beneficios tributarios por energías renovables: los 4 incentivos de la Ley 1715 | Pendiente | beneficios tributarios energías renovables Colombia | medio · baja | `/blog/beneficios-tributarios-energias-renovables-ley-1715` | Pilar del clúster UPME + artículo #1 |
+| 15 | Los 8 errores de formulación que hunden un proyecto de beneficios tributarios | Pendiente | errores al presentar proyectos de beneficios tributarios | medio · baja | `/blog/errores-formulacion-proyectos-beneficios-tributarios` | Artículo #13 |
+| 16 | Exclusión de IVA en equipos de energía renovable: qué aplica y qué no | Pendiente | exclusión de IVA paneles solares Colombia | medio-alto · baja | `/blog/exclusion-iva-equipos-energia-renovable-colombia` | Artículo #14 |
+| 17 | Tu proyecto no clasificó en la tipología del CNBT: qué significa y qué hacer | Pendiente | tipología CNBT proyectos I+D+i | bajo-medio · muy baja | `/blog/proyecto-no-clasifico-tipologia-cnbt` | Artículos #13 y #18 |
+| 18 | Certificación UPME paso a paso para proyectos de energía solar | Pendiente | certificación UPME paneles solares | medio · baja | `/blog/certificacion-upme-paso-a-paso-energia-solar` | Artículos #14 y #13 (puente entre clústeres) |
+| 19 | Cómo volver a presentar un proyecto rechazado ante el CNBT | Pendiente | volver a presentar proyecto CNBT rechazado | bajo · nula | `/blog/como-volver-a-presentar-proyecto-rechazado-cnbt` | Artículo #13 + `/contacto` |
+| 20 | UPME o ANLA: cuál certificación necesita tu proyecto | Pendiente | diferencia entre UPME y ANLA | bajo · muy baja | `/blog/upme-o-anla-cual-certificacion-necesita-tu-proyecto` | Artículo #14 + `/contacto` |
+
+Los volúmenes de esta tabla son estimaciones direccionales sin validar con
+herramienta de pago — contrastar con Search Console → Rendimiento antes de fijar
+los títulos definitivos.
 
 ---
 
