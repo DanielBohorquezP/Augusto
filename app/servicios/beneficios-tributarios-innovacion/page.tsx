@@ -184,8 +184,8 @@ export default function BeneficiosTributariosInnovacionPage() {
       <SchemaScript schema={schemas} />
       <ServicioDetalle
         badge="Consultoría tributaria especializada"
-        h1="Consultoría tributaria para empresas: beneficios por I+D+i, FNCE y eficiencia energética"
-        intro="Augusto Ruiz presta consultoría tributaria para empresas en Colombia, especializada en beneficios tributarios por inversión: estructuración y gestión de proyectos de I+D+i ante Minciencias y el CNBT, y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA. La tasa de aprobación es del 93% en los proyectos gestionados en mi práctica actual de consultoría."
+        h1="Consultoría tributaria para empresas"
+        intro="Beneficios tributarios por I+D+i, FNCE y eficiencia energética. Augusto Ruiz presta consultoría tributaria para empresas en Colombia, especializada en beneficios por inversión: estructuración y gestión de proyectos de I+D+i ante Minciencias y el CNBT, y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA. La tasa de aprobación es del 93% en los proyectos gestionados en mi práctica actual de consultoría."
         breadcrumbLabel="Beneficios tributarios"
         imagen={{
           src: "/images/20221126_083837.jpg",

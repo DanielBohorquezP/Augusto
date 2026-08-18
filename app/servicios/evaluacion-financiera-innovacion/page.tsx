@@ -181,8 +181,8 @@ export default function EvaluacionFinancieraInnovacionPage() {
       <SchemaScript schema={schemas} />
       <ServicioDetalle
         badge="Consultoría financiera especializada"
-        h1="Consultoría financiera para proyectos de innovación: evaluación bajo incertidumbre"
-        intro="Consultoría financiera especializada en proyectos de innovación y tecnología, donde el VPN y la TIR se quedan cortos: evaluación probabilística con simulación Monte Carlo, opciones reales y diseño del experimento crítico antes de comprometer la inversión."
+        h1="Consultoría financiera para proyectos de innovación"
+        intro="Evaluación de proyectos bajo incertidumbre, para decisiones de inversión en innovación y tecnología donde el VPN y la TIR se quedan cortos: modelos probabilísticos con simulación Monte Carlo, valoración de opciones reales y diseño del experimento crítico antes de comprometer la inversión."
         comparativa={comparativa}
         breadcrumbLabel="Evaluación financiera de innovación"
         imagen={{
