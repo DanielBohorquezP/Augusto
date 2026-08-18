@@ -76,6 +76,21 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.augustoruiz.org",
   },
+  // Declaracion explicita en vez de las convenciones de archivo de app/ (que
+  // emitian el .ico primero y como sizes="16x16"). Google exige que el favicon
+  // sea un cuadrado multiplo de 48px y elige entre estos <link>: por eso van
+  // primero el de 96 y el de 192 (48x2 y 48x4), y el .ico queda al final solo
+  // para navegadores antiguos. Los archivos viven en public/ para que su URL
+  // sea estable, sin el hash que Next anade a los iconos de app/.
+  icons: {
+    icon: [
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+      { url: "/favicon-192x192.png", type: "image/png", sizes: "192x192" },
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "48x48" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+    shortcut: ["/favicon.ico"],
+  },
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
     verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION },
   }),
