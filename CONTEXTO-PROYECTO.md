@@ -253,6 +253,8 @@ automáticamente** de `content/blog/` (no hay que tocar `sitemap.ts` al publicar
 `lastModified` de las rutas estáticas usa la fecha real de modificación del archivo
 fuente (`fs.statSync(...).mtime`), no la fecha del build.
 
+**`lastModified` se mantiene a mano** (2026-08-18). Antes se leía el `mtime` del archivo fuente, pero en Vercel el `git clone` del build reescribe el mtime de todos los archivos con la hora del checkout: el sitemap declaraba las 12 rutas estáticas modificadas en el mismo segundo, en cada despliegue. Google deja de usar `<lastmod>` para priorizar si comprueba que no es fiable. Al publicar un cambio de contenido real, actualiza la fecha de esa ruta en `app/sitemap.ts`; los cambios de estilo o refactor no cuentan.
+
 **Importante:** `staticRoutes` NO se actualiza solo — cualquier página nueva de nivel
 superior (`/algo/page.tsx`) que no sea un post de blog debe agregarse a mano a ese
 array, o quedará fuera del sitemap. Ver checklist en 8.1.

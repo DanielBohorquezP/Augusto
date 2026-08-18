@@ -1,41 +1,44 @@
 import { MetadataRoute } from "next";
-import fs from "fs";
-import path from "path";
 import { allPosts } from "@/lib/posts";
 
 const baseUrl = "https://www.augustoruiz.org";
 
+// `lastModified` se mantiene A MANO, en formato YYYY-MM-DD.
+//
+// Antes se leía el `mtime` del archivo fuente, con la buena intención de no
+// publicar frescura falsa. Pero en Vercel el `git clone` del build reescribe el
+// mtime de TODOS los archivos con la hora del checkout, así que el sitemap
+// acababa declarando las 12 rutas modificadas en el mismo segundo, en cada
+// despliegue. Google solo hace caso a <lastmod> mientras lo encuentre fiable:
+// si un sitio le dice que todo cambió y al recrastrear ve páginas idénticas,
+// deja de usar la señal para priorizar. En un dominio nuevo, con presupuesto
+// de rastreo ajustado, eso se paga caro.
+//
+// Al publicar un cambio de contenido real en una página, actualiza su fecha
+// aquí. Un cambio solo de estilo o de refactor NO cuenta: si la fecha no
+// corresponde a un cambio que el lector notaría, es mejor dejarla quieta.
+// Las fechas iniciales salen del último commit que tocó cada archivo.
 const staticRoutes = [
-  { path: "", file: "app/page.tsx", priority: 1.0, changeFrequency: "weekly" as const },
-  { path: "/sobre", file: "app/sobre/page.tsx", priority: 0.9, changeFrequency: "monthly" as const },
-  { path: "/servicios", file: "app/servicios/page.tsx", priority: 0.9, changeFrequency: "monthly" as const },
-  { path: "/servicios/beneficios-tributarios-innovacion", file: "app/servicios/beneficios-tributarios-innovacion/page.tsx", priority: 0.9, changeFrequency: "monthly" as const },
-  { path: "/servicios/evaluacion-financiera-innovacion", file: "app/servicios/evaluacion-financiera-innovacion/page.tsx", priority: 0.85, changeFrequency: "monthly" as const },
-  { path: "/servicios/capacitacion-ia-generativa", file: "app/servicios/capacitacion-ia-generativa/page.tsx", priority: 0.85, changeFrequency: "monthly" as const },
-  { path: "/prime-10", file: "app/prime-10/page.tsx", priority: 0.85, changeFrequency: "monthly" as const },
-  { path: "/docencia", file: "app/docencia/page.tsx", priority: 0.8, changeFrequency: "monthly" as const },
-  { path: "/blog", file: "app/blog/page.tsx", priority: 0.85, changeFrequency: "weekly" as const },
-  { path: "/medios", file: "app/medios/page.tsx", priority: 0.7, changeFrequency: "monthly" as const },
-  { path: "/contacto", file: "app/contacto/page.tsx", priority: 0.8, changeFrequency: "yearly" as const },
-  { path: "/politica-privacidad", file: "app/politica-privacidad/page.tsx", priority: 0.3, changeFrequency: "yearly" as const },
+  { path: "", lastModified: "2026-08-18", priority: 1.0, changeFrequency: "weekly" as const },
+  { path: "/sobre", lastModified: "2026-08-12", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/servicios", lastModified: "2026-08-18", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/servicios/beneficios-tributarios-innovacion", lastModified: "2026-08-18", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/servicios/evaluacion-financiera-innovacion", lastModified: "2026-08-18", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/servicios/capacitacion-ia-generativa", lastModified: "2026-08-18", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/prime-10", lastModified: "2026-08-15", priority: 0.85, changeFrequency: "monthly" as const },
+  { path: "/docencia", lastModified: "2026-08-15", priority: 0.8, changeFrequency: "monthly" as const },
+  { path: "/blog", lastModified: "2026-08-18", priority: 0.85, changeFrequency: "weekly" as const },
+  { path: "/medios", lastModified: "2026-08-12", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "/contacto", lastModified: "2026-08-12", priority: 0.8, changeFrequency: "yearly" as const },
+  { path: "/politica-privacidad", lastModified: "2026-08-05", priority: 0.3, changeFrequency: "yearly" as const },
 ];
-
-// Usa la fecha real de última modificación del archivo fuente en vez de la fecha
-// del build, para que <lastmod> refleje cambios reales y no "frescura" falsa.
-function fileLastModified(relativePath: string): Date {
-  try {
-    return fs.statSync(path.join(process.cwd(), relativePath)).mtime;
-  } catch {
-    return new Date();
-  }
-}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const static_ = staticRoutes
     .filter(({ path: route }) => !(route === "/blog" && allPosts.length === 0))
-    .map(({ path: route, file, priority, changeFrequency }) => ({
+    .map(({ path: route, lastModified, priority, changeFrequency }) => ({
       url: `${baseUrl}${route}`,
-      lastModified: fileLastModified(file),
+      lastModified: new Date(`${lastModified}T00:00:00.000Z`),
       changeFrequency,
       priority,
     }));
