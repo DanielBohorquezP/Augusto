@@ -1,0 +1,76 @@
+{
+  "url": "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion",
+  "status_code": 200,
+  "content": "<!DOCTYPE html><html lang=\"es\" class=\"__variable_6bee3b __variable_2fad4c\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/0484562807a97172-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/8888a3826f4a3af4-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/b957ea75a84b6ea7-s.p.woff2\" as=\"font\" crossor...",
+  "raw_content": "<!DOCTYPE html><html lang=\"es\" class=\"__variable_6bee3b __variable_2fad4c\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/...",
+  "is_spa": false,
+  "extracted_text": "Consultor\u00eda financiera para proyectos de innovaci\u00f3n\n\u00daltima actualizaci\u00f3n: agosto de 2026\nEvaluaci\u00f3n de proyectos bajo incertidumbre, para decisiones de inversi\u00f3n en innovaci\u00f3n y tecnolog\u00eda donde el VPN y la TIR se quedan cortos: modelos probabil\u00edsticos con simulaci\u00f3n Monte Carlo, valoraci\u00f3n de opciones reales y dise\u00f1o del experimento cr\u00edtico antes de comprometer la inversi\u00f3n.\nEl problema\nSu organizaci\u00f3n tiene sobre la mesa una decisi\u00f3n de inversi\u00f3n en innovaci\u00f3n o tecnolog\u00eda. El equipo financier...",
+  "publication_date": "2026-01-01",
+  "accessibility_tree": null,
+  "headers": {
+    "Access-Control-Allow-Origin": "*",
+    "Age": "47",
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "Content-Disposition": "inline",
+    "Content-Encoding": "br",
+    "Content-Type": "text/html; charset=utf-8",
+    "Date": "Wed, 19 Aug 2026 00:23:04 GMT",
+    "Etag": "W/\"cdc889362999852f4fcc06ea3b989852\"",
+    "Server": "Vercel",
+    "Strict-Transport-Security": "max-age=63072000",
+    "Vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch",
+    "X-Matched-Path": "/servicios/evaluacion-financiera-innovacion",
+    "X-Vercel-Cache": "HIT",
+    "X-Vercel-Id": "iad1::knrlf-1787098984933-07fe7b734ed3",
+    "Transfer-Encoding": "chunked"
+  },
+  "redirect_chain": [],
+  "console_errors": [],
+  "render_diagnostics": [],
+  "render_engine": null,
+  "render_ms": null,
+  "mode_used": "raw",
+  "error": null,
+  "structured_data": {
+    "block_count": 2,
+    "processed_count": 2,
+    "total_bytes": 15007,
+    "truncated": false,
+    "blocks": [
+      {
+        "index": 1,
+        "size_bytes": 6481,
+        "valid": true,
+        "types": [
+          "CollegeOrUniversity",
+          "EducationalOccupationalCredential",
+          "EntryPoint",
+          "ImageObject",
+          "Offer",
+          "OfferCatalog",
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SearchAction",
+          "Service",
+          "WebSite"
+        ],
+        "types_truncated": false
+      },
+      {
+        "index": 2,
+        "size_bytes": 8526,
+        "valid": true,
+        "types": [
+          "Answer",
+          "BreadcrumbList",
+          "FAQPage",
+          "ListItem",
+          "Question",
+          "Service"
+        ],
+        "types_truncated": false
+      }
+    ]
+  }
+}

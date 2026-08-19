@@ -75,7 +75,10 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, "max-snippet": -1 },
   },
   alternates: {
-    canonical: "https://www.augustoruiz.org",
+    // Con barra final, que es la URL que el servidor sirve de verdad. Google
+    // normaliza la raíz con y sin barra, así que esto es higiene, no un
+    // arreglo de indexación: elimina una señal ambigua de menos.
+    canonical: "https://www.augustoruiz.org/",
   },
   // Declaracion explicita en vez de las convenciones de archivo de app/ (que
   // emitian el .ico primero y como sizes="16x16"). Google exige que el favicon

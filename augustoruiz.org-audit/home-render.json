@@ -1,0 +1,62 @@
+{
+  "url": "https://www.augustoruiz.org/",
+  "status_code": 200,
+  "content": "<!DOCTYPE html><html lang=\"es\" class=\"__variable_6bee3b __variable_2fad4c\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/0484562807a97172-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/8888a3826f4a3af4-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/b957ea75a84b6ea7-s.p.woff2\" as=\"font\" crossor...",
+  "raw_content": "<!DOCTYPE html><html lang=\"es\" class=\"__variable_6bee3b __variable_2fad4c\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/...",
+  "is_spa": false,
+  "extracted_text": "Beneficios tributarios I+D+i en LatAm 2026\nComparativo 2026 de los incentivos fiscales a la I+D+i empresarial en Colombia, Brasil, Chile, Argentina, Uruguay, M\u00e9xico y Per\u00fa, con fuentes oficiales.\nEl puente entre el rigor acad\u00e9mico y la decisi\u00f3n organizacional\nInvestigador \u00b7 Consultor \u00b7 Formador en Gesti\u00f3n de Innovaci\u00f3n Tecnol\u00f3gica\nBrindo consultor\u00eda en innovaci\u00f3n tecnol\u00f3gica a empresas, startups y pymes en Colombia y Latinoam\u00e9rica \u2014 evaluaci\u00f3n financiera probabil\u00edstica, IA generativa aplicada y ...",
+  "publication_date": "2026-08-11",
+  "accessibility_tree": null,
+  "headers": {
+    "Access-Control-Allow-Origin": "*",
+    "Age": "390",
+    "Cache-Control": "public, max-age=0, must-revalidate",
+    "Content-Disposition": "inline",
+    "Content-Encoding": "br",
+    "Content-Type": "text/html; charset=utf-8",
+    "Date": "Wed, 19 Aug 2026 00:21:12 GMT",
+    "Etag": "W/\"84c6eb517fbcc4ae98706cf6ed1df764\"",
+    "Server": "Vercel",
+    "Strict-Transport-Security": "max-age=63072000",
+    "Vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch",
+    "X-Matched-Path": "/",
+    "X-Vercel-Cache": "HIT",
+    "X-Vercel-Id": "iad1::pxjxz-1787098872437-55482276f4f8",
+    "Transfer-Encoding": "chunked"
+  },
+  "redirect_chain": [],
+  "console_errors": [],
+  "render_diagnostics": [],
+  "render_engine": null,
+  "render_ms": null,
+  "mode_used": "raw",
+  "error": null,
+  "structured_data": {
+    "block_count": 1,
+    "processed_count": 1,
+    "total_bytes": 6481,
+    "truncated": false,
+    "blocks": [
+      {
+        "index": 1,
+        "size_bytes": 6481,
+        "valid": true,
+        "types": [
+          "CollegeOrUniversity",
+          "EducationalOccupationalCredential",
+          "EntryPoint",
+          "ImageObject",
+          "Offer",
+          "OfferCatalog",
+          "Organization",
+          "Person",
+          "ProfessionalService",
+          "SearchAction",
+          "Service",
+          "WebSite"
+        ],
+        "types_truncated": false
+      }
+    ]
+  }
+}

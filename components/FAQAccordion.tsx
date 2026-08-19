@@ -13,7 +13,15 @@ export default function FAQAccordion({ faqs }: { faqs: FAQ[] }) {
         const isOpen = openIndex === index;
         return (
           <div key={faq.q} className="card overflow-hidden p-0">
+            {/*
+              La pregunta va dentro de un <h3> real, no de un <span>. El <dl>/<dt>
+              ya era semanticamente valido, pero sin encabezado las preguntas no
+              entran en el esquema del documento, y es de ahi de donde los motores
+              de IA extraen bloques de respuesta citables. El nivel h3 es el
+              correcto: la seccion la abre un <h2> "Preguntas frecuentes".
+            */}
             <dt>
+              <h3 className="font-heading font-semibold text-foreground text-base">
               <button
                 type="button"
                 onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -33,6 +41,7 @@ export default function FAQAccordion({ faqs }: { faqs: FAQ[] }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
+              </h3>
             </dt>
             <dd
               className={`grid transition-all duration-200 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
