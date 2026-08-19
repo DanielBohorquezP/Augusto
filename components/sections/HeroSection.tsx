@@ -55,18 +55,6 @@ export default function HeroSection() {
               financiación con rigor académico.
             </p>
 
-            <p className="mt-3 text-white/70 text-sm leading-relaxed max-w-lg">
-              También asesoro a empresas colombianas en{" "}
-              <Link
-                href="/servicios/beneficios-tributarios-innovacion"
-                className="text-white/90 font-medium underline underline-offset-4 decoration-white/30 hover:decoration-white transition-colors"
-              >
-                beneficios tributarios por inversión en I+D+i
-              </Link>{" "}
-              ante Minciencias, y en energías renovables y eficiencia energética
-              ante la UPME y la ANLA.
-            </p>
-
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <a
                 href={whatsappUrl("Hola Augusto, vengo de tu sitio web y quiero una consulta sobre innovación.")}
