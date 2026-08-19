@@ -2,17 +2,12 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+// El tipo global de window.gtag se declara una sola vez, en lib/analytics.
+import "@/lib/analytics";
 
 type Consent = "granted" | "denied";
 
 const STORAGE_KEY = "cookie_consent";
-
-declare global {
-  interface Window {
-    dataLayer?: unknown[];
-    gtag?: (...args: unknown[]) => void;
-  }
-}
 
 function applyConsent(value: Consent) {
   window.gtag?.("consent", "update", {

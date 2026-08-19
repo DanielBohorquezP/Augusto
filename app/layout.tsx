@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import AnalyticsEvents from "@/components/AnalyticsEvents";
 import SchemaScript from "@/components/SchemaScript";
 import { personSchema, websiteSchema, professionalServiceSchema } from "@/lib/schema";
 
@@ -110,6 +111,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <CookieConsentBanner />
+        {GA_MEASUREMENT_ID && <AnalyticsEvents />}
         {GA_MEASUREMENT_ID && (
           <>
             {/*

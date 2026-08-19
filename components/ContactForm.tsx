@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 const services = [
   "PRIME-10 Decision Assessment",
@@ -52,6 +53,13 @@ export default function ContactForm() {
       });
       if (res.ok) {
         setState("success");
+        // Solo cuenta como lead el envio que el servidor acepto: si se disparara
+        // antes del fetch, los intentos fallidos inflarian la conversion.
+        trackEvent("contact_form_submit", {
+          // Que servicio eligio en el desplegable, para saber que linea genera
+          // demanda real y no solo trafico.
+          servicio: form.service || "sin especificar",
+        });
       } else {
         setState("error");
       }
