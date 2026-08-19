@@ -49,39 +49,38 @@ export default function ServicioDetalle({
 }: ServicioDetalleProps) {
   return (
     <>
-      {/* Hero */}
+      {/* Hero — texto e imagen a dos columnas en desktop, apilados en móvil. La
+          imagen antes vivía en su propia sección debajo del hero; se sube aquí
+          para que la foto del consultor acompañe la promesa del servicio desde
+          el primer scroll, en vez de quedar como un elemento decorativo aparte. */}
       <section className="bg-primary pt-32 pb-16">
         <div className="container-site">
-          <div className="max-w-2xl">
-            <span className="inline-block bg-accent text-white text-xs font-heading font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
-              {badge}
-            </span>
-            <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white">
-              {h1}
-            </h1>
-            <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
-            <p className="mt-4 text-white/80 text-base leading-relaxed">{intro}</p>
+          <div className={imagen ? "grid grid-cols-1 lg:grid-cols-2 gap-10 items-center" : ""}>
+            <div className="max-w-2xl">
+              <span className="inline-block bg-accent text-white text-xs font-heading font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
+                {badge}
+              </span>
+              <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white">
+                {h1}
+              </h1>
+              <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
+              <p className="mt-4 text-white/80 text-base leading-relaxed">{intro}</p>
+            </div>
+            {imagen && (
+              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
+                <Image
+                  src={imagen.src}
+                  alt={imagen.alt}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>
-
-      {/* Imagen destacada */}
-      {imagen && (
-        <section className="bg-white pt-10">
-          <div className="container-site">
-            <div className="relative w-full aspect-[21/9] rounded-xl overflow-hidden">
-              <Image
-                src={imagen.src}
-                alt={imagen.alt}
-                fill
-                sizes="100vw"
-                className="object-cover"
-                priority
-              />
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Ficha de autoridad: quien presta el servicio, antes de explicar el problema. */}
       <AutoridadConsultor />
