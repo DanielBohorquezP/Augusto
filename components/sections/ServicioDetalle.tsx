@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { whatsappUrl } from "@/lib/site";
 import FAQAccordion from "@/components/FAQAccordion";
+import AutoridadConsultor from "@/components/AutoridadConsultor";
 import Reveal from "@/components/Reveal";
 
 type Faq = { q: string; a: string };
@@ -82,8 +83,11 @@ export default function ServicioDetalle({
         </section>
       )}
 
+      {/* Ficha de autoridad: quien presta el servicio, antes de explicar el problema. */}
+      <AutoridadConsultor />
+
       {/* El problema / contexto */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-muted">
         <div className="container-site max-w-3xl">
           <Reveal>
             <h2 className="section-heading text-2xl sm:text-3xl mb-6">El problema</h2>
@@ -99,7 +103,7 @@ export default function ServicioDetalle({
       </section>
 
       {/* Qué incluye */}
-      <section className="py-16 bg-muted">
+      <section className="py-16 bg-white">
         <div className="container-site max-w-3xl">
           <Reveal>
             <h2 className="section-heading text-2xl sm:text-3xl mb-6">Qué incluye el servicio</h2>
@@ -128,7 +132,7 @@ export default function ServicioDetalle({
 
       {/* Comparativa (opcional) */}
       {comparativa && (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-muted">
           <div className="container-site max-w-3xl">
             <Reveal>
               <h2 className="section-heading text-2xl sm:text-3xl mb-6">{comparativa.titulo}</h2>
