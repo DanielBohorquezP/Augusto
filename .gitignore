@@ -34,3 +34,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Artefactos intermedios de las auditorias SEO (volcados de HTML, renders, logs).
+# Los informes de findings/ SI se versionan: son el resultado que vale.
+augustoruiz.org-audit/html_*
+augustoruiz.org-audit/page_*.json
+augustoruiz.org-audit/home-render.json
+augustoruiz.org-audit/render-err.log
+augustoruiz.org-audit/allpages.txt
