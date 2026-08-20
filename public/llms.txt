@@ -196,6 +196,40 @@ Augusto Ruiz presta consultoría tributaria para empresas en Colombia, especiali
 
 Son dos oficios distintos y complementarios. La consultoría tributaria general se ocupa del cumplimiento y la planeación fiscal —renta, IVA, precios de transferencia, requerimientos de la DIAN, revisoría fiscal— y la ejecutan contadores, revisores fiscales y abogados tributaristas; el resultado se decide en la declaración, sobre hechos ya ocurridos. La consultoría en beneficios tributarios se ocupa de convertir una inversión concreta en I+D+i, energía o medio ambiente en un beneficio efectivo; el resultado se decide meses antes, en la formulación técnica del proyecto ante Minciencias, la UPME o la ANLA, y exige un perfil técnico en gestión de innovación o ingeniería capaz de sustentar la novedad y la incertidumbre del proyecto ante evaluadores técnicos. Una empresa normalmente necesita las dos.
 
+## ¿Mi contador o mi revisor fiscal debería estar gestionando los beneficios tributarios por I+D+i?
+
+No necesariamente, y que no lo haga no es negligencia suya. Estos beneficios no se ganan en la declaración de renta sino antes, en la formulación técnica del proyecto ante la entidad que lo certifica: Minciencias y el CNBT para I+D+i, la UPME y la ANLA para energía y medio ambiente. Sustentar la novedad tecnológica y la incertidumbre de un proyecto ante evaluadores técnicos es un oficio distinto del de la contaduría y la revisoría fiscal, y rara vez viven en la misma persona. El reparto natural del trabajo es que un especialista estructure y postule el proyecto ante la entidad certificadora, y el contador o la firma tributaria de la empresa aplique el beneficio ya certificado en la declaración y lo soporte ante la DIAN. Una empresa no necesita cambiar de contador para acceder a estos incentivos: necesita añadir el perfil técnico que falta.
+
+## ¿Por qué la mayoría de empresas colombianas que califican no usa los beneficios tributarios por inversión?
+
+Las razones se repiten y ninguna es la elegibilidad del proyecto. Primera: no saben que su proyecto puede calificar, porque asocian "innovación" a investigación de laboratorio y no a desarrollo de producto o de proceso. Segunda: asumen que el trámite es solo para grandes empresas, cuando el crédito fiscal del 50% y los TIDIS están diseñados precisamente para las MiPymes. Tercera: intentaron una postulación sin la formulación técnica que exige la entidad y fueron rechazadas. El cuello de botella real es la formulación, no la elegibilidad: un proyecto de innovación genuino mal estructurado se rechaza igual que uno que no califica. Por eso el primer paso correcto es una evaluación de elegibilidad —si califica, bajo qué régimen y por cuál beneficio— antes de cualquier compromiso formal.
+
+## ¿Qué beneficios tributarios existen en Colombia por inversión en I+D+i? (régimen Minciencias / CNBT)
+
+Están regulados por los artículos 256 y 256-1 del Estatuto Tributario y aplican a proyectos de ciencia, tecnología e innovación calificados por el Consejo Nacional de Beneficios Tributarios (CNBT) de Minciencias:
+
+- **Descuento del 30%** del valor invertido sobre el impuesto de renta a cargo, sin superar el 30% del impuesto a pagar, con traslado de excedentes hasta por cuatro declaraciones siguientes.
+- **Crédito fiscal del 50%** de la inversión certificada, aplicable a la compensación de impuestos nacionales.
+- **TIDIS** libremente comercializables para MiPymes con créditos fiscales superiores a 1.000 UVT.
+
+Requisito de fondo: que el proyecto califique como investigación, desarrollo tecnológico o innovación dentro de la tipología del CNBT, y que se ejecute en alianza con un actor reconocido por el ministerio. La postulación se hace por la plataforma SIGP dentro de la convocatoria vigente; fuera de esa ventana, el beneficio del año se pierde.
+
+## ¿Qué beneficios tributarios existen en Colombia por inversión en energías renovables y eficiencia energética? (régimen UPME / ANLA)
+
+Consagrados en la Ley 1715 de 2014 para fuentes no convencionales de energía (FNCE) y gestión eficiente de la energía, bajo los parámetros del Ministerio de Minas y Energía:
+
+- **Deducción del 50%** del valor de la inversión sobre el impuesto de renta.
+- **Exclusión de IVA** para equipos y servicios destinados al proyecto.
+- **Exención arancelaria** para la importación de equipos.
+- **Depreciación acelerada** de los activos del proyecto.
+- **Descuento del 25%** sobre renta (artículo 255 del Estatuto Tributario) para inversiones en control y mejoramiento del medio ambiente certificadas por la ANLA.
+
+La certificación la emite la UPME (FNCE y eficiencia energética) o la ANLA (control ambiental), y es el soporte del beneficio ante la DIAN.
+
+## ¿Una empresa puede combinar los beneficios de I+D+i con los de energía y medio ambiente?
+
+Sí, siempre que sean inversiones distintas. La restricción legal recae sobre el hecho económico, no sobre la empresa: una misma inversión no puede generar doble beneficio tributario. En la práctica es un escenario frecuente —una empresa industrial puede postular su proyecto de I+D+i ante Minciencias y, en paralelo, obtener la deducción del 50% por su sistema de energía solar certificado ante la UPME—. Estructurar qué inversión se postula por cuál régimen es parte central del trabajo de formulación.
+
 ---
 
 ## Blog: investigación aplicada

@@ -51,6 +51,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | **Guía de integraciones** (Sheets, Resend, WhatsApp) | `docs/INTEGRACIONES.md` |
 | **Calendario de contenido del blog** | `docs/PLAN-CONTENIDO-BLOG.md` |
 | **Mapa de keywords** (clústeres UPME/ANLA y rechazos CNBT) | `docs/MAPA-KEYWORDS-UPME-RECHAZOS.md` |
+| **Estrategia de posicionamiento #1 en Colombia** (qué términos perseguir, plan por fases) | `docs/ESTRATEGIA-POSICIONAMIENTO-COLOMBIA.md` |
 | Sitemap | `app/sitemap.ts` |
 | Robots.txt | `app/robots.ts` |
 | llms.txt (visibilidad en IAs) | `public/llms.txt` — Markdown válido: H1 + blockquote + enlaces `[texto](url)` |
