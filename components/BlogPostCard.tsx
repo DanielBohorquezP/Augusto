@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Post } from "@/lib/posts";
 import { slugifyCategory } from "@/lib/posts";
@@ -12,24 +13,9 @@ export const categoryColors: Record<string, string> = {
   "Casos de estudio": "bg-amber-50 text-amber-700",
 };
 
-// Icono decorativo por categoría — la miniatura de la tarjeta NO reutiliza la
-// imagen OG del post: esa imagen ya lleva el título grabado como píxeles para
-// compartir en redes, y repetirlo como thumbnail duplicaba el título (una vez
-// ilegible dentro de la imagen, otra vez como texto real debajo) y se veía mal
-// en mobile/tablet. Aquí solo va una marca visual limpia, sin texto.
-function CategoryIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25"
-      />
-    </svg>
-  );
-}
-
+// Miniatura de la tarjeta: la marca (logo del favicon) sobre el fondo primario —
+// la imagen OG del post NO se reutiliza aquí, ya que lleva el título grabado como
+// píxeles para compartir en redes y repetirlo duplicaba el título en la tarjeta.
 export default function BlogPostCard({ post }: { post: Post }) {
   return (
     <article className="card overflow-hidden flex flex-col">
@@ -38,7 +24,13 @@ export default function BlogPostCard({ post }: { post: Post }) {
         className="relative flex h-40 w-full items-center justify-center bg-primary"
         aria-label={post.title}
       >
-        <CategoryIcon className="w-12 h-12 text-white/25" />
+        <Image
+          src="/icon.png"
+          alt=""
+          width={64}
+          height={64}
+          className="w-16 h-16 opacity-25"
+        />
       </Link>
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-3">
