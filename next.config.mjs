@@ -1,16 +1,31 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
   // Compresión gzip/brotli de las respuestas (ya es el default de Next, se deja explícito).
   compress: true,
   async headers() {
     return [
-      {
-        // Assets con hash en el nombre (JS/CSS de build) — seguros de cachear "para siempre".
-        source: "/_next/static/:path*",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-        ],
-      },
+      // Assets con hash en el nombre (JS/CSS de build) — seguros de cachear "para siempre".
+      //
+      // SOLO en producción. En desarrollo los chunks NO llevan hash en el nombre
+      // (`app/layout.js`, `webpack.js`, `main-app.js`), así que marcarlos `immutable`
+      // hace que el navegador los cachee un año y nunca los revalide. Al recompilar,
+      // el navegador sigue sirviendo el chunk viejo, el registro de módulos de webpack
+      // deja de cuadrar y salta `ChunkLoadError: Loading chunk app/layout failed`.
+      // React no llega a hidratar y TODOS los componentes cliente quedan muertos
+      // (el menú deja de abrir, los formularios no responden). Borrar `.next` no lo
+      // arregla, porque lo que está sucio es la caché HTTP del navegador, no el build.
+      ...(isProd
+        ? [
+            {
+              source: "/_next/static/:path*",
+              headers: [
+                { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+              ],
+            },
+          ]
+        : []),
       {
         // Imágenes y archivos estáticos servidos desde /public.
         source: "/(images|logos)/:path*",
