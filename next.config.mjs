@@ -4,6 +4,29 @@ const isProd = process.env.NODE_ENV === "production";
 const nextConfig = {
   // Compresión gzip/brotli de las respuestas (ya es el default de Next, se deja explícito).
   compress: true,
+  async redirects() {
+    // Rutas de una version anterior del sitio, ya indexadas por Google pero
+    // que hoy devuelven 404. Sin el redirect, Google las desindexa por error
+    // en vez de transferir la senal a la URL actual.
+    return [
+      {
+        source: "/consultoria/evaluacion-financiera",
+        destination: "/servicios/evaluacion-financiera-innovacion",
+        permanent: true,
+      },
+      {
+        // Version indexada en Search Console, con tildes en la URL.
+        source: "/consultor%C3%ADa/evaluaci%C3%B3n-financiera",
+        destination: "/servicios/evaluacion-financiera-innovacion",
+        permanent: true,
+      },
+      {
+        source: "/doctorado",
+        destination: "/sobre",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       // Assets con hash en el nombre (JS/CSS de build) — seguros de cachear "para siempre".
