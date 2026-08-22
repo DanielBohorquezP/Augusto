@@ -36,6 +36,9 @@ export const metadata: Metadata = {
   description:
     "PhD(c) investigador, consultor y formador especializado en evaluación financiera de innovación tecnológica, IA generativa aplicada y estrategias de financiación. Universidad de los Andes.",
   keywords: [
+    "consultoría de innovación",
+    "metodologías de innovación",
+    "consultoría de innovación y metodologías de innovación",
     "consultoría en innovación empresarial Colombia",
     "consultoría en innovación tecnológica",
     "consultoría en innovación digital",

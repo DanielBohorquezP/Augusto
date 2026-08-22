@@ -27,6 +27,8 @@ export const professionalServiceSchema = {
   image: { "@id": `${BASE_URL}/#logo` },
   areaServed: ["Colombia", "México", "Chile", "Perú", "Ecuador"],
   knowsAbout: [
+    "consultoría de innovación",
+    "metodologías de innovación",
     "consultoría en innovación empresarial",
     "consultoría en innovación tecnológica",
     "consultoría en innovación digital",
@@ -121,6 +123,8 @@ export const personSchema = {
   description:
     "El puente entre el rigor académico y la decisión organizacional. PhD(c) en gestión de innovación tecnológica. Especialista en evaluación financiera bajo incertidumbre e IA generativa aplicada.",
   knowsAbout: [
+    "Consultoría de Innovación",
+    "Metodologías de Innovación",
     "Gestión de Innovación Tecnológica",
     "Evaluación Financiera de Innovación",
     "Modelos Probabilísticos",

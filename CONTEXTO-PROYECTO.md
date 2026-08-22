@@ -133,11 +133,39 @@ npm run start    # servidor de producción
 
 1. `<HeroSection>` — identidad, foto, stats (10+ años, 50+ org, PRIME-10)
 2. `<ServicesSection>` — los 3 servicios principales
-3. `<Prime10Banner>` — CTA al framework propietario
-4. `<AffiliationsSection>` — logos/sellos Uniandes + EAFIT
-5. `<TestimonialsSection>` — testimonios de clientes
-6. `<BlogPreviewSection>` — últimos artículos del blog
-7. `<CTASection>` — llamada a la acción final
+3. `<LogosCarousel>` — logos de clientes
+4. `<MetodologiasSection>` — metodologías de innovación, con PRIME-10 destacada
+5. `<Prime10Banner>` — CTA al framework propietario
+6. `<AffiliationsSection>` — logos/sellos Uniandes + EAFIT
+7. `<TestimonialsSection>` — testimonios de clientes
+8. `<BlogPreviewSection>` — últimos artículos del blog
+9. `<CTASection>` — llamada a la acción final
+
+### Posicionamiento de la homepage (desde 2026-08-21)
+
+El title, la meta description y el H1 de `/` apuntan a la frase exacta
+**"consultoría de innovación y metodologías de innovación"**.
+
+**Por qué:** análisis de la SERP colombiana para esa consulta. Disenni rankea #1
+con un perfil de enlaces ~380x menor que el de EY (88 vs 33.856) por una sola
+razón: escribe la frase literal en title, meta description y H2. Es una consulta
+de cola larga que nadie más ataca deliberadamente — EY, Kaizen y Olivia caen ahí
+por accidente, con páginas sobre otro tema.
+
+**Qué NO se perdió:** "innovación tecnológica" sigue apareciendo 5 veces en la
+home (subtítulo del hero, párrafo de intro, navbar, schema) y es el término que
+gobiernan `/servicios` y las páginas de servicio. No hay canibalización: `/` va
+por "consultoría **de** innovación", `/servicios` por "consultoría **en**
+innovación **tecnológica**".
+
+**Nota técnica:** el title de `/` usa `title: { absolute: ... }` para saltarse el
+template `"%s | Augusto Ruiz"` del layout raíz — la marca ya va escrita al final,
+y así la frase a posicionar ocupa el arranque del title.
+
+**Diferenciador frente a la competencia:** los competidores dicen tener
+"metodologías propias" sin nombrarlas ni acreditarlas. `MetodologiasSection`
+hace lo contrario: nombra las seis y pone al frente PRIME-10™ como la única
+registrada ante la DNDA (2025). Es además el puente interno hacia `/prime-10`.
 
 ---
 
@@ -533,6 +561,7 @@ refresca el suyo solo al volver a rastrear el sitio (puede tardar semanas).
 |-----------|-----------|
 | `HeroSection` | Foto profesional, headline, descripción, 2 CTAs, stats row |
 | `ServicesSection` | 3 servicios en cards con beneficios listados |
+| `MetodologiasSection` | H2 "Metodologías de innovación que aplico"; tarjeta destacada de PRIME-10™ (registrada DNDA) + 6 metodologías etiquetadas por servicio |
 | `Prime10Banner` | Banner destacado con CTA al framework |
 | `AffiliationsSection` | Uniandes + EAFIT + otras afiliaciones |
 | `TestimonialsSection` | Testimonios de clientes (placeholder) |

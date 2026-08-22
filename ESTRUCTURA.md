@@ -12,6 +12,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Hero (título, subtítulo, CTA) | `components/sections/HeroSection.tsx` |
 | Estadísticas (años, proyectos...) | `components/sections/StatsSection.tsx` |
 | Servicios (cards) | `components/sections/ServicesSection.tsx` |
+| Metodologías de innovación (home) | `components/sections/MetodologiasSection.tsx` — tarjeta destacada de PRIME-10 + 6 metodologías; el H2 posiciona "metodologías de innovación" |
 | Testimonios | `components/sections/TestimonialsSection.tsx` |
 | Banner PRIME-10 | `components/sections/Prime10Banner.tsx` |
 | Preview de blog en home | `components/sections/BlogPreviewSection.tsx` |
@@ -271,6 +272,7 @@ augusto-ruiz-org/
 │       ├── HeroSection.tsx
 │       ├── StatsSection.tsx
 │       ├── ServicesSection.tsx
+│       ├── MetodologiasSection.tsx
 │       ├── TestimonialsSection.tsx
 │       ├── BlogPreviewSection.tsx   # Se oculta sola si el blog está vacío
 │       ├── AffiliationsSection.tsx

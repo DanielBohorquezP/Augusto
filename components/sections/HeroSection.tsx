@@ -25,8 +25,13 @@ export default function HeroSection() {
               PhD(c) · Universidad de los Andes · Colombia
             </div>
 
+            {/* La frase completa "consultoria de innovacion y metodologias de
+                innovacion" es una consulta de cola larga casi sin competencia
+                deliberada: quien la escribe literal en title, meta y H1 la gana.
+                El termino "innovacion tecnologica" no se pierde — sigue en el
+                subtitulo, en el parrafo de abajo y en el resto del sitio. */}
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight text-balance">
-              Consultoría en innovación tecnológica
+              Consultoría de innovación y metodologías de innovación
             </h1>
 
             {/* El lema de marca baja del H1 a esta linea: sigue siendo lo primero
@@ -50,9 +55,12 @@ export default function HeroSection() {
               <strong className="text-white/90 font-medium">
                 consultoría en innovación tecnológica
               </strong>{" "}
-              a empresas, startups y pymes en Colombia y Latinoamérica — evaluación
-              financiera probabilística, IA generativa aplicada y estrategias de
-              financiación con rigor académico.
+              a empresas, startups y pymes en Colombia y Latinoamérica, con{" "}
+              <strong className="text-white/90 font-medium">
+                metodologías propias
+              </strong>{" "}
+              de evaluación financiera probabilística, IA generativa aplicada y
+              estrategias de financiación.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
