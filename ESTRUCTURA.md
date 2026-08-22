@@ -31,7 +31,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Imagen OG por defecto del sitio | `app/opengraph-image.tsx` |
 | Íconos de marca (pestaña, Android, iOS) | `app/favicon.ico`, `app/icon.png`, `app/apple-icon.png` |
 | Página Sobre mí | `app/sobre/page.tsx` |
-| Página Servicios | `app/servicios/page.tsx` |
+| Página Servicios | `app/servicios/page.tsx` — arrays `services`, `process`, `criterios` (cómo evaluar una consultoría) y `faqs` (11 preguntas; alimentan el `FAQPage` schema) |
 | Página PRIME-10 | `app/prime-10/page.tsx` |
 | Página Docencia | `app/docencia/page.tsx` |
 | Página Medios | `app/medios/page.tsx` |

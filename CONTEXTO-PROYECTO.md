@@ -167,6 +167,24 @@ y así la frase a posicionar ocupa el arranque del title.
 hace lo contrario: nombra las seis y pone al frente PRIME-10™ como la única
 registrada ante la DNDA (2025). Es además el puente interno hacia `/prime-10`.
 
+### Profundidad de `/servicios` (desde 2026-08-21)
+
+Las páginas que rankean por "consultoría de innovación" son mucho más profundas:
+Olivia corre ~5.000 palabras con 11 preguntas frecuentes; Kaizen ~2.200 con
+casos y cifras. `/servicios` pasó de ~1.000 a ~2.050 palabras con dos bloques:
+
+- **`criterios`** — "Cómo evaluar una consultoría de innovación antes de
+  contratarla", cinco criterios de compra. Cada uno es útil por sí mismo y a la
+  vez expone un diferenciador real (metodología registrada, quién ejecuta el
+  trabajo, incertidumbre modelada, 93% de aprobación, entregable que queda).
+- **`faqs`** — de 5 a 11 preguntas, igualando a Olivia. Alimentan el `FAQPage`
+  schema, que es lo que los motores de IA extraen para responder directo.
+
+**Pendiente de confirmar con Augusto:** las respuestas de precio y duración se
+redactaron sin cifras inventadas (remiten al diagnóstico inicial). Si él tiene
+rangos o un modelo de cobro publicable, conviene concretarlos — "cuánto cuesta"
+es una de las consultas con más intención de compra del sector.
+
 ---
 
 ## 6. Servicios ofrecidos

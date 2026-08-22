@@ -98,6 +98,29 @@ const services = [
   },
 ];
 
+const criterios = [
+  {
+    q: "¿La metodología tiene nombre, autor y respaldo verificable?",
+    a: "«Metodologías propias» es la frase más común del sector y casi nunca viene acompañada de un nombre concreto. Pida el nombre, quién la desarrolló y dónde está documentada. PRIME-10™ está registrada en la Dirección Nacional de Derecho de Autor de Colombia (2025) y proviene de una investigación doctoral en la Universidad de los Andes: son dos hechos que cualquiera puede verificar por fuera de este sitio.",
+  },
+  {
+    q: "¿Quién va a hacer el trabajo, en concreto?",
+    a: "En las firmas grandes es habitual que quien presenta la propuesta no sea quien ejecuta. Pregunte el nombre y el perfil de la persona que estará en las sesiones. En mi caso el trabajo lo hago yo: soy investigador doctoral en gestión de la innovación con más de 15 años en proyectos con organizaciones del sector real, universidades y organismos multilaterales.",
+  },
+  {
+    q: "¿El método incorpora la incertidumbre o la esconde detrás de un número?",
+    a: "Si la propuesta de evaluación financiera termina en un VPN, una TIR o un puntaje único, está asumiendo un futuro predecible que en innovación no existe. Un método adecuado entrega un rango con su probabilidad, dice cuáles son las variables que más pesan en el resultado y define qué debe validarse experimentalmente antes de comprometer la inversión.",
+  },
+  {
+    q: "¿Hay resultados verificables, no solo logos?",
+    a: "Una pared de logos no dice si el trabajo funcionó. Pida cifras y el criterio con que se midieron. En beneficios tributarios, la tasa de aprobación de los proyectos gestionados en mi práctica actual de consultoría es del 93%.",
+  },
+  {
+    q: "¿Qué queda en la organización cuando el consultor se va?",
+    a: "El riesgo de toda consultoría es entregar un informe que nadie vuelve a abrir. Defina desde el principio cuál es el entregable y quién lo usa: un modelo financiero que el equipo pueda correr de nuevo con datos actualizados, un proyecto radicado ante la entidad competente o un grupo de personas con criterio para aplicar IA en su trabajo diario son resultados distintos de un documento de recomendaciones.",
+  },
+];
+
 const process = [
   { step: "01", title: "Diagnóstico inicial", desc: "Sesión de entendimiento del contexto, necesidades y objetivos de la organización." },
   { step: "02", title: "Análisis y modelado", desc: "Aplicación de frameworks y herramientas específicas al desafío identificado." },
@@ -105,7 +128,37 @@ const process = [
   { step: "04", title: "Implementación", desc: "Acompañamiento opcional en la ejecución de las recomendaciones." },
 ];
 
+/*
+  Las paginas que rankean por "consultoria de innovacion" tienen mucha mas
+  profundidad que esta: Olivia corre ~5.000 palabras con 11 preguntas
+  frecuentes. Este bloque cubre esa brecha y ademas alimenta el FAQPage schema,
+  que es lo que los motores de IA extraen para responder de forma directa.
+*/
 const faqs = [
+  {
+    q: "¿Qué es una consultoría de innovación y qué no es?",
+    a: "Una consultoría de innovación acompaña a una organización a decidir en qué innovar y cómo hacerlo con criterio, no a generar ideas. En mi práctica el trabajo se concentra en tres frentes: evaluar financieramente proyectos de innovación bajo incertidumbre, estructurar proyectos para acceder a beneficios tributarios por inversión, y formar equipos en el uso de IA generativa. No es una agencia creativa, no es un taller de ideación y no reemplaza al área de innovación de la empresa: le da métodos y criterio para sustentar sus decisiones.",
+  },
+  {
+    q: "¿Qué metodologías de innovación existen y cuál necesita mi empresa?",
+    a: "Depende de la decisión que tenga enfrente. Si el problema es determinar si un proyecto crea o destruye valor, aplican la simulación Monte Carlo, la valoración de opciones reales y el diseño del experimento crítico — las tres integradas en PRIME-10™, mi metodología propia registrada ante la Dirección Nacional de Derecho de Autor (2025). Si el problema es acceder a beneficios tributarios, aplica la formulación de proyectos según los criterios de Minciencias, la ANLA o la UPME. Si el problema es que el equipo no sabe usar IA en su trabajo, aplica la adopción por reto de negocio. El diagnóstico inicial sirve precisamente para determinar cuál corresponde.",
+  },
+  {
+    q: "¿En qué se diferencia de una consultoría estratégica tradicional?",
+    a: "La consultoría estratégica tradicional trabaja con proyecciones puntuales: un VPN, una TIR, un escenario base. Eso funciona cuando el futuro es razonablemente predecible. En proyectos de innovación no lo es, y ese supuesto produce errores de selección documentados en mi investigación doctoral: se aprueban proyectos que destruyen valor y se rechazan proyectos que sí lo crean. Mi trabajo parte de rangos de incertidumbre en vez de valores fijos, y define qué debe validarse experimentalmente antes de comprometer la inversión.",
+  },
+  {
+    q: "¿Trabaja con pymes o solo con grandes empresas?",
+    a: "Con ambas. He trabajado con empresas del sector real, universidades y organismos multilaterales — entre ellos Ecopetrol, Connect Bogotá, SwissContact, el Instituto Humboldt y el BID-PRODEM — y también con pymes y startups. Lo que define si el trabajo aplica no es el tamaño de la organización sino el tipo de decisión: si hay una inversión en innovación o tecnología con incertidumbre alta de por medio, el método aplica igual. Lo que cambia es el alcance.",
+  },
+  {
+    q: "¿Cuánto cuesta una consultoría de innovación?",
+    a: "El valor depende del alcance, y el alcance se define en el diagnóstico inicial: no cotizo sobre un servicio genérico sino sobre la decisión concreta que la organización tiene enfrente. Una evaluación PRIME-10™ de un proyecto puntual, una formación corporativa por áreas y la estructuración de un proyecto para beneficios tributarios son trabajos de magnitud distinta. La conversación inicial por WhatsApp sirve para entender el caso y definir si tiene sentido avanzar.",
+  },
+  {
+    q: "¿Cuánto tiempo toma un proyecto de consultoría?",
+    a: "Una evaluación PRIME-10™ completa toma típicamente entre 3 y 5 días, incluyendo la recopilación de información, el análisis y la presentación de resultados. La formación corporativa en IA generativa y la estructuración de proyectos para beneficios tributarios dependen del número de áreas involucradas y de los tiempos de la entidad competente, y se definen en el diagnóstico inicial.",
+  },
   {
     q: "¿Qué es PRIME-10™ y en qué se diferencia de una evaluación financiera tradicional?",
     a: "El VPN y el TIR producen un único número que asume un futuro predecible. PRIME-10™ es una metodología propia de evaluación financiera probabilística que trabaja con rangos de incertidumbre, no con valores fijos. Incorpora simulación Monte Carlo, análisis de opciones reales y diseño del experimento crítico que debe ejecutarse antes de comprometer la inversión. Está registrada en la Dirección Nacional de Derecho de Autor de Colombia (2025).",
@@ -270,8 +323,43 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* Criterios de compra — contenido de decision para quien esta evaluando
+          proveedores. Cada criterio es util por si mismo y a la vez expone en
+          que se diferencia esta practica de las consultoras generalistas. */}
       <section className="py-16 bg-white">
+        <div className="container-site max-w-3xl">
+          <h2 className="section-heading text-2xl sm:text-3xl mb-4">
+            Cómo evaluar una consultoría de innovación antes de contratarla
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-10">
+            El mercado de la consultoría de innovación es difícil de comparar: casi
+            todas las firmas prometen lo mismo con palabras parecidas. Estas cinco
+            preguntas sirven para distinguir una propuesta con método de una con
+            vocabulario.
+          </p>
+          <ol className="space-y-8">
+            {criterios.map((c, i) => (
+              <li key={c.q} className="flex gap-5">
+                <span
+                  className="shrink-0 w-9 h-9 rounded-full bg-primary/10 text-primary font-heading font-bold text-sm flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </span>
+                <div>
+                  <h3 className="font-heading font-semibold text-base text-foreground mb-2">
+                    {c.q}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{c.a}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 bg-muted">
         <div className="container-site max-w-3xl">
           <h2 className="section-heading text-2xl sm:text-3xl mb-8">Preguntas frecuentes</h2>
           <FAQAccordion faqs={faqs} />
