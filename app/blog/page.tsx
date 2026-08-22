@@ -18,7 +18,7 @@ export function generateMetadata({
   const title = category ? `${category} — Blog` : "Blog — Innovación y Gestión Tecnológica";
   const description = category
     ? `Artículos sobre ${category.toLowerCase()} en innovación tecnológica por Augusto Ruiz, PhD(c) Universidad de los Andes. Investigación aplicada para organizaciones latinoamericanas.`
-    : "Artículos sobre consultoría en innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y estrategias de financiación para organizaciones latinoamericanas.";
+    : "Artículos sobre innovación empresarial, evaluación financiera bajo incertidumbre, IA generativa y financiación de I+D+i en Latinoamérica.";
   const url = category
     ? `https://www.augustoruiz.org/blog?categoria=${searchParams.categoria}`
     : "https://www.augustoruiz.org/blog";
@@ -32,7 +32,7 @@ export function generateMetadata({
       description,
       url,
       type: "website",
-      images: ["https://www.augustoruiz.org/opengraph-image"],
+      images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",

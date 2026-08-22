@@ -14,6 +14,13 @@ export const logoSchema = {
   caption: "Augusto Ruiz — Consultoría en Innovación Tecnológica",
 };
 
+export const uniandesSchema = {
+  "@type": "CollegeOrUniversity",
+  "@id": `${BASE_URL}/#org-uniandes`,
+  name: "Universidad de los Andes",
+  url: "https://uniandes.edu.co",
+};
+
 export const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -135,16 +142,8 @@ export const personSchema = {
     "Opciones Reales",
     "Simulación Monte Carlo",
   ],
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "Universidad de los Andes",
-    url: "https://uniandes.edu.co",
-  },
-  worksFor: {
-    "@type": "CollegeOrUniversity",
-    name: "Universidad de los Andes",
-    url: "https://uniandes.edu.co",
-  },
+  alumniOf: { "@id": `${BASE_URL}/#org-uniandes` },
+  worksFor: { "@id": `${BASE_URL}/#org-uniandes` },
   hasCredential: [
     {
       "@type": "EducationalOccupationalCredential",
@@ -178,6 +177,9 @@ export const personSchema = {
   ],
 };
 
+// Se retiró potentialAction/SearchAction: se verificó que /blog?q= no filtra
+// resultados y el sitio no tiene buscador, así que declaraba una acción
+// inexistente.
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -189,11 +191,6 @@ export const websiteSchema = {
   author: { "@id": `${BASE_URL}/#person` },
   publisher: { "@id": `${BASE_URL}/#professional-service` },
   image: { "@id": `${BASE_URL}/#logo` },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: { "@type": "EntryPoint", urlTemplate: `${BASE_URL}/blog?q={search_term_string}` },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export function articleSchema({
@@ -220,7 +217,7 @@ export function articleSchema({
     datePublished,
     dateModified,
     author: { "@id": `${BASE_URL}/#person` },
-    publisher: { "@id": `${BASE_URL}/#person` },
+    publisher: { "@id": `${BASE_URL}/#professional-service` },
     image: `${BASE_URL}/blog/${slug}/opengraph-image`,
     inLanguage: "es",
     mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}` },
@@ -315,20 +312,29 @@ export function docenciaAffiliationsSchema(institutions: { name: string; url?: s
   };
 }
 
-// Un nodo Course por curso dictado. No se agrega hasCourseInstance/startDate:
-// no hay fechas confirmadas por curso (ver nota en app/docencia/page.tsx).
+// Un nodo Course por curso dictado. `description` es propiedad requerida por
+// Google para elegibilidad de Course; los textos son descripciones factuales
+// del curso y la institución, pendientes de revisión editorial de Augusto.
+// No se agrega hasCourseInstance/startDate: no hay fechas confirmadas por curso.
 export function courseListSchema(
-  programs: { institution: string; course: string; url?: string }[]
+  programs: { institution: string; course: string; url?: string; description?: string }[]
 ) {
   return programs.map((p) => ({
     "@context": "https://schema.org",
     "@type": "Course",
+    "@id": `${BASE_URL}/docencia#${p.course
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "")}`,
     name: p.course,
-    provider: {
-      "@type": "EducationalOrganization",
-      name: p.institution,
-      ...(p.url ? { url: p.url } : {}),
-    },
+    ...(p.description ? { description: p.description } : {}),
+    url: `${BASE_URL}/docencia`,
+    provider:
+      p.institution === "Universidad de los Andes"
+        ? { "@id": `${BASE_URL}/#org-uniandes` }
+        : { "@type": "EducationalOrganization", name: p.institution, ...(p.url ? { url: p.url } : {}) },
     instructor: { "@id": `${BASE_URL}/#person` },
   }));
 }

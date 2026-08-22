@@ -11,14 +11,6 @@ export const metadata: Metadata = {
   title: { absolute: "Consultoría Tributaria para Empresas en Beneficios I+D+i" },
   description:
     "Consultoría tributaria para empresas en Colombia especializada en beneficios tributarios: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
-  keywords: [
-    "consultoría tributaria para empresas",
-    "consultoría tributaria empresarial Colombia",
-    "consultoría en beneficios tributarios",
-    "asesoría tributaria especializada",
-    "beneficios tributarios I+D+i",
-    "consultor beneficios tributarios Colombia",
-  ],
   alternates: { canonical: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion" },
   openGraph: {
     title: "Consultoría Tributaria para Empresas en Beneficios I+D+i | Augusto Ruiz",
@@ -26,7 +18,7 @@ export const metadata: Metadata = {
       "Consultoría tributaria para empresas en Colombia especializada en beneficios tributarios: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
     url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion",
     type: "website",
-    images: ["https://www.augustoruiz.org/opengraph-image"],
+    images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

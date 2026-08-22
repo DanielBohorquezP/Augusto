@@ -57,6 +57,7 @@ export default function BlogPostCard({ post }: { post: Post }) {
             className="btn-secondary text-xs px-4 py-2 flex items-center gap-1"
           >
             Leer más
+            <span className="sr-only">: {post.title}</span>
             <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

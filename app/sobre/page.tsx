@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: "PhD(c) Uniandes. Consultor en gestión de innovación tecnológica con base en Colombia. Más de 50 organizaciones asesoradas en LATAM.",
     url: "https://www.augustoruiz.org/sobre",
     type: "profile",
-    images: ["https://www.augustoruiz.org/opengraph-image"],
+    images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

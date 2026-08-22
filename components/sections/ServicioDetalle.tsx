@@ -38,6 +38,7 @@ export default function ServicioDetalle({
   badge,
   h1,
   intro,
+  breadcrumbLabel,
   imagen,
   problema,
   incluye,
@@ -57,6 +58,15 @@ export default function ServicioDetalle({
         <div className="container-site">
           <div className={imagen ? "grid grid-cols-1 lg:grid-cols-2 gap-10 items-center" : ""}>
             <div className="max-w-2xl">
+              <nav aria-label="Ruta de navegación" className="mb-6">
+                <ol className="flex flex-wrap items-center gap-2 text-xs text-white/60">
+                  <li><Link href="/" className="hover:text-white transition-colors">Inicio</Link></li>
+                  <li aria-hidden="true">/</li>
+                  <li><Link href="/servicios" className="hover:text-white transition-colors">Servicios</Link></li>
+                  <li aria-hidden="true">/</li>
+                  <li className="text-white/90" aria-current="page">{breadcrumbLabel}</li>
+                </ol>
+              </nav>
               <span className="inline-block bg-accent text-white text-xs font-heading font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
                 {badge}
               </span>

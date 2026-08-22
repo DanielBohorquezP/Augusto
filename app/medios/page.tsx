@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       "Apariciones de Augusto Ruiz en medios, podcasts, congresos y entrevistas sobre gestión de innovación tecnológica, evaluación financiera e inteligencia artificial.",
     url: "https://www.augustoruiz.org/medios",
     type: "website",
-    images: ["https://www.augustoruiz.org/opengraph-image"],
+    images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

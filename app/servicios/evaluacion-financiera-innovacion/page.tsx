@@ -11,14 +11,6 @@ export const metadata: Metadata = {
   title: "Consultoría Financiera de Proyectos de Innovación",
   description:
     "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
-  keywords: [
-    "consultoría financiera para proyectos de innovación",
-    "consultoría financiera de innovación Colombia",
-    "evaluación financiera de proyectos de innovación",
-    "evaluación de proyectos bajo incertidumbre",
-    "simulación Monte Carlo proyectos de inversión",
-    "opciones reales valoración de proyectos",
-  ],
   alternates: { canonical: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
   openGraph: {
     title: "Consultoría Financiera de Proyectos de Innovación | Augusto Ruiz",
@@ -26,7 +18,7 @@ export const metadata: Metadata = {
       "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
     url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion",
     type: "website",
-    images: ["https://www.augustoruiz.org/opengraph-image"],
+    images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

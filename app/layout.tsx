@@ -7,7 +7,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import AnalyticsEvents from "@/components/AnalyticsEvents";
 import SchemaScript from "@/components/SchemaScript";
-import { personSchema, websiteSchema, professionalServiceSchema } from "@/lib/schema";
+import { personSchema, websiteSchema, professionalServiceSchema, uniandesSchema } from "@/lib/schema";
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
@@ -30,31 +30,11 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.augustoruiz.org"),
   title: {
-    default: "Augusto Ruiz | Consultor en Gestión de Innovación Tecnológica",
+    default: "Consultoría de Innovación en Colombia | Augusto Ruiz",
     template: "%s | Augusto Ruiz",
   },
   description:
     "PhD(c) investigador, consultor y formador especializado en evaluación financiera de innovación tecnológica, IA generativa aplicada y estrategias de financiación. Universidad de los Andes.",
-  keywords: [
-    "consultoría de innovación",
-    "metodologías de innovación",
-    "consultoría de innovación y metodologías de innovación",
-    "consultoría en innovación empresarial Colombia",
-    "consultoría en innovación tecnológica",
-    "consultoría en innovación digital",
-    "consultoría en innovación para pymes",
-    "consultor innovación Colombia",
-    "gestión innovación tecnológica",
-    "evaluación financiera innovación",
-    "PRIME-10 assessment",
-    "Augusto Ruiz",
-    "consultoría innovación Medellín",
-    "consultoría innovación Bogotá",
-    "innovación empresarial Colombia",
-    "consultoría tributaria para empresas",
-    "consultoría en beneficios tributarios",
-    "beneficios tributarios I+D+i",
-  ],
   authors: [{ name: "Augusto Ruiz" }],
   creator: "Augusto Ruiz",
   openGraph: {
@@ -109,7 +89,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${poppins.variable} ${openSans.variable}`}>
       <head>
-        <SchemaScript schema={[personSchema, websiteSchema, professionalServiceSchema]} />
+        <SchemaScript schema={[personSchema, websiteSchema, professionalServiceSchema, uniandesSchema]} />
       </head>
       <body className="font-body antialiased bg-background text-foreground">
         <Navbar />

@@ -7,7 +7,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Contacto — Agendar consulta",
   description:
-    "Agenda una consulta con Augusto Ruiz. Consultoría en evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
+    "Agenda una consulta con Augusto Ruiz: evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación en Latinoamérica.",
   alternates: { canonical: "https://www.augustoruiz.org/contacto" },
   openGraph: {
     title: "Contacto — Agendar consulta | Augusto Ruiz",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
       "Agenda una consulta con Augusto Ruiz. Consultoría en evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
     url: "https://www.augustoruiz.org/contacto",
     type: "website",
-    images: ["https://www.augustoruiz.org/opengraph-image"],
+    images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

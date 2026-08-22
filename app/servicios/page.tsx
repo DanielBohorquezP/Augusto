@@ -18,27 +18,13 @@ export const metadata: Metadata = {
     description: "Consultoría en innovación empresarial para organizaciones en Colombia. Evaluación financiera probabilística, IA generativa y estrategias de financiación.",
     url: "https://www.augustoruiz.org/servicios",
     type: "website",
-    images: ["https://www.augustoruiz.org/opengraph-image"],
+    images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Consultoría en Innovación Tecnológica en Colombia | Augusto Ruiz",
     description: "Consultoría en innovación empresarial para organizaciones en Colombia. Evaluación financiera probabilística, IA generativa y estrategias de financiación.",
   },
-  keywords: [
-    "consultoría en innovación empresarial Colombia",
-    "consultoría en innovación tecnológica",
-    "consultoría en innovación digital",
-    "consultoría en innovación estratégica",
-    "consultoría en innovación para pymes",
-    "consultoría en innovación organizacional",
-    "consultoría innovación Medellín",
-    "consultoría innovación Bogotá",
-    "consultoría tributaria para empresas",
-    "consultoría en beneficios tributarios",
-    "beneficios tributarios I+D+i Colombia",
-    "consultoría financiera para proyectos de innovación",
-  ],
 };
 
 const serviceSlugs: Record<string, string> = {

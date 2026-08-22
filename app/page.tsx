@@ -27,7 +27,7 @@ export const metadata: Metadata = {
       "Consultoría de innovación y metodologías de innovación para empresas en Colombia y Latinoamérica. PRIME-10™, metodología propia registrada en la DNDA.",
     url: "https://www.augustoruiz.org",
     type: "website",
-    images: ["https://www.augustoruiz.org/opengraph-image"],
+    images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

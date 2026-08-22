@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       "Augusto Ruiz es profesor invitado en programas de posgrado y pregrado en Colombia y ofrece formación ejecutiva corporativa en evaluación financiera de innovación, I+D+i e IA generativa.",
     url: "https://www.augustoruiz.org/docencia",
     type: "website",
-    images: ["https://www.augustoruiz.org/opengraph-image"],
+    images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
@@ -29,12 +29,12 @@ export const metadata: Metadata = {
 // Nota: no se agregan años/periodos por curso porque no hay una fecha
 // confirmada por Augusto para cada uno — mejor omitirlo que inventar una.
 const programs = [
-  { institution: "Universidad de los Andes", course: "Finanzas para la Innovación", url: "https://uniandes.edu.co" },
-  { institution: "Universidad de los Andes", course: "Estrategia de Gestión de Innovación", url: "https://uniandes.edu.co" },
-  { institution: "Universidad del Bosque", course: "Maestría en Gestión de Proyectos · Herramientas digitales e IA", url: "https://www.unbosque.edu.co" },
-  { institution: "Universidad Industrial de Santander (UIS)", course: "MBA · Gestión de la Innovación", url: "https://www.uis.edu.co" },
-  { institution: "EAFIT", course: "Maestría en Finanzas", url: "https://www.eafit.edu.co" },
-  { institution: "Universidad de América", course: "Finanzas para Ingenieros", url: "https://www.uamerica.edu.co" },
+  { institution: "Universidad de los Andes", course: "Finanzas para la Innovación", url: "https://uniandes.edu.co", description: "Curso de posgrado sobre evaluación financiera de proyectos de innovación bajo incertidumbre, dictado por Augusto Ruiz como profesor invitado en la Universidad de los Andes." },
+  { institution: "Universidad de los Andes", course: "Estrategia de Gestión de Innovación", url: "https://uniandes.edu.co", description: "Curso de posgrado sobre diseño y gestión de la estrategia de innovación organizacional, dictado por Augusto Ruiz como profesor invitado en la Universidad de los Andes." },
+  { institution: "Universidad del Bosque", course: "Maestría en Gestión de Proyectos · Herramientas digitales e IA", url: "https://www.unbosque.edu.co", description: "Módulo de herramientas digitales e inteligencia artificial aplicadas a la gestión de proyectos, dentro de la Maestría en Gestión de Proyectos de la Universidad del Bosque." },
+  { institution: "Universidad Industrial de Santander (UIS)", course: "MBA · Gestión de la Innovación", url: "https://www.uis.edu.co", description: "Módulo de gestión de la innovación dentro del MBA de la Universidad Industrial de Santander, dictado por Augusto Ruiz como profesor invitado." },
+  { institution: "EAFIT", course: "Maestría en Finanzas", url: "https://www.eafit.edu.co", description: "Módulo de finanzas de la innovación dentro de la Maestría en Finanzas de EAFIT, dictado por Augusto Ruiz como profesor invitado." },
+  { institution: "Universidad de América", course: "Finanzas para Ingenieros", url: "https://www.uamerica.edu.co", description: "Curso de finanzas orientado a perfiles de ingeniería, dictado por Augusto Ruiz como profesor invitado en la Universidad de América." },
 ];
 
 const corporateOrgs = ["EAFIT", "Ocensa", "Ecopetrol (vía Uniandes)", "Connect Bogotá Región"];
