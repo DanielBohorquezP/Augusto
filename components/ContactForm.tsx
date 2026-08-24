@@ -11,7 +11,7 @@ const services = [
   "Otro",
 ];
 
-type FormState = "idle" | "loading" | "success" | "error";
+type FormState = "idle" | "loading" | "success" | "error" | "rate-limited";
 
 export default function ContactForm() {
   const [state, setState] = useState<FormState>("idle");
@@ -60,6 +60,8 @@ export default function ContactForm() {
           // demanda real y no solo trafico.
           servicio: form.service || "sin especificar",
         });
+      } else if (res.status === 429) {
+        setState("rate-limited");
       } else {
         setState("error");
       }
@@ -89,6 +91,12 @@ export default function ContactForm() {
       {state === "error" && (
         <div role="alert" className="bg-accent/10 border border-accent/30 text-accent text-sm p-4 rounded-lg">
           Hubo un error al enviar el mensaje. Por favor intenta de nuevo o escríbeme directamente a proyectos@augustoruiz.org.
+        </div>
+      )}
+
+      {state === "rate-limited" && (
+        <div role="alert" className="bg-accent/10 border border-accent/30 text-accent text-sm p-4 rounded-lg">
+          Has enviado varios mensajes en poco tiempo. Espera unos minutos e intenta de nuevo.
         </div>
       )}
 

@@ -1,4 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
+import { getClientIp, isRateLimited } from "@/lib/rate-limit";
+
+const RATE_LIMIT = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 
 interface ContactPayload {
   name: string;
@@ -14,6 +18,11 @@ function isValidEmail(email: string): boolean {
 }
 
 export async function POST(req: NextRequest) {
+  const ip = getClientIp(req);
+  if (isRateLimited(`contact:${ip}`, RATE_LIMIT, RATE_LIMIT_WINDOW_MS)) {
+    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
+
   let body: ContactPayload;
 
   try {
