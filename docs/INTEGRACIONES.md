@@ -66,25 +66,25 @@ function doPost(e) {
 
 ---
 
-## 2. Formulario de contacto → Email (Resend)
+## 2. Formulario de contacto → Email (Web3Forms)
 
 El formulario de `/contacto` envía el mensaje a tu correo usando
-[Resend](https://resend.com) (gratis hasta 3.000 emails/mes).
+[Web3Forms](https://web3forms.com) (gratis hasta 250 envíos/mes, sin verificar
+dominio por DNS).
 
 ### Pasos
 
-1. Crea una cuenta en [resend.com](https://resend.com).
-2. **Verificar el dominio:** en Resend → Domains → Add Domain → `augustoruiz.org`.
-   Resend te da 3 registros DNS (SPF, DKIM) — agrégalos donde esté administrado
-   el dominio (Vercel, GoDaddy, Cloudflare...). La verificación tarda minutos.
-3. **API key:** Resend → API Keys → Create API Key → copia la clave `re_...`.
-4. Conéctala igual que la anterior:
-   - Local: `RESEND_API_KEY=re_...` en `.env.local`
-   - Vercel: Environment Variables → `RESEND_API_KEY` → redeploy.
+1. Ve a [web3forms.com](https://web3forms.com), escribe el correo donde quieres
+   recibir los mensajes y clic en **Create Access Key**.
+2. Te llega un correo con la **Access Key** (formato UUID) — cópiala.
+3. Conéctala:
+   - Local: `WEB3FORMS_ACCESS_KEY=...` en `.env.local`
+   - Vercel: Environment Variables → `WEB3FORMS_ACCESS_KEY` → redeploy.
 
-Los mensajes llegan a `proyectos@augustoruiz.org` y `oa.ruiz27@uniandes.edu.co`
-(configurado en `app/api/contact/route.ts`). Si quieres cambiar los destinatarios,
-edita la línea `to: [...]` en ese archivo.
+Los mensajes llegan al correo que registraste al crear la Access Key
+(actualmente `proyectos@augustoruiz.org`). Si quieres cambiar el destinatario,
+genera una nueva Access Key en Web3Forms con el correo nuevo y reemplázala en
+las variables de entorno — no requiere tocar `app/api/contact/route.ts`.
 
 ---
 

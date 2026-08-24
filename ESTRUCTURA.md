@@ -47,9 +47,9 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Schema.org (datos estructurados) | `lib/schema.ts` |
 | Foto de perfil | `public/profile-photo.jpg` — reemplazar con mismo nombre (optimizada, ~70 KB) |
 | Colores, fuentes, estilos globales | `tailwind.config.ts` + `app/globals.css` |
-| API formulario de contacto (→ Resend) | `app/api/contact/route.ts` |
+| API formulario de contacto (→ Web3Forms) | `app/api/contact/route.ts` |
 | API newsletter (→ Google Sheets) | `app/api/newsletter/route.ts` |
-| **Guía de integraciones** (Sheets, Resend, WhatsApp) | `docs/INTEGRACIONES.md` |
+| **Guía de integraciones** (Sheets, Web3Forms, WhatsApp) | `docs/INTEGRACIONES.md` |
 | **Calendario de contenido del blog** | `docs/PLAN-CONTENIDO-BLOG.md` |
 | **Mapa de keywords** (clústeres UPME/ANLA y rechazos CNBT) | `docs/MAPA-KEYWORDS-UPME-RECHAZOS.md` |
 | **Estrategia de posicionamiento #1 en Colombia** (qué términos perseguir, plan por fases) | `docs/ESTRATEGIA-POSICIONAMIENTO-COLOMBIA.md` |
@@ -213,9 +213,9 @@ cp .env.local.example .env.local
 ```
 
 - `GOOGLE_SHEETS_WEBHOOK_URL` — a dónde se envían los correos del newsletter (Google Sheets)
-- `RESEND_API_KEY` — servicio de envío de correo del formulario de contacto
+- `WEB3FORMS_ACCESS_KEY` — servicio de envío de correo del formulario de contacto (ligada a `proyectos@augustoruiz.org`)
 
-Pasos de configuración completos (crear la hoja, el Apps Script, la cuenta Resend) en
+Pasos de configuración completos (crear la hoja, el Apps Script, la cuenta Web3Forms) en
 **`docs/INTEGRACIONES.md`**.
 
 ---
@@ -257,7 +257,7 @@ augusto-ruiz-org/
 │   ├── medios/page.tsx         # Medios (/medios)
 │   ├── contacto/page.tsx       # Contacto (/contacto) — bloque de WhatsApp + formulario
 │   └── api/
-│       ├── contact/route.ts    # API endpoint formulario de contacto → Resend
+│       ├── contact/route.ts    # API endpoint formulario de contacto → Web3Forms
 │       └── newsletter/route.ts # API endpoint newsletter → Google Sheets
 ├── components/
 │   ├── Navbar.tsx              # Barra de navegación
@@ -282,7 +282,7 @@ augusto-ruiz-org/
 │   ├── COMO-PUBLICAR.md        # Flujo para publicar posts (usuario envía texto → Claude publica)
 │   └── blog/                   # ← LOS ARTÍCULOS DEL BLOG (un .md por artículo) — hoy vacío
 ├── docs/
-│   └── INTEGRACIONES.md        # Cómo conectar Google Sheets (newsletter) y Resend (contacto)
+│   └── INTEGRACIONES.md        # Cómo conectar Google Sheets (newsletter) y Web3Forms (contacto)
 ├── lib/
 │   ├── posts.ts                # Cargador/parser de los .md del blog
 │   ├── schema.ts                # Schemas JSON-LD (Schema.org)

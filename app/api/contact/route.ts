@@ -36,40 +36,35 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Message too long" }, { status: 400 });
   }
 
-  const resendApiKey = process.env.RESEND_API_KEY;
+  const web3formsAccessKey = process.env.WEB3FORMS_ACCESS_KEY;
 
-  if (!resendApiKey) {
-    console.error("RESEND_API_KEY not configured");
+  if (!web3formsAccessKey) {
+    console.error("WEB3FORMS_ACCESS_KEY not configured");
     return NextResponse.json({ error: "Mail service not configured" }, { status: 503 });
   }
 
   try {
-    const res = await fetch("https://api.resend.com/emails", {
+    const res = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${resendApiKey}`,
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: "contacto@augustoruiz.org",
-        to: ["proyectos@augustoruiz.org", "oa.ruiz27@uniandes.edu.co"],
-        reply_to: email,
+        access_key: web3formsAccessKey,
         subject: `[Contacto Web] ${body.service ?? "Consulta"} — ${name}`,
-        html: `
-          <h2>Nuevo mensaje desde augustoruiz.org</h2>
-          <p><strong>Nombre:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          ${body.company ? `<p><strong>Empresa:</strong> ${body.company}</p>` : ""}
-          ${body.service ? `<p><strong>Servicio:</strong> ${body.service}</p>` : ""}
-          <p><strong>Mensaje:</strong></p>
-          <p style="white-space: pre-wrap;">${message}</p>
-          <p><strong>Newsletter:</strong> ${body.newsletter ? "Sí" : "No"}</p>
-        `,
+        from_name: name,
+        replyto: email,
+        Nombre: name,
+        Email: email,
+        Empresa: body.company || "—",
+        Servicio: body.service || "—",
+        Mensaje: message,
+        Newsletter: body.newsletter ? "Sí" : "No",
       }),
     });
 
-    if (!res.ok) {
-      console.error("Resend error:", await res.text());
+    const data = await res.json();
+
+    if (!res.ok || !data.success) {
+      console.error("Web3Forms error:", data);
       return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
 

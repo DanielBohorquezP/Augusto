@@ -72,7 +72,7 @@ export default function PoliticaPrivacidadPage() {
                     (opcional), el tipo de servicio de interés (opcional) y el mensaje que
                     escribes. Esta información se envía por correo electrónico a Augusto Ruiz
                     (proyectos@augustoruiz.org y oa.ruiz27@uniandes.edu.co) a través del
-                    proveedor de envío transaccional Resend, únicamente para responder tu
+                    proveedor de envío transaccional Web3Forms, únicamente para responder tu
                     solicitud. Si marcas la casilla de newsletter, tu intención de suscripción
                     también se incluye en ese correo.
                   </p>
@@ -147,7 +147,7 @@ export default function PoliticaPrivacidadPage() {
               <p>
                 No vendemos ni alquilamos tus datos personales a terceros. No compartimos la
                 información de tu formulario de contacto ni de tu suscripción con nadie fuera
-                de los proveedores de servicio mencionados arriba (Resend para el envío de
+                de los proveedores de servicio mencionados arriba (Web3Forms para el envío de
                 correo, Google para la hoja de suscriptores y la analítica), estrictamente
                 para prestar el servicio solicitado.
               </p>

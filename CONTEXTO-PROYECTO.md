@@ -588,7 +588,7 @@ refresca el suyo solo al volver a rastrear el sitio (puede tardar semanas).
 | `StatsSection` | Sección de stats (removida de homepage, existe el componente) |
 
 ### APIs (`app/api/`)
-- `/api/contact/route.ts` — maneja formulario de contacto → envía por Resend (requiere `RESEND_API_KEY`)
+- `/api/contact/route.ts` — maneja formulario de contacto → envía por Web3Forms (requiere `WEB3FORMS_ACCESS_KEY`)
 - `/api/newsletter/route.ts` — maneja suscripciones al newsletter → agrega fila a Google Sheets (requiere `GOOGLE_SHEETS_WEBHOOK_URL`)
 - Pasos de configuración de ambos servicios en `docs/INTEGRACIONES.md`
 
@@ -636,7 +636,7 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 - [x] Links `[texto](url)` a fuentes dentro del cuerpo del post (2026-08-11)
 
 ### Funcionalidad
-- [x] Conectar `/api/contact` a Resend (código listo, falta que el usuario cree la cuenta — ver `docs/INTEGRACIONES.md`)
+- [x] Conectar `/api/contact` a Web3Forms (configurado, `WEB3FORMS_ACCESS_KEY` cargada en `.env.local`, 2026-08-23 — ver `docs/INTEGRACIONES.md`)
 - [x] Conectar `/api/newsletter` a Google Sheets (código listo, falta que el usuario despliegue el Apps Script — ver `docs/INTEGRACIONES.md`)
 - [x] Botón de WhatsApp como canal principal de contacto en todo el sitio (2026-07)
 - [ ] Agregar paginación al blog cuando haya muchos posts
@@ -826,7 +826,7 @@ categoría, en el sitemap, con imagen OG generada y con schema `BlogPosting`. Lo
 
 - **WhatsApp es el canal principal de contacto.** Número: `+57 300 5348153`, centralizado en `lib/site.ts` (`WHATSAPP_NUMBER` + `whatsappUrl()`). Botón flotante en todo el sitio + botones "Contáctame por WhatsApp" en hero, servicios, PRIME-10, CTA final de home y contacto. El formulario de `/contacto` se conserva como alternativa.
 - **Newsletter → Google Sheets**: `/api/newsletter` hace POST a un Google Apps Script (`GOOGLE_SHEETS_WEBHOOK_URL`) que agrega el correo como fila en una hoja. El usuario decide qué extensión de Sheets usa para enviar correos desde ahí.
-- **Contacto → Resend**: `/api/contact` ya está programado para enviar el mensaje por Resend (`RESEND_API_KEY`); falta que el usuario cree la cuenta y verifique el dominio.
+- **Contacto → Web3Forms**: `/api/contact` envía el mensaje por Web3Forms (`WEB3FORMS_ACCESS_KEY`), ligada al correo `proyectos@augustoruiz.org`; no requiere verificar dominio.
 - Pasos de configuración completos de ambas integraciones: **`docs/INTEGRACIONES.md`**.
 
 ---
