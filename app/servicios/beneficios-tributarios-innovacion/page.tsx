@@ -8,23 +8,23 @@ import ServicioDetalle from "@/components/sections/ServicioDetalle";
 // familias de terminos ("consultoria tributaria para empresas" + "beneficios I+D+i")
 // dentro del limite de 65 caracteres que sigue el resto del sitio.
 export const metadata: Metadata = {
-  title: { absolute: "Consultoría Tributaria para Empresas en Beneficios I+D+i" },
+  title: { absolute: "Consultoría en Beneficios Tributarios para Empresas I+D+i" },
   description:
-    "Consultoría tributaria para empresas en Colombia especializada en beneficios tributarios: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
+    "Consultoría en beneficios tributarios para empresas en Colombia: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion" },
   openGraph: {
-    title: "Consultoría Tributaria para Empresas en Beneficios I+D+i | Augusto Ruiz",
+    title: "Consultoría en Beneficios Tributarios para Empresas I+D+i | Augusto Ruiz",
     description:
-      "Consultoría tributaria para empresas en Colombia especializada en beneficios tributarios: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
+      "Consultoría en beneficios tributarios para empresas en Colombia: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
     url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion",
     type: "website",
     images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consultoría Tributaria para Empresas en Beneficios I+D+i | Augusto Ruiz",
+    title: "Consultoría en Beneficios Tributarios para Empresas I+D+i | Augusto Ruiz",
     description:
-      "Consultoría tributaria para empresas en Colombia especializada en beneficios tributarios: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
+      "Consultoría en beneficios tributarios para empresas en Colombia: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
   },
 };
 
@@ -176,7 +176,7 @@ export default function BeneficiosTributariosInnovacionPage() {
       <SchemaScript schema={schemas} />
       <ServicioDetalle
         badge="Consultoría tributaria especializada"
-        h1="Consultoría en beneficios tributarios para empresas"
+        h1="Consultoría en beneficios tributarios para empresas I+D+i"
         intro="Beneficios tributarios por I+D+i, FNCE y eficiencia energética. Augusto Ruiz presta consultoría tributaria para empresas en Colombia, especializada en beneficios por inversión: estructuración y gestión de proyectos de I+D+i ante Minciencias y el CNBT, y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA. La tasa de aprobación es del 93% en los proyectos gestionados en mi práctica actual de consultoría."
         breadcrumbLabel="Beneficios tributarios"
         imagen={{

@@ -22,7 +22,7 @@ const staticRoutes = [
   { path: "", lastModified: "2026-08-18", priority: 1.0, changeFrequency: "weekly" as const },
   { path: "/sobre", lastModified: "2026-08-12", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/servicios", lastModified: "2026-08-18", priority: 0.9, changeFrequency: "monthly" as const },
-  { path: "/servicios/beneficios-tributarios-innovacion", lastModified: "2026-08-18", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/servicios/beneficios-tributarios-innovacion", lastModified: "2026-08-26", priority: 0.9, changeFrequency: "monthly" as const },
   { path: "/servicios/evaluacion-financiera-innovacion", lastModified: "2026-08-18", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/servicios/capacitacion-ia-generativa", lastModified: "2026-08-18", priority: 0.85, changeFrequency: "monthly" as const },
   { path: "/prime-10", lastModified: "2026-08-15", priority: 0.85, changeFrequency: "monthly" as const },
