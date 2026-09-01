@@ -38,9 +38,8 @@ export default function HeroSection() {
                 que se lee despues del titulo, pero deja el H1 libre para la frase
                 que se quiere posicionar. */}
             <p className="mt-5 font-heading font-medium text-white text-lg sm:text-xl leading-snug text-balance">
-              El puente entre el{" "}
-              <span className="text-accent">rigor académico</span>{" "}
-              y la decisión organizacional
+              Evaluación financiera para{" "}
+              <span className="text-accent">proyectos I+D+i</span>
             </p>
 
             <p className="mt-3 text-white/80 text-base leading-relaxed">
