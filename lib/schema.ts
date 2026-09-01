@@ -63,7 +63,7 @@ export const professionalServiceSchema = {
           "@type": "Service",
           "@id": `${BASE_URL}/servicios/evaluacion-financiera-innovacion#service`,
           url: `${BASE_URL}/servicios/evaluacion-financiera-innovacion`,
-          name: "Consultoría Financiera para Proyectos de Innovación",
+          name: "Asesoría en Transferencia Tecnológica para Empresas",
           description:
             "Consultoría financiera especializada en decisiones de inversión en innovación y tecnología: modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
         },

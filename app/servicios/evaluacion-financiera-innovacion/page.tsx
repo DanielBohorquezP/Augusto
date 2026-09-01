@@ -8,12 +8,12 @@ import ServicioDetalle from "@/components/sections/ServicioDetalle";
 // a "consultoria financiera de proyectos de innovacion", que si es una SERP comercial
 // y donde los que rankean (EY, PwC) no mencionan Monte Carlo ni opciones reales.
 export const metadata: Metadata = {
-  title: "Consultoría Financiera de Proyectos de Innovación",
+  title: "Asesoría en Transferencia Tecnológica para Empresas",
   description:
     "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
   openGraph: {
-    title: "Consultoría Financiera de Proyectos de Innovación | Augusto Ruiz",
+    title: "Asesoría en Transferencia Tecnológica para Empresas | Augusto Ruiz",
     description:
       "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
     url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consultoría Financiera de Proyectos de Innovación | Augusto Ruiz",
+    title: "Asesoría en Transferencia Tecnológica para Empresas | Augusto Ruiz",
     description:
       "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
   },
@@ -158,25 +158,25 @@ export default function EvaluacionFinancieraInnovacionPage() {
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },
       { name: "Servicios", url: "https://www.augustoruiz.org/servicios" },
-      { name: "Evaluación financiera de innovación", url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
+      { name: "Transferencia tecnológica para empresas", url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
     ]),
     serviceSchema({
       slug: "servicios/evaluacion-financiera-innovacion",
-      name: "Consultoría Financiera para Proyectos de Innovación",
+      name: "Asesoría en Transferencia Tecnológica para Empresas",
       description:
-        "Consultoría financiera especializada en decisiones de inversión en innovación y tecnología: modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
-      serviceType: "Consultoría financiera para proyectos de innovación",
+        "Asesoría en transferencia tecnológica para empresas: evaluación financiera de la decisión de adoptar, licenciar o desarrollar tecnología, con modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
+      serviceType: "Asesoría en transferencia tecnológica para empresas",
     }),
   ];
   return (
     <>
       <SchemaScript schema={schemas} />
       <ServicioDetalle
-        badge="Consultoría financiera especializada"
-        h1="Consultoría financiera para proyectos de innovación"
-        intro="Evaluación de proyectos bajo incertidumbre, para decisiones de inversión en innovación y tecnología donde el VPN y la TIR se quedan cortos: modelos probabilísticos con simulación Monte Carlo, valoración de opciones reales y diseño del experimento crítico antes de comprometer la inversión."
+        badge="Transferencia tecnológica para empresas"
+        h1="Asesoría en transferencia tecnológica para empresas"
+        intro="Asesoría en transferencia tecnológica para empresas que deben decidir si adoptar, licenciar o desarrollar una tecnología: evaluación financiera de esa decisión bajo incertidumbre, donde el VPN y la TIR se quedan cortos. Modelos probabilísticos con simulación Monte Carlo, valoración de opciones reales y diseño del experimento crítico antes de comprometer la inversión."
         comparativa={comparativa}
-        breadcrumbLabel="Evaluación financiera de innovación"
+        breadcrumbLabel="Transferencia tecnológica para empresas"
         imagen={{
           src: "/images/20200117_083026.jpg",
           alt: "Augusto Ruiz presentando una metodología de evaluación de proyectos ante un auditorio",

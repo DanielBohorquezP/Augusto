@@ -14,7 +14,7 @@ const navLinks = [
 
 const serviciosLinks = [
   { label: "Todos los servicios", href: "/servicios" },
-  { label: "Evaluación financiera de innovación", href: "/servicios/evaluacion-financiera-innovacion" },
+  { label: "Transferencia tecnológica para empresas", href: "/servicios/evaluacion-financiera-innovacion" },
   { label: "Capacitación en IA generativa", href: "/servicios/capacitacion-ia-generativa" },
   { label: "Beneficios tributarios", href: "/servicios/beneficios-tributarios-innovacion" },
 ];
