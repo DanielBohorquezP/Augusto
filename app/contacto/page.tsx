@@ -7,12 +7,12 @@ import { breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Contacto — Agendar consulta",
   description:
-    "Agenda una consulta con Augusto Ruiz: evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación en Latinoamérica.",
+    "Agenda una consulta con Augusto Ruiz: transferencia tecnológica para empresas, IA generativa aplicada y estrategias de financiación en Latinoamérica.",
   alternates: { canonical: "https://www.augustoruiz.org/contacto" },
   openGraph: {
     title: "Contacto — Agendar consulta | Augusto Ruiz",
     description:
-      "Agenda una consulta con Augusto Ruiz. Consultoría en evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
+      "Agenda una consulta con Augusto Ruiz. Asesoría en transferencia tecnológica para empresas, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
     url: "https://www.augustoruiz.org/contacto",
     type: "website",
     images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Contacto — Agendar consulta | Augusto Ruiz",
     description:
-      "Agenda una consulta con Augusto Ruiz. Consultoría en evaluación financiera de innovación, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
+      "Agenda una consulta con Augusto Ruiz. Asesoría en transferencia tecnológica para empresas, IA generativa aplicada y estrategias de financiación para organizaciones latinoamericanas.",
   },
 };
 

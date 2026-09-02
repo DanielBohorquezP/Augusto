@@ -41,7 +41,7 @@ export default function Footer() {
               Augusto Ruiz
             </Link>
             <p className="mt-3 text-sm text-white/70 leading-relaxed max-w-sm">
-              El puente entre el rigor académico y la decisión organizacional.
+              Evaluación financiera para proyectos I+D+i.
               Investigador, consultor y formador en gestión de innovación tecnológica.
             </p>
             <p className="mt-2 text-xs text-white/50">

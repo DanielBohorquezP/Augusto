@@ -44,13 +44,13 @@ export const metadata: Metadata = {
     siteName: "Augusto Ruiz",
     title: "Augusto Ruiz | Consultor en Gestión de Innovación Tecnológica",
     description:
-      "El puente entre el rigor académico y la decisión organizacional. PhD(c) Universidad de los Andes.",
+      "Evaluación financiera para proyectos I+D+i. PhD(c) Universidad de los Andes.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Augusto Ruiz | Consultor en Gestión de Innovación Tecnológica",
     description:
-      "El puente entre el rigor académico y la decisión organizacional.",
+      "Evaluación financiera para proyectos I+D+i.",
   },
   robots: {
     index: true,
