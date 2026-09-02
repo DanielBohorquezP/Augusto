@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -155,8 +156,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
           <div className="mt-5 flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
-                <span className="font-heading font-bold text-white text-sm">AR</span>
+              <div className="w-9 h-9 rounded-full overflow-hidden shrink-0">
+                <Image src="/profile-photo.jpg" alt="Augusto Ruiz" width={36} height={36} className="w-full h-full object-cover" />
               </div>
               <div>
                 <Link href="/sobre" className="font-heading font-semibold text-white text-sm hover:underline">
@@ -257,8 +258,8 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
             <aside className="lg:col-span-1 space-y-6">
               <div className="card p-5 sticky top-24">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <span className="font-heading font-bold text-primary">AR</span>
+                  <div className="w-12 h-12 rounded-full overflow-hidden shrink-0">
+                    <Image src="/profile-photo.jpg" alt="Augusto Ruiz" width={48} height={48} className="w-full h-full object-cover" />
                   </div>
                   <div>
                     <Link href="/sobre" className="font-heading font-semibold text-sm text-foreground hover:text-primary transition-colors">
