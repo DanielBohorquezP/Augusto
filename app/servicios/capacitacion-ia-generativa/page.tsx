@@ -107,6 +107,7 @@ export default function CapacitacionIaGenerativaPage() {
         h1="Capacitación en IA generativa para empresas"
         intro="Formación corporativa en IA generativa aplicada a tu negocio: diseñada por área y por reto concreto, con las herramientas de IA que tu empresa ya usa."
         breadcrumbLabel="Capacitación en IA generativa"
+        routePath="/servicios/capacitacion-ia-generativa"
         imagen={{
           src: "/images/IMG_5823.png",
           alt: "Sesión de trabajo con un equipo frente a un tablero de estrategia e innovación",

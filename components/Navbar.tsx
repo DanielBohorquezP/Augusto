@@ -115,29 +115,41 @@ export default function Navbar() {
               </svg>
             </button>
 
-            {servicesOpen && (
-              <div
-                role="menu"
-                aria-label="Servicios"
-                className="absolute left-0 top-full mt-3 w-72 rounded-xl bg-white shadow-lg border border-border py-2 z-50"
-              >
-                {serviciosLinks.map((link, i) => (
-                  <div key={link.href}>
-                    {i === 1 && <div className="my-1 border-t border-border" aria-hidden="true" />}
-                    <Link
-                      href={link.href}
-                      role="menuitem"
-                      onClick={() => setServicesOpen(false)}
-                      className={`block px-4 py-2.5 text-sm font-body transition-colors hover:bg-muted hover:text-primary ${
-                        pathname === link.href ? "text-primary font-medium" : "text-foreground"
-                      }`}
-                    >
-                      {link.label}
-                    </Link>
-                  </div>
-                ))}
-              </div>
-            )}
+            {/*
+              El menu se renderiza SIEMPRE y se oculta con CSS, en vez de vivir
+              dentro de un `{servicesOpen && ...}`. Con el gate de estado, estos
+              cuatro enlaces —incluido /servicios— no existian en el HTML
+              servido de ninguna pagina: el slot de nav con mas autoridad del
+              sitio no pasaba nada a las paginas de servicio hasta que alguien
+              hacia clic. `invisible` (visibility:hidden) tambien lo saca del
+              arbol de accesibilidad mientras esta cerrado, y pointer-events-none
+              evita que capture clics. Es el mismo patron que ya usan el
+              acordeon movil de aqui abajo y las FAQ.
+            */}
+            <div
+              role="menu"
+              aria-label="Servicios"
+              className={`absolute left-0 top-full mt-3 w-72 rounded-xl bg-white shadow-lg border border-border py-2 z-50 transition-opacity duration-200 ${
+                servicesOpen ? "visible opacity-100" : "invisible opacity-0 pointer-events-none"
+              }`}
+            >
+              {serviciosLinks.map((link, i) => (
+                <div key={link.href}>
+                  {i === 1 && <div className="my-1 border-t border-border" aria-hidden="true" />}
+                  <Link
+                    href={link.href}
+                    role="menuitem"
+                    tabIndex={servicesOpen ? undefined : -1}
+                    onClick={() => setServicesOpen(false)}
+                    className={`block px-4 py-2.5 text-sm font-body transition-colors hover:bg-muted hover:text-primary ${
+                      pathname === link.href ? "text-primary font-medium" : "text-foreground"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
 
           {navLinks.map((link) => (

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { renderInlineText } from "@/lib/inline-text";
 
 const services = [
   {
@@ -45,7 +46,7 @@ const services = [
     title: "Beneficios tributarios I+D+i",
     href: "/servicios/beneficios-tributarios-innovacion" as string | undefined,
     description:
-      "Acompañamiento en la estructuración y postulación de proyectos para acceder a beneficios tributarios por inversiones en I+D+i ante Minciencias, e inversiones ambientales.",
+      "Acompañamiento en la estructuración y postulación de proyectos para acceder a [beneficios tributarios por inversiones en I+D+i](/blog/que-es-un-beneficio-tributario-colombia) ante Minciencias, e inversiones ambientales.",
     highlights: [
       "Estructuración y formulación del proyecto",
       "Gestión ante Minciencias y entidades ambientales (ANLA, UPME)",
@@ -87,7 +88,7 @@ export default function ServicesSection() {
                 )}
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed flex-1">
-                {service.description}
+                {renderInlineText(service.description)}
               </p>
               <ul className="mt-4 space-y-2">
                 {service.highlights.map((h) => (

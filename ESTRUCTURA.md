@@ -45,6 +45,8 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | SEO global (title, description, keywords) | `app/layout.tsx` |
 | SEO por página | Cada `app/[ruta]/page.tsx` — busca `export const metadata` |
 | Schema.org (datos estructurados) | `lib/schema.ts` |
+| **Enlaces internos dentro de textos de datos** | `lib/inline-text.tsx` — escribe `[texto](/ruta)` en cualquier string de FAQ, intro de servicio, descripción de tarjeta o timeline y se renderiza como enlace |
+| **Fecha de última modificación por ruta** | `lib/routes.ts` — fuente única: alimenta el `<lastmod>` del sitemap y el label visible `<LastUpdated>`. Actualízala al publicar un cambio de contenido real |
 | Foto de perfil | `public/profile-photo.jpg` — reemplazar con mismo nombre (optimizada, ~70 KB) |
 | Colores, fuentes, estilos globales | `tailwind.config.ts` + `app/globals.css` |
 | API formulario de contacto (→ Web3Forms) | `app/api/contact/route.ts` |
@@ -284,6 +286,8 @@ augusto-ruiz-org/
 ├── docs/
 │   └── INTEGRACIONES.md        # Cómo conectar Google Sheets (newsletter) y Web3Forms (contacto)
 ├── lib/
+│   ├── inline-text.tsx         # Convierte [texto](/ruta) en enlaces dentro de strings de datos
+│   ├── routes.ts               # Fecha real por ruta: alimenta sitemap y <LastUpdated>
 │   ├── posts.ts                # Cargador/parser de los .md del blog
 │   ├── schema.ts                # Schemas JSON-LD (Schema.org)
 │   └── site.ts                  # Número de WhatsApp y helper whatsappUrl()

@@ -6,6 +6,7 @@ import SchemaScript from "@/components/SchemaScript";
 import FAQAccordion from "@/components/FAQAccordion";
 import { faqSchema, breadcrumbSchema, serviceSchema, prime10MethodologySchema } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/site";
+import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
   title: "PRIME-10™ — Evaluación Financiera de Innovación",
@@ -73,7 +74,7 @@ export default function Prime10Page() {
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
               PRIME-10™
             </h1>
-            <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
+            <LastUpdated path="/prime-10" />
             <p className="mt-2 text-accent font-heading font-medium text-lg">
               Evaluación financiera probabilística de proyectos de innovación
             </p>

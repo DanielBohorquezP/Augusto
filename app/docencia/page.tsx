@@ -4,6 +4,7 @@ import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
 import { breadcrumbSchema, courseListSchema, docenciaAffiliationsSchema } from "@/lib/schema";
+import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
   title: "Docencia y Formación Ejecutiva",
@@ -78,7 +79,7 @@ export default function DocenciaPage() {
               <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white">
                 Docencia y formación ejecutiva
               </h1>
-              <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
+              <LastUpdated path="/docencia" />
               <p className="mt-5 text-white/80 text-base leading-relaxed">
                 Profesor invitado en programas de posgrado y pregrado en Colombia. Formación
                 ejecutiva corporativa en evaluación financiera de innovación, estrategia de I+D+i

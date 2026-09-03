@@ -1,14 +1,21 @@
 ---
-title: "¿Qué es un beneficio tributario en Colombia?"
+title: "Beneficios tributarios para empresas en Colombia"
 category: "Beneficios Tributarios"
-excerpt: "Qué es un beneficio tributario, qué tipos existen en Colombia para I+D+i y energía, cómo acceder a ellos y qué ofrecen otros países de la región."
-metaDescription: "Qué es un beneficio tributario, qué tipos existen en Colombia para I+D+i y energía, cómo acceder a ellos y qué ofrecen otros países de la región."
+excerpt: "Qué beneficios tributarios existen para empresas en Colombia: I+D+i ante Minciencias, energía y medio ambiente. Tipos, requisitos y cómo acceder."
+metaDescription: "Qué beneficios tributarios existen para empresas en Colombia: I+D+i ante Minciencias, energía y medio ambiente. Tipos, requisitos y cómo acceder."
 date: "2026-08-10"
+dateModified: "2026-09-03"
 readTime: "9 min"
 featured: true
 ---
 
-Un beneficio tributario es una reducción de la carga de impuestos que la ley otorga a quienes realizan ciertas actividades o inversiones que el Estado quiere incentivar. En Colombia, las empresas que invierten en investigación, desarrollo e innovación (I+D+i), en energías renovables o en mejoras ambientales pueden reducir su impuesto de renta de forma legal y significativa. Esta guía explica qué tipos de beneficios existen, quién puede acceder a ellos, cuál es el proceso y qué ofrecen otros países de la región.
+Las empresas que invierten en investigación, desarrollo e innovación (I+D+i), en energías renovables o en mejoras ambientales en Colombia pueden reducir su impuesto de renta de forma legal y significativa. Esta guía explica qué beneficios tributarios existen para empresas, qué tipos hay, quién puede acceder a ellos, cuál es el proceso y qué ofrecen otros países de la región.
+
+## ¿Qué es un beneficio tributario?
+
+Un beneficio tributario es una reducción de la carga de impuestos que la ley otorga a quienes realizan ciertas actividades o inversiones que el Estado quiere incentivar. No es una exención general ni un vacío legal: es un incentivo dirigido, con requisitos definidos y una entidad que certifica que la actividad califica.
+
+En Colombia, los beneficios tributarios para empresas se concentran en dos regímenes: el de inversión en I+D+i, que certifica Minciencias a través del Consejo Nacional de Beneficios Tributarios (CNBT), y el de inversiones en energía y medio ambiente, que certifican la UPME y la ANLA.
 
 ## Los tipos de beneficio tributario
 
@@ -49,7 +56,7 @@ Para inversiones en control y mejoramiento del medio ambiente certificadas por l
 [Minambiente, Beneficios tributarios por inversiones FNCE y eficiencia energética.](https://beneficios-tributarios.minambiente.gov.co/beneficios-tributarios-por-inversiones-fnce-y-eficiencia-energetica/)
 :::
 
-## ¿Quién puede acceder?
+## ¿Qué empresas pueden acceder a estos beneficios?
 
 Cualquier empresa contribuyente del impuesto de renta en Colombia, sin restricción de tamaño o sector. El filtro real no es el tamaño de la empresa sino la naturaleza del proyecto o de la inversión: que califique en la tipología del CNBT para el régimen de I+D+i, o que corresponda a FNCE, eficiencia energética o mejoramiento ambiental para el régimen certificado por la UPME y la ANLA.
 
@@ -58,7 +65,7 @@ Un error frecuente es asumir que estos incentivos son solo para grandes empresas
 ## Cómo acceder: el proceso en cuatro pasos
 
 - Evaluar la elegibilidad. Antes de cualquier compromiso formal, establecer si el proyecto o la inversión califica, bajo qué régimen y por cuál beneficio conviene postular. Este paso evita invertir esfuerzo en postulaciones que no tienen posibilidad.
-- Estructurar y formular. Formular el proyecto según los criterios de la entidad: la tipología del CNBT para I+D+i, o los requisitos técnicos de certificación para inversiones energéticas y ambientales. Aquí se decide la aprobación: un proyecto real de innovación mal formulado se rechaza igual que uno que no califica.
+- Estructurar y formular. Formular el proyecto según los criterios de la entidad: la tipología del CNBT para I+D+i, o los requisitos técnicos de certificación para inversiones energéticas y ambientales. Aquí se decide la aprobación: un proyecto real de innovación mal formulado se rechaza igual que uno que no califica, y es el punto donde suele hacer falta [acompañamiento especializado en la formulación del proyecto](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion).
 - Postular ante la entidad competente. Minciencias para I+D+i, a través de la plataforma SIGP dentro de las convocatorias vigentes; la UPME y la ANLA para inversiones energéticas y ambientales.
 - Hacer seguimiento hasta la resolución. Atender subsanaciones y requerimientos hasta la decisión final y la obtención del soporte del beneficio ante la [DIAN](https://www.dian.gov.co).
 

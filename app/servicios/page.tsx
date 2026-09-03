@@ -7,6 +7,8 @@ import SchemaScript from "@/components/SchemaScript";
 import FAQAccordion from "@/components/FAQAccordion";
 import { faqSchema, breadcrumbSchema } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/site";
+import { renderInlineText } from "@/lib/inline-text";
+import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
   title: "Servicios de Consultoría en Innovación Tecnológica",
@@ -31,6 +33,15 @@ const serviceSlugs: Record<string, string> = {
   "evaluacion-financiera": "evaluacion-financiera-innovacion",
   "ia-generativa": "capacitacion-ia-generativa",
   financiacion: "beneficios-tributarios-innovacion",
+};
+
+// El boton hacia cada servicio decia "Ver el servicio completo" en los tres
+// casos: un anchor generico repetido no le dice ni al lector ni al rastreador
+// que hay al otro lado. Cada destino lleva ahora su propia etiqueta descriptiva.
+const serviceCtaLabels: Record<string, string> = {
+  "evaluacion-financiera": "Ver el servicio de transferencia tecnológica",
+  "ia-generativa": "Ver el programa de formación en IA generativa",
+  financiacion: "Ver la consultoría en beneficios tributarios",
 };
 
 const services = [
@@ -71,7 +82,7 @@ const services = [
     svgPath: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
     title: "Consultoría tributaria para empresas: beneficios I+D+i y ambientales",
     description:
-      "Consultoría tributaria para empresas, especializada en beneficios tributarios por inversión. Colombia ofrece dos regímenes para las empresas que invierten en innovación o sostenibilidad, y acompaño la estructuración y postulación de proyectos en ambos: ante Minciencias para inversiones en I+D+i, y ante la ANLA y la UPME para inversiones en control ambiental, protección del medio ambiente y fuentes no convencionales de energía. Complementa el trabajo de su contador o firma tributaria, no lo reemplaza.",
+      "Consultoría tributaria para empresas, especializada en beneficios tributarios por inversión. Colombia ofrece [dos regímenes de beneficios tributarios](/blog/que-es-un-beneficio-tributario-colombia) para las empresas que invierten en innovación o sostenibilidad, y acompaño la estructuración y postulación de proyectos en ambos: ante Minciencias para inversiones en I+D+i, y ante la ANLA y la UPME para inversiones en control ambiental, protección del medio ambiente y fuentes no convencionales de energía. Complementa el trabajo de su contador o firma tributaria, no lo reemplaza.",
     benefits: [
       "Evaluación de elegibilidad del proyecto antes de cualquier compromiso formal",
       "Estructuración técnica y formulación del proyecto",
@@ -123,7 +134,7 @@ const process = [
 const faqs = [
   {
     q: "¿Qué es una consultoría de innovación y qué no es?",
-    a: "Una consultoría de innovación acompaña a una organización a decidir en qué innovar y cómo hacerlo con criterio, no a generar ideas. En mi práctica el trabajo se concentra en tres frentes: evaluar financieramente proyectos de innovación bajo incertidumbre, estructurar proyectos para acceder a beneficios tributarios por inversión, y formar equipos en el uso de IA generativa. No es una agencia creativa, no es un taller de ideación y no reemplaza al área de innovación de la empresa: le da métodos y criterio para sustentar sus decisiones.",
+    a: "Una consultoría de innovación acompaña a una organización a decidir en qué innovar y cómo hacerlo con criterio, no a generar ideas. En mi práctica el trabajo se concentra en tres frentes: evaluar financieramente proyectos de innovación bajo incertidumbre, la [asesoría en beneficios tributarios para empresas](/servicios/beneficios-tributarios-innovacion) que invierten en I+D+i, y formar equipos en el uso de IA generativa. No es una agencia creativa, no es un taller de ideación y no reemplaza al área de innovación de la empresa: le da métodos y criterio para sustentar sus decisiones.",
   },
   {
     q: "¿Qué metodologías de innovación existen y cuál necesita mi empresa?",
@@ -194,7 +205,7 @@ export default function ServiciosPage() {
             Especializada en gestión de la innovación, evaluación financiera bajo
             incertidumbre y beneficios tributarios por I+D+i
           </p>
-          <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
+          <LastUpdated path="/servicios" />
           <p className="mt-5 text-white/80 text-base max-w-2xl mx-auto leading-relaxed">
             Soy investigador doctoral en gestión de la innovación y consultor con más
             de 15 años en proyectos con organizaciones del sector real, universidades y
@@ -220,7 +231,9 @@ export default function ServiciosPage() {
                   </svg>
                 </div>
                 <h2 className="section-heading text-2xl sm:text-3xl">{service.title}</h2>
-                <p className="mt-4 text-muted-foreground leading-relaxed">{service.description}</p>
+                <p className="mt-4 text-muted-foreground leading-relaxed">
+                  {renderInlineText(service.description)}
+                </p>
                 <p className="mt-3 text-xs text-muted-foreground">
                   <strong className="text-foreground">Para quién:</strong> {service.forWho}
                 </p>
@@ -235,7 +248,7 @@ export default function ServiciosPage() {
                   </a>
                   {serviceSlugs[service.id] && (
                     <Link href={`/servicios/${serviceSlugs[service.id]}`} className="btn-secondary">
-                      Ver el servicio completo
+                      {serviceCtaLabels[service.id] ?? "Ver el servicio completo"}
                     </Link>
                   )}
                 </div>

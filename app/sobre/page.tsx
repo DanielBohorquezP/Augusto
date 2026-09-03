@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
 import { breadcrumbSchema } from "@/lib/schema";
+import { renderInlineText } from "@/lib/inline-text";
+import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
   title: "Consultor en Innovación Tecnológica Colombia",
@@ -34,7 +37,7 @@ const timeline = [
     year: "2019 – Presente",
     title: "Consultor",
     org: "Uno+Uno SAS",
-    desc: "Asesoría a organizaciones en evaluación financiera de proyectos de I+D+i, formación corporativa en IA generativa y acceso a beneficios tributarios. Profesor invitado en programas de posgrado y formación ejecutiva.",
+    desc: "Asesoría a organizaciones en evaluación financiera de proyectos de I+D+i, formación corporativa en IA generativa y [consultoría tributaria para empresas](/servicios/beneficios-tributarios-innovacion) que invierten en innovación. Profesor invitado en programas de posgrado y formación ejecutiva.",
   },
   {
     year: "2018 – 2023",
@@ -85,7 +88,7 @@ export default function SobrePage() {
               <p className="mt-3 text-white/80 text-lg font-medium">
                 PhD(c) · Investigador · Consultor · Formador
               </p>
-              <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
+              <LastUpdated path="/sobre" />
               <p className="mt-4 text-white/70 text-sm leading-relaxed max-w-lg">
                 Especializado en gestión de innovación tecnológica con un enfoque basado en evidencia.
                 Mi trabajo cierra la brecha entre el rigor de la investigación académica y
@@ -125,8 +128,14 @@ export default function SobrePage() {
             </p>
             <p>
               A lo largo de mi trayectoria he acompañado a más de 50 organizaciones en decisiones
-              de inversión en innovación, formación corporativa en IA generativa y acceso a
-              beneficios tributarios por I+D+i. Mi trabajo de campo en Brasil, Uruguay, Argentina
+              de inversión en innovación, formación corporativa en IA generativa y acceso a{" "}
+              <Link
+                href="/blog/que-es-un-beneficio-tributario-colombia"
+                className="underline decoration-1 underline-offset-2 hover:text-primary transition-colors"
+              >
+                beneficios tributarios por I+D+i
+              </Link>
+              . Mi trabajo de campo en Brasil, Uruguay, Argentina
               y Chile me permitió contrastar los retos de la evaluación financiera de innovación
               en distintos ecosistemas de la región.
             </p>
@@ -172,7 +181,9 @@ export default function SobrePage() {
                   {item.title}
                 </h3>
                 <p className="text-sm font-medium text-primary">{item.org}</p>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  {renderInlineText(item.desc)}
+                </p>
               </li>
             ))}
           </ol>

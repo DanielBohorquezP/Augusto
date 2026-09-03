@@ -42,7 +42,7 @@ empresas", término al que se reorientó la página de servicio el 2026-08-18.
 
 | # | Título | Slug | Fecha publicación | Palabra clave principal | URL final | Enlaza con |
 |---|---|---|---|---|---|---|
-| 1 | ¿Qué es un beneficio tributario y cómo acceder a él en Colombia? | `que-es-un-beneficio-tributario-colombia` | 2026-08-10 | qué es un beneficio tributario | `/blog/que-es-un-beneficio-tributario-colombia` | Página `/servicios/beneficios-tributarios-innovacion` |
+| 1 | Beneficios tributarios para empresas en Colombia | `que-es-un-beneficio-tributario-colombia` | 2026-08-10 · retitulado 2026-09-03 | beneficios tributarios para empresas en colombia (H1/title) + qué es un beneficio tributario (H2) | `/blog/que-es-un-beneficio-tributario-colombia` | Página `/servicios/beneficios-tributarios-innovacion` |
 | — | Beneficios tributarios a la I+D+i en América Latina: comparativo 2026 (pieza de autoridad regional, publicada fuera de orden — no estaba en el calendario original) | `beneficios-tributarios-idi-america-latina-comparativo` | 2026-08-11 | beneficios tributarios I+D+i América Latina | `/blog/beneficios-tributarios-idi-america-latina-comparativo` | Artículo #1 + página beneficios tributarios |
 
 ---

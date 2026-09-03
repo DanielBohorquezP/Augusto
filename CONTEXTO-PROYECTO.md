@@ -688,16 +688,50 @@ Aplicado en esa sesión:
 - [x] `courseListSchema()` + 6 nodos `Course` en `/docencia` — sin `hasCourseInstance`/`startDate`, se mantiene la omisión deliberada de fechas no confirmadas (2026-08-15)
 - [x] Enlace a `dian.gov.co` en el paso 4 de `que-es-un-beneficio-tributario-colombia.md` — era la única entidad citada como autoridad sin fuente enlazada, a diferencia de Minciencias y Minambiente (2026-08-15)
 
+**Enlazado interno + reposicionamiento del post de beneficios tributarios (2026-09-03)**
+
+Origen: datos de Search Console. `beneficios tributarios para empresas en colombia` acumulaba
+50 impresiones en posición 44,1 con 0 clics, mientras `que es el beneficio tributario` estaba en
+posición 10,0. El post tenía el calificador "para empresas" solo en el cuerpo, no en title/H1/meta.
+
+- [x] `lib/inline-text.tsx`: `renderInlineText` extraído de `PostBody.tsx` (donde estaba encapsulado) a módulo compartido, más `stripInlineLinks` para el JSON-LD. Desbloquea enlaces internos dentro de strings de datos (FAQ, intro de servicio, descripciones de tarjeta, timeline) que antes se renderizaban como texto plano y no admitían un `<a>`
+- [x] `faqSchema()` pasa las respuestas por `stripInlineLinks` — si no, los corchetes Markdown viajaban literales al `FAQPage`
+- [x] Post retitulado: `¿Qué es un beneficio tributario en Colombia?` → `Beneficios tributarios para empresas en Colombia` (48 car., 63 con el sufijo del template). **El slug NO cambia** — no vale la pena una redirección por esto. La variante definicional se preserva como H2 `¿Qué es un beneficio tributario?`, que además alimenta el TOC y el `FAQPage`
+- [x] H2 `¿Quién puede acceder?` → `¿Qué empresas pueden acceder a estos beneficios?` (entidad "empresas" en encabezado)
+- [x] 9 enlaces internos contextuales hacia `/blog/que-es-un-beneficio-tributario-colombia` desde home, `/servicios`, `/servicios/beneficios-tributarios-innovacion`, `/sobre` y el post comparativo. Anchors todos distintos; solo 1 de 9 usa la forma exacta de la keyword
+- [x] 4 enlaces contextuales hacia `/servicios/beneficios-tributarios-innovacion` desde `/sobre`, `/servicios` y los dos posts
+- [x] Anchor genérico "Ver el servicio completo" (repetido 3× en `/servicios`) reemplazado por etiquetas descriptivas por destino (`serviceCtaLabels`)
+- [x] Primer uso real de `dateModified` en un post — cierra parcialmente el pendiente de más abajo
+
+**Auditoría SEO/GEO y correcciones derivadas (2026-09-03)**
+
+Auditoría read-only sobre el build local (13 páginas + robots/sitemap/llms.txt), 4 especialistas
+en paralelo, 36 hallazgos únicos. Puntajes: **Search SEO 80/100 (B)**, **AI Visibility 75/100 (C)**.
+El puntaje **excluye rendimiento**: el snapshot es del dev server y CWV solo se puede medir en
+producción con PSI/CrUX.
+
+- [x] `lib/routes.ts`: fuente única de la fecha real por ruta. El label "Última actualización" estaba hardcodeado como el literal `"agosto de 2026"` en 6 archivos, idéntico en 8 páginas con ritmos de cambio distintos (`/medios` y una página de servicio tributario no envejecen igual). Era frescura falsa. Ahora sale del mismo dato que el `<lastmod>` del sitemap, vía `<LastUpdated>`, y se emite como `<time dateTime>`
+- [x] Descripción del `@id` `evaluacion-financiera-innovacion#service` sincronizada entre la página y el stub de `hasOfferCatalog`. Quedó desincronizada en el commit `94088d5`: el mismo nodo se describía distinto según desde dónde se leyera
+- [x] `provider` → `founder` en `professionalServiceSchema`. `provider` no es propiedad válida de Organization —va en Service, apuntando al revés— así que los parsers la ignoraban y el vínculo Persona↔Organización se perdía. Añadido el recíproco en `personSchema.worksFor`
+- [x] `telephone`, `contactPoint` y `address` (solo `addressCountry: CO`) en `professionalServiceSchema`, leyendo `WHATSAPP_NUMBER` de `lib/site.ts`. **No se declara `addressLocality`**: la prosa dice "presencia activa en Medellín y Bogotá", que no es una dirección comercial registrada, e inventarla sería falsear el NAP
+- [x] El dropdown "Servicios" del navbar se renderiza siempre y se oculta por CSS. Estaba dentro de un `{servicesOpen && ...}`, así que **los 4 enlaces —incluido `/servicios`— no existían en el HTML servido de ninguna página**: el slot de nav con más autoridad no pasaba nada a las páginas de servicio. No había huérfanas porque el footer los lleva
+- [x] Anchor `consultoría tributaria para empresas` usado por primera vez en el sitio (en `/sobre`). La auditoría detectó que la frase exacta que debe rankear esa página no se usaba como anchor ni una vez, pese a aparecer dos veces en su propio cuerpo
+
+Verificado en navegador: enlaces de nav ya en el HTML servido de las 13 páginas, fechas variando
+por página, `provider` ausente del JSON-LD y el dropdown abriendo y cerrando bien (con `tabIndex`
+volviendo a 0 solo cuando está abierto).
+
 Pendiente, **bloqueado por datos que solo tiene Augusto**:
 - [ ] `sameAs` de `personSchema` sin ORCID / Google Scholar / perfil docente Uniandes — hallazgo levantado de forma independiente por el especialista GEO y el de schema. "Augusto Ruiz" es un nombre ambiguo y todo el posicionamiento descansa en credenciales de investigación; sin anclas académicas los motores de IA no pueden desambiguar la entidad. **No inventar URLs.**
 - [ ] Cifra "93% de aprobación" sin denominador ni ventana temporal, repetida en 3 lugares (`app/servicios/beneficios-tributarios-innovacion/page.tsx:124,132` y `que-es-un-beneficio-tributario-colombia.md:91`). Es el mejor dato original del sitio —justo lo que los motores de IA citan— pero sin "sobre N proyectos entre 20XX-20XX" se descarta como marketing.
 - [ ] Registro DNDA de PRIME-10 afirmado 4 veces sin número de registro verificable (`lib/schema.ts`, `llms.txt`, `/prime-10`)
 - [ ] Título "…en LatAm 2026" ancla un año fijo (`beneficios-tributarios-idi-america-latina-comparativo.md:2-5`) — decisión editorial: o refresco anual comprometido, o desanclar y dejar que la columna "Vigencia" comunique actualidad
-- [ ] Ningún post usa `dateModified` pese a que `lib/posts.ts` y `app/blog/[slug]/page.tsx:177-190` ya lo soportan y renderizan "Actualizado el…". Falta la práctica, no el código — con contenido normativo (UVT, cupos, prórrogas) esto envejece rápido
+- [ ] `dateModified` estrenado en `que-es-un-beneficio-tributario-colombia` (2026-09-03); falta adoptarlo como práctica en el resto del feed. Con contenido normativo (UVT, cupos, prórrogas) esto envejece rápido
 
 Sin verificar (`needs_api`, requieren el sitio en vivo o APIs no disponibles):
 - [ ] **Si el CDN/Vercel bloquea a los AI crawlers pese a `robots.ts`** — potencialmente el hallazgo de mayor impacto: invalidaría todo el trabajo GEO. Verificar con `curl -A "GPTBot" -I https://www.augustoruiz.org/` o en el panel de Vercel → Firewall/Bot Protection
 - [ ] Core Web Vitals de campo y mobile-friendliness renderizado (sin PSI ni Playwright en esa sesión)
+- [ ] `og:image` de los dos posts del blog: en el snapshot del dev server resuelve a `http://localhost:3000/...` (ruta por convención `app/blog/[slug]/opengraph-image.tsx`), mientras el resto del sitio emite la URL de producción. Puede ser artefacto del entorno o real. Verificar tras desplegar: `curl -s https://www.augustoruiz.org/blog/que-es-un-beneficio-tributario-colombia | grep 'og:image'`. Si sale localhost, las tarjetas de LinkedIn/WhatsApp de los dos posts salen rotas (2026-09-03)
 - [ ] Vigencia del enlace OCDE citado en el comparativo — dio 403, probablemente anti-bot y no enlace roto
 - [ ] Rich Results Test sobre `/`, `/blog/[slug]`, `/prime-10`, `/servicios`, `/docencia`
 

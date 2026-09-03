@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { renderInlineText } from "@/lib/inline-text";
 
 type FAQ = { q: string; a: string };
 
@@ -48,7 +49,7 @@ export default function FAQAccordion({ faqs }: { faqs: FAQ[] }) {
             >
               <div className="overflow-hidden">
                 <p className="px-6 pb-6 text-sm text-muted-foreground leading-relaxed">
-                  {faq.a}
+                  {renderInlineText(faq.a)}
                 </p>
               </div>
             </dd>

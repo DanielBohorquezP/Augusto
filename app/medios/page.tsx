@@ -3,6 +3,7 @@ import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
 import { breadcrumbSchema, mediaAppearancesSchema } from "@/lib/schema";
+import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
   title: "Medios y Prensa — Entrevistas y Ponencias",
@@ -103,7 +104,7 @@ export default function MediosPage() {
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white">
               Apariciones en medios
             </h1>
-            <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
+            <LastUpdated path="/medios" />
             <p className="mt-4 text-white/80 text-base leading-relaxed">
               Entrevistas, artículos, podcasts y ponencias sobre gestión de innovación,
               evaluación financiera e inteligencia artificial.

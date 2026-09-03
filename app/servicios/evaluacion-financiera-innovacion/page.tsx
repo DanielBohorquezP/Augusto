@@ -177,6 +177,7 @@ export default function EvaluacionFinancieraInnovacionPage() {
         intro="Asesoría en transferencia tecnológica para empresas que deben decidir si adoptar, licenciar o desarrollar una tecnología: evaluación financiera de esa decisión bajo incertidumbre, donde el VPN y la TIR se quedan cortos. Modelos probabilísticos con simulación Monte Carlo, valoración de opciones reales y diseño del experimento crítico antes de comprometer la inversión."
         comparativa={comparativa}
         breadcrumbLabel="Transferencia tecnológica para empresas"
+        routePath="/servicios/evaluacion-financiera-innovacion"
         imagen={{
           src: "/images/20200117_083026.jpg",
           alt: "Augusto Ruiz presentando una metodología de evaluación de proyectos ante un auditorio",

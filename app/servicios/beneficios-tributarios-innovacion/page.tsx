@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 };
 
 const problema = [
-  "Su empresa invierte en innovación, en energías renovables o en mejoras ambientales, y paga el impuesto de renta como si esas inversiones no existieran. Colombia ofrece incentivos fiscales significativos por esas mismas inversiones: hasta un 30% de descuento en renta o un crédito fiscal del 50% por proyectos de I+D+i ante Minciencias, y una deducción del 50% más exclusión de IVA por inversiones en energías renovables y eficiencia energética. La mayoría de las empresas que califican no los usa.",
+  "Su empresa invierte en innovación, en energías renovables o en mejoras ambientales, y paga el impuesto de renta como si esas inversiones no existieran. Colombia ofrece [varios tipos de beneficio tributario](/blog/que-es-un-beneficio-tributario-colombia) por esas mismas inversiones: hasta un 30% de descuento en renta o un crédito fiscal del 50% por proyectos de I+D+i ante Minciencias, y una deducción del 50% más exclusión de IVA por inversiones en energías renovables y eficiencia energética. La mayoría de las empresas que califican no los usa.",
   "Y casi siempre ocurre con un contador, un revisor fiscal o una firma tributaria ya trabajando en la empresa. No es negligencia de ellos: la consultoría tributaria general se ocupa del cumplimiento —renta, IVA, precios de transferencia, requerimientos de la DIAN— y estos beneficios no se ganan en la declaración, sino antes, en la formulación técnica del proyecto ante la entidad que lo certifica. Son dos oficios distintos que rara vez viven en la misma persona.",
   "Las razones se repiten: no saben que su proyecto puede calificar, asumen que el trámite es solo para grandes empresas o intentaron una postulación sin la formulación técnica que exige la misma y fueron rechazadas. El resultado es el mismo: dinero que la ley permite recuperar y que se queda sin reclamar, año tras año.",
   "El problema rara vez es la elegibilidad del proyecto. Es la formulación. Un proyecto real de innovación mal estructurado se rechaza igual que uno que no califica. Por eso este servicio empieza por la pregunta correcta: antes de cualquier compromiso formal, establecer si su proyecto califica y bajo qué régimen.",
@@ -177,8 +177,13 @@ export default function BeneficiosTributariosInnovacionPage() {
       <ServicioDetalle
         badge="Consultoría tributaria especializada"
         h1="Consultoría en beneficios tributarios para empresas I+D+i"
-        intro="Beneficios tributarios por I+D+i, FNCE y eficiencia energética. Augusto Ruiz presta consultoría tributaria para empresas en Colombia, especializada en beneficios por inversión: estructuración y gestión de proyectos de I+D+i ante Minciencias y el CNBT, y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA. La tasa de aprobación es del 93% en los proyectos gestionados en mi práctica actual de consultoría."
+        // Hero corto a proposito: dos lineas. La identidad del consultor la cubre
+        // <AutoridadConsultor> justo debajo, y el detalle de entidades y regimenes
+        // vive en "El problema" y en las FAQ. Sin enlaces aqui: las menciones a
+        // otras paginas van en las secciones de contenido, no en el encabezado.
+        intro="Estructuración y gestión de proyectos de I+D+i ante Minciencias y el CNBT, y de energía y medio ambiente ante la UPME y la ANLA. Tasa de aprobación del 93% en los proyectos gestionados."
         breadcrumbLabel="Beneficios tributarios"
+        routePath="/servicios/beneficios-tributarios-innovacion"
         imagen={{
           src: "/images/20221126_083837.jpg",
           alt: "Reunión institucional de gestión de proyectos de innovación con entidades del sector",

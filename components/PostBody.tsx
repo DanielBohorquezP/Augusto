@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ContentBlock } from "@/lib/posts";
+import { renderInlineText } from "@/lib/inline-text";
 
 export function headingId(text: string): string {
   return text
@@ -9,50 +10,6 @@ export function headingId(text: string): string {
     .replace(/[^a-z0-9\s-]/g, "")
     .trim()
     .replace(/\s+/g, "-");
-}
-
-// Detecta enlaces en formato Markdown `[texto](url)` dentro de un texto plano
-// y los convierte en <a> subrayados (nueva pestaña si son externos).
-function renderInlineText(text: string): React.ReactNode {
-  const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
-  const parts: React.ReactNode[] = [];
-  let lastIndex = 0;
-  let match: RegExpExecArray | null;
-  let key = 0;
-
-  while ((match = linkPattern.exec(text)) !== null) {
-    if (match.index > lastIndex) {
-      parts.push(text.slice(lastIndex, match.index));
-    }
-    const [, label, href] = match;
-    const isExternal = href.startsWith("http");
-    parts.push(
-      isExternal ? (
-        <a
-          key={key++}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline decoration-1 underline-offset-2 hover:text-primary transition-colors"
-        >
-          {label}
-        </a>
-      ) : (
-        <Link
-          key={key++}
-          href={href}
-          className="underline decoration-1 underline-offset-2 hover:text-primary transition-colors"
-        >
-          {label}
-        </Link>
-      )
-    );
-    lastIndex = match.index + match[0].length;
-  }
-  if (lastIndex < text.length) {
-    parts.push(text.slice(lastIndex));
-  }
-  return parts.length > 0 ? parts : text;
 }
 
 function CtaLink({

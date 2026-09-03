@@ -1,3 +1,6 @@
+import { stripInlineLinks } from "@/lib/inline-text";
+import { WHATSAPP_NUMBER } from "@/lib/site";
+
 const BASE_URL = "https://www.augustoruiz.org";
 
 // Logo de marca como entidad reutilizable. Google lee `logo` en entidades de tipo
@@ -65,8 +68,13 @@ export const professionalServiceSchema = {
           "@id": `${BASE_URL}/servicios/evaluacion-financiera-innovacion#service`,
           url: `${BASE_URL}/servicios/evaluacion-financiera-innovacion`,
           name: "Asesoría en Transferencia Tecnológica para Empresas",
+          // Debe coincidir con la `description` que emite serviceSchema() en la
+          // propia pagina del servicio: es el mismo @id. Quedo desincronizada en
+          // el commit 94088d5 (reposicionamiento hacia transferencia tecnologica),
+          // que actualizo la pagina pero no este stub, y el mismo nodo pasaba a
+          // describirse distinto segun desde donde se leyera.
           description:
-            "Consultoría financiera especializada en decisiones de inversión en innovación y tecnología: modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
+            "Asesoría en transferencia tecnológica para empresas: evaluación financiera de la decisión de adoptar, licenciar o desarrollar tecnología, con modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
         },
       },
       {
@@ -115,7 +123,26 @@ export const professionalServiceSchema = {
       },
     ],
   },
-  provider: { "@id": `${BASE_URL}/#person` },
+  // `provider` NO es propiedad valida de Organization/ProfessionalService: en
+  // schema.org va en Service/Trip/Invoice, apuntando DESDE el servicio HACIA
+  // quien lo presta. Puesta aqui, los parsers la ignoran en silencio y el
+  // vinculo Persona<->Organizacion se pierde. `founder` si es valida.
+  founder: { "@id": `${BASE_URL}/#person` },
+  // El numero sale de la misma constante que alimenta los CTA de WhatsApp de
+  // todo el sitio, para que no puedan divergir. Ya era publico en cada pagina;
+  // lo que faltaba era exponerlo como dato legible por maquina.
+  telephone: `+${WHATSAPP_NUMBER}`,
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: `+${WHATSAPP_NUMBER}`,
+    contactType: "customer service",
+    url: `https://wa.me/${WHATSAPP_NUMBER}`,
+    availableLanguage: ["es"],
+  },
+  // Solo pais: la presencia se describe en prosa como "Medellin y Bogota", que
+  // no es lo mismo que una direccion comercial registrada. Declarar una
+  // addressLocality concreta sin respaldo seria inventar un dato de NAP.
+  address: { "@type": "PostalAddress", addressCountry: "CO" },
   sameAs: ["https://www.linkedin.com/in/ruizaugusto/", "https://www.tiktok.com/@retro_ciencia"],
 };
 
@@ -145,7 +172,9 @@ export const personSchema = {
     "Simulación Monte Carlo",
   ],
   alumniOf: { "@id": `${BASE_URL}/#org-uniandes` },
-  worksFor: { "@id": `${BASE_URL}/#org-uniandes` },
+  // Doble vinculo: la afiliacion academica y la consultoria propia. Cierra el
+  // reciproco de professionalServiceSchema.founder.
+  worksFor: [{ "@id": `${BASE_URL}/#org-uniandes` }, { "@id": `${BASE_URL}/#professional-service` }],
   hasCredential: [
     {
       "@type": "EducationalOccupationalCredential",
@@ -240,10 +269,13 @@ export function faqSchema(faqs: { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    // Las respuestas se escriben con enlaces Markdown en linea para que el
+    // componente los renderice dentro de la oracion; en el JSON-LD se deja solo
+    // el texto, o los corchetes viajarian literales al dato estructurado.
     mainEntity: faqs.map(({ q, a }) => ({
       "@type": "Question",
       name: q,
-      acceptedAnswer: { "@type": "Answer", text: a },
+      acceptedAnswer: { "@type": "Answer", text: stripInlineLinks(a) },
     })),
   };
 }

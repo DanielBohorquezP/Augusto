@@ -4,6 +4,8 @@ import { whatsappUrl } from "@/lib/site";
 import FAQAccordion from "@/components/FAQAccordion";
 import AutoridadConsultor from "@/components/AutoridadConsultor";
 import Reveal from "@/components/Reveal";
+import LastUpdated from "@/components/LastUpdated";
+import { renderInlineText } from "@/lib/inline-text";
 
 type Faq = { q: string; a: string };
 type MetodologiaStep = { title: string; desc: string };
@@ -23,6 +25,9 @@ export type ServicioDetalleProps = {
   h1: string;
   intro: string;
   breadcrumbLabel: string;
+  /** Ruta de la pagina, p.ej. "/servicios/beneficios-tributarios-innovacion".
+   *  Se usa para leer su fecha real de ultima modificacion en lib/routes.ts. */
+  routePath: string;
   imagen?: Imagen;
   problema: string[];
   incluye: string[];
@@ -39,6 +44,7 @@ export default function ServicioDetalle({
   h1,
   intro,
   breadcrumbLabel,
+  routePath,
   imagen,
   problema,
   incluye,
@@ -73,8 +79,8 @@ export default function ServicioDetalle({
               <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white">
                 {h1}
               </h1>
-              <p className="mt-2 text-white/40 text-xs">Última actualización: agosto de 2026</p>
-              <p className="mt-4 text-white/80 text-base leading-relaxed">{intro}</p>
+              <LastUpdated path={routePath} />
+              <p className="mt-4 text-white/80 text-base leading-relaxed">{renderInlineText(intro)}</p>
             </div>
             {imagen && (
               <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
@@ -104,7 +110,7 @@ export default function ServicioDetalle({
           <div className="space-y-4">
             {problema.map((p, i) => (
               <Reveal key={i} delay={i * 80}>
-                <p className="text-muted-foreground leading-relaxed">{p}</p>
+                <p className="text-muted-foreground leading-relaxed">{renderInlineText(p)}</p>
               </Reveal>
             ))}
           </div>
@@ -240,7 +246,7 @@ export default function ServicioDetalle({
                   <svg className="w-5 h-5 text-accent shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                   </svg>
-                  {item}
+                  {renderInlineText(item)}
                 </li>
               </Reveal>
             ))}
