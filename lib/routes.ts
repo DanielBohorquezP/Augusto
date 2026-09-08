@@ -34,7 +34,7 @@ export type StaticRoute = {
 };
 
 export const staticRoutes: StaticRoute[] = [
-  { path: "", lastModified: "2026-09-03", priority: 1.0, changeFrequency: "weekly" },
+  { path: "", lastModified: "2026-09-08", priority: 1.0, changeFrequency: "weekly" },
   { path: "/sobre", lastModified: "2026-09-03", priority: 0.9, changeFrequency: "monthly" },
   { path: "/servicios", lastModified: "2026-09-03", priority: 0.9, changeFrequency: "monthly" },
   { path: "/servicios/beneficios-tributarios-innovacion", lastModified: "2026-09-03", priority: 0.9, changeFrequency: "monthly" },
