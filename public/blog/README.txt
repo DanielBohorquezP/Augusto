@@ -1,0 +1,1 @@
+Fotos de los posts del blog. Un archivo por post, nombrado con el slug (ej. credito-fiscal-idi-amortizacion-colombia.jpg). Formato recomendado: JPG o WebP, 1200x900 px (4:3), bajo 300 KB. Se referencian desde el frontmatter con image: "/blog/<archivo>".

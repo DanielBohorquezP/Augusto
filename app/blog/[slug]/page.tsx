@@ -26,6 +26,28 @@ const postFaqs: Record<string, { q: string; a: string }[]> = {
       a: "Brasil (Lei do Bem, exclusión del 60% al 100% de gastos en I+D), Chile (Ley 20.241, crédito del 35% con tope de 15.000 UTM certificado por CORFO), Argentina (régimen de Economía del Conocimiento, Ley 27.506), Uruguay (Ley 19.739, crédito del 35%, elevable al 45% con centros tecnológicos o universidades), México (estímulo EFIDT, crédito del 30% del gasto incremental) y Perú (Ley 30309, deducción adicional de entre el 160% y el 240% del gasto según tamaño y ejecutor).",
     },
   ],
+  "credito-fiscal-idi-amortizacion-colombia": [
+    {
+      q: "¿El crédito fiscal del 50% es compatible con amortizar la inversión?",
+      a: "Sí. Conforme al Concepto DIAN 012495 de 2026, una inversión que da lugar al crédito fiscal del artículo 256-1 del Estatuto Tributario también admite capitalización y amortización bajo los artículos 74-1, 107 y 142, siempre que exista relación de causalidad directa con la renta. Si esa relación no existe, la inversión genera únicamente el crédito fiscal.",
+    },
+    {
+      q: "¿Esto aplica también al descuento tributario del artículo 256?",
+      a: "No. El artículo 256 corresponde a un descuento del 30% del valor invertido y su parágrafo 5 prohíbe expresamente capitalizar o tomar nuevamente como costo o deducción los costos y gastos que generaron el descuento. La nueva doctrina aplica únicamente al crédito fiscal del artículo 256-1.",
+    },
+    {
+      q: "¿Qué significa causalidad directa con la renta en un proyecto de I+D+i?",
+      a: "Significa demostrar la inserción económica de la inversión dentro de la actividad empresarial generadora de renta, no que cada gasto haya producido una venta concreta. La sentencia de unificación del Consejo de Estado de 2020 aclaró que la obtención efectiva de ingresos no determina por sí misma la existencia del nexo causal, lo cual es decisivo en proyectos cuyo resultado puede no llegar al mercado.",
+    },
+    {
+      q: "¿Se puede amortizar un proyecto de I+D+i que no tuvo éxito?",
+      a: "Sí. El artículo 142 del Estatuto Tributario establece que la amortización inicia, por regla general, al finalizar el proyecto, sea exitoso o no, en proporciones iguales y con una alícuota anual máxima del 20% del costo fiscal.",
+    },
+    {
+      q: "¿El Concepto DIAN 012495 de 2026 es una norma nueva?",
+      a: "No. Es un concepto doctrinal: no es una resolución ni una sentencia y no modifica el Estatuto Tributario. Su efecto es reconsiderar la interpretación administrativa anterior sobre el artículo 256-1, contenida en el Oficio 904626 de 2021, la pregunta 2 del Oficio 905651 de 2021 y el Concepto 001047 de 2026.",
+    },
+  ],
 };
 
 const postAbout: Record<string, { name: string; type?: string; sameAs?: string }[]> = {
@@ -48,6 +70,18 @@ const postAbout: Record<string, { name: string; type?: string; sameAs?: string }
     { name: "Uruguay", type: "Place" },
     { name: "México", type: "Place" },
     { name: "Perú", type: "Place" },
+  ],
+  "credito-fiscal-idi-amortizacion-colombia": [
+    { name: "Crédito fiscal I+D+i artículo 256-1 del Estatuto Tributario" },
+    { name: "Amortización fiscal de inversiones en I+D+i" },
+    { name: "DIAN", type: "GovernmentOrganization", sameAs: "https://www.dian.gov.co" },
+    {
+      name: "Consejo Nacional de Beneficios Tributarios (CNBT)",
+      type: "GovernmentOrganization",
+      sameAs: "https://minciencias.gov.co/viceministerios/conocimiento/direccion_transferencia/beneficios-tributarios/cuales-son",
+    },
+    { name: "Minciencias", type: "GovernmentOrganization", sameAs: "https://minciencias.gov.co" },
+    { name: "Colombia", type: "Place" },
   ],
 };
 
@@ -130,6 +164,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       {/* Article hero */}
       <section className="bg-primary pt-32 pb-12">
         <div className="container-site max-w-4xl">
+          {/* Con foto: dos columnas en desktop (texto | imagen a la derecha).
+              En móvil el grid colapsa y la imagen queda debajo del bloque de texto,
+              porque va después en el DOM. Sin foto, se renderiza como antes. */}
+          <div className={post.image ? "grid gap-8 lg:grid-cols-[1fr_18rem] lg:items-center" : undefined}>
+          <div>
           {/* Breadcrumb */}
           <nav aria-label="Ruta de navegación" className="mb-6">
             <ol className="flex items-center gap-2 text-xs text-white/60">
@@ -189,6 +228,20 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 </span>
               )}
             </div>
+          </div>
+          </div>
+          {post.image && (
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/10">
+              <Image
+                src={post.image}
+                alt={post.imageAlt ?? ""}
+                fill
+                sizes="(max-width: 1024px) 100vw, 18rem"
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
           </div>
         </div>
       </section>

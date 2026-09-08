@@ -21,6 +21,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Plantilla de las 3 páginas de servicio | `components/sections/ServicioDetalle.tsx` — props en `ServicioDetalleProps`; `comparativa` es opcional (con `enlace` opcional dentro) y hoy la usan beneficios tributarios y evaluación financiera |
 | **Publicar un artículo nuevo** | `content/blog/COMO-PUBLICAR.md` — instrucciones para Claude |
 | **Artículos del blog** | `content/blog/*.md` — un archivo por artículo |
+| **Fotos de los artículos** | `public/blog/<slug>.jpg` — se declara en el frontmatter con `image` + `imageAlt`; sale en la tarjeta y en el hero del post |
 | Página de blog (grid de previews) | `app/blog/page.tsx` — muestra tarjetas (título, imagen, extracto, botón) que enlazan a cada artículo |
 | Tarjeta de preview en el grid | `components/BlogPostCard.tsx` |
 | Página individual de artículo (URL propia, para Google) | `app/blog/[slug]/page.tsx` |
@@ -55,6 +56,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | **Calendario de contenido del blog** | `docs/PLAN-CONTENIDO-BLOG.md` |
 | **Mapa de keywords** (clústeres UPME/ANLA y rechazos CNBT) | `docs/MAPA-KEYWORDS-UPME-RECHAZOS.md` |
 | **Estrategia de posicionamiento #1 en Colombia** (qué términos perseguir, plan por fases) | `docs/ESTRATEGIA-POSICIONAMIENTO-COLOMBIA.md` |
+| **Reporte mensual de desempeño (PDF para Augusto)** | `.claude/skills/reporte-mensual/SKILL.md` — pide "el reporte de [mes]" y Claude lo genera desde los CSVs de Search Console + GA4. Datos del mes en `ejemplos/*.json` |
 | Sitemap | `app/sitemap.ts` |
 | Robots.txt | `app/robots.ts` |
 | llms.txt (visibilidad en IAs) | `public/llms.txt` — Markdown válido: H1 + blockquote + enlaces `[texto](url)` |
@@ -63,7 +65,15 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 
 ## Blog — cómo funciona
 
-**El blog está vacío ahora mismo** (`content/blog/` solo tiene un `.gitkeep`) — se vació a propósito para empezar a publicar contenido real. Ver `content/blog/COMO-PUBLICAR.md` para el flujo de publicación.
+**El blog tiene 3 artículos publicados** en `content/blog/`:
+
+| Slug | Categoría | Publicado |
+|---|---|---|
+| `que-es-un-beneficio-tributario-colombia` | Beneficios Tributarios | 2026-08-10 |
+| `beneficios-tributarios-idi-america-latina-comparativo` | Beneficios Tributarios | 2026-08-11 |
+| `credito-fiscal-idi-amortizacion-colombia` | Beneficios Tributarios | 2026-09-08 |
+
+Ver `content/COMO-PUBLICAR.md` para el flujo de publicación.
 
 ### Flujo de publicación (usuario → Claude)
 
@@ -282,7 +292,7 @@ augusto-ruiz-org/
 │       └── CTASection.tsx
 ├── content/
 │   ├── COMO-PUBLICAR.md        # Flujo para publicar posts (usuario envía texto → Claude publica)
-│   └── blog/                   # ← LOS ARTÍCULOS DEL BLOG (un .md por artículo) — hoy vacío
+│   └── blog/                   # ← LOS ARTÍCULOS DEL BLOG (un .md por artículo) — 3 publicados
 ├── docs/
 │   └── INTEGRACIONES.md        # Cómo conectar Google Sheets (newsletter) y Web3Forms (contacto)
 ├── lib/

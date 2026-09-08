@@ -13,8 +13,10 @@ export const categoryColors: Record<string, string> = {
   "Casos de estudio": "bg-amber-50 text-amber-700",
 };
 
-// Miniatura de la tarjeta: la marca (logo del favicon) sobre el fondo primario —
-// la imagen OG del post NO se reutiliza aquí, ya que lleva el título grabado como
+// Miniatura de la tarjeta: la foto del post (`image` en el frontmatter), que es la
+// MISMA que se muestra en el hero del artículo. Si el post no trae foto, cae al
+// bloque de marca (logo del favicon sobre el fondo primario).
+// La imagen OG del post NO se reutiliza aquí, ya que lleva el título grabado como
 // píxeles para compartir en redes y repetirlo duplicaba el título en la tarjeta.
 export default function BlogPostCard({ post }: { post: Post }) {
   return (
@@ -24,13 +26,23 @@ export default function BlogPostCard({ post }: { post: Post }) {
         className="relative flex h-40 w-full items-center justify-center bg-primary"
         aria-label={post.title}
       >
-        <Image
-          src="/icon.png"
-          alt=""
-          width={64}
-          height={64}
-          className="w-16 h-16 opacity-25"
-        />
+        {post.image ? (
+          <Image
+            src={post.image}
+            alt={post.imageAlt ?? ""}
+            fill
+            sizes="(max-width: 768px) 100vw, 400px"
+            className="object-cover"
+          />
+        ) : (
+          <Image
+            src="/icon.png"
+            alt=""
+            width={64}
+            height={64}
+            className="w-16 h-16 opacity-25"
+          />
+        )}
       </Link>
       <div className="p-5 flex flex-col flex-1">
         <div className="flex items-center gap-2 mb-3">

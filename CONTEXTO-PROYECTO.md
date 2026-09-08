@@ -413,14 +413,20 @@ manual:
 
 ## 9. Blog — arquitectura y estrategia de contenido
 
-### Estado actual: primer post publicado (2026-08-10)
+### Estado actual: 3 posts publicados (último: 2026-09-08)
 
 Los 10 posts anteriores (6 de expertise en placeholder + 4 con contenido SEO completo)
 se **borraron definitivamente** el 2026-07-06 para empezar a publicar contenido real
 desde cero. El primer post real (`que-es-un-beneficio-tributario-colombia`) se publicó
 el 2026-08-10 — ver `docs/PLAN-CONTENIDO-BLOG.md` para el calendario de los siguientes.
-El flujo de publicación queda documentado en `content/blog/COMO-PUBLICAR.md` (ver
-sección 13).
+El flujo de publicación queda documentado en `content/COMO-PUBLICAR.md` (ver sección 13).
+
+Los tres posts publicados a la fecha son `que-es-un-beneficio-tributario-colombia`
+(2026-08-10, `featured`), `beneficios-tributarios-idi-america-latina-comparativo`
+(2026-08-11) y `credito-fiscal-idi-amortizacion-colombia` (2026-09-08). Los tres están
+en la categoría *Beneficios Tributarios* y se enlazan entre sí: el tercero es el más
+técnico del feed (Concepto DIAN 012495 de 2026, causalidad rubro por rubro) y funciona
+como capa de profundidad sobre la guía introductoria, sin canibalizarla.
 
 ### Cómo se lee el blog (decisión de producto, actualizada 2026-08-11)
 
@@ -611,6 +617,9 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 
 ### Contenido del blog (alta prioridad)
 - [x] Publicar el primer post real (`que-es-un-beneficio-tributario-colombia`, 2026-08-10)
+- [x] Publicar `credito-fiscal-idi-amortizacion-colombia` (2026-09-08). Origen: borrador en `.docx` del autor, reescrito al formato del sitio. Incluye `FAQPage` (5 preguntas) y `about` en `app/blog/[slug]/page.tsx`, 5 tablas, 4 `:::destacado` y CTA a WhatsApp + servicio. La tabla de los 19 rubros (Rubro · Evidencia · Riesgo) es la más ancha del sitio: en desktop cabe sin scroll (753px), en mobile scrollea dentro de su contenedor y la tercera columna queda fuera de pantalla hasta que el lector desplaza. Fuente primaria archivada en `docs/fuentes/concepto-dian-012495-2026.html` por si el normograma DIAN reorganiza sus URLs.
+- [x] Campo `image` / `imageAlt` en el frontmatter de los posts (2026-09-08). Una sola foto por artículo, reutilizada en la tarjeta del listado y en el hero del post: a la derecha del título en desktop (columna de 18rem), debajo del bloque de título en móvil. Implementado en `lib/posts.ts` (tipo `Post` + mapeo), `components/BlogPostCard.tsx` y el hero de `app/blog/[slug]/page.tsx`. Sin `image` ambos caen al bloque de marca, así que el cambio no rompe nada.
+- [x] Fotos de los 3 posts publicados (2026-09-08). Origen: `public/images/` (archivo propio del usuario), recortadas a 4:3 y reescaladas a 1200×900 JPEG q85, todas por debajo de 200 KB, en `public/blog/<slug>.jpg`. Se eligieron tres imágenes que **no** se usan en ninguna otra página del sitio, para no repetir: `214126.jpeg` (crédito fiscal), `468b6ec7-…jpg` (guía de beneficios), `20221121_165351.jpg` (comparativo LatAm).
 - [ ] Publicar los siguientes posts del calendario (ver `docs/PLAN-CONTENIDO-BLOG.md`)
 - [x] `/servicios/beneficios-tributarios-innovacion` reposicionada hacia "consultoría tributaria para empresas" (2026-08-18). Contexto: Augusto pidió posicionarse en esa búsqueda. La SERP del término genérico está ocupada por firmas de compliance fiscal (PwC, Russell Bedford, Akauntalaw, Tributar, CIT) que venden renta, IVA, precios de transferencia y litigios DIAN — servicios que **no** se prestan. En cambio el competidor del término específico (la página de EY de beneficios tributarios, primera en "consultoría beneficios tributarios") es batible: ~900 palabras, sin FAQ, sin tablas, headings autorreferenciales. Decisión acordada con el usuario: capturar el término genérico **calificado** ("consultoría tributaria para empresas especializada en beneficios por inversión"), sin prometer compliance fiscal en ningún texto. Cambios: `title` con `absolute` para soltar el sufijo de marca y que quepan las dos familias de términos en 56 caracteres, H1/intro/badge, 2 FAQs nuevas (12 en total en el `faqSchema`), tabla comparativa "general vs. especializada", `knowsAbout` y `hasOfferCatalog` en `lib/schema.ts`, anchor text de los 2 posts del blog y 2 bloques Q&A en `llms.txt`.
 - [x] `/servicios/evaluacion-financiera-innovacion` reorientada de "evaluación financiera de proyectos" a "consultoría financiera de proyectos de innovación" (2026-08-18). Motivo: la SERP de "evaluación financiera" es **educativa** (cursos, programas y PDFs de universidades); Google no coloca páginas de servicio ahí, así que el término no se gana por más buena que sea la página. Verificado además que "consultorías en innovación financiera" es una SERP **navegacional de marca** — pertenece a la empresa homónima Consultorías en Innovación Financiera SAS, y quienes rankean son directorios (EMIS, DataCrédito) y un bufete que tramita quejas de consumidores financieros contra ella: no perseguir ese término. El término al que se apuntó sí es comercial y está mal atendido: EY (650-700 palabras) y PwC ("De la estrategia a la ejecución") no mencionan Monte Carlo ni opciones reales, y uno de los tres primeros resultados es un centro de investigación universitario.
@@ -658,6 +667,7 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 - [x] Botón "Ver el servicio completo" en la sección de financiación de `/servicios`, además del CTA de WhatsApp (2026-08-11)
 - [x] Badge de categoría en `BlogPostCard.tsx` ahora enlaza a `/blog/categoria/[categoria]` (antes era texto plano, sin ruta desde el home hacia la categoría) (2026-08-11)
 - [x] `FAQPage` schema en `/blog/que-es-un-beneficio-tributario-colombia` a partir de sus H2 en formato pregunta (2026-08-11)
+- [x] `FAQPage` (5 preguntas) y `about` en `/blog/credito-fiscal-idi-amortizacion-colombia` (2026-09-08). Recordatorio: el schema de FAQ **no** sale del Markdown — hay que añadir la entrada en el mapa `postFaqs` de `app/blog/[slug]/page.tsx`, indexada por slug; sin eso las preguntas se ven en la página pero Google no las lee como FAQ.
 - [x] `about` (CNBT, Minciencias, DIAN, países) en `BlogPosting` de ambos posts de beneficios tributarios + "Beneficios tributarios para I+D+i" en `knowsAbout` del `PersonSchema` + `inLanguage` en `WebSite` (2026-08-11)
 - [x] Byline del autor en los posts del blog enlazado a `/sobre` (hero + sidebar) (2026-08-11)
 - [x] Disclaimer YMYL ("no constituye asesoría tributaria/legal individualizada") en ambos posts de beneficios tributarios (2026-08-11)
@@ -864,6 +874,31 @@ categoría, en el sitemap, con imagen OG generada y con schema `BlogPosting`. Lo
 - **Newsletter → Google Sheets**: `/api/newsletter` hace POST a un Google Apps Script (`GOOGLE_SHEETS_WEBHOOK_URL`) que agrega el correo como fila en una hoja. El usuario decide qué extensión de Sheets usa para enviar correos desde ahí.
 - **Contacto → Web3Forms**: `/api/contact` envía el mensaje por Web3Forms (`WEB3FORMS_ACCESS_KEY`), ligada al correo `proyectos@augustoruiz.org`; no requiere verificar dominio.
 - Pasos de configuración completos de ambas integraciones: **`docs/INTEGRACIONES.md`**.
+
+---
+
+## 13.2 Reporte mensual de desempeño (desde 2026-09-08)
+
+Cada mes se le entrega a Augusto un **PDF de desempeño digital**: un dashboard multipágina
+que cuenta cómo evolucionó el sitio en Google y en las respuestas de IA. La skill
+**`.claude/skills/reporte-mensual/`** automatiza el proceso completo.
+
+- **Cómo se dispara:** pedir "el reporte de [mes]" o entregar los CSVs. Claude invoca la skill.
+- **Insumos:** exportaciones de Search Console (Rendimiento + Funciones de búsqueda → IA
+  generativa) y el Informe panorámico de GA4, todas con el rango del mes.
+- **Salida:** PDF carta de ~11 páginas con la identidad del sitio (navy `#0E1C3D`), gráficos
+  en SVG y narrativa orientada a cliente.
+- **Piezas:** `SKILL.md` (procedimiento, voz, reglas de honestidad), `scripts/build-report.js`
+  (renderiza un JSON de bloques a HTML), `scripts/charts.js` (gráficos), `scripts/report.css`
+  (estilos de impresión), `scripts/render-pdf.ps1` (HTML → PDF vía Edge headless) y
+  `ejemplos/2026-08.json` (el reporte de agosto 2026, plantilla de referencia).
+
+**Regla editorial central:** el reporte vende la *trayectoria*, nunca infla el número. Siempre
+cierra con una sección honesta que nombra el volumen absoluto. El sitio es joven y los números
+son pequeños; reconocerlo es lo que hace creíble el resto.
+
+**Recomendación permanente:** la publicación continua del blog. En agosto 2026, 22 de las 26
+citas en IA (85%) vinieron de los dos artículos del blog, no de las páginas de servicio.
 
 ---
 

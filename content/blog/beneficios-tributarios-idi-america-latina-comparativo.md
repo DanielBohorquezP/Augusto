@@ -5,6 +5,8 @@ excerpt: "Comparativo 2026 de los incentivos fiscales a la I+D+i empresarial en 
 metaDescription: "Comparativo 2026 de los incentivos fiscales a la I+D+i empresarial en Colombia, Brasil, Chile, Argentina, Uruguay, México y Perú, con fuentes oficiales."
 date: "2026-08-11"
 readTime: "10 min"
+image: "/blog/beneficios-tributarios-idi-america-latina-comparativo.jpg"
+imageAlt: "Panel de cinco participantes sentados en un conversatorio, con la pantalla del evento y los logos de las organizaciones al fondo."
 ---
 
 Siete países de América Latina ofrecen hoy incentivos fiscales a las empresas que invierten en investigación, desarrollo e innovación, pero los instrumentos difieren tanto en mecanismo como en generosidad: van desde deducciones adicionales de hasta el 240% del gasto en Perú hasta créditos fiscales del 30% al 50% en México, Chile, Uruguay y Colombia. Este comparativo presenta los instrumentos vigentes en 2026, sus porcentajes, topes y entidades administradoras, con las fuentes oficiales de cada dato. Si busca primero [qué tipos de beneficio tributario existen y cómo se accede a ellos en Colombia](https://www.augustoruiz.org/blog/que-es-un-beneficio-tributario-colombia), esa guía cubre el marco local antes de entrar en la comparación regional.

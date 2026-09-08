@@ -7,6 +7,8 @@ date: "2026-08-10"
 dateModified: "2026-09-03"
 readTime: "9 min"
 featured: true
+image: "/blog/que-es-un-beneficio-tributario-colombia.jpg"
+imageAlt: "Augusto Ruiz presenta frente a una pantalla en un auditorio universitario, con los asistentes tomando notas en mesas escalonadas."
 ---
 
 Las empresas que invierten en investigación, desarrollo e innovación (I+D+i), en energías renovables o en mejoras ambientales en Colombia pueden reducir su impuesto de renta de forma legal y significativa. Esta guía explica qué beneficios tributarios existen para empresas, qué tipos hay, quién puede acceder a ellos, cuál es el proceso y qué ofrecen otros países de la región.

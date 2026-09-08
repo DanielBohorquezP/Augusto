@@ -62,6 +62,12 @@ export interface Post {
   dateModified?: string;
   readTime: string;
   featured: boolean;
+  /** Ruta pública de la foto del post (ej. "/blog/mi-post.jpg"). Se usa en la
+   *  tarjeta del listado y en el hero del artículo — es la MISMA imagen en ambos.
+   *  Si falta, ambos caen al bloque de marca. */
+  image?: string;
+  /** Texto alternativo de `image`. Obligatorio si hay imagen (accesibilidad y SEO). */
+  imageAlt?: string;
   tocItems?: string[];
   content?: ContentBlock[];
 }
@@ -258,6 +264,8 @@ function loadPost(filename: string): Post {
     dateModified: data.dateModified || undefined,
     readTime: data.readTime || (content ? estimateReadTime(content) : "5 min"),
     featured: data.featured === "true",
+    image: data.image || undefined,
+    imageAlt: data.imageAlt || undefined,
     tocItems: tocItems && tocItems.length > 0 ? tocItems : undefined,
     content,
   };

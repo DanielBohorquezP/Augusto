@@ -34,6 +34,26 @@ Nada más hay que tocar: sitemap, listado de `/blog` (tarjetas de preview), pág
 categoría, imagen OG (auto-generada), schema `BlogPosting`, tabla de contenidos y
 tiempo de lectura salen solos.
 
+### Foto del post — obligatoria en todos los artículos
+
+Cada post lleva **una sola foto**, que aparece en dos sitios: la tarjeta del listado
+(`/blog`, `/blog?categoria=`, homepage) y el hero del artículo. Es la misma imagen en
+ambos — en el hero se coloca a la derecha del título en desktop y debajo del bloque de
+título en móvil.
+
+1. Guardar el archivo en `public/blog/<slug>.jpg` (o `.webp`).
+2. Formato: 4:3, 1200×900 px, por debajo de 300 KB.
+3. Declararla en el frontmatter:
+
+```yaml
+image: "/blog/credito-fiscal-idi-amortizacion-colombia.jpg"
+imageAlt: "Descripción real de lo que se ve en la foto"
+```
+
+`imageAlt` es obligatorio si hay `image` — describe la foto, no repite el título.
+Si un post no trae `image`, tanto la tarjeta como el hero caen al bloque de marca
+(logo sobre fondo azul); funciona, pero no es el estado deseado.
+
 ### Imágenes de las tarjetas — NO usar la imagen OG como thumbnail
 
 La tarjeta de preview (`components/BlogPostCard.tsx`, usada en `/blog`,
