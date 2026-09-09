@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, globalSchemaNodes } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Política de privacidad",
@@ -14,10 +14,13 @@ export default function PoliticaPrivacidadPage() {
   return (
     <>
       <SchemaScript
-        schema={breadcrumbSchema([
-          { name: "Inicio", url: "https://www.augustoruiz.org" },
-          { name: "Política de privacidad", url: "https://www.augustoruiz.org/politica-privacidad" },
-        ])}
+        schema={[
+          ...globalSchemaNodes,
+          breadcrumbSchema([
+            { name: "Inicio", url: "https://www.augustoruiz.org" },
+            { name: "Política de privacidad", url: "https://www.augustoruiz.org/politica-privacidad" },
+          ]),
+        ]}
       />
 
       <section className="bg-primary pt-32 pb-16">

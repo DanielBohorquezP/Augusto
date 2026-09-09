@@ -224,6 +224,19 @@ export const websiteSchema = {
   image: { "@id": `${BASE_URL}/#logo` },
 };
 
+// Las entidades sitewide (Person, WebSite, ProfessionalService, Uniandes) se
+// referencian por @id desde articleSchema/serviceSchema (author, publisher,
+// provider). Antes vivian en un <script> aparte, emitido una sola vez desde
+// app/layout.tsx: Google resuelve @id entre scripts JSON-LD del mismo
+// documento, pero varios validadores de terceros (el crawler SEO que
+// reporto los "schema.org validation error") tratan cada <script> como un
+// documento JSON-LD aislado y no resuelven la referencia, así que la
+// marcaban como rota en cada pagina que citaba estas entidades sin
+// definirlas. La correccion es que cada pagina incluya este array junto con
+// su propio schema, para que SchemaScript los funda en un unico <script>
+// con un solo @graph — ver SchemaScript.tsx.
+export const globalSchemaNodes = [personSchema, websiteSchema, professionalServiceSchema, uniandesSchema];
+
 export function articleSchema({
   title,
   description,

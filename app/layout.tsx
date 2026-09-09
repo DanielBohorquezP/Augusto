@@ -6,9 +6,6 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import AnalyticsEvents from "@/components/AnalyticsEvents";
-import SchemaScript from "@/components/SchemaScript";
-import { personSchema, websiteSchema, professionalServiceSchema, uniandesSchema } from "@/lib/schema";
-
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 const poppins = Poppins({
@@ -88,9 +85,6 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className={`${poppins.variable} ${openSans.variable}`}>
-      <head>
-        <SchemaScript schema={[personSchema, websiteSchema, professionalServiceSchema, uniandesSchema]} />
-      </head>
       <body className="font-body antialiased bg-background text-foreground">
         <Navbar />
         <main>{children}</main>

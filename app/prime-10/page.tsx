@@ -4,7 +4,7 @@ import CTASection from "@/components/sections/CTASection";
 import Prime10Phases from "@/components/sections/Prime10Phases";
 import SchemaScript from "@/components/SchemaScript";
 import FAQAccordion from "@/components/FAQAccordion";
-import { faqSchema, breadcrumbSchema, serviceSchema, prime10MethodologySchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, serviceSchema, prime10MethodologySchema, globalSchemaNodes } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/site";
 import LastUpdated from "@/components/LastUpdated";
 
@@ -46,6 +46,7 @@ const faqs = [
 
 export default function Prime10Page() {
   const schemas = [
+    ...globalSchemaNodes,
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },
       { name: "PRIME-10™", url: "https://www.augustoruiz.org/prime-10" },

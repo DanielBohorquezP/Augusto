@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import NewsletterForm from "@/components/NewsletterForm";
 import SchemaScript from "@/components/SchemaScript";
 import PostBody, { headingId } from "@/components/PostBody";
-import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, faqSchema, globalSchemaNodes } from "@/lib/schema";
 import { allPosts, getPostBySlug, getRelatedPosts } from "@/lib/posts";
 
 // FAQ y entidades por post, usadas para generar FAQPage schema y el campo
@@ -173,6 +173,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   const faqs = postFaqs[post.slug];
   const schemas = [
+    ...globalSchemaNodes,
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },
       { name: "Blog", url: "https://www.augustoruiz.org/blog" },

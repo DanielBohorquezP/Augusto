@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
-import { faqSchema, breadcrumbSchema, serviceSchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, serviceSchema, globalSchemaNodes } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
 // "Evaluación financiera de proyectos" tiene una SERP educativa (cursos, programas y
@@ -154,6 +154,7 @@ const faqs = [
 
 export default function EvaluacionFinancieraInnovacionPage() {
   const schemas = [
+    ...globalSchemaNodes,
     faqSchema(faqs),
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import SchemaScript from "@/components/SchemaScript";
+import { globalSchemaNodes } from "@/lib/schema";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import MetodologiasSection from "@/components/sections/MetodologiasSection";
@@ -40,6 +42,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <SchemaScript schema={globalSchemaNodes} />
       <HeroSection />
       <ServicesSection />
       <LogosCarousel />

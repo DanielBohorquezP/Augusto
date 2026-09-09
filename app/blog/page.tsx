@@ -4,7 +4,7 @@ import NewsletterForm from "@/components/NewsletterForm";
 import BlogPostCard from "@/components/BlogPostCard";
 import { allPosts, getAllCategories, getCategoryBySlug, slugifyCategory } from "@/lib/posts";
 import SchemaScript from "@/components/SchemaScript";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, globalSchemaNodes } from "@/lib/schema";
 
 // El filtro por categoría vive en /blog?categoria=slug (query param), no en
 // rutas propias — evita multiplicar páginas casi-duplicadas solo para filtrar
@@ -58,13 +58,16 @@ export default function BlogPage({
   return (
     <>
       <SchemaScript
-        schema={breadcrumbSchema([
-          { name: "Inicio", url: "https://www.augustoruiz.org" },
-          { name: "Blog", url: "https://www.augustoruiz.org/blog" },
-          ...(activeCategory
-            ? [{ name: activeCategory, url: `https://www.augustoruiz.org/blog?categoria=${searchParams.categoria}` }]
-            : []),
-        ])}
+        schema={[
+          ...globalSchemaNodes,
+          breadcrumbSchema([
+            { name: "Inicio", url: "https://www.augustoruiz.org" },
+            { name: "Blog", url: "https://www.augustoruiz.org/blog" },
+            ...(activeCategory
+              ? [{ name: activeCategory, url: `https://www.augustoruiz.org/blog?categoria=${searchParams.categoria}` }]
+              : []),
+          ]),
+        ]}
       />
       {/* Hero */}
       <section className="bg-primary pt-32 pb-16">

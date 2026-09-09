@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, globalSchemaNodes } from "@/lib/schema";
 import { renderInlineText } from "@/lib/inline-text";
 import LastUpdated from "@/components/LastUpdated";
 
@@ -69,10 +69,13 @@ export default function SobrePage() {
   return (
     <>
       <SchemaScript
-        schema={breadcrumbSchema([
-          { name: "Inicio", url: "https://www.augustoruiz.org" },
-          { name: "Sobre mí", url: "https://www.augustoruiz.org/sobre" },
-        ])}
+        schema={[
+          ...globalSchemaNodes,
+          breadcrumbSchema([
+            { name: "Inicio", url: "https://www.augustoruiz.org" },
+            { name: "Sobre mí", url: "https://www.augustoruiz.org/sobre" },
+          ]),
+        ]}
       />
       {/* Hero */}
       <section className="bg-primary pt-32 pb-16">

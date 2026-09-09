@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
-import { breadcrumbSchema, mediaAppearancesSchema } from "@/lib/schema";
+import { breadcrumbSchema, mediaAppearancesSchema, globalSchemaNodes } from "@/lib/schema";
 import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
@@ -83,6 +83,7 @@ export default function MediosPage() {
     <>
       <SchemaScript
         schema={[
+          ...globalSchemaNodes,
           breadcrumbSchema([
             { name: "Inicio", url: "https://www.augustoruiz.org" },
             { name: "Medios", url: "https://www.augustoruiz.org/medios" },

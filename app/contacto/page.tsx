@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import { whatsappUrl } from "@/lib/site";
 import SchemaScript from "@/components/SchemaScript";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, globalSchemaNodes } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Contacto — Agendar consulta",
@@ -29,10 +29,13 @@ export default function ContactoPage() {
   return (
     <>
       <SchemaScript
-        schema={breadcrumbSchema([
-          { name: "Inicio", url: "https://www.augustoruiz.org" },
-          { name: "Contacto", url: "https://www.augustoruiz.org/contacto" },
-        ])}
+        schema={[
+          ...globalSchemaNodes,
+          breadcrumbSchema([
+            { name: "Inicio", url: "https://www.augustoruiz.org" },
+            { name: "Contacto", url: "https://www.augustoruiz.org/contacto" },
+          ]),
+        ]}
       />
       <section className="bg-primary pt-32 pb-16">
         <div className="container-site">

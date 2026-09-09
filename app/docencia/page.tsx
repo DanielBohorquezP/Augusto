@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
-import { breadcrumbSchema, courseListSchema, docenciaAffiliationsSchema } from "@/lib/schema";
+import { breadcrumbSchema, courseListSchema, docenciaAffiliationsSchema, globalSchemaNodes } from "@/lib/schema";
 import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
@@ -58,6 +58,7 @@ export default function DocenciaPage() {
     <>
       <SchemaScript
         schema={[
+          ...globalSchemaNodes,
           breadcrumbSchema([
             { name: "Inicio", url: "https://www.augustoruiz.org" },
             { name: "Docencia", url: "https://www.augustoruiz.org/docencia" },

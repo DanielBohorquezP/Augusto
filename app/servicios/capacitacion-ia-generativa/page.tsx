@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
-import { faqSchema, breadcrumbSchema, serviceSchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, serviceSchema, globalSchemaNodes } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
 export const metadata: Metadata = {
@@ -85,6 +85,7 @@ const faqs = [
 
 export default function CapacitacionIaGenerativaPage() {
   const schemas = [
+    ...globalSchemaNodes,
     faqSchema(faqs),
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },

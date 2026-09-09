@@ -5,7 +5,7 @@ import CTASection from "@/components/sections/CTASection";
 import Prime10Phases from "@/components/sections/Prime10Phases";
 import SchemaScript from "@/components/SchemaScript";
 import FAQAccordion from "@/components/FAQAccordion";
-import { faqSchema, breadcrumbSchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, globalSchemaNodes } from "@/lib/schema";
 import { whatsappUrl } from "@/lib/site";
 import { renderInlineText } from "@/lib/inline-text";
 import LastUpdated from "@/components/LastUpdated";
@@ -180,6 +180,7 @@ const faqs = [
 
 export default function ServiciosPage() {
   const schemas = [
+    ...globalSchemaNodes,
     faqSchema(faqs),
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },

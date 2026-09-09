@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
-import { faqSchema, breadcrumbSchema, serviceSchema } from "@/lib/schema";
+import { faqSchema, breadcrumbSchema, serviceSchema, globalSchemaNodes } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
 // El template de app/layout.tsx anade " | Augusto Ruiz" (15 caracteres). Aqui se usa
@@ -157,6 +157,7 @@ const faqs = [
 
 export default function BeneficiosTributariosInnovacionPage() {
   const schemas = [
+    ...globalSchemaNodes,
     faqSchema(faqs),
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },
