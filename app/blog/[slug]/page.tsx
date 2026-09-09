@@ -48,6 +48,28 @@ const postFaqs: Record<string, { q: string; a: string }[]> = {
       a: "No. Es un concepto doctrinal: no es una resolución ni una sentencia y no modifica el Estatuto Tributario. Su efecto es reconsiderar la interpretación administrativa anterior sobre el artículo 256-1, contenida en el Oficio 904626 de 2021, la pregunta 2 del Oficio 905651 de 2021 y el Concepto 001047 de 2026.",
     },
   ],
+  "como-estructurar-proyecto-idi-beneficios-tributarios-colombia": [
+    {
+      q: "¿Cómo se estructura la trazabilidad de un proyecto de I+D+i?",
+      a: "Con una matriz de causalidad que conecta cada rubro presupuestado con una necesidad real del proyecto, una actividad metodológica y una evidencia verificable. La cadena completa va de problema u oportunidad a objetivo, metodología, actividad, rubro, entregable, evidencia e impacto económico.",
+    },
+    {
+      q: "¿Cómo se diferencian la inversión presupuestada, la ejecutada, la certificada y el valor fiscal recuperable?",
+      a: "Son cuatro capas distintas que no deben tratarse como equivalentes: la presupuestada es lo planeado, la ejecutada es lo efectivamente incurrido y soportado, la certificada es lo que cumple las condiciones del mecanismo aplicable, y el valor fiscal recuperable es el beneficio que la empresa realmente puede usar. Confundirlas es la causa más común de sobreestimar el beneficio.",
+    },
+    {
+      q: "¿Cómo se modela financieramente el incentivo tributario de un proyecto de I+D+i?",
+      a: "Como un flujo condicionado, no como un ingreso garantizado: inversión certificada por la tasa aplicable y por un factor de utilización, descontado al momento de su realización. El modelo debe correr al menos cuatro escenarios (favorable, base, conservador y adverso) según la certificación, el retraso posible y la capacidad tributaria de la empresa para usar el beneficio.",
+    },
+    {
+      q: "¿Qué rubros tienen mayor riesgo de objeción en un proyecto de I+D+i?",
+      a: "Las actividades rutinarias de la operación, los gastos generales sin asignación específica, el personal sin dedicación ni evidencia verificable, los servicios contratados sin alcance técnico definido, y los equipos o software sin necesidad metodológica demostrada. Clasificar cada rubro desde el diseño del presupuesto evita decisiones que después no puedan sostenerse con evidencia.",
+    },
+    {
+      q: "¿Qué entregables debería dejar la estructuración de un proyecto, además de la postulación?",
+      a: "Un documento técnico del proyecto, la matriz de causalidad, un presupuesto trazable, un cronograma técnico y financiero, una matriz de riesgos, un repositorio de soportes de seguimiento y un modelo de impacto económico, para que la empresa pueda ejecutar, reportar y defender la lógica del proyecto durante todo su ciclo.",
+    },
+  ],
 };
 
 const postAbout: Record<string, { name: string; type?: string; sameAs?: string }[]> = {
@@ -75,6 +97,16 @@ const postAbout: Record<string, { name: string; type?: string; sameAs?: string }
     { name: "Crédito fiscal I+D+i artículo 256-1 del Estatuto Tributario" },
     { name: "Amortización fiscal de inversiones en I+D+i" },
     { name: "DIAN", type: "GovernmentOrganization", sameAs: "https://www.dian.gov.co" },
+    {
+      name: "Consejo Nacional de Beneficios Tributarios (CNBT)",
+      type: "GovernmentOrganization",
+      sameAs: "https://minciencias.gov.co/viceministerios/conocimiento/direccion_transferencia/beneficios-tributarios/cuales-son",
+    },
+    { name: "Minciencias", type: "GovernmentOrganization", sameAs: "https://minciencias.gov.co" },
+    { name: "Colombia", type: "Place" },
+  ],
+  "como-estructurar-proyecto-idi-beneficios-tributarios-colombia": [
+    { name: "Matriz de causalidad y trazabilidad en proyectos de I+D+i" },
     {
       name: "Consejo Nacional de Beneficios Tributarios (CNBT)",
       type: "GovernmentOrganization",

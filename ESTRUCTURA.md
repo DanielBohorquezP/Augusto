@@ -65,13 +65,14 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 
 ## Blog — cómo funciona
 
-**El blog tiene 3 artículos publicados** en `content/blog/`:
+**El blog tiene 4 artículos publicados** en `content/blog/`:
 
 | Slug | Categoría | Publicado |
 |---|---|---|
 | `que-es-un-beneficio-tributario-colombia` | Beneficios Tributarios | 2026-08-10 |
 | `beneficios-tributarios-idi-america-latina-comparativo` | Beneficios Tributarios | 2026-08-11 |
 | `credito-fiscal-idi-amortizacion-colombia` | Beneficios Tributarios | 2026-09-08 |
+| `como-estructurar-proyecto-idi-beneficios-tributarios-colombia` | Beneficios Tributarios | 2026-09-08 |
 
 Ver `content/COMO-PUBLICAR.md` para el flujo de publicación.
 

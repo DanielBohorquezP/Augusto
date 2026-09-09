@@ -413,7 +413,7 @@ manual:
 
 ## 9. Blog — arquitectura y estrategia de contenido
 
-### Estado actual: 3 posts publicados (último: 2026-09-08)
+### Estado actual: 4 posts publicados (último: 2026-09-08)
 
 Los 10 posts anteriores (6 de expertise en placeholder + 4 con contenido SEO completo)
 se **borraron definitivamente** el 2026-07-06 para empezar a publicar contenido real
@@ -421,12 +421,15 @@ desde cero. El primer post real (`que-es-un-beneficio-tributario-colombia`) se p
 el 2026-08-10 — ver `docs/PLAN-CONTENIDO-BLOG.md` para el calendario de los siguientes.
 El flujo de publicación queda documentado en `content/COMO-PUBLICAR.md` (ver sección 13).
 
-Los tres posts publicados a la fecha son `que-es-un-beneficio-tributario-colombia`
+Los cuatro posts publicados a la fecha son `que-es-un-beneficio-tributario-colombia`
 (2026-08-10, `featured`), `beneficios-tributarios-idi-america-latina-comparativo`
-(2026-08-11) y `credito-fiscal-idi-amortizacion-colombia` (2026-09-08). Los tres están
-en la categoría *Beneficios Tributarios* y se enlazan entre sí: el tercero es el más
-técnico del feed (Concepto DIAN 012495 de 2026, causalidad rubro por rubro) y funciona
-como capa de profundidad sobre la guía introductoria, sin canibalizarla.
+(2026-08-11), `credito-fiscal-idi-amortizacion-colombia` (2026-09-08) y
+`como-estructurar-proyecto-idi-beneficios-tributarios-colombia` (2026-09-08). Los
+cuatro están en la categoría *Beneficios Tributarios* y se enlazan entre sí: el
+tercero es el más técnico del feed (Concepto DIAN 012495 de 2026, causalidad rubro
+por rubro, ya con el proyecto certificado y ejecutado) y el cuarto cubre la etapa
+previa —matriz de causalidad, capas de valor fiscal y modelo financiero del
+incentivo, antes de postular— sin canibalizar a los otros tres.
 
 ### Cómo se lee el blog (decisión de producto, actualizada 2026-08-11)
 
@@ -668,6 +671,7 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 - [x] Badge de categoría en `BlogPostCard.tsx` ahora enlaza a `/blog/categoria/[categoria]` (antes era texto plano, sin ruta desde el home hacia la categoría) (2026-08-11)
 - [x] `FAQPage` schema en `/blog/que-es-un-beneficio-tributario-colombia` a partir de sus H2 en formato pregunta (2026-08-11)
 - [x] `FAQPage` (5 preguntas) y `about` en `/blog/credito-fiscal-idi-amortizacion-colombia` (2026-09-08). Recordatorio: el schema de FAQ **no** sale del Markdown — hay que añadir la entrada en el mapa `postFaqs` de `app/blog/[slug]/page.tsx`, indexada por slug; sin eso las preguntas se ven en la página pero Google no las lee como FAQ.
+- [x] Cuarto post publicado: `/blog/como-estructurar-proyecto-idi-beneficios-tributarios-colombia` (2026-09-08), `FAQPage` (5 preguntas) y `about` en `postFaqs`/`postAbout` de `app/blog/[slug]/page.tsx`, foto propia en `public/blog/` (IMG_8338, evento Uniandes sobre evaluación financiera con IA), `llms.txt` actualizado con los posts 3 y 4 que faltaban
 - [x] `about` (CNBT, Minciencias, DIAN, países) en `BlogPosting` de ambos posts de beneficios tributarios + "Beneficios tributarios para I+D+i" en `knowsAbout` del `PersonSchema` + `inLanguage` en `WebSite` (2026-08-11)
 - [x] Byline del autor en los posts del blog enlazado a `/sobre` (hero + sidebar) (2026-08-11)
 - [x] Disclaimer YMYL ("no constituye asesoría tributaria/legal individualizada") en ambos posts de beneficios tributarios (2026-08-11)
