@@ -1,5 +1,5 @@
 ---
-title: "Cómo estructurar un proyecto de I+D+i para beneficios tributarios en Colombia"
+title: "Cómo estructurar un proyecto de I+D+i trazable"
 category: "Beneficios Tributarios"
 excerpt: "Matriz de causalidad, capas de valor fiscal y modelo financiero del incentivo: cómo diseñar un proyecto de I+D+i trazable y defendible antes de postular."
 metaDescription: "Cómo estructurar un proyecto de I+D+i defendible: matriz de causalidad, capas de valor fiscal y modelo financiero del incentivo, paso a paso."

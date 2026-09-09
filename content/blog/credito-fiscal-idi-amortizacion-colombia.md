@@ -1,5 +1,5 @@
 ---
-title: "Crédito fiscal I+D+i y amortización en Colombia: qué cambia"
+title: "Crédito fiscal I+D+i y amortización: qué cambia"
 category: "Beneficios Tributarios"
 excerpt: "El Concepto DIAN 012495 de 2026 admite el crédito fiscal del 50% junto con la amortización de la inversión. Guía rubro por rubro para demostrar la causalidad."
 metaDescription: "El Concepto DIAN 012495 de 2026 admite el crédito fiscal del 50% y la amortización de la inversión I+D+i si hay causalidad con la renta. Guía práctica."
