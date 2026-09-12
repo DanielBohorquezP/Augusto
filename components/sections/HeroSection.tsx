@@ -25,13 +25,14 @@ export default function HeroSection() {
               PhD(c) · Universidad de los Andes · Colombia
             </div>
 
-            {/* La frase completa "consultoria de innovacion y metodologias de
-                innovacion" es una consulta de cola larga casi sin competencia
-                deliberada: quien la escribe literal en title, meta y H1 la gana.
-                El termino "innovacion tecnologica" no se pierde — sigue en el
-                subtitulo, en el parrafo de abajo y en el resto del sitio. */}
+            {/* La apuesta anterior por la cola larga "consultoria de innovacion y
+                metodologias de innovacion" no genero impresiones medibles en Search
+                Console y a cambio diluyo el termino de cabeza "consultoria de
+                innovacion" (pos. ~54, fuera de las primeras paginas). Se quita la
+                repeticion de "innovacion" para que el H1 favorezca ese termino de
+                cabeza, alineado con el title ya acortado. */}
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight text-balance">
-              Consultoría de innovación y metodologías de innovación
+              Consultoría de innovación y metodologías
             </h1>
 
             {/* El lema de marca baja del H1 a esta linea: sigue siendo lo primero

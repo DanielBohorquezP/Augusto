@@ -11,21 +11,25 @@ import { renderInlineText } from "@/lib/inline-text";
 import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
-  title: "Servicios de Consultoría en Innovación Tecnológica",
+  // Antes decia "Consultoria EN Innovacion Tecnologica": nunca contenia la
+  // frase exacta "consultoria DE innovacion" que es la que buscan (pos. ~54,
+  // fuera de las primeras 5 paginas). Se corrige la preposicion y se anade
+  // "en Colombia" como diferenciador geografico frente al H1 de la home.
+  title: "Servicios de Consultoría de Innovación en Colombia",
   description:
-    "Consultoría en innovación empresarial para organizaciones en Colombia y LATAM. Evaluación financiera probabilística, IA generativa y estrategias de financiación.",
+    "Consultoría de innovación para organizaciones en Colombia y Latinoamérica: evaluación financiera probabilística, IA generativa aplicada y beneficios tributarios I+D+i.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios" },
   openGraph: {
-    title: "Consultoría en Innovación Tecnológica en Colombia | Augusto Ruiz",
-    description: "Consultoría en innovación empresarial para organizaciones en Colombia. Evaluación financiera probabilística, IA generativa y estrategias de financiación.",
+    title: "Servicios de Consultoría de Innovación en Colombia | Augusto Ruiz",
+    description: "Consultoría de innovación para organizaciones en Colombia y Latinoamérica: evaluación financiera probabilística, IA generativa aplicada y beneficios tributarios I+D+i.",
     url: "https://www.augustoruiz.org/servicios",
     type: "website",
     images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consultoría en Innovación Tecnológica en Colombia | Augusto Ruiz",
-    description: "Consultoría en innovación empresarial para organizaciones en Colombia. Evaluación financiera probabilística, IA generativa y estrategias de financiación.",
+    title: "Servicios de Consultoría de Innovación en Colombia | Augusto Ruiz",
+    description: "Consultoría de innovación para organizaciones en Colombia y Latinoamérica: evaluación financiera probabilística, IA generativa aplicada y beneficios tributarios I+D+i.",
   },
 };
 
@@ -197,10 +201,13 @@ export default function ServiciosPage() {
           <span className="inline-block bg-accent text-white text-xs font-heading font-semibold px-3 py-1 rounded-full mb-5 uppercase tracking-wider">
             Consultoría especializada · I+D+i
           </span>
-          {/* Diferenciado del H1 de la home ("Consultoria en innovacion tecnologica")
-              para que las dos paginas no compitan por el mismo termino. */}
+          {/* Antes decia "consultoria EN innovacion tecnologica": no contenia la
+              frase exacta "consultoria DE innovacion" que es la que se busca.
+              El H1 de la home tambien abre con esa misma frase (es el termino de
+              cabeza de la marca); "en Colombia" diferencia esta pagina como el
+              hub de servicios sin diluir el match exacto. */}
           <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white max-w-3xl mx-auto">
-            Servicios de consultoría en innovación tecnológica
+            Servicios de consultoría de innovación en Colombia
           </h1>
           <p className="mt-4 font-heading font-medium text-white/90 text-lg max-w-2xl mx-auto leading-snug">
             Especializada en gestión de la innovación, evaluación financiera bajo
