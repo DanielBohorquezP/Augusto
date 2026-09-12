@@ -8,12 +8,12 @@ import ServicioDetalle from "@/components/sections/ServicioDetalle";
 // a "consultoria financiera de proyectos de innovacion", que si es una SERP comercial
 // y donde los que rankean (EY, PwC) no mencionan Monte Carlo ni opciones reales.
 export const metadata: Metadata = {
-  title: "Asesoría en Transferencia Tecnológica para Empresas",
+  title: "Transferencia Tecnológica para Empresas",
   description:
     "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
   openGraph: {
-    title: "Asesoría en Transferencia Tecnológica para Empresas | Augusto Ruiz",
+    title: "Transferencia Tecnológica para Empresas | Augusto Ruiz",
     description:
       "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
     url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Asesoría en Transferencia Tecnológica para Empresas | Augusto Ruiz",
+    title: "Transferencia Tecnológica para Empresas | Augusto Ruiz",
     description:
       "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
   },
@@ -163,7 +163,7 @@ export default function EvaluacionFinancieraInnovacionPage() {
     ]),
     serviceSchema({
       slug: "servicios/evaluacion-financiera-innovacion",
-      name: "Asesoría en Transferencia Tecnológica para Empresas",
+      name: "Transferencia Tecnológica para Empresas",
       description:
         "Asesoría en transferencia tecnológica para empresas: evaluación financiera de la decisión de adoptar, licenciar o desarrollar tecnología, con modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
       serviceType: "Asesoría en transferencia tecnológica para empresas",

@@ -63,11 +63,12 @@ export const professionalServiceSchema = {
     itemListElement: [
       {
         "@type": "Offer",
+        priceSpecification: { "@type": "PriceSpecification", description: "Precio bajo cotización — contactar" },
         itemOffered: {
           "@type": "Service",
           "@id": `${BASE_URL}/servicios/evaluacion-financiera-innovacion#service`,
           url: `${BASE_URL}/servicios/evaluacion-financiera-innovacion`,
-          name: "Asesoría en Transferencia Tecnológica para Empresas",
+          name: "Transferencia Tecnológica para Empresas",
           // Debe coincidir con la `description` que emite serviceSchema() en la
           // propia pagina del servicio: es el mismo @id. Quedo desincronizada en
           // el commit 94088d5 (reposicionamiento hacia transferencia tecnologica),
@@ -79,6 +80,7 @@ export const professionalServiceSchema = {
       },
       {
         "@type": "Offer",
+        priceSpecification: { "@type": "PriceSpecification", description: "Precio bajo cotización — contactar" },
         itemOffered: {
           "@type": "Service",
           "@id": `${BASE_URL}/servicios/capacitacion-ia-generativa#service`,
@@ -90,6 +92,7 @@ export const professionalServiceSchema = {
       },
       {
         "@type": "Offer",
+        priceSpecification: { "@type": "PriceSpecification", description: "Precio bajo cotización — contactar" },
         itemOffered: {
           "@type": "Service",
           "@id": `${BASE_URL}/servicios/beneficios-tributarios-innovacion#service`,
@@ -101,6 +104,7 @@ export const professionalServiceSchema = {
       },
       {
         "@type": "Offer",
+        priceSpecification: { "@type": "PriceSpecification", description: "Precio bajo cotización — contactar" },
         itemOffered: {
           "@type": "Service",
           "@id": `${BASE_URL}/prime-10#service`,
@@ -112,6 +116,7 @@ export const professionalServiceSchema = {
       },
       {
         "@type": "Offer",
+        priceSpecification: { "@type": "PriceSpecification", description: "Precio bajo cotización — contactar" },
         itemOffered: {
           "@type": "Service",
           "@id": `${BASE_URL}/docencia#service`,
@@ -139,10 +144,11 @@ export const professionalServiceSchema = {
     url: `https://wa.me/${WHATSAPP_NUMBER}`,
     availableLanguage: ["es"],
   },
-  // Solo pais: la presencia se describe en prosa como "Medellin y Bogota", que
-  // no es lo mismo que una direccion comercial registrada. Declarar una
-  // addressLocality concreta sin respaldo seria inventar un dato de NAP.
-  address: { "@type": "PostalAddress", addressCountry: "CO" },
+  // Se retiro `address` (country-only) porque el negocio es un servicio
+  // remoto multi-pais (areaServed cubre Colombia, Mexico, Chile, Peru,
+  // Ecuador): declarar solo el pais no encaja ni con un LocalBusiness real
+  // ni con el modelo de service-area-business de Google, que se describe
+  // solo con areaServed + contactPoint (ya presentes abajo).
   sameAs: ["https://www.linkedin.com/in/ruizaugusto/", "https://www.tiktok.com/@retro_ciencia"],
 };
 
