@@ -45,41 +45,29 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Message too long" }, { status: 400 });
   }
 
-  const web3formsAccessKey = process.env.WEB3FORMS_ACCESS_KEY;
+  // El envío del correo (Web3Forms) lo hace el navegador directamente: su plan
+  // gratuito bloquea las peticiones hechas server-to-server (ver docs/INTEGRACIONES.md).
+  // Este endpoint solo valida, aplica rate limit y guarda el contacto en Sheets.
 
-  if (!web3formsAccessKey) {
-    console.error("WEB3FORMS_ACCESS_KEY not configured");
-    return NextResponse.json({ error: "Mail service not configured" }, { status: 503 });
-  }
-
-  try {
-    const res = await fetch("https://api.web3forms.com/submit", {
+  // Guarda el contacto en Google Sheets. Best-effort: si falla, no bloquea el
+  // envío del correo, que el navegador hace por su cuenta después de esta respuesta.
+  const sheetsWebhookUrl = process.env.GOOGLE_SHEETS_CONTACT_WEBHOOK_URL;
+  if (sheetsWebhookUrl) {
+    fetch(sheetsWebhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        access_key: web3formsAccessKey,
-        subject: `[Contacto Web] ${body.service ?? "Consulta"} — ${name}`,
-        from_name: name,
-        replyto: email,
-        Nombre: name,
-        Email: email,
-        Empresa: body.company || "—",
-        Servicio: body.service || "—",
-        Mensaje: message,
-        Newsletter: body.newsletter ? "Sí" : "No",
+        nombre: name,
+        email: email.trim().toLowerCase(),
+        empresa: body.company || "",
+        servicio: body.service || "",
+        mensaje: message,
+        newsletter: body.newsletter ? "Sí" : "No",
+        fecha: new Date().toISOString(),
       }),
-    });
-
-    const data = await res.json();
-
-    if (!res.ok || !data.success) {
-      console.error("Web3Forms error:", data);
-      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
-    }
-
-    return NextResponse.json({ success: true }, { status: 200 });
-  } catch (err) {
-    console.error("Contact form error:", err);
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+      redirect: "follow",
+    }).catch((err) => console.error("Google Sheets contact webhook error:", err));
   }
+
+  return NextResponse.json({ success: true }, { status: 200 });
 }

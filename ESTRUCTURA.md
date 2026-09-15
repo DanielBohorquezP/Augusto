@@ -241,7 +241,8 @@ cp .env.local.example .env.local
 ```
 
 - `GOOGLE_SHEETS_WEBHOOK_URL` — a dónde se envían los correos del newsletter (Google Sheets)
-- `WEB3FORMS_ACCESS_KEY` — servicio de envío de correo del formulario de contacto (ligada a `proyectos@augustoruiz.org`)
+- `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` — servicio de envío de correo del formulario de contacto (ligada a `proyectos@augustoruiz.org`). Es `NEXT_PUBLIC_` porque el envío ocurre desde el navegador, no desde el servidor: el plan gratuito de Web3Forms bloquea peticiones server-to-server
+- `GOOGLE_SHEETS_CONTACT_WEBHOOK_URL` — respaldo opcional: guarda cada envío del formulario de contacto como fila en Google Sheets (hoja aparte de la del newsletter)
 
 Pasos de configuración completos (crear la hoja, el Apps Script, la cuenta Web3Forms) en
 **`docs/INTEGRACIONES.md`**.

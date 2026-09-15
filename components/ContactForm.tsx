@@ -46,25 +46,63 @@ export default function ContactForm() {
     setErrors({});
     setState("loading");
     try {
+      // El servidor valida, aplica rate limit y guarda el contacto en Sheets.
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (res.ok) {
-        setState("success");
-        // Solo cuenta como lead el envio que el servidor acepto: si se disparara
-        // antes del fetch, los intentos fallidos inflarian la conversion.
-        trackEvent("contact_form_submit", {
-          // Que servicio eligio en el desplegable, para saber que linea genera
-          // demanda real y no solo trafico.
-          servicio: form.service || "sin especificar",
-        });
-      } else if (res.status === 429) {
+
+      if (res.status === 429) {
         setState("rate-limited");
-      } else {
-        setState("error");
+        return;
       }
+      if (!res.ok) {
+        setState("error");
+        return;
+      }
+
+      // El correo se envía directo desde el navegador: el plan gratuito de
+      // Web3Forms bloquea las peticiones hechas server-to-server.
+      const web3formsAccessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+      if (!web3formsAccessKey) {
+        console.error("NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY not configured");
+        setState("error");
+        return;
+      }
+
+      const emailRes = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: web3formsAccessKey,
+          subject: `[Contacto Web] ${form.service || "Consulta"} — ${form.name}`,
+          from_name: form.name,
+          replyto: form.email,
+          Nombre: form.name,
+          Email: form.email,
+          Empresa: form.company || "—",
+          Servicio: form.service || "—",
+          Mensaje: form.message,
+          Newsletter: form.newsletter ? "Sí" : "No",
+        }),
+      });
+      const emailData = await emailRes.json();
+
+      if (!emailRes.ok || !emailData.success) {
+        console.error("Web3Forms error:", emailData);
+        setState("error");
+        return;
+      }
+
+      setState("success");
+      // Solo cuenta como lead el envio que el servidor acepto: si se disparara
+      // antes del fetch, los intentos fallidos inflarian la conversion.
+      trackEvent("contact_form_submit", {
+        // Que servicio eligio en el desplegable, para saber que linea genera
+        // demanda real y no solo trafico.
+        servicio: form.service || "sin especificar",
+      });
     } catch {
       setState("error");
     }

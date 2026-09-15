@@ -72,19 +72,95 @@ El formulario de `/contacto` envía el mensaje a tu correo usando
 [Web3Forms](https://web3forms.com) (gratis hasta 250 envíos/mes, sin verificar
 dominio por DNS).
 
+> **Importante:** el envío ocurre **desde el navegador** (`components/ContactForm.tsx`),
+> no desde el servidor. Se probó y confirmó que el plan gratuito de Web3Forms
+> **bloquea las peticiones server-to-server** (responde 403 "Use our API in
+> client side or contact support with server IP address — Pro plan is required").
+> Por eso la variable debe llevar el prefijo `NEXT_PUBLIC_`: Web3Forms confirma
+> en su documentación que la access key es segura para exponer públicamente
+> (no da acceso a nada, solo identifica a qué bandeja llegan los mensajes).
+> El servidor (`app/api/contact/route.ts`) solo valida los datos, aplica el
+> límite de tasa (rate limit) y guarda el contacto en Google Sheets — ver sección 2b.
+
 ### Pasos
 
 1. Ve a [web3forms.com](https://web3forms.com), escribe el correo donde quieres
    recibir los mensajes y clic en **Create Access Key**.
 2. Te llega un correo con la **Access Key** (formato UUID) — cópiala.
 3. Conéctala:
-   - Local: `WEB3FORMS_ACCESS_KEY=...` en `.env.local`
-   - Vercel: Environment Variables → `WEB3FORMS_ACCESS_KEY` → redeploy.
+   - Local: `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=...` en `.env.local`
+   - Vercel: Environment Variables → `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` → redeploy.
 
 Los mensajes llegan al correo que registraste al crear la Access Key
 (actualmente `proyectos@augustoruiz.org`). Si quieres cambiar el destinatario,
 genera una nueva Access Key en Web3Forms con el correo nuevo y reemplázala en
-las variables de entorno — no requiere tocar `app/api/contact/route.ts`.
+las variables de entorno — no requiere tocar código.
+
+---
+
+## 2b. Formulario de contacto → Google Sheets (respaldo de contactos)
+
+Además del correo, cada envío del formulario de `/contacto` se guarda como fila
+en una hoja de cálculo aparte (distinta de la del newsletter, porque tiene
+columnas diferentes). Es opcional: si no la configuras, el formulario sigue
+funcionando normalmente, solo por email.
+
+### Paso 1 — Crear la hoja
+
+1. Ve a [sheets.google.com](https://sheets.google.com) y crea una hoja nueva.
+   Nómbrala por ejemplo **"Contactos augustoruiz.org"**.
+2. En la fila 1 escribe estos encabezados: `nombre` | `email` | `empresa` |
+   `servicio` | `mensaje` | `newsletter` | `fecha`
+
+### Paso 2 — Crear el Apps Script
+
+1. En la hoja: menú **Extensiones → Apps Script**.
+2. Borra el contenido del editor y pega esto:
+
+```javascript
+function doPost(e) {
+  var hoja = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+  var datos = JSON.parse(e.postData.contents);
+
+  hoja.appendRow([
+    datos.nombre,
+    datos.email,
+    datos.empresa,
+    datos.servicio,
+    datos.mensaje,
+    datos.newsletter,
+    datos.fecha,
+  ]);
+
+  return ContentService.createTextOutput(
+    JSON.stringify({ ok: true })
+  ).setMimeType(ContentService.MimeType.JSON);
+}
+```
+
+3. Guarda (ícono de disquete) y ponle un nombre al proyecto, ej. "Contacto Web".
+
+### Paso 3 — Desplegar como Web App
+
+1. Botón azul **Implementar → Nueva implementación**.
+2. Tipo: **Aplicación web**.
+3. Configuración:
+   - **Ejecutar como:** Yo (tu cuenta)
+   - **Quién tiene acceso:** **Cualquier persona** ← importante, si no el sitio no puede escribir
+4. Clic en **Implementar** y autoriza los permisos que pida.
+5. Copia la **URL de la aplicación web** (termina en `/exec`).
+
+### Paso 4 — Conectar el sitio
+
+- **En local:** en `.env.local` agrega:
+  ```
+  GOOGLE_SHEETS_CONTACT_WEBHOOK_URL=https://script.google.com/macros/s/TU_ID/exec
+  ```
+- **En Vercel:** Project → Settings → Environment Variables → agrega
+  `GOOGLE_SHEETS_CONTACT_WEBHOOK_URL` con la misma URL → redeploy.
+
+> Igual que con la hoja del newsletter: si después editas el script, debes crear
+> una **nueva implementación** para que los cambios apliquen — la URL puede cambiar.
 
 ---
 

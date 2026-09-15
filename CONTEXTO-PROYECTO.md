@@ -606,7 +606,7 @@ refresca el suyo solo al volver a rastrear el sitio (puede tardar semanas).
 | `StatsSection` | Sección de stats (removida de homepage, existe el componente) |
 
 ### APIs (`app/api/`)
-- `/api/contact/route.ts` — maneja formulario de contacto → envía por Web3Forms (requiere `WEB3FORMS_ACCESS_KEY`)
+- `/api/contact/route.ts` — valida el formulario de contacto, aplica rate limit y guarda la fila en Google Sheets (opcional, `GOOGLE_SHEETS_CONTACT_WEBHOOK_URL`). El envío del correo por Web3Forms lo hace el navegador directamente desde `components/ContactForm.tsx` (no el servidor — su plan gratuito bloquea peticiones server-to-server, ver `docs/INTEGRACIONES.md`)
 - `/api/newsletter/route.ts` — maneja suscripciones al newsletter → agrega fila a Google Sheets (requiere `GOOGLE_SHEETS_WEBHOOK_URL`)
 - Pasos de configuración de ambos servicios en `docs/INTEGRACIONES.md`
 
@@ -661,6 +661,7 @@ se generan en build time con `next/og` (`app/opengraph-image.tsx` y
 ### Funcionalidad
 - [x] Conectar `/api/contact` a Web3Forms (configurado, `WEB3FORMS_ACCESS_KEY` cargada en `.env.local`, 2026-08-23 — ver `docs/INTEGRACIONES.md`)
 - [x] Conectar `/api/newsletter` a Google Sheets (código listo, falta que el usuario despliegue el Apps Script — ver `docs/INTEGRACIONES.md`)
+- [x] Conectar `/api/contact` a Google Sheets como respaldo (código listo, falta que el usuario despliegue el Apps Script — ver `docs/INTEGRACIONES.md`, 2026-09-15)
 - [x] Botón de WhatsApp como canal principal de contacto en todo el sitio (2026-07)
 - [ ] Agregar paginación al blog cuando haya muchos posts
 
@@ -887,7 +888,7 @@ categoría, en el sitemap, con imagen OG generada y con schema `BlogPosting`. Lo
 
 - **WhatsApp es el canal principal de contacto.** Número: `+57 300 5348153`, centralizado en `lib/site.ts` (`WHATSAPP_NUMBER` + `whatsappUrl()`). Botón flotante en todo el sitio + botones "Contáctame por WhatsApp" en hero, servicios, PRIME-10, CTA final de home y contacto. El formulario de `/contacto` se conserva como alternativa.
 - **Newsletter → Google Sheets**: `/api/newsletter` hace POST a un Google Apps Script (`GOOGLE_SHEETS_WEBHOOK_URL`) que agrega el correo como fila en una hoja. El usuario decide qué extensión de Sheets usa para enviar correos desde ahí.
-- **Contacto → Web3Forms**: `/api/contact` envía el mensaje por Web3Forms (`WEB3FORMS_ACCESS_KEY`), ligada al correo `proyectos@augustoruiz.org`; no requiere verificar dominio.
+- **Contacto → Web3Forms + Google Sheets**: `ContactForm.tsx` envía el mensaje por Web3Forms **desde el navegador** (`NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`, ligada al correo `proyectos@augustoruiz.org`) — confirmado que su plan gratuito rechaza peticiones hechas desde el servidor (403, requiere plan Pro). `/api/contact` solo valida, aplica rate limit y guarda cada envío como fila en una hoja de Google Sheets aparte (opcional, `GOOGLE_SHEETS_CONTACT_WEBHOOK_URL`, best-effort).
 - Pasos de configuración completos de ambas integraciones: **`docs/INTEGRACIONES.md`**.
 
 ---
