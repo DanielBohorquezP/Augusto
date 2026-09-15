@@ -22,13 +22,23 @@
    `:::destacado` — se subrayan automáticamente y abren en pestaña nueva si son
    externos), y **siempre cierra con un bloque `:::cta`** hacia WhatsApp, `/contacto` o
    `/servicios`.
-5. **Fecha**: la del día de publicación (`YYYY-MM-DD`). Si se actualiza un post viejo,
+5. **OBLIGATORIO — bloques `:::servicio` repartidos en el cuerpo**: todo artículo debe
+   ofrecer, más de una vez y no solo en el `:::cta` de cierre, el servicio de
+   `/servicios/<slug>` relacionado con su tema. Insertar **2 bloques `:::servicio`**
+   (la tarjeta oscura con imagen, checklist y botón — ver "Sección de servicio" más
+   abajo), repartidos en puntos distintos del cuerpo con secciones normales entre
+   medio (nunca dos seguidos, nunca ambos pegados al `:::cta` final). Saltarse este
+   paso es un error de publicación, no una opción — si el artículo es muy corto para
+   repartir 2 sin que se vean seguidos, usar al menos 1.
+6. **Fecha**: la del día de publicación (`YYYY-MM-DD`). Si se actualiza un post viejo,
    agregar `dateModified`.
-6. **Verificación**: correr `npm run build` y revisar el post en el preview antes de dar
+7. **Verificación**: correr `npm run build` y revisar el post en el preview antes de dar
    por terminado — **incluyendo mobile (375px) y tablet (768px)**, no solo desktop.
    Prestar atención especial a tablas anchas (deben scrollear horizontalmente dentro de
-   su propio contenedor, nunca desbordar la página) e imágenes. Actualizar
-   `ESTRUCTURA.md`/`CONTEXTO-PROYECTO.md` si algo estructural cambió.
+   su propio contenedor, nunca desbordar la página), imágenes, y confirmar que los
+   bloques `:::servicio` quedaron en el HTML (buscar el heading de cada uno en el
+   preview). Actualizar `ESTRUCTURA.md`/`CONTEXTO-PROYECTO.md` si algo estructural
+   cambió.
 
 Nada más hay que tocar: sitemap, listado de `/blog` (tarjetas de preview), página de
 categoría, imagen OG (auto-generada), schema `BlogPosting`, tabla de contenidos y
@@ -64,7 +74,47 @@ duplica el título (una vez ilegible dentro de la imagen, otra vez como texto re
 debajo) y se ve mal en mobile/tablet — bug real detectado y corregido el 2026-08-11. No
 reintroducir ese patrón al tocar `BlogPostCard.tsx`.
 
+### Sección de servicio (`:::servicio`) — ofrecer el servicio relacionado
+
+Tarjeta oscura de dos columnas (texto + checklist + botón a la izquierda, imagen con
+insignia roja a la derecha) que promociona el servicio de `/servicios/<slug>` con el
+que se relaciona esa parte del artículo. Renderizada por `components/PostBody.tsx`
+(caso `servicePromo`), parseada por `lib/posts.ts` desde esta sintaxis:
+
+```markdown
+:::servicio
+heading: ¿Su empresa ya calificaría para este beneficio?
+text: Descripción corta y específica a la sección del artículo donde aparece, no un texto genérico repetido.
+image: /images/servicios-beneficios-tributarios.jpg
+imageAlt: Descripción real de la foto
+badge: 93% DE APROBACIÓN
+cta: /servicios/beneficios-tributarios-innovacion | Solicitar evaluación de elegibilidad
+- Primer punto del checklist (beneficio concreto del servicio)
+- Segundo punto del checklist
+- Tercer punto del checklist
+:::
+```
+
+Reglas:
+- `image` apunta a una foto ya existente en `public/images/` (una por servicio:
+  `servicios-beneficios-tributarios.jpg`, `servicios-ia-generativa.jpg`; si el
+  servicio de evaluación financiera no tiene foto propia, usar `/profile-photo.jpg`
+  antes que dejar el bloque sin imagen) — no descargar ni generar imágenes nuevas
+  para este bloque.
+- `cta` apunta siempre a la subpágina real del servicio (`/servicios/<slug>`, ver
+  `app/servicios/*/page.tsx`), no al ancla genérica `/servicios#id`.
+- `badge` es opcional (texto corto tipo "93% DE APROBACIÓN", "NORMATIVA VIGENTE").
+- 2-3 ítems de checklist por bloque, cortos y concretos — no repetir el mismo listado
+  en los dos bloques del mismo artículo, variar según la sección donde aparece.
+- No confundir con `:::cta` (banner simple centrado, sin imagen ni checklist): el
+  `:::cta` sigue siendo obligatorio al final del artículo; `:::servicio` es el
+  refuerzo intermedio, repartido en el cuerpo.
+
 ## Template del archivo
+
+Nota los dos bloques `:::servicio` intercalados en el cuerpo — son obligatorios (paso
+5 más arriba), no un adorno opcional del ejemplo. Ajustar su contenido al servicio real
+relacionado con el artículo y a la sección donde caen, pero no omitirlos.
 
 ```markdown
 ---
@@ -92,7 +142,33 @@ Google aman estos bloques.
 - Punto uno
 - Punto dos
 
+:::servicio
+heading: Pregunta o afirmación específica a esta sección, ligada al servicio.
+text: Por qué este servicio resuelve lo que se acaba de explicar arriba.
+image: /images/servicios-<slug-del-servicio>.jpg
+imageAlt: Descripción real de la foto
+badge: TEXTO CORTO OPCIONAL
+cta: /servicios/<slug-del-servicio> | Texto de acción del botón
+- Primer punto del checklist
+- Segundo punto del checklist
+- Tercer punto del checklist
+:::
+
 ## Segunda sección
+
+Más contenido...
+
+:::servicio
+heading: Otra pregunta o afirmación, distinta a la del primer bloque.
+text: Ángulo distinto del mismo servicio, o de otro servicio si el artículo cubre más de uno.
+image: /images/servicios-<slug-del-servicio>.jpg
+imageAlt: Descripción real de la foto
+cta: /servicios/<slug-del-servicio> | Texto de acción del botón
+- Ítem distinto a los del primer bloque
+- Otro ítem distinto
+:::
+
+## Tercera sección
 
 Más contenido...
 

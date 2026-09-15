@@ -33,6 +33,17 @@ import path from "node:path";
 //   primary: /contacto | Agendar consulta
 //   secondary: /servicios | Ver servicios
 //   :::
+//
+//   :::servicio
+//   heading: ¿Tu proyecto ya califica para el beneficio?
+//   text: Descripción corta del servicio relacionado con esta sección del artículo.
+//   image: /images/servicios-beneficios-tributarios.jpg
+//   imageAlt: Texto alternativo de la imagen
+//   badge: NORMATIVA VIGENTE
+//   cta: /servicios#financiacion | Solicitar diagnóstico
+//   - Primer punto del checklist
+//   - Segundo punto del checklist
+//   :::
 // ─────────────────────────────────────────────────────────────────────────────
 
 export type ContentBlock =
@@ -50,6 +61,17 @@ export type ContentBlock =
       primaryText: string;
       secondaryLink?: string;
       secondaryText?: string;
+    }
+  | {
+      type: "servicePromo";
+      heading: string;
+      text: string;
+      items: string[];
+      ctaLink: string;
+      ctaText: string;
+      image: string;
+      imageAlt: string;
+      badge?: string;
     };
 
 export interface Post {
@@ -139,6 +161,38 @@ function parseBody(body: string): ContentBlock[] {
         primaryLink,
         primaryText,
         ...(secondaryLink && secondaryText ? { secondaryLink, secondaryText } : {}),
+      });
+      continue;
+    }
+
+    if (line.startsWith(":::servicio")) {
+      const fields: Record<string, string> = {};
+      const items: string[] = [];
+      i++;
+      while (i < lines.length && lines[i].trim() !== ":::") {
+        const raw = lines[i].trim();
+        if (raw.startsWith("- ")) {
+          items.push(raw.slice(2).trim());
+        } else {
+          const idx = lines[i].indexOf(":");
+          if (idx > -1) fields[lines[i].slice(0, idx).trim()] = lines[i].slice(idx + 1).trim();
+        }
+        i++;
+      }
+      i++;
+      const [ctaLink = "/servicios", ctaText = "Ver el servicio"] = (fields.cta ?? "")
+        .split("|")
+        .map((s) => s.trim());
+      blocks.push({
+        type: "servicePromo",
+        heading: fields.heading ?? "",
+        text: fields.text ?? "",
+        items,
+        ctaLink,
+        ctaText,
+        image: fields.image ?? "",
+        imageAlt: fields.imageAlt ?? "",
+        badge: fields.badge || undefined,
       });
       continue;
     }
@@ -237,6 +291,8 @@ function estimateReadTime(blocks: ContentBlock[]): string {
           return `${b.headers.join(" ")} ${b.rows.map((r) => r.join(" ")).join(" ")}`;
         case "cta":
           return `${b.heading} ${b.text}`;
+        case "servicePromo":
+          return `${b.heading} ${b.text} ${b.items.join(" ")}`;
       }
     })
     .join(" ")

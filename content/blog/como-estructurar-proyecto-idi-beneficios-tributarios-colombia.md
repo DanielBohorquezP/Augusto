@@ -32,6 +32,18 @@ Cada eslabón de esa cadena responde una pregunta de control distinta, y cada pr
 
 Un rubro que no puede ubicarse en esta cadena —que no responde a una actividad concreta ni produce un entregable verificable— es el tipo de gasto que una entidad calificadora u otro pueden objetar más adelante, aunque el proyecto en conjunto sea innovación real.
 
+:::servicio
+heading: La matriz de causalidad no se improvisa
+text: Diseñar la trazabilidad de un proyecto desde la formulación —no durante una fiscalización— es el trabajo que hago junto a cada empresa antes de postular.
+image: /images/servicios-beneficios-tributarios.jpg
+imageAlt: Documentos y gráficos financieros sobre un escritorio, en el contexto de una consultoría tributaria para empresas.
+badge: DISEÑO DESDE LA FORMULACIÓN
+cta: /servicios/beneficios-tributarios-innovacion | Solicitar acompañamiento
+- Matriz de causalidad a la medida del proyecto
+- Depuración de rubros de alto riesgo desde el diseño
+- Presupuesto trazable y defendible ante la entidad
+:::
+
 ## Las cuatro capas del valor fiscal
 
 Una de las fuentes más comunes de sobreestimación del beneficio es asumir que el presupuesto formulado equivale al valor fiscal recuperable. En la práctica existen cuatro capas, y cada una exige condiciones y soportes distintos:
@@ -88,6 +100,18 @@ El análisis de riesgo debe hacerse desde el diseño del presupuesto, no despué
 - Gastos de comercialización u operación sin vínculo directo y documentado con la actividad de I+D+i.
 
 La salida práctica es clasificar cada rubro como claramente trazable, trazable con soporte reforzado, de alto riesgo o no recomendable, antes de que el presupuesto quede cerrado. Esta clasificación es distinta —y previa— a la revisión de causalidad tributaria que hace la DIAN una vez el crédito fiscal está certificado; ese análisis, rubro por rubro y ya con el proyecto ejecutado, lo cubro en [crédito fiscal I+D+i y amortización en Colombia](https://www.augustoruiz.org/blog/credito-fiscal-idi-amortizacion-colombia).
+
+:::servicio
+heading: +60 proyectos estructurados entre 2019 y 2025
+text: La experiencia acumulada en sectores tan distintos como agroindustria, manufactura e industria 4.0 se traduce en mejores preguntas de formulación, no en una plantilla genérica.
+image: /images/servicios-beneficios-tributarios.jpg
+imageAlt: Documentos y gráficos financieros sobre un escritorio, en el contexto de una consultoría tributaria para empresas.
+badge: 93% DE APROBACIÓN
+cta: /servicios/beneficios-tributarios-innovacion | Ver el servicio completo
+- Estructuración y acompañamiento en más de 60 proyectos de I+D+i
+- 93% de índice de aprobación en el conjunto gestionado
+- Metodología verificable adaptada a cada sector
+:::
 
 ## Experiencia en proyectos similares
 

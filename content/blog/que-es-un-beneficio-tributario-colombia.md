@@ -64,6 +64,18 @@ Cualquier empresa contribuyente del impuesto de renta en Colombia, sin restricci
 
 Un error frecuente es asumir que estos incentivos son solo para grandes empresas. El crédito fiscal del 50% y los TIDIS fueron diseñados precisamente pensando en las MiPymes.
 
+:::servicio
+heading: ¿Su empresa calificaría para alguno de estos beneficios?
+text: Antes de comprometer tiempo y recursos en una postulación, conviene confirmarlo con una evaluación de elegibilidad que identifique el régimen correcto y el beneficio que más conviene.
+image: /images/servicios-beneficios-tributarios.jpg
+imageAlt: Documentos y gráficos financieros sobre un escritorio, en el contexto de una consultoría tributaria para empresas.
+badge: 93% DE APROBACIÓN
+cta: /servicios/beneficios-tributarios-innovacion | Solicitar evaluación de elegibilidad
+- Evaluación de elegibilidad antes de cualquier compromiso formal
+- Identificación del régimen aplicable: I+D+i, energía o medio ambiente
+- Estimación del beneficio esperado
+:::
+
 ## Cómo acceder: el proceso en cuatro pasos
 
 - Evaluar la elegibilidad. Antes de cualquier compromiso formal, establecer si el proyecto o la inversión califica, bajo qué régimen y por cuál beneficio conviene postular. Este paso evita invertir esfuerzo en postulaciones que no tienen posibilidad.
@@ -74,6 +86,18 @@ Un error frecuente es asumir que estos incentivos son solo para grandes empresas
 ## ¿Y si el proyecto es rechazado?
 
 Un proyecto no aprobado puede ajustarse y presentarse de nuevo; el rechazo no inhabilita a la empresa. Lo determinante es diagnosticar la causa: si el proyecto no encaja en la tipología del CNBT, ningún ajuste de forma lo salvará; si el problema fue de formulación o de soporte documental, la corrección es viable.
+
+:::servicio
+heading: Un rechazo no cierra la puerta
+text: Diagnosticar la causa del rechazo y reformular el proyecto con el rigor técnico que exige la entidad es parte del acompañamiento en consultoría tributaria especializada en beneficios por inversión.
+image: /images/servicios-beneficios-tributarios.jpg
+imageAlt: Documentos y gráficos financieros sobre un escritorio, en el contexto de una consultoría tributaria para empresas.
+badge: ACOMPAÑAMIENTO COMPLETO
+cta: /servicios/beneficios-tributarios-innovacion | Ver el servicio completo
+- Diagnóstico de la causa del rechazo
+- Ajuste técnico de la formulación
+- Nueva postulación y seguimiento hasta la resolución
+:::
 
 ## ¿Qué ofrecen otros países de la región?
 

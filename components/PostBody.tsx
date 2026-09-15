@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ContentBlock } from "@/lib/posts";
 import { renderInlineText } from "@/lib/inline-text";
 
@@ -151,6 +152,60 @@ export default function PostBody({
                     </CtaLink>
                   )}
                 </div>
+              </div>
+            );
+          case "servicePromo":
+            return (
+              <div
+                key={i}
+                className="my-10 grid md:grid-cols-2 rounded-2xl overflow-hidden border-l-4 border-accent bg-primary shadow-lg"
+              >
+                <div className="p-7 sm:p-8 flex flex-col justify-center">
+                  <h3 className="font-heading font-bold text-xl sm:text-2xl text-white mb-3">
+                    {block.heading}
+                  </h3>
+                  <p className="text-white/70 text-sm leading-relaxed mb-5">
+                    {renderInlineText(block.text)}
+                  </p>
+                  {block.items.length > 0 && (
+                    <ul className="space-y-2 mb-6">
+                      {block.items.map((item, j) => (
+                        <li key={j} className="flex items-center gap-2.5 text-sm text-white/90">
+                          <svg
+                            className="w-4 h-4 text-accent shrink-0"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth={3}
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <CtaLink href={block.ctaLink} className="btn-primary self-start">
+                    {block.ctaText}
+                  </CtaLink>
+                </div>
+                {block.image && (
+                  <div className="relative min-h-[220px]">
+                    <Image
+                      src={block.image}
+                      alt={block.imageAlt || block.heading}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+                    {block.badge && (
+                      <span className="absolute bottom-4 right-4 bg-accent text-white text-xs font-heading font-semibold px-3 py-1.5 rounded-lg shadow-md">
+                        {block.badge}
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
             );
           default:

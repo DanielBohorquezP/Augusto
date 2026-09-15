@@ -467,7 +467,16 @@ type ContentBlock =
   | { type: "highlight"; label: string; text: string }
   | { type: "list"; heading?: string; items: string[] }
   | { type: "cta"; heading; text; primaryLink; primaryText; secondaryLink?; secondaryText? }
+  | { type: "servicePromo"; heading; text; items: string[]; ctaLink; ctaText; image; imageAlt; badge? }
 ```
+
+`servicePromo` (directiva `:::servicio` en el Markdown) es la tarjeta oscura de dos
+columnas — checklist, botón e imagen con insignia — que ofrece el servicio de
+`/servicios/<slug>` relacionado con esa parte del artículo. Se reparten 2 por post a lo
+largo del cuerpo (no solo al final, a diferencia del `:::cta`). Agregado 2026-09-14 a
+pedido explícito: cada post de blog debe ofrecer el servicio relacionado en más de un
+punto del artículo, no solo en el CTA de cierre. Detalle de la sintaxis en
+`content/COMO-PUBLICAR.md`.
 
 #### Campos del tipo `Post`
 

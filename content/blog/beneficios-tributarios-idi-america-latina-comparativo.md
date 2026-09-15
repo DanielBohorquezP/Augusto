@@ -20,6 +20,18 @@ Comparar estos incentivos por su porcentaje nominal es un error frecuente. Exist
 
 Por eso la deducción del 240% de Perú y el crédito del 35% de Chile son más cercanos en valor efectivo de lo que sugieren los números. Cualquier decisión de localización de inversión en I+D+i debe calcularse sobre el valor efectivo, no sobre la tasa nominal.
 
+:::servicio
+heading: ¿Cuál es el mecanismo más conveniente para su empresa?
+text: Comparar tasas nominales entre países es apenas el primer paso. Definir el valor efectivo del incentivo y el régimen correcto para una inversión en Colombia requiere un análisis específico del proyecto.
+image: /images/servicios-beneficios-tributarios.jpg
+imageAlt: Documentos y gráficos financieros sobre un escritorio, en el contexto de una consultoría tributaria para empresas.
+badge: EVALUACIÓN DE ELEGIBILIDAD
+cta: /servicios/beneficios-tributarios-innovacion | Solicitar evaluación
+- Cálculo del valor efectivo del incentivo, no solo la tasa nominal
+- Identificación del régimen aplicable en Colombia
+- Evaluación de elegibilidad antes de postular
+:::
+
 ## Tabla comparativa
 
 | País | Instrumento | Mecanismo y magnitud | Tope | Entidad | Vigencia |
@@ -43,6 +55,18 @@ Por eso la deducción del 240% de Perú y el crédito del 35% de Chile son más 
 ## El contexto global
 
 Los incentivos fiscales son la vía dominante de apoyo público a la I+D empresarial en el mundo. Según la OCDE, cerca del 55% del apoyo total a la I+D empresarial en sus países miembros se canaliza mediante incentivos fiscales, y 34 de 38 países otorgaron desgravaciones por I+D en 2024. La referencia técnica para comparaciones normalizadas es la [R&D Tax Incentives Database de la OCDE](https://www.oecd.org/en/data/insights/statistical-releases/2026/06/government-support-for-business-rd-approaches-record-highs-as-rd-tax-incentives-expand-across-the-oecd.html), que incluye a Argentina, Brasil, Chile, Colombia, México y Perú.
+
+:::servicio
+heading: En Colombia, la formulación técnica decide la aprobación
+text: El CNBT exige que el proyecto califique en su tipología. Acompaño la estructuración y la postulación de proyectos de I+D+i ante Minciencias, con foco en la formulación que resiste la revisión técnica.
+image: /images/servicios-beneficios-tributarios.jpg
+imageAlt: Documentos y gráficos financieros sobre un escritorio, en el contexto de una consultoría tributaria para empresas.
+badge: 93% DE APROBACIÓN
+cta: /servicios/beneficios-tributarios-innovacion | Ver el servicio completo
+- Estructuración técnica del proyecto según la tipología del CNBT
+- Gestión de la postulación ante Minciencias
+- 93% de tasa de aprobación en proyectos gestionados
+:::
 
 ## Fuentes oficiales por país
 

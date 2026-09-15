@@ -144,9 +144,24 @@ text: Descripción del llamado a la acción.
 primary: /contacto | Agendar consulta
 secondary: /servicios | Ver servicios
 :::
+
+:::servicio
+heading: ¿Su empresa ya calificaría?
+text: Descripción corta del servicio relacionado con esta sección del artículo.
+image: /images/servicios-beneficios-tributarios.jpg
+imageAlt: Descripción real de la foto
+badge: 93% DE APROBACIÓN
+cta: /servicios/beneficios-tributarios-innovacion | Solicitar evaluación
+- Primer punto del checklist
+- Segundo punto del checklist
+:::
 ```
 
 Notas:
+- **`:::servicio`** es la tarjeta oscura de dos columnas (checklist + botón + imagen
+  con insignia) que ofrece el servicio relacionado con el artículo — se reparten 2 por
+  post a lo largo del cuerpo, además del `:::cta` final. Detalle completo en
+  `content/COMO-PUBLICAR.md`, sección "Sección de servicio".
 - La **tabla de contenidos** se genera sola con los títulos `##` (con enlaces ancla) — solo en la página individual, no en el feed (para no duplicar anclas entre artículos).
 - El **tiempo de lectura** se calcula solo si no pones `readTime`.
 - Las **categorías** se filtran en `/blog?categoria=slug` (query param sobre la misma página, no páginas propias).

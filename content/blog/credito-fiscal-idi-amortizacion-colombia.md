@@ -37,6 +37,18 @@ Antes de avanzar conviene fijar el alcance: esta nueva doctrina aplica al crédi
 
 Esta diferencia debería formar parte del análisis financiero antes de seleccionar la modalidad de postulación, no después de haber postulado.
 
+:::servicio
+heading: ¿Su empresa escogió la ruta correcta entre el artículo 256 y el 256-1?
+text: La decisión entre el descuento tributario y el crédito fiscal debe tomarse antes de postular, no después. Reviso el análisis financiero completo, incluida la compatibilidad con la amortización.
+image: /images/servicios-beneficios-tributarios.jpg
+imageAlt: Documentos y gráficos financieros sobre un escritorio, en el contexto de una consultoría tributaria para empresas.
+badge: ANÁLISIS ANTES DE POSTULAR
+cta: /servicios/beneficios-tributarios-innovacion | Solicitar el análisis
+- Comparación financiera entre las dos rutas antes de postular
+- Análisis de causalidad para la amortización bajo el Concepto 012495
+- Estructuración del expediente tributario junto al técnico
+:::
+
 ## El artículo 74-1 ya contiene una regla fiscal especial para I+D+i
 
 El numeral 3 del artículo 74-1 del Estatuto Tributario establece el costo fiscal de los gastos de investigación, desarrollo e innovación a partir de todas las erogaciones asociadas al proyecto, salvo las relacionadas con adquisición de edificios y terrenos. La norma incluye expresamente los activos desarrollados en software para uso, venta o explotación.
@@ -134,6 +146,18 @@ Supongamos una Mipyme con una inversión certificada de $1.000 millones bajo el 
 El efecto nominal combinado ascendería a $780 millones: $500 millones de crédito fiscal más $280 millones derivados de la recuperación fiscal del costo. Este cálculo no representa valor presente y presupone renta suficiente, cumplimiento de requisitos, conservación del costo fiscal y procedencia efectiva de la amortización sobre el monto asumido como costo fiscal recuperable.
 
 El punto no es afirmar un beneficio garantizado para todos los proyectos. El punto es reconocer una segunda dimensión financiera antes ausente en muchos modelos de decisión. Es exactamente el tipo de análisis que abordo en el servicio de [beneficios tributarios para innovación](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion), y que conviene resolver antes de escoger la modalidad de postulación.
+
+:::servicio
+heading: Revisemos el expediente rubro por rubro
+text: Antes de que la evidencia sea imposible de reconstruir, conviene una revisión técnica y tributaria de cada rubro del proyecto frente a los criterios de causalidad de la DIAN.
+image: /images/servicios-beneficios-tributarios.jpg
+imageAlt: Documentos y gráficos financieros sobre un escritorio, en el contexto de una consultoría tributaria para empresas.
+badge: REVISIÓN RUBRO POR RUBRO
+cta: /servicios/beneficios-tributarios-innovacion | Agendar revisión
+- Revisión de causalidad rubro por rubro
+- Identificación de rubros de alto riesgo antes de una fiscalización
+- Diseño del expediente tributario que complementa el técnico
+:::
 
 ## Checklist para gerentes
 
