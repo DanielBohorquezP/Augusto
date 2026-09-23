@@ -4,7 +4,7 @@ import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 
 const services = [
-  "PRIME-10 Decision Assessment",
+  "PRIME-10 Assessment",
   "Formación corporativa en IA generativa",
   "Beneficios tributarios I+D+i y ambientales",
   "Charla / Taller",

@@ -18,7 +18,17 @@ export const categoryColors: Record<string, string> = {
 // bloque de marca (logo del favicon sobre el fondo primario).
 // La imagen OG del post NO se reutiliza aquí, ya que lleva el título grabado como
 // píxeles para compartir en redes y repetirlo duplicaba el título en la tarjeta.
-export default function BlogPostCard({ post }: { post: Post }) {
+// `headingLevel` permite bajar el titulo a h3 cuando la tarjeta vive dentro de
+// una seccion con su propio H2 (p. ej. "Últimos artículos" en el home); en /blog
+// se queda en h2.
+export default function BlogPostCard({
+  post,
+  headingLevel = "h2",
+}: {
+  post: Post;
+  headingLevel?: "h2" | "h3";
+}) {
+  const Heading = headingLevel;
   return (
     <article className="card overflow-hidden flex flex-col">
       <Link
@@ -54,11 +64,11 @@ export default function BlogPostCard({ post }: { post: Post }) {
           </Link>
           <span className="text-xs text-muted-foreground">{post.readTime}</span>
         </div>
-        <h2 className="font-heading font-semibold text-foreground text-base leading-snug mb-2 flex-1">
+        <Heading className="font-heading font-semibold text-foreground text-base leading-snug mb-2 flex-1">
           <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors">
             {post.title}
           </Link>
-        </h2>
+        </Heading>
         <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{post.excerpt}</p>
         <div className="flex items-center justify-between mt-auto gap-3">
           <time className="text-xs text-muted-foreground shrink-0" dateTime={post.date}>

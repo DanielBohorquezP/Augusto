@@ -596,12 +596,14 @@ refresca el suyo solo al volver a rastrear el sitio (puede tardar semanas).
 | Componente | Contenido |
 |-----------|-----------|
 | `HeroSection` | Foto profesional, headline, descripción, 2 CTAs, stats row |
-| `ServicesSection` | 3 servicios en cards con beneficios listados |
+| `ServicesSection` | 3 servicios en cards con beneficios listados; las 3 enlazan a su página (PRIME-10 Assessment, Capacitación en IA generativa, Beneficios tributarios) |
+| `ParaQuienSection` | H2 "¿Para quién trabajo?": 4 segmentos por necesidad, cada uno enlazado a su servicio (sin sectores ni clientes inventados) |
 | `MetodologiasSection` | H2 "Metodologías de innovación que aplico"; tarjeta destacada de PRIME-10™ (registrada DNDA) + 6 metodologías etiquetadas por servicio |
-| `Prime10Banner` | Banner destacado con CTA al framework |
+| `Prime10Banner` | Banner destacado con CTA al framework; H2 "PRIME-10™: evaluación financiera bajo incertidumbre" (distinto del H3 "PRIME-10™" de Metodologías) |
+| `ComoTrabajoSection` | H2 "Cómo trabajo": `<ol>` de 4 pasos (conversación, diagnóstico, propuesta, ejecución) + CTA de WhatsApp. No declara modalidad de precio |
 | `AffiliationsSection` | Uniandes + EAFIT + otras afiliaciones |
-| `TestimonialsSection` | Testimonios de clientes (placeholder) |
-| `BlogPreviewSection` | Vista previa de últimos posts |
+| `TestimonialsSection` | 6 testimonios reales con nombre y cargo; H2 "Lo que dicen participantes y clientes" (son de talleres/masterclass, no resultados de consultoría) |
+| `BlogPreviewSection` | Vista previa de últimos posts; pasa `headingLevel="h3"` a `BlogPostCard` para no romper la jerarquía bajo el H2 "Últimos artículos" |
 | `CTASection` | CTA final — "Agenda una consulta gratuita" |
 | `StatsSection` | Sección de stats (removida de homepage, existe el componente) |
 
@@ -739,7 +741,7 @@ producción con PSI/CrUX.
 - [x] `lib/routes.ts`: fuente única de la fecha real por ruta. El label "Última actualización" estaba hardcodeado como el literal `"agosto de 2026"` en 6 archivos, idéntico en 8 páginas con ritmos de cambio distintos (`/medios` y una página de servicio tributario no envejecen igual). Era frescura falsa. Ahora sale del mismo dato que el `<lastmod>` del sitemap, vía `<LastUpdated>`, y se emite como `<time dateTime>`
 - [x] Descripción del `@id` `evaluacion-financiera-innovacion#service` sincronizada entre la página y el stub de `hasOfferCatalog`. Quedó desincronizada en el commit `94088d5`: el mismo nodo se describía distinto según desde dónde se leyera
 - [x] `provider` → `founder` en `professionalServiceSchema`. `provider` no es propiedad válida de Organization —va en Service, apuntando al revés— así que los parsers la ignoraban y el vínculo Persona↔Organización se perdía. Añadido el recíproco en `personSchema.worksFor`
-- [x] `telephone`, `contactPoint` y `address` (solo `addressCountry: CO`) en `professionalServiceSchema`, leyendo `WHATSAPP_NUMBER` de `lib/site.ts`. **No se declara `addressLocality`**: la prosa dice "presencia activa en Medellín y Bogotá", que no es una dirección comercial registrada, e inventarla sería falsear el NAP
+- [x] `telephone` y `contactPoint` en `professionalServiceSchema` (el `address` con solo `addressCountry: CO` que se añadió aquí se retiró después: ver comentario en `lib/schema.ts`, negocio de área de servicio multi-país), leyendo `WHATSAPP_NUMBER` de `lib/site.ts`. **No se declara `addressLocality`**: la prosa dice "presencia activa en Medellín y Bogotá", que no es una dirección comercial registrada, e inventarla sería falsear el NAP
 - [x] El dropdown "Servicios" del navbar se renderiza siempre y se oculta por CSS. Estaba dentro de un `{servicesOpen && ...}`, así que **los 4 enlaces —incluido `/servicios`— no existían en el HTML servido de ninguna página**: el slot de nav con más autoridad no pasaba nada a las páginas de servicio. No había huérfanas porque el footer los lleva
 - [x] Anchor `consultoría tributaria para empresas` usado por primera vez en el sitio (en `/sobre`). La auditoría detectó que la frase exacta que debe rankear esa página no se usaba como anchor ni una vez, pese a aparecer dos veces en su propio cuerpo
 
@@ -846,6 +848,27 @@ Pendiente (ítem 3 del plan, **bloqueado por datos de Augusto**):
 - [ ] Bloque de atributos comparables en la página de servicio: años de experiencia, nº de proyectos gestionados, cobertura geográfica. Son los atributos discretos que un motor de IA necesita para incluir la entidad en una respuesta tipo lista comparativa. Sin ellos es difícil aparecer junto a EY/PwC.
 
 Anotado sin acción: los testimonios muestran **5 estrellas fijas e idénticas** para los 6 casos (`components/sections/TestimonialsSection.tsx:63-69`) sin fuente de rating real. Correctamente **no** hay `AggregateRating`/`Review` en el JSON-LD —eso está bien y debe seguir así mientras no exista una fuente verificable— pero el elemento visual en sí puede leerse como reseña simulada. Vale la pena reconsiderarlo con Augusto.
+
+#### Auditoría SEO + GEO del home (daniel-seo-audit) — 2026-09-23
+
+Puntaje 49/70. Aplicado:
+- [x] Title del home → `Consultoría de Innovación y Beneficios I+D+i | Augusto Ruiz` (59). **No** se añade "en Colombia" al title: es el diferenciador de `/servicios` (commit `8226c3c`); "Colombia" va en la meta description, que ahora cierra con CTA
+- [x] `googleBot`: `max-image-preview: large` y `max-video-preview: -1` junto al `max-snippet: -1` que ya había (`app/layout.tsx`)
+- [x] Nombre único del servicio: "PRIME-10 Assessment" (quitado "Decision Assessment" de `ServicesSection` y `ContactForm`)
+- [x] Tarjeta de IA del home: "Formación corporativa en IA" sin enlace → "Capacitación en IA generativa" enlazada a `/servicios/capacitacion-ia-generativa`; mismo label en el footer
+- [x] `BlogPostCard` acepta `headingLevel` (h2 por defecto); en el home, h3
+- [x] H2 duplicado "PRIME-10™" del banner renombrado
+- [x] Nuevas secciones `ParaQuienSection` y `ComoTrabajoSection`
+- [x] FAQ del home de 4 a 9 preguntas (costo sin cifra, duración PRIME-10, cobertura, pymes y beneficios, formato de la capacitación IA). El `FAQPage` sale del mismo array
+- [x] Correo público único `proyectos@augustoruiz.org` en `llms.txt` y `/contacto` (decisión de Augusto, 2026-09-23). El institucional sigue en `/politica-privacidad` porque describe a dónde envía el formulario los datos: cambiarlo ahí solo si cambia ese envío
+- [x] Trabajo remoto confirmado por Augusto: la FAQ de cobertura lo afirma
+- [x] `llms.txt`: quitados los dos superlativos propios ("uno de los consultores… más especializados"), la cifra sin fuente "3 veces más probabilidad de obtener financiación" y "Diagnóstico de madurez… con PRIME-10", que contradecía "no es un modelo de madurez"
+
+Pendiente, **bloqueado por datos de Augusto**:
+- [ ] **Años de experiencia contradictorios**: `+15` en `HeroSection.tsx` y `/sobre`; "más de 10" en la FAQ del home (`app/page.tsx`), `llms.txt`, `StatsSection.tsx`, `AutoridadConsultor.tsx` y la tabla de la sección 1 de este documento. Confirmar la cifra y unificar los 6 sitios
+- [ ] 93 %: además de los sitios ya listados arriba, aparece en el hero (label "Beneficios Tributarios", sin "aprobación"), en `ServicesSection` y en `llms.txt`. Con N y periodo, añadir también una FAQ en el home
+- [ ] Casos con métrica (2–3) para reforzar el bloque de testimonios; enlaces a la fuente de cada testimonio (LinkedIn)
+- [ ] Rango de precio o "desde" si quiere publicarlo (la FAQ de costo hoy no da cifra)
 
 ### Nuevos posts recomendados (por intención de búsqueda)
 - "evaluación financiera de proyectos de innovación Colombia" 

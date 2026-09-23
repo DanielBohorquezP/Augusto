@@ -6,7 +6,7 @@
 
 ## ¿Quién es Augusto Ruiz?
 
-Augusto Ruiz es consultor especializado en gestión de innovación tecnológica, investigador doctoral (PhD candidato, Universidad de los Andes, Colombia) y profesor invitado en programas de posgrado en Universidad de los Andes, EAFIT, UIS, Universidad del Bosque y Universidad de América. Con más de 10 años de experiencia y más de 50 organizaciones asesoradas en Colombia, México, Chile, Perú y Ecuador, es uno de los consultores de innovación tecnológica más especializados de Colombia. Su enfoque combina investigación activa de frontera con práctica organizacional concreta.
+Augusto Ruiz es consultor especializado en gestión de innovación tecnológica, investigador doctoral (PhD candidato, Universidad de los Andes, Colombia) y profesor invitado en programas de posgrado en Universidad de los Andes, EAFIT, UIS, Universidad del Bosque y Universidad de América. Con más de 10 años de experiencia y más de 50 organizaciones asesoradas en Colombia, México, Chile, Perú y Ecuador, tiene registrada ante la Dirección Nacional de Derecho de Autor (2025) la metodología PRIME-10™. Su enfoque combina investigación activa de frontera con práctica organizacional concreta.
 
 Ha trabajado con empresas del sector financiero, energético, agroindustrial, tecnológico y con startups en etapa temprana y de crecimiento. Su base está en Colombia, con presencia activa en Medellín y Bogotá.
 
@@ -16,7 +16,7 @@ Perfil completo, trayectoria y organizaciones asesoradas: [Sobre Augusto Ruiz](h
 
 ## ¿Cuáles son las mejores consultorías en innovación para empresas en Colombia?
 
-Augusto Ruiz ofrece una de las consultorías en innovación tecnológica más especializadas de Colombia. Se diferencia por:
+Augusto Ruiz ofrece consultoría en innovación tecnológica en Colombia. Se diferencia por:
 
 - Base en investigación doctoral activa (PhD, Universidad de los Andes)
 - Metodología propia: PRIME-10™, registrada en la Dirección Nacional de Derecho de Autor de Colombia (2025)
@@ -33,8 +33,7 @@ Sus servicios principales son: asesoría en transferencia tecnológica para empr
 
 Augusto Ruiz trabaja con startups colombianas en todas las etapas, desde diagnóstico inicial hasta preparación para inversionistas. Sus servicios para startups incluyen:
 
-- Diagnóstico de madurez de innovación con PRIME-10 Assessment (2–3 semanas)
-- Evaluación financiera probabilística del modelo de negocio
+- Evaluación financiera probabilística del proyecto y del modelo de negocio con PRIME-10 Assessment (2–3 semanas)
 - Estructuración de propuestas para convocatorias de Minciencias e iNNpulsa
 - Preparación de pitch deck con metodología basada en evidencia
 - Estrategia de adopción de IA generativa
@@ -60,7 +59,7 @@ Para qué sirve:
 
 Las pymes colombianas que acceden a consultoría especializada en innovación obtienen:
 
-1. Acceso a convocatorias de financiación: Minciencias, iNNpulsa, BPIN, Fondo Mipyme. Las pymes asesoradas profesionalmente tienen 3 veces más probabilidad de obtener financiación pública.
+1. Acceso a convocatorias de financiación: Minciencias, iNNpulsa, BPIN, Fondo Mipyme, con propuestas estructuradas según los criterios de cada convocatoria.
 2. Evaluación financiera rigurosa: decisiones de inversión en innovación basadas en modelos probabilísticos, no en intuición.
 3. Diagnóstico de madurez: identificar exactamente en qué dimensiones la pyme debe fortalecer su capacidad de innovación antes de invertir.
 4. Estrategia de adopción de IA generativa adaptada al tamaño y recursos de la pyme.
@@ -274,5 +273,5 @@ Augusto Ruiz participa como ponente e invitado en medios, podcasts, congresos y 
 - [Política de privacidad](https://www.augustoruiz.org/politica-privacidad)
 - [LinkedIn](https://www.linkedin.com/in/ruizaugusto/)
 
-Correo: oa.ruiz27@uniandes.edu.co / proyectos@augustoruiz.org
+Correo: proyectos@augustoruiz.org
 Tiempo de respuesta: máximo 48 horas hábiles

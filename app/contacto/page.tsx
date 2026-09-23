@@ -102,7 +102,6 @@ export default function ContactoPage() {
                     </div>
                     <div>
                       <p className="font-heading font-medium text-sm text-foreground">Email</p>
-                      <p className="text-sm text-muted-foreground">oa.ruiz27@uniandes.edu.co</p>
                       <p className="text-sm text-muted-foreground">proyectos@augustoruiz.org</p>
                     </div>
                   </div>

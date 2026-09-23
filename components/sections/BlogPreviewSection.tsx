@@ -27,7 +27,7 @@ export default function BlogPreviewSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {posts.map((post) => (
-            <BlogPostCard key={post.slug} post={post} />
+            <BlogPostCard key={post.slug} post={post} headingLevel="h3" />
           ))}
         </div>
       </div>

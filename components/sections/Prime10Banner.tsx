@@ -28,7 +28,7 @@ export default function Prime10Banner() {
               Metodología registrada · DNDA 2025
             </span>
             <h2 className="font-heading font-bold text-3xl sm:text-4xl text-white leading-tight">
-              PRIME-10™
+              PRIME-10™: evaluación financiera bajo incertidumbre
             </h2>
             <p className="mt-4 text-white/80 text-base leading-relaxed">
               Evaluación financiera probabilística de proyectos de innovación e inversión

@@ -9,7 +9,7 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
       </svg>
     ),
-    title: "PRIME-10 Decision Assessment",
+    title: "PRIME-10 Assessment",
     href: "/prime-10",
     description:
       "Evaluación financiera probabilística de proyectos de innovación e inversión tecnológica. Más allá del VPN tradicional, identifico las variables de mayor incertidumbre, cuantifico el riesgo con simulación Monte Carlo y defino qué debe validarse experimentalmente antes de comprometer la inversión.",
@@ -26,8 +26,8 @@ const services = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
       </svg>
     ),
-    title: "Formación corporativa en IA",
-    href: undefined as string | undefined,
+    title: "Capacitación en IA generativa",
+    href: "/servicios/capacitacion-ia-generativa" as string | undefined,
     description:
       "Programas de adopción de IA generativa para equipos corporativos, diseñados por área y reto de negocio. Cada participante parte de su propio problema real y termina la sesión con un artefacto funcional que puede usar al día siguiente.",
     highlights: [

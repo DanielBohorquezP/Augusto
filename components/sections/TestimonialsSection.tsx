@@ -49,10 +49,10 @@ export default function TestimonialsSection() {
       <div className="container-site">
         <div className="text-center mb-12">
           <span className="inline-block text-accent font-body font-semibold text-sm uppercase tracking-widest mb-3">
-            Lo que dicen mis clientes
+            Testimonios
           </span>
           <h2 className="section-heading text-3xl sm:text-4xl">
-            Resultados que hablan por sí solos
+            Lo que dicen participantes y clientes
           </h2>
         </div>
 

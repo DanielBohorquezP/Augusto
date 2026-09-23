@@ -14,6 +14,8 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Servicios (cards) | `components/sections/ServicesSection.tsx` |
 | Metodologías de innovación (home) | `components/sections/MetodologiasSection.tsx` — tarjeta destacada de PRIME-10 + 6 metodologías; el H2 posiciona "metodologías de innovación" |
 | Testimonios | `components/sections/TestimonialsSection.tsx` |
+| ¿Para quién trabajo? (segmentos) | `components/sections/ParaQuienSection.tsx` |
+| Cómo trabajo (proceso en 4 pasos) | `components/sections/ComoTrabajoSection.tsx` |
 | Banner PRIME-10 | `components/sections/Prime10Banner.tsx` |
 | Preview de blog en home | `components/sections/BlogPreviewSection.tsx` |
 | Afiliaciones (logos) | `components/sections/AffiliationsSection.tsx` |
@@ -216,7 +218,7 @@ completa para páginas/posts nuevos: **`CONTEXTO-PROYECTO.md`, sección 8.1**.
 | `ContactForm` | `components/ContactForm.tsx` | `app/contacto/page.tsx` |
 | `NewsletterForm` | `components/NewsletterForm.tsx` | Varias páginas |
 | `PostBody` | `components/PostBody.tsx` | Renderiza el cuerpo Markdown parseado (página individual del artículo) |
-| `BlogPostCard` | `components/BlogPostCard.tsx` | `/blog`, `/blog?categoria=slug` y `BlogPreviewSection` (homepage) — tarjeta de preview: título, imagen, extracto y botón "Leer más" |
+| `BlogPostCard` | `components/BlogPostCard.tsx` | `/blog`, `/blog?categoria=slug` y `BlogPreviewSection` (homepage) — tarjeta de preview: título, imagen, extracto y botón "Leer más". Prop `headingLevel` (`h2` por defecto; el home usa `h3`) |
 
 ---
 
@@ -306,6 +308,8 @@ augusto-ruiz-org/
 │       ├── BlogPreviewSection.tsx   # Se oculta sola si el blog está vacío
 │       ├── AffiliationsSection.tsx
 │       ├── Prime10Banner.tsx
+│       ├── ParaQuienSection.tsx     # Segmentos por necesidad, enlazados a cada servicio
+│       ├── ComoTrabajoSection.tsx   # Proceso en 4 pasos (<ol>) + CTA WhatsApp
 │       └── CTASection.tsx
 ├── content/
 │   ├── COMO-PUBLICAR.md        # Flujo para publicar posts (usuario envía texto → Claude publica)
