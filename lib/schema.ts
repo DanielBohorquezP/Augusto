@@ -261,6 +261,7 @@ export function articleSchema({
   return {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
+    "@id": `${BASE_URL}/blog/${slug}#article`,
     headline: title,
     description,
     url: `${BASE_URL}/blog/${slug}`,
@@ -268,7 +269,12 @@ export function articleSchema({
     dateModified,
     author: { "@id": `${BASE_URL}/#person` },
     publisher: { "@id": `${BASE_URL}/#professional-service` },
-    image: `${BASE_URL}/blog/${slug}/opengraph-image`,
+    image: {
+      "@type": "ImageObject",
+      url: `${BASE_URL}/blog/${slug}/opengraph-image`,
+      width: 1200,
+      height: 630,
+    },
     inLanguage: "es",
     mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE_URL}/blog/${slug}` },
     isPartOf: { "@id": `${BASE_URL}/#website` },

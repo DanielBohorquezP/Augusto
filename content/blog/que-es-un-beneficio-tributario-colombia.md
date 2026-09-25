@@ -4,7 +4,7 @@ category: "Beneficios Tributarios"
 excerpt: "Qué beneficios tributarios existen para empresas en Colombia: I+D+i ante Minciencias, energía y medio ambiente. Tipos, requisitos y cómo acceder."
 metaDescription: "Qué beneficios tributarios existen para empresas en Colombia: I+D+i ante Minciencias, energía y medio ambiente. Tipos, requisitos y cómo acceder."
 date: "2026-08-10"
-dateModified: "2026-09-03"
+dateModified: "2026-09-24"
 readTime: "9 min"
 featured: true
 image: "/blog/que-es-un-beneficio-tributario-colombia.jpg"
@@ -12,6 +12,17 @@ imageAlt: "Augusto Ruiz presenta frente a una pantalla en un auditorio universit
 ---
 
 Las empresas que invierten en investigación, desarrollo e innovación (I+D+i), en energías renovables o en mejoras ambientales en Colombia pueden reducir su impuesto de renta de forma legal y significativa. Esta guía explica qué beneficios tributarios existen para empresas, qué tipos hay, quién puede acceder a ellos, cuál es el proceso y qué ofrecen otros países de la región.
+
+En resumen, estos son los principales beneficios tributarios para empresas en Colombia:
+
+| Beneficio | Valor | Régimen y entidad |
+|---|---|---|
+| Descuento por inversión en I+D+i | 30% del valor invertido | I+D+i, Minciencias (CNBT) |
+| Crédito fiscal por inversión en I+D+i | 50% de la inversión certificada | I+D+i, Minciencias (CNBT) |
+| Vinculación de personal con doctorado | Descuento del 30% de la remuneración, o crédito fiscal del 50% para MiPymes | I+D+i, Minciencias |
+| Donaciones a CTeI | Descuento del 30% del valor donado | Fondo Francisco José de Caldas |
+| Inversión en FNCE y eficiencia energética | Deducción del 50% de la inversión, exclusión de IVA y exención arancelaria | Energía, UPME |
+| Inversión en control y mejoramiento ambiental | Descuento del 25% de la inversión | Medio ambiente, ANLA |
 
 ## ¿Qué es un beneficio tributario?
 
@@ -32,12 +43,21 @@ No todos los beneficios operan igual. Conviene distinguir cinco mecanismos:
 
 ## Beneficios tributarios por inversión en I+D+i (Minciencias)
 
-Las empresas que invierten en proyectos de ciencia, tecnología e innovación calificados por el Consejo Nacional de Beneficios Tributarios (CNBT) pueden acceder a dos beneficios principales:
+Las empresas que invierten en proyectos de ciencia, tecnología e innovación calificados por el Consejo Nacional de Beneficios Tributarios (CNBT) pueden acceder a dos beneficios principales por la inversión:
 
 - Descuento tributario del 30% del valor invertido, aplicable sobre el impuesto de renta a cargo, sin superar el 30% del impuesto a pagar. Los excedentes pueden trasladarse hasta por las cuatro declaraciones siguientes (artículo 258 del Estatuto Tributario).
 - Crédito fiscal del 50% de la inversión certificada por el CNBT, aplicable a la compensación de impuestos nacionales. Las MiPymes con créditos fiscales superiores a 1.000 UVT pueden solicitar Títulos de Devolución de Impuestos (TIDIS), que son libremente comercializables.
 
 El requisito de fondo es doble: el proyecto debe calificar como investigación, desarrollo tecnológico o innovación según la tipología del CNBT, y debe ejecutarse en alianza con un actor reconocido por Minciencias, como un grupo de investigación, un centro de desarrollo tecnológico o una universidad.
+
+El mismo régimen incluye otros beneficios que suelen pasarse por alto:
+
+- Vinculación de personal con doctorado. La remuneración del personal con título de doctorado vinculado a la empresa después del 25 de mayo de 2019, en actividades de I+D+i, da derecho a un descuento del 30% o, en el caso de las MiPymes, a un crédito fiscal del 50%.
+- Donaciones. Las donaciones en efectivo a programas o proyectos de CTeI a través del Fondo Francisco José de Caldas dan derecho a un descuento del 30% del valor donado.
+- Honorarios de investigadores. Los investigadores pueden descontar de su base gravable los honorarios recibidos por labores en proyectos de CTeI calificados.
+- IVA en importación de equipos. Los centros de investigación y desarrollo tecnológico reconocidos por Minciencias, y las instituciones educativas reconocidas por el Ministerio de Educación, están exentos de IVA en la importación de equipos para esos fines.
+
+Los dos últimos no aplican a la empresa como contribuyente, pero sí a sus aliados: pesan al estructurar un proyecto con una universidad o un centro de investigación.
 
 :::destacado Fuente
 [Minciencias, Beneficios Tributarios en CTeI.](https://minciencias.gov.co/viceministerios/conocimiento/direccion_transferencia/beneficios-tributarios/cuales-son)
@@ -64,18 +84,6 @@ Cualquier empresa contribuyente del impuesto de renta en Colombia, sin restricci
 
 Un error frecuente es asumir que estos incentivos son solo para grandes empresas. El crédito fiscal del 50% y los TIDIS fueron diseñados precisamente pensando en las MiPymes.
 
-:::servicio
-heading: ¿Su empresa calificaría para alguno de estos beneficios?
-text: Antes de comprometer tiempo y recursos en una postulación, conviene confirmarlo con una evaluación de elegibilidad que identifique el régimen correcto y el beneficio que más conviene.
-image: /images/servicios-beneficios-tributarios.jpg
-imageAlt: Documentos y gráficos financieros sobre un escritorio, en el contexto de una consultoría tributaria para empresas.
-badge: 93% DE APROBACIÓN
-cta: /servicios/beneficios-tributarios-innovacion | Solicitar evaluación de elegibilidad
-- Evaluación de elegibilidad antes de cualquier compromiso formal
-- Identificación del régimen aplicable: I+D+i, energía o medio ambiente
-- Estimación del beneficio esperado
-:::
-
 ## Cómo acceder: el proceso en cuatro pasos
 
 - Evaluar la elegibilidad. Antes de cualquier compromiso formal, establecer si el proyecto o la inversión califica, bajo qué régimen y por cuál beneficio conviene postular. Este paso evita invertir esfuerzo en postulaciones que no tienen posibilidad.
@@ -86,18 +94,6 @@ cta: /servicios/beneficios-tributarios-innovacion | Solicitar evaluación de ele
 ## ¿Y si el proyecto es rechazado?
 
 Un proyecto no aprobado puede ajustarse y presentarse de nuevo; el rechazo no inhabilita a la empresa. Lo determinante es diagnosticar la causa: si el proyecto no encaja en la tipología del CNBT, ningún ajuste de forma lo salvará; si el problema fue de formulación o de soporte documental, la corrección es viable.
-
-:::servicio
-heading: Un rechazo no cierra la puerta
-text: Diagnosticar la causa del rechazo y reformular el proyecto con el rigor técnico que exige la entidad es parte del acompañamiento en consultoría tributaria especializada en beneficios por inversión.
-image: /images/servicios-beneficios-tributarios.jpg
-imageAlt: Documentos y gráficos financieros sobre un escritorio, en el contexto de una consultoría tributaria para empresas.
-badge: ACOMPAÑAMIENTO COMPLETO
-cta: /servicios/beneficios-tributarios-innovacion | Ver el servicio completo
-- Diagnóstico de la causa del rechazo
-- Ajuste técnico de la formulación
-- Nueva postulación y seguimiento hasta la resolución
-:::
 
 ## ¿Qué ofrecen otros países de la región?
 
@@ -121,7 +117,7 @@ La comparación completa, con tabla de mecanismos, topes y entidades por país, 
 
 Los beneficios tributarios por I+D+i y por inversiones energéticas y ambientales son de los incentivos más significativos que ofrece la legislación colombiana a las empresas que innovan, y Colombia compite razonablemente bien en el contexto regional. La diferencia entre usarlos y dejarlos sin reclamar suele estar en dos decisiones: verificar la elegibilidad antes de comprometerse y formular el proyecto con el rigor técnico que exigen las entidades.
 
-En mi práctica actual de consultoría, la tasa de aprobación en proyectos gestionados ante estas entidades es del 93%. Si su empresa invierte en innovación, en energías renovables o en mejoras ambientales y quiere establecer si califica, el primer paso es una evaluación de elegibilidad con una [consultoría tributaria especializada en beneficios por inversión](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion).
+Si su empresa invierte en innovación, en energías renovables o en mejoras ambientales y quiere establecer si califica, el primer paso es una evaluación de elegibilidad con una [consultoría tributaria especializada en beneficios por inversión](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion).
 
 :::destacado Nota
 Este artículo es información general sobre el marco normativo vigente en Colombia a la fecha de publicación y no constituye asesoría tributaria o legal individualizada. Cifras, topes y cupos (UVT, convocatorias) se ajustan periódicamente: verifique los valores vigentes del año en curso o consulte con un asesor antes de tomar decisiones basadas en este contenido. Si detecta un dato desactualizado o un error, [contácteme](https://www.augustoruiz.org/contacto) para corregirlo.

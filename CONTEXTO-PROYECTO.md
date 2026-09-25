@@ -870,6 +870,27 @@ Pendiente, **bloqueado por datos de Augusto**:
 - [ ] Casos con métrica (2–3) para reforzar el bloque de testimonios; enlaces a la fuente de cada testimonio (LinkedIn)
 - [ ] Rango de precio o "desde" si quiere publicarlo (la FAQ de costo hoy no da cifra)
 
+**Caída del post de beneficios tributarios, de página 1 a 2 (2026-09-24)**
+
+Origen: la query `beneficios tributarios para empresas en colombia` pasó de página 1 a página 2.
+El retitulado del 2026-09-03 NO es la causa (la subió desde la posición 44), así que no se
+revirtió. Auditoría: Search SEO ~78 (C+), AI Visibility ~74 (C); todo lo técnico en pass.
+Sospechosos: los 2 bloques `:::servicio` insertados a mitad del artículo el 2026-09-15 (`96bc502`)
+—5 llamados al mismo servicio en una guía YMYL, uno con "93% DE APROBACIÓN"— y canibalización
+con `/servicios/beneficios-tributarios-innovacion` ("Consultoría en Beneficios Tributarios
+**para Empresas** I+D+i").
+
+- [x] Quitados los 2 bloques `:::servicio` del post; queda solo el `:::cta` final. Quitada también la frase del 93% de la conclusión. **Los otros 3 posts conservan sus bloques a propósito**: cambiar solo este post aísla la causa. Si se recupera en 2-4 semanas, aplicar el mismo criterio al resto
+- [x] Tabla-resumen tras la intro (beneficio · valor · régimen y entidad), para extracción directa por Google e IA
+- [x] Beneficios que faltaban frente a la propia fuente citada (Minciencias, "¿Cuáles son?"): personal con doctorado (30% o crédito del 50% para MiPymes, vinculación posterior al 25-05-2019), donaciones al Fondo Francisco José de Caldas (30%), honorarios de investigadores e IVA en importación de equipos para centros reconocidos
+- [x] `dateModified` → 2026-09-24 (edición real del día; no se retrofechó el 2026-09-15)
+- [x] `articleSchema()`: `@id` `…/blog/{slug}#article` e `image` como `ImageObject` 1200×630. UPME y ANLA añadidas al `about` del post
+
+Pendiente:
+- [ ] **Confirmar la canibalización en Search Console**: Rendimiento → filtrar la query → pestaña Páginas. Si aparecen el post y el servicio alternándose, quitar "para Empresas" del title del servicio. Ojo: ese title se armó el 2026-08-26 para "consultoría beneficios tributarios" y tiene que seguir cubriendo "consultoría tributaria para empresas"
+- [ ] **Citas legales (requiere a Augusto)**: el post cita el art. 258 ET para el descuento del 30% y `llms.txt` cita los arts. 256 y 256-1 para el mismo régimen. Probablemente el 256 es el sustantivo y el 258 el del traslado de excedentes. Falta mencionar la Ley 2277/2022 y la Ley 2099/2021 (modificó la Ley 1715)
+- [ ] 93%: ya no está en este post. Sigue en el servicio, en `llms.txt` y en los badges de `como-estructurar-…` y `…-comparativo`
+
 ### Nuevos posts recomendados (por intención de búsqueda)
 - "evaluación financiera de proyectos de innovación Colombia" 
 - "cómo acceder a fondos Minciencias pymes"

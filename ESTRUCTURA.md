@@ -163,7 +163,9 @@ Notas:
 - **`:::servicio`** es la tarjeta oscura de dos columnas (checklist + botón + imagen
   con insignia) que ofrece el servicio relacionado con el artículo — se reparten 2 por
   post a lo largo del cuerpo, además del `:::cta` final. Detalle completo en
-  `content/COMO-PUBLICAR.md`, sección "Sección de servicio".
+  `content/COMO-PUBLICAR.md`, sección "Sección de servicio". **Excepción:**
+  `que-es-un-beneficio-tributario-colombia` no lleva ninguno desde 2026-09-24, por ser una
+  guía informativa que cayó en Google (ver CONTEXTO-PROYECTO.md, sección 12).
 - La **tabla de contenidos** se genera sola con los títulos `##` (con enlaces ancla) — solo en la página individual, no en el feed (para no duplicar anclas entre artículos).
 - El **tiempo de lectura** se calcula solo si no pones `readTime`.
 - Las **categorías** se filtran en `/blog?categoria=slug` (query param sobre la misma página, no páginas propias).
@@ -191,7 +193,7 @@ Ejemplo: para cambiar el title de la página de servicios, abre `app/servicios/p
 - `personSchema` — datos de Augusto como persona
 - `websiteSchema` — datos del sitio web
 - `professionalServiceSchema` — servicios profesionales
-- `articleSchema()` — función usada en cada artículo del blog
+- `articleSchema()` — función usada en cada artículo del blog (`@id` `…/blog/{slug}#article`, `image` como `ImageObject` 1200×630)
 - `faqSchema()` — para agregar preguntas frecuentes
 - `breadcrumbSchema()` — migas de pan
 - `courseListSchema()` — un `Course` por cada curso dictado, usado en `/docencia`

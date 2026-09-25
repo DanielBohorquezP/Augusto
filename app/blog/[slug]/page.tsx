@@ -82,6 +82,16 @@ const postAbout: Record<string, { name: string; type?: string; sameAs?: string }
     },
     { name: "Minciencias", type: "GovernmentOrganization", sameAs: "https://minciencias.gov.co" },
     { name: "DIAN", type: "GovernmentOrganization", sameAs: "https://www.dian.gov.co" },
+    {
+      name: "Unidad de Planeación Minero Energética (UPME)",
+      type: "GovernmentOrganization",
+      sameAs: "https://www.upme.gov.co",
+    },
+    {
+      name: "Autoridad Nacional de Licencias Ambientales (ANLA)",
+      type: "GovernmentOrganization",
+      sameAs: "https://www.anla.gov.co",
+    },
   ],
   "beneficios-tributarios-idi-america-latina-comparativo": [
     { name: "Incentivos fiscales a la I+D+i en América Latina" },
