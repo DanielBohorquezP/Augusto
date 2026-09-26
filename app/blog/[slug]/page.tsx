@@ -14,6 +14,14 @@ import { allPosts, getPostBySlug, getRelatedPosts } from "@/lib/posts";
 const postFaqs: Record<string, { q: string; a: string }[]> = {
   "que-es-un-beneficio-tributario-colombia": [
     {
+      q: "¿Qué es un beneficio tributario?",
+      a: "Un beneficio tributario es un incentivo que la ley otorga para reducir los impuestos de quien realiza una actividad o una inversión que el Estado quiere promover. Puede operar como deducción (resta de la base gravable), descuento (resta del impuesto a pagar), crédito fiscal, renta exenta o exclusión de IVA, y casi siempre exige cumplir requisitos definidos y, en muchos casos, la certificación de una entidad.",
+    },
+    {
+      q: "¿Cuáles son los beneficios tributarios para las empresas en Colombia?",
+      a: "Los principales son el descuento del 30% y el crédito fiscal del 50% por inversión en I+D+i (Minciencias), la deducción del 50% por inversiones en energías renovables y eficiencia energética (UPME), el descuento del 25% por inversiones ambientales (ANLA), la deducción del 120% por primer empleo y del 200% por contratar personas con discapacidad o mujeres víctimas de violencia, el descuento en renta del IVA pagado en activos fijos productivos, el descuento del 25% por donaciones a entidades sin ánimo de lucro, la deducción del 165% por aportes a proyectos de CoCrea y la tarifa del 20% para usuarios industriales de zona franca.",
+    },
+    {
       q: "¿Quién puede acceder a los beneficios tributarios en Colombia?",
       a: "Cualquier empresa contribuyente del impuesto de renta en Colombia, sin restricción de tamaño o sector. El filtro real no es el tamaño de la empresa sino la naturaleza del proyecto o de la inversión: que califique en la tipología del CNBT para el régimen de I+D+i, o que corresponda a FNCE, eficiencia energética o mejoramiento ambiental para el régimen certificado por la UPME y la ANLA. El crédito fiscal del 50% y los TIDIS fueron diseñados pensando en las MiPymes.",
     },

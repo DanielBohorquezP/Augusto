@@ -891,6 +891,28 @@ Pendiente:
 - [ ] **Citas legales (requiere a Augusto)**: el post cita el art. 258 ET para el descuento del 30% y `llms.txt` cita los arts. 256 y 256-1 para el mismo régimen. Probablemente el 256 es el sustantivo y el 258 el del traslado de excedentes. Falta mencionar la Ley 2277/2022 y la Ley 2099/2021 (modificó la Ley 1715)
 - [ ] 93%: ya no está en este post. Sigue en el servicio, en `llms.txt` y en los badges de `como-estructurar-…` y `…-comparativo`
 
+**Ajuste de intención del mismo post frente al SERP (2026-09-26)**
+
+Origen: dos días después de la limpieza, el post aparecía en la página 3 para
+`que es un beneficio tributario en colombia` y para `beneficios tributarios para empresas en colombia`.
+Análisis del SERP de ambas búsquedas (página 1): la intención es **amplia**. El AI Overview y los
+resultados (Soluciones Legales, Nu, Punto Estratégico, INCP, DIAN, Minciencias) listan todo el
+universo de beneficios: I+D+i, energía, empleo, economía creativa, zonas francas, IVA en activos y,
+para la búsqueda "qué es", también personas naturales. El post solo cubría I+D+i y energía/ambiente,
+así que Google lo leía como una respuesta parcial. Dato relevante: páginas con autoridad comparable
+o menor (Soluciones Legales, Punto Estratégico) están en página 1, así que el límite aquí es la
+cobertura de intención, no solo la autoridad.
+
+- [x] Title y H1: `Beneficios tributarios para empresas en Colombia: qué son y cuáles hay`. Recupera "qué son" para la búsqueda definicional (estaba en posición 10 con el title original) sin perder la frase exacta de la búsqueda de empresas
+- [x] La intro abre con la definición (candidata a snippet) y la tabla-resumen pasa de 6 a 12 filas
+- [x] H2 nuevo `Otros beneficios tributarios para empresas en Colombia`: primer empleo 120% (art. 108-5 ET, tope 115 UVT/mes), discapacidad 200% (art. 31 Ley 361/1997), mujeres víctimas de violencia 200% hasta 3 años (art. 23 Ley 1257/2008), IVA en activos fijos reales productivos (art. 258-1 ET), donaciones a ESAL 25% (art. 257 ET), CoCrea 165% (art. 180 Ley 1955/2019, mod. Ley 2277/2022), zonas francas 20% sobre ingresos de exportación con plan de internacionalización (art. 240-1 ET, mod. Ley 2277/2022), más una mención al Régimen Simple. Fuente enlazada: inventario de beneficios de la DIAN
+- [x] H2 nuevo `¿Y las personas naturales?`: un párrafo (pensión voluntaria, AFC, dependientes, medicina prepagada; límite global del 40% y 1.340 UVT)
+- [x] 2 FAQs nuevas en `postFaqs` (FAQPage): "¿Qué es un beneficio tributario?" y "¿Cuáles son los beneficios tributarios para las empresas en Colombia?", ambas en "Más preguntas" de Google. Nota: las FAQ de los posts solo van en el JSON-LD, no se renderizan como bloque visible; su contenido está en el cuerpo
+- [x] Entrada del post en `llms.txt` actualizada
+- [ ] **Validación de Augusto** de las cifras nuevas (se verificaron en la norma y en fuentes secundarias, pero es contenido YMYL)
+- [ ] **No tocar el post durante 3-4 semanas.** Pedir indexación en Search Console y medir la posición media en GSC (no en búsquedas personalizadas)
+- [ ] Si a las 4 semanas no entra a página 1: el límite es la autoridad. Enlaces desde `.edu.co`, CvLAC y prensa (prioridad #1 de `docs/ESTRATEGIA-POSICIONAMIENTO-COLOMBIA.md`) y posts satélite que enlacen a este (primer empleo, donaciones, zonas francas, exenciones tributarias)
+
 ### Nuevos posts recomendados (por intención de búsqueda)
 - "evaluación financiera de proyectos de innovación Colombia" 
 - "cómo acceder a fondos Minciencias pymes"

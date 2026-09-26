@@ -1,34 +1,40 @@
 ---
-title: "Beneficios tributarios para empresas en Colombia"
+title: "Beneficios tributarios para empresas en Colombia: qué son y cuáles hay"
 category: "Beneficios Tributarios"
-excerpt: "Qué beneficios tributarios existen para empresas en Colombia: I+D+i ante Minciencias, energía y medio ambiente. Tipos, requisitos y cómo acceder."
-metaDescription: "Qué beneficios tributarios existen para empresas en Colombia: I+D+i ante Minciencias, energía y medio ambiente. Tipos, requisitos y cómo acceder."
+excerpt: "Qué es un beneficio tributario y cuáles tienen las empresas en Colombia: I+D+i, energía, empleo, donaciones, IVA en activos y zonas francas."
+metaDescription: "Qué es un beneficio tributario y cuáles tienen las empresas en Colombia: I+D+i, energía, empleo, donaciones, IVA en activos y zonas francas."
 date: "2026-08-10"
-dateModified: "2026-09-24"
-readTime: "9 min"
+dateModified: "2026-09-26"
+readTime: "12 min"
 featured: true
 image: "/blog/que-es-un-beneficio-tributario-colombia.jpg"
 imageAlt: "Augusto Ruiz presenta frente a una pantalla en un auditorio universitario, con los asistentes tomando notas en mesas escalonadas."
 ---
 
-Las empresas que invierten en investigación, desarrollo e innovación (I+D+i), en energías renovables o en mejoras ambientales en Colombia pueden reducir su impuesto de renta de forma legal y significativa. Esta guía explica qué beneficios tributarios existen para empresas, qué tipos hay, quién puede acceder a ellos, cuál es el proceso y qué ofrecen otros países de la región.
+Un beneficio tributario es un incentivo que la ley otorga para reducir los impuestos de quien realiza una actividad o una inversión que el Estado quiere promover. En Colombia, las empresas pueden acceder a beneficios tributarios por invertir en investigación, desarrollo e innovación (I+D+i), en energías renovables y medio ambiente, por generar empleo, por donar, por comprar activos productivos y por operar en zonas francas. Esta guía explica qué son, qué tipos hay, cuáles existen para empresas, quién puede acceder a ellos y cuál es el proceso.
 
 En resumen, estos son los principales beneficios tributarios para empresas en Colombia:
 
-| Beneficio | Valor | Régimen y entidad |
+| Beneficio | Valor | Base legal o entidad |
 |---|---|---|
-| Descuento por inversión en I+D+i | 30% del valor invertido | I+D+i, Minciencias (CNBT) |
-| Crédito fiscal por inversión en I+D+i | 50% de la inversión certificada | I+D+i, Minciencias (CNBT) |
-| Vinculación de personal con doctorado | Descuento del 30% de la remuneración, o crédito fiscal del 50% para MiPymes | I+D+i, Minciencias |
+| Descuento por inversión en I+D+i | 30% del valor invertido | Minciencias (CNBT) |
+| Crédito fiscal por inversión en I+D+i | 50% de la inversión certificada | Minciencias (CNBT) |
+| Vinculación de personal con doctorado | Descuento del 30% de la remuneración, o crédito fiscal del 50% para MiPymes | Minciencias |
 | Donaciones a CTeI | Descuento del 30% del valor donado | Fondo Francisco José de Caldas |
-| Inversión en FNCE y eficiencia energética | Deducción del 50% de la inversión, exclusión de IVA y exención arancelaria | Energía, UPME |
-| Inversión en control y mejoramiento ambiental | Descuento del 25% de la inversión | Medio ambiente, ANLA |
+| Inversión en FNCE y eficiencia energética | Deducción del 50% de la inversión, exclusión de IVA y exención arancelaria | UPME |
+| Inversión en control y mejoramiento ambiental | Descuento del 25% de la inversión | ANLA |
+| Contratación en primer empleo | Deducción del 120% de los salarios de menores de 28 años | Art. 108-5 ET |
+| Contratación de personas con discapacidad o mujeres víctimas de violencia | Deducción del 200% de salarios y prestaciones | Ley 361 de 1997 y Ley 1257 de 2008 |
+| IVA en activos fijos reales productivos | Descuento en renta del IVA pagado | Art. 258-1 ET |
+| Donaciones a entidades sin ánimo de lucro | Descuento del 25% del valor donado | Art. 257 ET |
+| Inversión o donación a proyectos culturales (CoCrea) | Deducción del 165% | Ley 1955 de 2019 |
+| Usuarios industriales de zona franca | Tarifa de renta del 20% sobre ingresos de exportación | Art. 240-1 ET |
 
 ## ¿Qué es un beneficio tributario?
 
 Un beneficio tributario es una reducción de la carga de impuestos que la ley otorga a quienes realizan ciertas actividades o inversiones que el Estado quiere incentivar. No es una exención general ni un vacío legal: es un incentivo dirigido, con requisitos definidos y una entidad que certifica que la actividad califica.
 
-En Colombia, los beneficios tributarios para empresas se concentran en dos regímenes: el de inversión en I+D+i, que certifica Minciencias a través del Consejo Nacional de Beneficios Tributarios (CNBT), y el de inversiones en energía y medio ambiente, que certifican la UPME y la ANLA.
+En Colombia, los beneficios tributarios de mayor valor para las empresas que invierten se concentran en dos regímenes: el de inversión en I+D+i, que certifica Minciencias a través del Consejo Nacional de Beneficios Tributarios (CNBT), y el de inversiones en energía y medio ambiente, que certifican la UPME y la ANLA. No son los únicos: el Estatuto Tributario y leyes especiales incluyen incentivos por generación de empleo, donaciones, compra de activos productivos y operación en zonas francas, que se resumen más abajo.
 
 ## Los tipos de beneficio tributario
 
@@ -78,9 +84,31 @@ Para inversiones en control y mejoramiento del medio ambiente certificadas por l
 [Minambiente, Beneficios tributarios por inversiones FNCE y eficiencia energética.](https://beneficios-tributarios.minambiente.gov.co/beneficios-tributarios-por-inversiones-fnce-y-eficiencia-energetica/)
 :::
 
+## Otros beneficios tributarios para empresas en Colombia
+
+Fuera de los regímenes de inversión, estos son los incentivos que más aplican a empresas de cualquier sector:
+
+- Primer empleo. Las empresas pueden deducir el 120% de los pagos salariales a empleados menores de 28 años cuando se trata de su primer empleo, con un tope de 115 UVT mensuales por empleado. Requiere la certificación del Ministerio del Trabajo (artículo 108-5 del Estatuto Tributario).
+- Personas con discapacidad. Quien emplea trabajadores con una discapacidad no inferior al 25% puede deducir el 200% de los salarios y prestaciones sociales que les paga, mientras la condición subsista (artículo 31 de la Ley 361 de 1997).
+- Mujeres víctimas de violencia. La contratación de mujeres víctimas de violencia comprobada da derecho a deducir el 200% de sus salarios y prestaciones sociales, hasta por tres años (artículo 23 de la Ley 1257 de 2008).
+- IVA en activos fijos reales productivos. El IVA pagado al comprar, construir o importar activos fijos que participan directamente en la actividad productiva, incluido el leasing con opción de compra, puede descontarse del impuesto de renta (artículo 258-1 del Estatuto Tributario).
+- Donaciones a entidades sin ánimo de lucro. Las donaciones a entidades del régimen tributario especial no se deducen, pero dan un descuento del 25% del valor donado sobre el impuesto de renta (artículo 257 del Estatuto Tributario).
+- Proyectos culturales y creativos. Invertir o donar en proyectos avalados por CoCrea permite deducir el 165% del valor aportado (artículo 180 de la Ley 1955 de 2019, modificado por la Ley 2277 de 2022).
+- Zonas francas. Los usuarios industriales de zona franca tributan al 20% sobre los ingresos por exportación y a la tarifa general sobre el resto; desde 2024 la tarifa preferencial depende de cumplir un plan de internacionalización (artículo 240-1 del Estatuto Tributario, modificado por la Ley 2277 de 2022).
+
+Las pequeñas empresas pueden evaluar además el Régimen Simple de Tributación. No es un beneficio sino un régimen alternativo de pago, que en algunos casos reduce la carga total frente al régimen ordinario.
+
+:::destacado Fuente
+[DIAN, Beneficios tributarios.](https://www.dian.gov.co/impuestos/reformatributaria/beneficiostributarios/Paginas/Beneficios-Tributarios.aspx) La DIAN publica el inventario de beneficios aplicados en el impuesto de renta y en el IVA.
+:::
+
+## ¿Y las personas naturales?
+
+Las personas naturales también tienen beneficios tributarios, aunque operan distinto: la mayoría son rentas exentas o deducciones en la declaración de renta. Los más usados son los aportes a pensión voluntaria y a cuentas AFC, la deducción por dependientes económicos y los pagos de medicina prepagada. En conjunto están sujetos a un límite global del 40% del ingreso neto, con un tope de 1.340 UVT al año. Esta guía se centra en las empresas, donde los montos y los requisitos de certificación son mayores.
+
 ## ¿Qué empresas pueden acceder a estos beneficios?
 
-Cualquier empresa contribuyente del impuesto de renta en Colombia, sin restricción de tamaño o sector. El filtro real no es el tamaño de la empresa sino la naturaleza del proyecto o de la inversión: que califique en la tipología del CNBT para el régimen de I+D+i, o que corresponda a FNCE, eficiencia energética o mejoramiento ambiental para el régimen certificado por la UPME y la ANLA.
+Cualquier empresa contribuyente del impuesto de renta en Colombia, sin restricción de tamaño o sector. El filtro real no es el tamaño de la empresa sino la naturaleza del proyecto o de la inversión: que califique en la tipología del CNBT para el régimen de I+D+i, o que corresponda a FNCE, eficiencia energética o mejoramiento ambiental para el régimen certificado por la UPME y la ANLA. Los incentivos por empleo, donaciones, activos productivos y zonas francas tienen requisitos propios, que fija cada norma: por ejemplo, la certificación del Ministerio del Trabajo para el primer empleo o el plan de internacionalización para las zonas francas.
 
 Un error frecuente es asumir que estos incentivos son solo para grandes empresas. El crédito fiscal del 50% y los TIDIS fueron diseñados precisamente pensando en las MiPymes.
 
