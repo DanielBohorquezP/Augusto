@@ -891,6 +891,10 @@ Pendiente:
 - [ ] **Citas legales (requiere a Augusto)**: el post cita el art. 258 ET para el descuento del 30% y `llms.txt` cita los arts. 256 y 256-1 para el mismo régimen. Probablemente el 256 es el sustantivo y el 258 el del traslado de excedentes. Falta mencionar la Ley 2277/2022 y la Ley 2099/2021 (modificó la Ley 1715)
 - [ ] 93%: ya no está en este post. Sigue en el servicio, en `llms.txt` y en los badges de `como-estructurar-…` y `…-comparativo`
 
+**Title del post revertido por decisión del usuario (2026-09-29)**
+
+- [x] Title y H1 vuelven a `Beneficios tributarios para empresas en Colombia`, ahora **sin el sufijo** " | Augusto Ruiz" en el `<title>`. Para eso se agregó el campo opcional `titleNoSuffix: true` al frontmatter (`lib/posts.ts`), que en `generateMetadata` pasa a `title: { absolute }`. Los demás posts no cambian. El contenido ampliado del 2026-09-26 se mantiene; `dateModified` no se movió porque solo cambió el title. Trade-off: "qué son" sale del title, así que la búsqueda "qué es un beneficio tributario" depende del H2 y de la definición inicial
+
 **Ajuste de intención del mismo post frente al SERP (2026-09-26)**
 
 Origen: dos días después de la limpieza, el post aparecía en la página 3 para

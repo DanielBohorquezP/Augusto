@@ -122,6 +122,7 @@ title: "Título del artículo con la keyword principal"
 category: "Consultoría"
 excerpt: "Resumen de 1-2 frases que aparece en el listado y la homepage."
 metaDescription: "Meta description para Google, 150-160 caracteres, keyword incluida."
+titleNoSuffix: true   # opcional: el <title> queda sin " | Augusto Ruiz"
 date: "2026-07-06"
 featured: false
 ---

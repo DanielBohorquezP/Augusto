@@ -12,6 +12,7 @@ import path from "node:path";
 //   category: "Consultoría"
 //   excerpt: "Resumen para la tarjeta del blog."
 //   metaDescription: "Meta description para Google (150-160 chars)."   ← opcional
+//   titleNoSuffix: true            ← opcional, <title> sin " | Augusto Ruiz"
 //   date: "2025-03-15"
 //   dateModified: "2025-06-01"     ← opcional, si se actualizó el post
 //   readTime: "9 min"              ← opcional, se calcula solo si falta
@@ -80,6 +81,8 @@ export interface Post {
   title: string;
   excerpt: string;
   metaDescription?: string;
+  /** Si es true, el <title> es solo `title`, sin el sufijo " | Augusto Ruiz" del layout. */
+  titleNoSuffix?: boolean;
   date: string;
   dateModified?: string;
   readTime: string;
@@ -316,6 +319,7 @@ function loadPost(filename: string): Post {
     title: data.title ?? slug,
     excerpt: data.excerpt ?? "",
     metaDescription: data.metaDescription || undefined,
+    titleNoSuffix: data.titleNoSuffix === "true",
     date: data.date ?? "1970-01-01",
     dateModified: data.dateModified || undefined,
     readTime: data.readTime || (content ? estimateReadTime(content) : "5 min"),

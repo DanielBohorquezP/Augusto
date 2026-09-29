@@ -147,7 +147,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!post) return {};
   const description = post.metaDescription ?? post.excerpt;
   return {
-    title: post.title,
+    title: post.titleNoSuffix ? { absolute: post.title } : post.title,
     description,
     alternates: { canonical: `https://www.augustoruiz.org/blog/${post.slug}` },
     openGraph: {

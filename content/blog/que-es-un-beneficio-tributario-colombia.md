@@ -1,5 +1,6 @@
 ---
-title: "Beneficios tributarios para empresas en Colombia: qué son y cuáles hay"
+title: "Beneficios tributarios para empresas en Colombia"
+titleNoSuffix: true
 category: "Beneficios Tributarios"
 excerpt: "Qué es un beneficio tributario y cuáles tienen las empresas en Colombia: I+D+i, energía, empleo, donaciones, IVA en activos y zonas francas."
 metaDescription: "Qué es un beneficio tributario y cuáles tienen las empresas en Colombia: I+D+i, energía, empleo, donaciones, IVA en activos y zonas francas."

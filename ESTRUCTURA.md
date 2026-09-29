@@ -116,6 +116,7 @@ title: "Título del artículo con keyword principal"
 category: "Consultoría"
 excerpt: "Resumen corto (aparece en el listado del blog)."
 metaDescription: "Texto para Google, 150-160 caracteres (opcional, si omites usa excerpt)."
+titleNoSuffix: true   # opcional: el <title> queda sin " | Augusto Ruiz"
 date: "2025-06-01"
 dateModified: "2025-07-01"   # opcional — solo si actualizaste el artículo
 readTime: "8 min"            # opcional — se calcula solo si lo omites
