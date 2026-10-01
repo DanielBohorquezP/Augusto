@@ -89,13 +89,21 @@ export default function Footer() {
           <p className="text-xs text-white/50">
             © {currentYear} Augusto Ruiz. Todos los derechos reservados.
           </p>
-          <div className="flex gap-4 text-xs text-white/50">
+          <div className="flex items-center gap-4 text-xs text-white/50">
             <Link href="/politica-privacidad" className="hover:text-white transition-colors">
               Política de privacidad
             </Link>
             <Link href="/contacto" className="hover:text-white transition-colors">
               Reportar un error
             </Link>
+            <a
+              href="https://www.oppi.digital/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              className="hover:text-white transition-colors"
+            >
+              SEO por OPPI
+            </a>
           </div>
         </div>
       </div>
