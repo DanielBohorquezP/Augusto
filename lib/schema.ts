@@ -68,7 +68,7 @@ export const professionalServiceSchema = {
           "@type": "Service",
           "@id": `${BASE_URL}/servicios/evaluacion-financiera-innovacion#service`,
           url: `${BASE_URL}/servicios/evaluacion-financiera-innovacion`,
-          name: "Transferencia Tecnológica para Empresas",
+          name: "Consultoría en Transferencia Tecnológica para Empresas",
           // Debe coincidir con la `description` que emite serviceSchema() en la
           // propia pagina del servicio: es el mismo @id. Quedo desincronizada en
           // el commit 94088d5 (reposicionamiento hacia transferencia tecnologica),

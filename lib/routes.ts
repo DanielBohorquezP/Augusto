@@ -38,7 +38,7 @@ export const staticRoutes: StaticRoute[] = [
   { path: "/sobre", lastModified: "2026-09-03", priority: 0.9, changeFrequency: "monthly" },
   { path: "/servicios", lastModified: "2026-09-03", priority: 0.9, changeFrequency: "monthly" },
   { path: "/servicios/beneficios-tributarios-innovacion", lastModified: "2026-09-03", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/servicios/evaluacion-financiera-innovacion", lastModified: "2026-09-01", priority: 0.85, changeFrequency: "monthly" },
+  { path: "/servicios/evaluacion-financiera-innovacion", lastModified: "2026-09-29", priority: 0.85, changeFrequency: "monthly" },
   { path: "/servicios/capacitacion-ia-generativa", lastModified: "2026-08-18", priority: 0.85, changeFrequency: "monthly" },
   { path: "/prime-10", lastModified: "2026-08-15", priority: 0.85, changeFrequency: "monthly" },
   { path: "/docencia", lastModified: "2026-08-15", priority: 0.8, changeFrequency: "monthly" },
