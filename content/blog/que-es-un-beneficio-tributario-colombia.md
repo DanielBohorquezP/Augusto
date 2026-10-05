@@ -9,7 +9,7 @@ dateModified: "2026-09-26"
 readTime: "12 min"
 featured: true
 image: "/blog/que-es-un-beneficio-tributario-colombia.jpg"
-imageAlt: "Augusto Ruiz presenta frente a una pantalla en un auditorio universitario, con los asistentes tomando notas en mesas escalonadas."
+imageAlt: "Escritorio oscuro de oficina con una carpeta azul marino, una calculadora, un portátil con una hoja de cálculo y un clip rojo."
 ---
 
 Un beneficio tributario es un incentivo que la ley otorga para reducir los impuestos de quien realiza una actividad o una inversión que el Estado quiere promover. En Colombia, las empresas pueden acceder a beneficios tributarios por invertir en investigación, desarrollo e innovación (I+D+i), en energías renovables y medio ambiente, por generar empleo, por donar, por comprar activos productivos y por operar en zonas francas. Esta guía explica qué son, qué tipos hay, cuáles existen para empresas, quién puede acceder a ellos y cuál es el proceso.
@@ -79,7 +79,7 @@ El segundo régimen premia inversiones en activos, no proyectos de investigació
 - Exención arancelaria para la importación de equipos destinados exclusivamente al proyecto.
 - Depreciación acelerada de equipos y obras civiles.
 
-Para inversiones en control y mejoramiento del medio ambiente certificadas por la ANLA aplica además un descuento del 25% del valor de la inversión sobre el impuesto de renta (artículo 255 del Estatuto Tributario).
+Para inversiones en control y mejoramiento del medio ambiente certificadas por la ANLA aplica además un descuento del 25% del valor de la inversión sobre el impuesto de renta (artículo 255 del Estatuto Tributario). El trámite completo, con requisitos, documentos y errores, está en la guía de [beneficios tributarios ambientales en Colombia paso a paso](/blog/beneficios-tributarios-ambientales-colombia-paso-a-paso).
 
 :::destacado Fuente
 [Minambiente, Beneficios tributarios por inversiones FNCE y eficiencia energética.](https://beneficios-tributarios.minambiente.gov.co/beneficios-tributarios-por-inversiones-fnce-y-eficiencia-energetica/)

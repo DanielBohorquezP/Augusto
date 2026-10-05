@@ -67,7 +67,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 
 ## Blog — cómo funciona
 
-**El blog tiene 4 artículos publicados** en `content/blog/`:
+**El blog tiene 7 artículos publicados** (la tabla lista los de Beneficios Tributarios; el sexto es `monte-carlo-ia-generativa-lecciones-proyectos-innovacion`) en `content/blog/`:
 
 | Slug | Categoría | Publicado |
 |---|---|---|
@@ -75,6 +75,8 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | `beneficios-tributarios-idi-america-latina-comparativo` | Beneficios Tributarios | 2026-08-11 |
 | `credito-fiscal-idi-amortizacion-colombia` | Beneficios Tributarios | 2026-09-08 |
 | `como-estructurar-proyecto-idi-beneficios-tributarios-colombia` | Beneficios Tributarios | 2026-09-08 |
+| `como-acceder-beneficios-tributarios-idi-colombia-pasos-practicos` | Beneficios Tributarios | 2026-10-05 |
+| `beneficios-tributarios-ambientales-colombia-paso-a-paso` | Beneficios Tributarios | 2026-10-05 |
 
 Ver `content/COMO-PUBLICAR.md` para el flujo de publicación.
 

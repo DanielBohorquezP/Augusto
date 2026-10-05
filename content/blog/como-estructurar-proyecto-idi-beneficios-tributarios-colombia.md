@@ -7,7 +7,7 @@ date: "2026-09-08"
 readTime: "9 min"
 featured: false
 image: "/blog/como-estructurar-proyecto-idi-beneficios-tributarios-colombia.jpg"
-imageAlt: "Augusto Ruiz presenta, con los dedos en alto y sonriendo, frente a una pantalla sobre evaluación financiera con inteligencia artificial generativa para proyectos de innovación tecnológica, en un evento académico de la Universidad de los Andes."
+imageAlt: "Equipo de trabajo alrededor de una matriz de proyecto con cronograma y notas adhesivas de colores, vista desde arriba."
 ---
 
 Un proyecto de I+D+i puede cumplir la tipología del CNBT, tener buena metodología y aun así perder valor fiscal si no fue diseñado para ser trazable desde el inicio. La pregunta que decide el resultado no es únicamente si el proyecto puede postularse, sino si cada recurso presupuestado puede explicarse, vincularse a una actividad y convertirse en evidencia verificable. Esta guía presenta el marco de trazabilidad, las capas de valor fiscal que no deben confundirse y el modelo financiero para tratar el incentivo como lo que es: un flujo condicionado, no un ingreso garantizado. Si busca primero el panorama general de [qué beneficios tributarios existen para empresas en Colombia](https://www.augustoruiz.org/blog/que-es-un-beneficio-tributario-colombia), esa guía cubre el marco completo antes de entrar en este detalle de formulación.

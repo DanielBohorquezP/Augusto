@@ -7,7 +7,7 @@ date: "2026-09-08"
 readTime: "12 min"
 featured: false
 image: "/blog/credito-fiscal-idi-amortizacion-colombia.jpg"
-imageAlt: "Augusto Ruiz, de pie y con micrófono, expone ante un grupo de asistentes sentados alrededor de mesas de trabajo en una sala empresarial."
+imageAlt: "Dos personas revisan informes financieros impresos con gráficos, una calculadora y notas adhesivas sobre una mesa de trabajo."
 ---
 
 Una empresa invierte $1.000 millones en desarrollar un nuevo producto, un proceso industrial, un software especializado o una planta piloto. El CNBT certifica el proyecto como I+D+i y la Mipyme obtiene un crédito fiscal equivalente al 50% de la inversión, es decir, $500 millones.

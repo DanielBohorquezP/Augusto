@@ -6,6 +6,8 @@ metaDescription: "Lo que aprendimos al evaluar 11 proyectos reales de innovació
 date: "2026-09-30"
 readTime: "7 min"
 featured: false
+image: "/blog/monte-carlo-ia-generativa-lecciones-proyectos-innovacion.jpg"
+imageAlt: "Manos sobre un informe impreso con una curva de distribución de probabilidad, junto a un portátil que muestra un histograma."
 ---
 
 "La IA es extraordinaria construyendo el modelo y bastante mala dudando de él."
