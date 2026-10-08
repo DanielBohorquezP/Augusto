@@ -62,7 +62,7 @@ export default function AutoridadConsultor() {
 
             <p className="text-sm text-muted-foreground leading-relaxed mt-4">
               Profesor invitado en posgrados de {universidades.slice(0, -1).join(", ")} y{" "}
-              {universidades[universidades.length - 1]}. Más de 10 años y 50 organizaciones
+              {universidades[universidades.length - 1]}. Más de 15 años y 50 organizaciones
               asesoradas en Colombia, México, Chile, Perú y Ecuador.
             </p>
 

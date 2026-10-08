@@ -133,6 +133,23 @@ export default function ContactoPage() {
                   Para solicitudes urgentes, incluye esa indicación en el mensaje.
                 </p>
               </div>
+
+              <div className="card p-5">
+                <h3 className="font-heading font-semibold text-sm text-foreground mb-3">Qué pasa después de escribirme</h3>
+                <ol className="space-y-2 text-sm text-muted-foreground leading-relaxed list-decimal pl-5">
+                  <li>Me cuentas el proyecto o desafío de innovación que tienes entre manos.</li>
+                  <li>Te respondo con preguntas y te digo con honestidad si puedo ayudarte y cómo.</li>
+                  <li>Si hay encaje, empezamos por un diagnóstico inicial, antes de cualquier compromiso formal.</li>
+                </ol>
+              </div>
+
+              <div className="card p-5">
+                <h3 className="font-heading font-semibold text-sm text-foreground mb-3">Dónde trabajo</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Con base en Medellín y presencia en Bogotá. Trabajo con organizaciones de toda Colombia
+                  y de Latinoamérica (México, Chile, Perú y Ecuador).
+                </p>
+              </div>
             </div>
           </div>
         </div>

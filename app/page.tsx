@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "¿Quién es Augusto Ruiz?",
-    a: "Augusto Ruiz es consultor especializado en gestión de innovación tecnológica, investigador doctoral (PhD candidato, Universidad de los Andes) y profesor invitado en programas de posgrado en Universidad de los Andes, EAFIT, UIS, Universidad del Bosque y Universidad de América. Con más de 10 años de experiencia y más de 50 organizaciones asesoradas en Colombia, México, Chile, Perú y Ecuador, combina investigación activa de frontera con práctica organizacional concreta.",
+    a: "Augusto Ruiz es consultor especializado en gestión de innovación tecnológica, investigador doctoral (PhD candidato, Universidad de los Andes) y profesor invitado en programas de posgrado en Universidad de los Andes, EAFIT, UIS, Universidad del Bosque y Universidad de América. Con más de 15 años de experiencia y más de 50 organizaciones asesoradas en Colombia, México, Chile, Perú y Ecuador, combina investigación activa de frontera con práctica organizacional concreta.",
   },
   {
     q: "¿Qué es la consultoría en innovación tecnológica y para qué sirve?",

@@ -20,7 +20,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Preview de blog en home | `components/sections/BlogPreviewSection.tsx` |
 | Afiliaciones (logos) | `components/sections/AffiliationsSection.tsx` |
 | CTA final de home | `components/sections/CTASection.tsx` |
-| Plantilla de las 3 páginas de servicio | `components/sections/ServicioDetalle.tsx` — props en `ServicioDetalleProps`; `comparativa` es opcional (con `enlace` opcional dentro) y hoy la usan beneficios tributarios y evaluación financiera |
+| Plantilla de las 3 páginas de servicio | `components/sections/ServicioDetalle.tsx` — props en `ServicioDetalleProps`; `comparativa` es opcional (con `enlace` opcional dentro) y hoy la usan beneficios tributarios y evaluación financiera; `articulosRelacionados` (slugs de `content/blog/`, opcional) pinta el bloque "Artículos relacionados" tras las FAQ y omite en silencio los slugs que no existen, así que se pueden listar posts aún sin publicar |
 | **Publicar un artículo nuevo** | `content/blog/COMO-PUBLICAR.md` — instrucciones para Claude |
 | **Artículos del blog** | `content/blog/*.md` — un archivo por artículo |
 | **Fotos de los artículos** | `public/blog/<slug>.jpg` — se declara en el frontmatter con `image` + `imageAlt`; sale en la tarjeta y en el hero del post |
@@ -61,7 +61,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | **Reporte mensual de desempeño (PDF para Augusto)** | `.claude/skills/reporte-mensual/SKILL.md` — pide "el reporte de [mes]" y Claude lo genera desde los CSVs de Search Console + GA4. Datos del mes en `ejemplos/*.json` |
 | Sitemap | `app/sitemap.ts` |
 | Robots.txt | `app/robots.ts` |
-| llms.txt (visibilidad en IAs) | `public/llms.txt` — Markdown válido: H1 + blockquote + enlaces `[texto](url)` |
+| llms.txt (visibilidad en IAs) | `public/llms.txt` — índice corto, Markdown válido: H1 + blockquote + enlaces `[texto](url)`. El contenido largo de preguntas y respuestas vive en `public/llms-full.txt` |
 
 ---
 
@@ -331,7 +331,8 @@ augusto-ruiz-org/
 │   └── patch-vercel-og.mjs     # Corrige un bug de @vercel/og en Windows (se ejecuta en postinstall)
 ├── public/
 │   ├── profile-photo.jpg       # Foto de perfil optimizada (~70 KB) — reemplazar con mismo nombre
-│   └── llms.txt                # Visibilidad para IAs (ChatGPT, Perplexity...)
+│   ├── llms.txt                # Índice corto para IAs (ChatGPT, Perplexity...)
+│   └── llms-full.txt           # Versión larga de preguntas y respuestas para IAs
 ├── tailwind.config.ts          # Colores, fuentes, breakpoints
 └── .env.local.example          # Variables de entorno de referencia
 ```

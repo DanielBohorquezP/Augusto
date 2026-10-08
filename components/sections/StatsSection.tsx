@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const stats = [
-  { value: 10, suffix: "+", label: "Años de experiencia", description: "en investigación y consultoría" },
+  { value: 15, suffix: "+", label: "Años de experiencia", description: "en investigación y consultoría" },
   { value: 50, suffix: "+", label: "Organizaciones asesoradas", description: "en Latinoamérica" },
   { value: 3, suffix: "", label: "Universidades", description: "Uniandes, EAFIT y más" },
   { value: 1, suffix: "", label: "Framework propio", description: "PRIME-10 Assessment" },

@@ -189,6 +189,13 @@ export default function EvaluacionFinancieraInnovacionPage() {
         metodologia={metodologia}
         paraQuien={paraQuien}
         faqs={faqs}
+        articulosRelacionados={[
+          "tasa-interna-de-retorno-tir-que-es-y-por-que-falla-en-innovacion",
+          "indicadores-financieros-evaluar-proyecto-innovacion-colombia",
+          "simulacion-monte-carlo-que-es-y-cuando-usarla",
+          "analisis-de-sensibilidad-que-es-y-como-hacerlo",
+          "monte-carlo-ia-generativa-lecciones-proyectos-innovacion",
+        ]}
       />
     </>
   );

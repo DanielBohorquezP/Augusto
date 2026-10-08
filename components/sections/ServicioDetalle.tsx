@@ -6,6 +6,8 @@ import AutoridadConsultor from "@/components/AutoridadConsultor";
 import Reveal from "@/components/Reveal";
 import LastUpdated from "@/components/LastUpdated";
 import { renderInlineText } from "@/lib/inline-text";
+import BlogPostCard from "@/components/BlogPostCard";
+import { getPostBySlug, type Post } from "@/lib/posts";
 
 type Faq = { q: string; a: string };
 type MetodologiaStep = { title: string; desc: string };
@@ -37,6 +39,9 @@ export type ServicioDetalleProps = {
   metodologia: MetodologiaStep[];
   paraQuien: string[];
   faqs: Faq[];
+  /** Slugs de posts del blog que respaldan este servicio. Solo se muestran los que
+   *  existen en content/blog/, asi que se pueden listar posts aun sin publicar. */
+  articulosRelacionados?: string[];
 };
 
 export default function ServicioDetalle({
@@ -53,7 +58,12 @@ export default function ServicioDetalle({
   metodologia,
   paraQuien,
   faqs,
+  articulosRelacionados = [],
 }: ServicioDetalleProps) {
+  const posts = articulosRelacionados
+    .map((slug) => getPostBySlug(slug))
+    .filter((p): p is Post => Boolean(p));
+
   return (
     <>
       {/* Hero — texto e imagen a dos columnas en desktop, apilados en móvil. La
@@ -265,6 +275,22 @@ export default function ServicioDetalle({
           </Reveal>
         </div>
       </section>
+
+      {/* Artículos relacionados — enlaces internos del servicio hacia los posts que lo respaldan */}
+      {posts.length > 0 && (
+        <section className="py-16 bg-muted">
+          <div className="container-site">
+            <Reveal>
+              <h2 className="section-heading text-2xl sm:text-3xl mb-8">Artículos relacionados</h2>
+            </Reveal>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {posts.map((post) => (
+                <BlogPostCard key={post.slug} post={post} headingLevel="h3" />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA final */}
       <section className="py-20 bg-primary relative overflow-hidden">

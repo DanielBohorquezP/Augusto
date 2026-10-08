@@ -196,6 +196,11 @@ export default function BeneficiosTributariosInnovacionPage() {
         metodologia={metodologia}
         paraQuien={paraQuien}
         faqs={faqs}
+        articulosRelacionados={[
+          "que-es-un-beneficio-tributario-colombia",
+          "como-estructurar-proyecto-idi-beneficios-tributarios-colombia",
+          "credito-fiscal-idi-amortizacion-colombia",
+        ]}
       />
     </>
   );

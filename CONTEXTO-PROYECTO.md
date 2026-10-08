@@ -15,7 +15,7 @@ Augusto Ruiz es consultor especializado en **gestión de innovación tecnológic
 | Rol principal | Consultor, Investigador y Formador |
 | Credencial académica | PhD(c) — Universidad de los Andes (Gestión de Innovación Tecnológica) |
 | Docencia | Profesor de "Finanzas para la Innovación" — Maestría en Finanzas, EAFIT University |
-| Experiencia | +10 años, +50 organizaciones asesoradas |
+| Experiencia | +15 años, +50 organizaciones asesoradas |
 | Geografía | Colombia (Medellín y Bogotá) + LATAM: México, Chile, Perú, Ecuador |
 | Divulgación | RetroCiencia |
 | LinkedIn | https://www.linkedin.com/in/ruizaugusto/ |
@@ -305,9 +305,11 @@ fuente (`fs.statSync(...).mtime`), no la fecha del build.
 superior (`/algo/page.tsx`) que no sea un post de blog debe agregarse a mano a ese
 array, o quedará fuera del sitemap. Ver checklist en 8.1.
 
-### llms.txt (`/public/llms.txt`)
+### llms.txt (`/public/llms.txt`) y llms-full.txt (`/public/llms-full.txt`)
 
-Archivo optimizado para IA. Estructura de preguntas y respuestas que responde directamente a queries que los modelos de IA reciben sobre consultoría de innovación en Colombia. Cubre:
+**Desde 2026-10-07 son dos archivos** (la auditoría SEO/GEO marcó que el de 277 líneas con títulos tipo palabra clave no era un índice):
+- `llms.txt` — índice **corto** (~45 líneas): H1, blockquote, un párrafo de identidad y listas de enlaces con una línea de descripción (servicios, PRIME-10, posts publicados, docencia, contacto). Al publicar un post nuevo, agrégalo aquí **solo cuando ya esté en producción** (si no, el enlace da 404). No lleva la cifra del 93%, por no tener muestra ni periodo publicables.
+- `llms-full.txt` — el contenido largo de preguntas y respuestas de antes (se conservó entero salvo la frase promocional sin respaldo). Cubre:
 - Quién es Augusto Ruiz
 - Mejores consultorías de innovación en Colombia
 - Servicios para startups y pymes
@@ -365,7 +367,10 @@ terminado cualquier cambio.
 
 ### B. Nueva subpágina de servicio (`app/servicios/algo/page.tsx`)
 
-Todo lo de la sección A, más:
+Todo lo de la sección A, más (desde 2026-10-07, auditoría SEO: las páginas de servicio
+no enlazaban a ningún post): pasar `articulosRelacionados={[slugs]}` a `ServicioDetalle`
+para pintar el bloque "Artículos relacionados". Un post nuevo debe sumarse a la lista
+del servicio que lo respalda.
 6. **`lib/schema.ts` → `professionalServiceSchema.hasOfferCatalog.itemListElement`** —
    agregar (o actualizar) la entrada `Offer.itemOffered` correspondiente con `@id` y
    `url` apuntando a la nueva subpágina (patrón: `${BASE_URL}/servicios/slug#service` /
@@ -619,7 +624,8 @@ refresca el suyo solo al volver a rastrear el sitio (puede tardar semanas).
 | Archivo | Descripción |
 |---------|-------------|
 | `/public/profile-photo.jpg` | Foto profesional de Augusto, optimizada (~70 KB, antes 2.1 MB en PNG) — usada en Hero + Sobre vía `next/image` |
-| `/public/llms.txt` | Archivo para motores de IA — preguntas y respuestas |
+| `/public/llms.txt` | Índice corto de enlaces para motores de IA |
+| `/public/llms-full.txt` | Versión larga de preguntas y respuestas para motores de IA |
 
 Las imágenes OG (portada del sitio y de cada artículo) ya no son archivos estáticos:
 se generan en build time con `next/og` (`app/opengraph-image.tsx` y

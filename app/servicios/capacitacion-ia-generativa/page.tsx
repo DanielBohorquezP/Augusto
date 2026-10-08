@@ -118,6 +118,10 @@ export default function CapacitacionIaGenerativaPage() {
         metodologia={metodologia}
         paraQuien={paraQuien}
         faqs={faqs}
+        articulosRelacionados={[
+          "desafios-adopcion-ia-generativa-empresas-colombianas",
+          "monte-carlo-ia-generativa-lecciones-proyectos-innovacion",
+        ]}
       />
     </>
   );
