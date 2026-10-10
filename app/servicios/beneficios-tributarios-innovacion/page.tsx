@@ -200,6 +200,7 @@ export default function BeneficiosTributariosInnovacionPage() {
           "que-es-un-beneficio-tributario-colombia",
           "como-estructurar-proyecto-idi-beneficios-tributarios-colombia",
           "credito-fiscal-idi-amortizacion-colombia",
+          "como-financiar-proyecto-innovador-colombia",
         ]}
       />
     </>

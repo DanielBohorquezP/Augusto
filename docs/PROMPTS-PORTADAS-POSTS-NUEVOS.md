@@ -58,3 +58,57 @@ imageAlt: "<el imageAlt de arriba>"
 
 3. Antes de usarla, revisa que el generador no haya metido texto, números, logos ni rostros. Si lo hizo, vuelve a generarla.
 4. Cuando las tengas, avísame y las conecto y verifico que la tarjeta y el hero las muestran.
+
+---
+
+# Prompts de portada — 6 posts publicados el 2026-10-10
+
+Sin foto todavía; mismas reglas (sin texto, sin cifras, sin rostros, un solo acento rojo).
+
+## Simulación Monte Carlo en proyectos de innovación
+`simulacion-monte-carlo-evaluacion-innovacion`
+
+```text
+Editorial photography style, 4:3 aspect ratio, soft natural light, shallow depth of field, clean modern corporate setting in Colombia, deep navy blue (#0E1C3D) tones with a single small red (#CE2222) accent, no text, no letters, no numbers, no logos, no watermarks, no recognizable faces, hands and objects only, high resolution, photorealistic. A laptop on a meeting table showing a heavily blurred bell-shaped histogram, next to a printed single-line sheet. A hand places a red pen across the long left tail of the histogram. The mood is seeing the full range of outcomes instead of one number.
+```
+**imageAlt:** Portátil sobre una mesa de reuniones con un histograma desenfocado en forma de campana y una mano que marca con un bolígrafo la cola izquierda de la distribución.
+
+## Qué es la transferencia tecnológica en la empresa
+`que-es-transferencia-tecnologica-empresas`
+
+```text
+Editorial photography style, 4:3 aspect ratio, soft natural light, shallow depth of field, clean modern corporate setting in Colombia, deep navy blue (#0E1C3D) tones with a single small red (#CE2222) accent, no text, no letters, no numbers, no logos, no watermarks, no recognizable faces, hands and objects only, high resolution, photorealistic. Two pairs of hands across a table handing over a closed technical binder and a small prototype component, with blurred blueprints beneath. One small red tab on the binder. The mood is knowledge passing from one organization to another.
+```
+**imageAlt:** Dos pares de manos entregan una carpeta técnica y un componente prototipo sobre una mesa con planos desenfocados.
+
+## Metodologías de innovación: Design Thinking, Lean Startup y más
+`metodologias-de-innovacion-empresas`
+
+```text
+Editorial photography style, 4:3 aspect ratio, soft natural light, shallow depth of field, clean modern corporate setting in Colombia, deep navy blue (#0E1C3D) tones with a single small red (#CE2222) accent, no text, no letters, no numbers, no logos, no watermarks, no recognizable faces, hands and objects only, high resolution, photorealistic. A wall with several blurred sticky-note clusters arranged in distinct columns, and a hand moving one note from one column to another. Whiteboard markers on a ledge, one red. The mood is choosing the right method for each challenge.
+```
+**imageAlt:** Pared con grupos de notas adhesivas desenfocadas en columnas y una mano que mueve una nota de una columna a otra.
+
+## Gestión de la innovación: cómo implementar un sistema en la empresa
+`gestion-de-la-innovacion-sistema-empresa-tecnologica`
+
+```text
+Editorial photography style, 4:3 aspect ratio, soft natural light, shallow depth of field, clean modern corporate setting in Colombia, deep navy blue (#0E1C3D) tones with a single small red (#CE2222) accent, no text, no letters, no numbers, no logos, no watermarks, no recognizable faces, hands and objects only, high resolution, photorealistic. Top-down view of a table with a row of five identical blurred checkpoint cards laid out left to right like a process, and a hand placing a pen on the third card. One small red marker on the third card. The mood is structured decision gates.
+```
+**imageAlt:** Vista cenital de cinco tarjetas desenfocadas dispuestas en fila como un proceso, con una mano que apoya un bolígrafo sobre la tercera.
+
+## Dónde encontrar asesoría para proyectos de innovación en Colombia
+`asesoria-proyectos-innovacion-colombia-donde-buscar`
+
+```text
+Editorial photography style, 4:3 aspect ratio, soft natural light, shallow depth of field, clean modern corporate setting in Colombia, deep navy blue (#0E1C3D) tones with a single small red (#CE2222) accent, no text, no letters, no numbers, no logos, no watermarks, no recognizable faces, hands and objects only, high resolution, photorealistic. Over-the-shoulder-free view of a desk with a laptop showing a blurred map-like interface, a notebook with blurred handwriting, and a hand holding a phone. One small red pin on a paper map. The mood is searching for the right kind of support.
+```
+**imageAlt:** Escritorio con portátil, cuaderno y una mano que sostiene un teléfono junto a un mapa de papel con una chincheta roja.
+
+## Cómo financiar un proyecto innovador en Colombia
+`como-financiar-proyecto-innovador-colombia`
+
+```text
+Editorial photography style, 4:3 aspect ratio, soft natural light, shallow depth of field, clean modern corporate setting in Colombia, deep navy blue (#0E1C3D) tones with a single small red (#CE2222) accent, no text, no letters, no numbers, no logos, no watermarks, no recognizable faces, hands and objects only, high resolution, photorealistic. Close-up of a founder's desk with a small hand-built prototype, a printed budget sheet with blurred rows, and a hand signing a document with a pen. One small red paperclip on the budget. The mood is preparing a project to ask for funding.
+```
+**imageAlt:** Escritorio con un prototipo pequeño, una hoja de presupuesto desenfocada y una mano que firma un documento.

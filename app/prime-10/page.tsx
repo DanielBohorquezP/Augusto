@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 import CTASection from "@/components/sections/CTASection";
 import Prime10Phases from "@/components/sections/Prime10Phases";
@@ -276,6 +277,13 @@ export default function Prime10Page() {
               className="object-cover"
             />
           </div>
+          <p className="mt-6 text-sm text-muted-foreground">
+            Si quieres profundizar en los fundamentos, consulta las{" "}
+            <Link href="/recursos" className="text-primary font-medium hover:underline">
+              lecturas, cursos y videos que recomiendo
+            </Link>{" "}
+            sobre evaluación bajo incertidumbre.
+          </p>
         </div>
       </section>
 

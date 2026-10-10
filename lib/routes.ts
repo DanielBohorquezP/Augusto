@@ -43,6 +43,7 @@ export const staticRoutes: StaticRoute[] = [
   { path: "/prime-10", lastModified: "2026-08-15", priority: 0.85, changeFrequency: "monthly" },
   { path: "/docencia", lastModified: "2026-08-15", priority: 0.8, changeFrequency: "monthly" },
   { path: "/blog", lastModified: "2026-09-08", priority: 0.85, changeFrequency: "weekly" },
+  { path: "/recursos", lastModified: "2026-10-10", priority: 0.7, changeFrequency: "monthly" },
   { path: "/medios", lastModified: "2026-08-12", priority: 0.7, changeFrequency: "monthly" },
   { path: "/contacto", lastModified: "2026-08-12", priority: 0.8, changeFrequency: "yearly" },
   { path: "/politica-privacidad", lastModified: "2026-08-05", priority: 0.3, changeFrequency: "yearly" },

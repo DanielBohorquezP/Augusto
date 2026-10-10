@@ -9,6 +9,7 @@ const navLinks = [
   { label: "PRIME-10", href: "/prime-10" },
   { label: "Docencia", href: "/docencia" },
   { label: "Blog", href: "/blog" },
+  { label: "Recursos", href: "/recursos" },
   { label: "Medios", href: "/medios" },
 ];
 

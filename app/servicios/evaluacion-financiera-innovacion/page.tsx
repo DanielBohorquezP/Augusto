@@ -195,6 +195,11 @@ export default function EvaluacionFinancieraInnovacionPage() {
           "simulacion-monte-carlo-que-es-y-cuando-usarla",
           "analisis-de-sensibilidad-que-es-y-como-hacerlo",
           "monte-carlo-ia-generativa-lecciones-proyectos-innovacion",
+          "simulacion-monte-carlo-evaluacion-innovacion",
+          "que-es-transferencia-tecnologica-empresas",
+          "metodologias-de-innovacion-empresas",
+          "gestion-de-la-innovacion-sistema-empresa-tecnologica",
+          "asesoria-proyectos-innovacion-colombia-donde-buscar",
         ]}
       />
     </>

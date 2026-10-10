@@ -38,6 +38,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Página PRIME-10 | `app/prime-10/page.tsx` |
 | Página Docencia | `app/docencia/page.tsx` |
 | Página Medios | `app/medios/page.tsx` |
+| Página Recursos | `app/recursos/page.tsx` — datos en `lib/recursos.ts` (sección, título, autor, descripción, URL, idioma, acceso); enlaces a revisar cada 6 meses |
 | Página Contacto | `app/contacto/page.tsx` |
 | **Número de WhatsApp (todo el sitio)** | `lib/site.ts` — un solo lugar para cambiarlo |
 | Botón flotante de WhatsApp | `components/WhatsAppButton.tsx` — montado en `app/layout.tsx` |
@@ -67,7 +68,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 
 ## Blog — cómo funciona
 
-**El blog tiene 7 artículos publicados** (la tabla lista los de Beneficios Tributarios; el sexto es `monte-carlo-ia-generativa-lecciones-proyectos-innovacion`) en `content/blog/`:
+**El blog tiene 12 artículos publicados** (la tabla lista los de Beneficios Tributarios; el sexto es `monte-carlo-ia-generativa-lecciones-proyectos-innovacion`) en `content/blog/`:
 
 | Slug | Categoría | Publicado |
 |---|---|---|
@@ -77,6 +78,17 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | `como-estructurar-proyecto-idi-beneficios-tributarios-colombia` | Beneficios Tributarios | 2026-09-08 |
 | `como-acceder-beneficios-tributarios-idi-colombia-pasos-practicos` | Beneficios Tributarios | 2026-10-05 |
 | `beneficios-tributarios-ambientales-colombia-paso-a-paso` | Beneficios Tributarios | 2026-10-05 |
+| `indicadores-financieros-evaluar-proyecto-innovacion-colombia` | Evaluación Financiera | 2026-10-07 |
+| `desafios-adopcion-ia-generativa-empresas-colombianas` | IA Generativa | 2026-10-07 |
+| `tasa-interna-de-retorno-tir-que-es-y-por-que-falla-en-innovacion` | Evaluación Financiera | 2026-10-07 |
+| `analisis-de-sensibilidad-que-es-y-como-hacerlo` | Evaluación Financiera | 2026-10-07 |
+| `simulacion-monte-carlo-evaluacion-innovacion` | Evaluación Financiera | 2026-10-10 |
+| `que-es-transferencia-tecnologica-empresas` | Consultoría | 2026-10-10 |
+| `metodologias-de-innovacion-empresas` | Metodología | 2026-10-10 |
+| `gestion-de-la-innovacion-sistema-empresa-tecnologica` | Metodología | 2026-10-10 |
+| `asesoria-proyectos-innovacion-colombia-donde-buscar` | Consultoría | 2026-10-10 |
+| `como-financiar-proyecto-innovador-colombia` | Financiación | 2026-10-10 |
+| `simulacion-monte-carlo-que-es-y-cuando-usarla` | Evaluación Financiera | 2026-10-07 |
 
 Ver `content/COMO-PUBLICAR.md` para el flujo de publicación.
 
@@ -291,6 +303,7 @@ augusto-ruiz-org/
 │   ├── prime-10/page.tsx       # PRIME-10 (/prime-10)
 │   ├── docencia/page.tsx       # Docencia (/docencia)
 │   ├── medios/page.tsx         # Medios (/medios)
+│   ├── recursos/page.tsx       # Recursos recomendados (/recursos)
 │   ├── contacto/page.tsx       # Contacto (/contacto) — bloque de WhatsApp + formulario
 │   └── api/
 │       ├── contact/route.ts    # API endpoint formulario de contacto → Web3Forms

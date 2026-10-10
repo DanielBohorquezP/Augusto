@@ -11,6 +11,7 @@ const footerLinks = {
     { label: "Sobre mí", href: "/sobre" },
     { label: "Docencia", href: "/docencia" },
     { label: "Blog", href: "/blog" },
+    { label: "Recursos", href: "/recursos" },
     { label: "Medios", href: "/medios" },
     { label: "Contacto", href: "/contacto" },
   ],

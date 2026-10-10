@@ -84,6 +84,15 @@ export default function BlogPage({
                 ? `${posts.length} ${posts.length === 1 ? "artículo" : "artículos"} sobre ${activeCategory.toLowerCase()} en gestión de innovación tecnológica.`
                 : "Investigación aplicada a la decisión organizacional: artículos que conectan la investigación académica de frontera con los desafíos reales de las organizaciones que gestionan innovación tecnológica."}
             </p>
+            {!activeCategory && (
+              <p className="mt-3 text-white/70 text-sm">
+                ¿Quieres seguir estudiando?{" "}
+                <Link href="/recursos" className="text-white underline underline-offset-2 hover:text-accent">
+                  Mis lecturas, videos, podcasts y cursos recomendados
+                </Link>
+                .
+              </p>
+            )}
           </div>
         </div>
       </section>
