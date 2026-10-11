@@ -6,6 +6,8 @@ metaDescription: "Dónde buscar asesoría para proyectos de innovación en Colom
 date: "2026-10-10"
 readTime: "9 min"
 featured: false
+image: "/blog/asesoria-proyectos-innovacion-colombia-donde-buscar.jpg"
+imageAlt: "Escritorio con un mapa impreso de América Latina con chinchetas, una tableta con gráficos, un cuaderno y un bolígrafo."
 ---
 
 Una idea innovadora no llega lejos sin método, evidencia y recursos. La asesoría profesional puede acortar ese camino, pero en Colombia el panorama es confuso: consultoras, universidades, centros tecnológicos y entidades de fomento ofrecen cosas distintas, y no todas sirven para el mismo problema.

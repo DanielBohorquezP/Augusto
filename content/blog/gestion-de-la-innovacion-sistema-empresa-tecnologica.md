@@ -6,6 +6,8 @@ metaDescription: "Gestión de la innovación en empresas tecnológicas: cómo im
 date: "2026-10-10"
 readTime: "10 min"
 featured: false
+image: "/blog/gestion-de-la-innovacion-sistema-empresa-tecnologica.jpg"
+imageAlt: "Mesa de reuniones con un portátil que muestra un gráfico y una hoja impresa con un histograma sobre la que una mano marca un punto con un bolígrafo."
 ---
 
 Una empresa tecnológica puede perder valor cuando decide tarde, compromete recursos antes de validar los supuestos que más pesan, o evalúa iniciativas inciertas con herramientas diseñadas para negocios estables.

@@ -6,6 +6,8 @@ metaDescription: "Metodologías de innovación para empresas: Design Thinking, L
 date: "2026-10-10"
 readTime: "10 min"
 featured: false
+image: "/blog/metodologias-de-innovacion-empresas.jpg"
+imageAlt: "Equipo de trabajo alrededor de una mesa con un tablero impreso de columnas y notas adhesivas de colores, junto a portátiles y cuadernos."
 ---
 
 Una metodología de innovación es un conjunto de principios, actividades y decisiones que ordena la búsqueda de oportunidades, la experimentación y la implementación de nuevas soluciones. Se elige para reducir una clase concreta de incertidumbre: sobre el usuario, el mercado, la tecnología, la coordinación interna o la inversión.
