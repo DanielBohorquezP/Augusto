@@ -1,5 +1,5 @@
 ---
-title: "Cómo acceder paso a paso a los beneficios tributarios ambientales en Colombia: requisitos, trámites y mejores prácticas"
+title: "Beneficios tributarios ambientales Colombia"
 category: "Beneficios Tributarios"
 excerpt: "Los cinco mecanismos fiscales ambientales, cómo calcular el ahorro del descuento del artículo 255, el trámite de certificación ante la ANLA y los errores que bloquean la aprobación."
 metaDescription: "Beneficios tributarios ambientales en Colombia: descuento del 25% del artículo 255, certificación ANLA paso a paso, documentos, cálculo del ahorro y errores."

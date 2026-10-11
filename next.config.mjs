@@ -21,8 +21,15 @@ const nextConfig = {
         permanent: true,
       },
       {
+        // URL anterior de la pagina "Sobre mi", renombrada para incluir la
+        // palabra clave (auditoria Ubersuggest, 2026-10-11).
+        source: "/sobre",
+        destination: "/sobre-augusto-ruiz",
+        permanent: true,
+      },
+      {
         source: "/doctorado",
-        destination: "/sobre",
+        destination: "/sobre-augusto-ruiz",
         permanent: true,
       },
     ];

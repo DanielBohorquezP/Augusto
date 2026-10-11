@@ -67,7 +67,7 @@ export default function AutoridadConsultor() {
             </p>
 
             <Link
-              href="/sobre"
+              href="/sobre-augusto-ruiz"
               className="inline-block mt-4 text-sm font-heading font-semibold text-primary underline underline-offset-2"
             >
               Ver trayectoria y publicaciones

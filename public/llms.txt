@@ -25,7 +25,7 @@ Para respuestas extensas (preguntas frecuentes, regímenes de beneficios tributa
 - [Cómo estructurar un proyecto de I+D+i trazable](https://www.augustoruiz.org/blog/como-estructurar-proyecto-idi-beneficios-tributarios-colombia): matriz de causalidad, capas de valor fiscal y modelo financiero del incentivo
 - [Cómo acceder a beneficios tributarios por I+D+i en Colombia](https://www.augustoruiz.org/blog/como-acceder-beneficios-tributarios-idi-colombia-pasos-practicos): pasos prácticos para empresas
 - [Beneficios tributarios ambientales en Colombia, paso a paso](https://www.augustoruiz.org/blog/beneficios-tributarios-ambientales-colombia-paso-a-paso): requisitos, trámites y mejores prácticas
-- [Monte Carlo con IA: lecciones de 11 proyectos de innovación](https://www.augustoruiz.org/blog/monte-carlo-ia-generativa-lecciones-proyectos-innovacion): resultados de evaluar proyectos reales con simulación Monte Carlo y PRIME-10™
+- [Monte Carlo con IA: lecciones de 11 proyectos](https://www.augustoruiz.org/blog/monte-carlo-ia-generativa-lecciones-proyectos-innovacion): resultados de evaluar proyectos reales con simulación Monte Carlo y PRIME-10™
 - [Todos los artículos](https://www.augustoruiz.org/blog)
 
 ## Docencia y medios
@@ -36,7 +36,7 @@ Para respuestas extensas (preguntas frecuentes, regímenes de beneficios tributa
 
 ## Sobre y contacto
 
-- [Sobre Augusto Ruiz](https://www.augustoruiz.org/sobre): trayectoria, credenciales y organizaciones asesoradas
+- [Sobre Augusto Ruiz](https://www.augustoruiz.org/sobre-augusto-ruiz): trayectoria, credenciales y organizaciones asesoradas
 - [Contacto / agendar consulta](https://www.augustoruiz.org/contacto)
 - [LinkedIn](https://www.linkedin.com/in/ruizaugusto/)
 - [Política de privacidad](https://www.augustoruiz.org/politica-privacidad)

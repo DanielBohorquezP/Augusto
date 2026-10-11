@@ -33,7 +33,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Imagen OG automática por artículo | `app/blog/[slug]/opengraph-image.tsx` |
 | Imagen OG por defecto del sitio | `app/opengraph-image.tsx` |
 | Íconos de marca (pestaña, Android, iOS) | `app/favicon.ico`, `app/icon.png`, `app/apple-icon.png` |
-| Página Sobre mí | `app/sobre/page.tsx` |
+| Página Sobre mí | `app/sobre-augusto-ruiz/page.tsx` |
 | Página Servicios | `app/servicios/page.tsx` — arrays `services`, `process`, `criterios` (cómo evaluar una consultoría) y `faqs` (11 preguntas; alimentan el `FAQPage` schema) |
 | Página PRIME-10 | `app/prime-10/page.tsx` |
 | Página Docencia | `app/docencia/page.tsx` |
@@ -298,7 +298,7 @@ augusto-ruiz-org/
 │   │   │   ├── page.tsx            # Artículo individual — URL que indexa Google (/blog/slug)
 │   │   │   └── opengraph-image.tsx # Imagen OG generada para ese artículo
 │   │   └── categoria/[categoria]/page.tsx  # Feed filtrado por categoría
-│   ├── sobre/page.tsx          # Sobre mí (/sobre)
+│   ├── sobre-augusto-ruiz/page.tsx  # Sobre mí (/sobre-augusto-ruiz)
 │   ├── servicios/page.tsx      # Servicios (/servicios)
 │   ├── prime-10/page.tsx       # PRIME-10 (/prime-10)
 │   ├── docencia/page.tsx       # Docencia (/docencia)

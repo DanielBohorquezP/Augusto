@@ -8,7 +8,7 @@ const footerLinks = {
     { label: "PRIME-10™", href: "/prime-10" },
   ],
   Explorar: [
-    { label: "Sobre mí", href: "/sobre" },
+    { label: "Sobre mí", href: "/sobre-augusto-ruiz" },
     { label: "Docencia", href: "/docencia" },
     { label: "Blog", href: "/blog" },
     { label: "Recursos", href: "/recursos" },

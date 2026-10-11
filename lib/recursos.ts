@@ -408,7 +408,7 @@ export const recursos: Recurso[] = [
   },
   {
     seccion: "propio",
-    titulo: "Monte Carlo con IA: lecciones de 11 proyectos de innovación",
+    titulo: "Monte Carlo con IA: lecciones de 11 proyectos",
     autor: "Augusto Ruiz",
     descripcion: "Lo que aprendimos al evaluar 11 proyectos reales con simulación, experimentación e IA generativa.",
     url: "/blog/monte-carlo-ia-generativa-lecciones-proyectos-innovacion",

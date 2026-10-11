@@ -250,7 +250,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                 <Image src="/profile-photo.jpg" alt="Augusto Ruiz" width={36} height={36} className="w-full h-full object-cover" />
               </div>
               <div>
-                <Link href="/sobre" className="font-heading font-semibold text-white text-sm hover:underline">
+                <Link href="/sobre-augusto-ruiz" className="font-heading font-semibold text-white text-sm hover:underline">
                   Augusto Ruiz
                 </Link>
                 <p className="text-white/60 text-xs">PhD(c) · Universidad de los Andes</p>
@@ -366,7 +366,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
                     <Image src="/profile-photo.jpg" alt="Augusto Ruiz" width={48} height={48} className="w-full h-full object-cover" />
                   </div>
                   <div>
-                    <Link href="/sobre" className="font-heading font-semibold text-sm text-foreground hover:text-primary transition-colors">
+                    <Link href="/sobre-augusto-ruiz" className="font-heading font-semibold text-sm text-foreground hover:text-primary transition-colors">
                       Augusto Ruiz
                     </Link>
                     <p className="text-xs text-muted-foreground">PhD(c) Uniandes</p>

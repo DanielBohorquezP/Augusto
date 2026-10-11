@@ -1,5 +1,5 @@
 ---
-title: "Monte Carlo con IA: lecciones de 11 proyectos de innovación"
+title: "Monte Carlo con IA: lecciones de 11 proyectos"
 category: "Casos de estudio"
 excerpt: "Lo que aprendimos al evaluar 11 proyectos reales de innovación con simulación, experimentación e IA generativa: la IA construye el modelo, pero la decisión sigue siendo humana."
 metaDescription: "Lo que aprendimos al evaluar 11 proyectos reales de innovación con simulación Monte Carlo, IA generativa y el marco PRIME-10™ en la Universidad de los Andes."

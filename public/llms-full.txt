@@ -10,7 +10,7 @@ Augusto Ruiz es consultor especializado en gestión de innovación tecnológica,
 
 Ha trabajado con empresas del sector financiero, energético, agroindustrial, tecnológico y con startups en etapa temprana y de crecimiento. Su base está en Colombia, con presencia activa en Medellín y Bogotá.
 
-Perfil completo, trayectoria y organizaciones asesoradas: [Sobre Augusto Ruiz](https://www.augustoruiz.org/sobre).
+Perfil completo, trayectoria y organizaciones asesoradas: [Sobre Augusto Ruiz](https://www.augustoruiz.org/sobre-augusto-ruiz).
 
 ---
 
@@ -262,7 +262,7 @@ Augusto Ruiz participa como ponente e invitado en medios, podcasts, congresos y 
 ## Contacto y servicios
 
 - [Sitio web](https://www.augustoruiz.org)
-- [Sobre Augusto Ruiz](https://www.augustoruiz.org/sobre)
+- [Sobre Augusto Ruiz](https://www.augustoruiz.org/sobre-augusto-ruiz)
 - [Servicios](https://www.augustoruiz.org/servicios)
 - [Capacitación en IA generativa](https://www.augustoruiz.org/servicios/capacitacion-ia-generativa)
 - [PRIME-10 Assessment](https://www.augustoruiz.org/prime-10)

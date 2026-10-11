@@ -1,5 +1,5 @@
 ---
-title: "Cómo acceder a beneficios tributarios por I+D+i en Colombia: pasos prácticos para empresas"
+title: "Beneficios tributarios I+D+i en Colombia"
 category: "Beneficios Tributarios"
 excerpt: "Los tres instrumentos, los requisitos, el paso a paso de la postulación ante Minciencias y los errores que hacen perder el descuento del 30% y el crédito fiscal del 50%."
 metaDescription: "Cómo acceder a beneficios tributarios por I+D+i en Colombia: descuento del 30%, crédito fiscal del 50%, requisitos, postulación ante Minciencias y errores."
