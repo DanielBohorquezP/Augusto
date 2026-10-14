@@ -51,7 +51,7 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Schema.org (datos estructurados) | `lib/schema.ts` |
 | **Enlaces internos dentro de textos de datos** | `lib/inline-text.tsx` — escribe `[texto](/ruta)` en cualquier string de FAQ, intro de servicio, descripción de tarjeta o timeline y se renderiza como enlace |
 | **Fecha de última modificación por ruta** | `lib/routes.ts` — fuente única: alimenta el `<lastmod>` del sitemap y el label visible `<LastUpdated>`. Actualízala al publicar un cambio de contenido real |
-| Foto de perfil | `public/profile-photo.jpg` — reemplazar con mismo nombre (optimizada, ~70 KB) |
+| Foto de perfil | `public/profile-photo.jpg` — reemplazar con mismo nombre (optimizada, ~75 KB). Recortada el 2026-10-14 (864x1088) para quitar la marca de agua de Gemini; es la misma toma que el hero (`profile-photo-cutout.png`) y la que declara el schema `Person` |
 | Colores, fuentes, estilos globales | `tailwind.config.ts` + `app/globals.css` |
 | API formulario de contacto (→ Web3Forms) | `app/api/contact/route.ts` |
 | API newsletter (→ Google Sheets) | `app/api/newsletter/route.ts` |

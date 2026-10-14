@@ -623,7 +623,7 @@ refresca el suyo solo al volver a rastrear el sitio (puede tardar semanas).
 
 | Archivo | Descripción |
 |---------|-------------|
-| `/public/profile-photo.jpg` | Foto profesional de Augusto, optimizada (~70 KB, antes 2.1 MB en PNG) — usada en Hero + Sobre vía `next/image` |
+| `/public/profile-photo.jpg` | Foto profesional de Augusto, optimizada (~75 KB, antes 2.1 MB en PNG) — usada en schema `Person` y autor de posts. Recortada 2026-10-14 para quitar la marca de agua de Gemini. Nota: ChatGPT mostraba otra foto (traje, corbata rosada) tomada de fuentes externas (LinkedIn/Uniandes/etc.), no de la web; conviene unificar la foto allí |
 | `/public/llms.txt` | Índice corto de enlaces para motores de IA |
 | `/public/llms-full.txt` | Versión larga de preguntas y respuestas para motores de IA |
 
