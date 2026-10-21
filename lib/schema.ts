@@ -44,7 +44,7 @@ export const professionalServiceSchema = {
     "consultoría en innovación digital",
     "consultoría en innovación estratégica",
     "consultoría en innovación para pymes",
-    "asesoría en transferencia tecnológica para empresas",
+    "evaluación financiera de proyectos de innovación",
     "transferencia tecnológica",
     "PRIME-10 Assessment",
     "innovación en Colombia",
@@ -75,7 +75,7 @@ export const professionalServiceSchema = {
           // que actualizo la pagina pero no este stub, y el mismo nodo pasaba a
           // describirse distinto segun desde donde se leyera.
           description:
-            "Asesoría en transferencia tecnológica para empresas: evaluación financiera de la decisión de adoptar, licenciar o desarrollar tecnología, con modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
+            "Evaluación financiera de proyectos de innovación y tecnología bajo incertidumbre, con modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
         },
       },
       {

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const footerLinks = {
   Servicios: [
-    { label: "Transferencia tecnológica para empresas", href: "/servicios/evaluacion-financiera-innovacion" },
+    { label: "Evaluación financiera de innovación", href: "/servicios/evaluacion-financiera-innovacion" },
     { label: "Capacitación en IA generativa", href: "/servicios/capacitacion-ia-generativa" },
     { label: "Beneficios tributarios I+D+i", href: "/servicios/beneficios-tributarios-innovacion" },
     { label: "PRIME-10™", href: "/prime-10" },

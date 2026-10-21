@@ -8,7 +8,7 @@ Para respuestas extensas (preguntas frecuentes, regímenes de beneficios tributa
 
 ## Servicios
 
-- [Asesoría en transferencia tecnológica para empresas](https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion): evaluación financiera de la decisión de adoptar, licenciar o desarrollar una tecnología, con modelos probabilísticos, simulación Monte Carlo y opciones reales
+- [Evaluación financiera de proyectos de innovación con PRIME-10](https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion): evaluación financiera de la decisión de adoptar, licenciar o desarrollar una tecnología, con modelos probabilísticos, simulación Monte Carlo y opciones reales
 - [Beneficios tributarios por innovación, FNCE y eficiencia energética](https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion): estructuración y postulación de proyectos ante Minciencias (I+D+i), la UPME y la ANLA
 - [Capacitación en IA generativa para empresas](https://www.augustoruiz.org/servicios/capacitacion-ia-generativa): talleres y programas por área y reto de negocio, con marco de evaluación del ROI
 - [Todos los servicios](https://www.augustoruiz.org/servicios)

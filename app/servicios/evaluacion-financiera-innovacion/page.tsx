@@ -4,16 +4,18 @@ import { faqSchema, breadcrumbSchema, serviceSchema, globalSchemaNodes } from "@
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
 
 // "Evaluación financiera de proyectos" tiene una SERP educativa (cursos, programas y
-// PDFs universitarios): Google no quiere una pagina de servicio ahi. El titulo apunta
-// a "consultoria financiera de proyectos de innovacion", que si es una SERP comercial
-// y donde los que rankean (EY, PwC) no mencionan Monte Carlo ni opciones reales.
+// PDFs universitarios): Google no quiere una pagina de servicio ahi. La meta description
+// apunta a "consultoria financiera para proyectos de innovacion", SERP comercial donde
+// los que rankean (EY, PwC) no mencionan Monte Carlo ni opciones reales.
+// El titulo/H1 ya no dicen "transferencia tecnologica": ese posicionamiento se retiro
+// porque no coincidia con la URL ni con la meta description (cambio parcial previo).
 export const metadata: Metadata = {
-  title: { absolute: "Consultoría en Transferencia Tecnológica para Empresas" },
+  title: { absolute: "Evaluación financiera de proyectos de innovación con PRIME-10 | Augusto Ruiz" },
   description:
     "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
   openGraph: {
-    title: "Consultoría en Transferencia Tecnológica para Empresas | Augusto Ruiz",
+    title: "Evaluación financiera de proyectos de innovación con PRIME-10 | Augusto Ruiz",
     description:
       "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
     url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion",
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consultoría en Transferencia Tecnológica para Empresas | Augusto Ruiz",
+    title: "Evaluación financiera de proyectos de innovación con PRIME-10 | Augusto Ruiz",
     description:
       "Consultoría financiera para proyectos de innovación: evaluación probabilística con simulación Monte Carlo y opciones reales, más allá del VPN y la TIR.",
   },
@@ -159,25 +161,26 @@ export default function EvaluacionFinancieraInnovacionPage() {
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },
       { name: "Servicios", url: "https://www.augustoruiz.org/servicios" },
-      { name: "Transferencia tecnológica para empresas", url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
+      { name: "Evaluación financiera de innovación", url: "https://www.augustoruiz.org/servicios/evaluacion-financiera-innovacion" },
     ]),
     serviceSchema({
       slug: "servicios/evaluacion-financiera-innovacion",
-      name: "Consultoría en Transferencia Tecnológica para Empresas",
+      name: "Evaluación financiera de proyectos de innovación con PRIME-10",
       description:
-        "Asesoría en transferencia tecnológica para empresas: evaluación financiera de la decisión de adoptar, licenciar o desarrollar tecnología, con modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
-      serviceType: "Asesoría en transferencia tecnológica para empresas",
+        "Evaluación financiera de proyectos de innovación y tecnología bajo incertidumbre, con modelos probabilísticos, simulación Monte Carlo y valoración de opciones reales, superando las limitaciones del VPN y la TIR.",
+      serviceType: "Evaluación financiera de proyectos de innovación",
     }),
   ];
   return (
     <>
       <SchemaScript schema={schemas} />
       <ServicioDetalle
-        badge="Transferencia tecnológica para empresas"
-        h1="Asesoría en transferencia tecnológica para empresas"
-        intro="Asesoría en transferencia tecnológica para empresas que deben decidir si adoptar, licenciar o desarrollar una tecnología: evaluación financiera de esa decisión bajo incertidumbre, donde el VPN y la TIR se quedan cortos. Modelos probabilísticos con simulación Monte Carlo, valoración de opciones reales y diseño del experimento crítico antes de comprometer la inversión."
+        badge="Evaluación financiera de innovación"
+        h1="Evaluación financiera de proyectos de innovación bajo incertidumbre"
+        intro="Evaluación financiera de proyectos de innovación y tecnología bajo incertidumbre, donde el VPN y la TIR se quedan cortos. Con la metodología PRIME-10™: modelos probabilísticos con simulación Monte Carlo, valoración de opciones reales y diseño del experimento crítico antes de comprometer la inversión."
+        whatsappTema="Evaluación financiera de proyectos de innovación con PRIME-10"
         comparativa={comparativa}
-        breadcrumbLabel="Transferencia tecnológica para empresas"
+        breadcrumbLabel="Evaluación financiera de innovación"
         routePath="/servicios/evaluacion-financiera-innovacion"
         imagen={{
           src: "/images/20200117_083026.jpg",

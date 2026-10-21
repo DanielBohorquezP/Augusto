@@ -30,6 +30,8 @@ export type ServicioDetalleProps = {
   /** Ruta de la pagina, p.ej. "/servicios/beneficios-tributarios-innovacion".
    *  Se usa para leer su fecha real de ultima modificacion en lib/routes.ts. */
   routePath: string;
+  /** Nombre del servicio en el mensaje prellenado de WhatsApp. Por defecto, el h1. */
+  whatsappTema?: string;
   imagen?: Imagen;
   problema: string[];
   incluye: string[];
@@ -50,6 +52,7 @@ export default function ServicioDetalle({
   intro,
   breadcrumbLabel,
   routePath,
+  whatsappTema,
   imagen,
   problema,
   incluye,
@@ -304,7 +307,7 @@ export default function ServicioDetalle({
           </h2>
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={whatsappUrl(`Hola Augusto, quiero información sobre "${h1}".`)}
+              href={whatsappUrl(`Hola Augusto, quiero información sobre "${whatsappTema ?? h1}".`)}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary text-base px-8 py-4"

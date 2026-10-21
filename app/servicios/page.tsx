@@ -43,7 +43,7 @@ const serviceSlugs: Record<string, string> = {
 // casos: un anchor generico repetido no le dice ni al lector ni al rastreador
 // que hay al otro lado. Cada destino lleva ahora su propia etiqueta descriptiva.
 const serviceCtaLabels: Record<string, string> = {
-  "evaluacion-financiera": "Ver el servicio de transferencia tecnológica",
+  "evaluacion-financiera": "Ver el servicio de evaluación financiera de innovación",
   "ia-generativa": "Ver el programa de formación en IA generativa",
   financiacion: "Ver la consultoría en beneficios tributarios",
 };
@@ -53,7 +53,7 @@ const services = [
     id: "evaluacion-financiera",
     icon: "📊",
     svgPath: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
-    title: "Asesoría en transferencia tecnológica para empresas (PRIME-10)",
+    title: "Evaluación financiera de proyectos de innovación (PRIME-10)",
     description:
       "Los métodos financieros tradicionales (VPN, TIR, flujo de caja descontado) asumen un futuro predecible. En proyectos de innovación e inversión tecnológica, esa suposición genera errores de selección que pueden costar millones. PRIME-10 evalúa la decisión con el riesgo cuantificado, no supuesto.",
     benefits: [
