@@ -51,22 +51,32 @@ export async function POST(req: NextRequest) {
 
   // Guarda el contacto en Google Sheets. Best-effort: si falla, no bloquea el
   // envío del correo, que el navegador hace por su cuenta después de esta respuesta.
+  // Se espera con await (con tope de tiempo): en Vercel la función se congela al
+  // responder, y un fetch sin await se corta antes de llegar a Apps Script.
   const sheetsWebhookUrl = process.env.GOOGLE_SHEETS_CONTACT_WEBHOOK_URL;
   if (sheetsWebhookUrl) {
-    fetch(sheetsWebhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        nombre: name,
-        email: email.trim().toLowerCase(),
-        empresa: body.company || "",
-        servicio: body.service || "",
-        mensaje: message,
-        newsletter: body.newsletter ? "Sí" : "No",
-        fecha: new Date().toISOString(),
-      }),
-      redirect: "follow",
-    }).catch((err) => console.error("Google Sheets contact webhook error:", err));
+    try {
+      const sheetsRes = await fetch(sheetsWebhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre: name,
+          email: email.trim().toLowerCase(),
+          empresa: body.company || "",
+          servicio: body.service || "",
+          mensaje: message,
+          newsletter: body.newsletter ? "Sí" : "No",
+          fecha: new Date().toISOString(),
+        }),
+        redirect: "follow",
+        signal: AbortSignal.timeout(8000),
+      });
+      if (!sheetsRes.ok) {
+        console.error("Google Sheets contact webhook error:", sheetsRes.status);
+      }
+    } catch (err) {
+      console.error("Google Sheets contact webhook error:", err);
+    }
   }
 
   return NextResponse.json({ success: true }, { status: 200 });
