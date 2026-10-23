@@ -22,6 +22,8 @@ type Comparativa = {
   enlace?: { href: string; texto: string };
 };
 
+export type Herramienta = { name: string; description: string };
+
 export type ServicioDetalleProps = {
   badge: string;
   h1: string;
@@ -39,6 +41,8 @@ export type ServicioDetalleProps = {
   /** Tabla comparativa opcional. Solo la usa la pagina de beneficios tributarios. */
   comparativa?: Comparativa;
   metodologia: MetodologiaStep[];
+  /** Metodologias y tecnicas concretas que usa el servicio (opcional). */
+  herramientas?: Herramienta[];
   paraQuien: string[];
   faqs: Faq[];
   /** Slugs de posts del blog que respaldan este servicio. Solo se muestran los que
@@ -59,6 +63,7 @@ export default function ServicioDetalle({
   incluyeNota,
   comparativa,
   metodologia,
+  herramientas,
   paraQuien,
   faqs,
   articulosRelacionados = [],
@@ -246,8 +251,36 @@ export default function ServicioDetalle({
         </div>
       </section>
 
+      {/* Metodologías y herramientas (opcional) */}
+      {herramientas && herramientas.length > 0 && (
+        <section className="py-16 bg-muted">
+          <div className="container-site">
+            <Reveal>
+              <h2 className="section-heading text-2xl sm:text-3xl text-center mb-3">
+                Metodologías que aplico
+              </h2>
+              <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
+                Cada una con nombre propio y con el criterio para saber cuándo aplica.
+              </p>
+            </Reveal>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {herramientas.map((h, i) => (
+                <Reveal key={h.name} delay={i * 80} className="h-full">
+                  <div className="card p-6 h-full">
+                    <h3 className="font-heading font-semibold text-base text-foreground mb-2">
+                      {h.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{h.description}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Para quién es */}
-      <section className="py-16 bg-muted">
+      <section className={`py-16 ${herramientas?.length ? "bg-white" : "bg-muted"}`}>
         <div className="container-site max-w-3xl">
           <Reveal>
             <h2 className="section-heading text-2xl sm:text-3xl mb-6">Para quién es</h2>
@@ -268,7 +301,7 @@ export default function ServicioDetalle({
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-white">
+      <section className={`py-16 ${herramientas?.length ? "bg-muted" : "bg-white"}`}>
         <div className="container-site max-w-3xl">
           <Reveal>
             <h2 className="section-heading text-2xl sm:text-3xl mb-8">Preguntas frecuentes</h2>

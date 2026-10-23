@@ -11,9 +11,9 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Texto de la página de inicio | `app/page.tsx` + secciones en `components/sections/` |
 | Hero (título, subtítulo, CTA) | `components/sections/HeroSection.tsx` |
 | Estadísticas (años, proyectos...) | `components/sections/StatsSection.tsx` |
-| Servicios (cards) | `components/sections/ServicesSection.tsx` |
-| Metodologías de innovación (home) | `components/sections/MetodologiasSection.tsx` — tarjeta destacada de PRIME-10 + 6 metodologías; el H2 posiciona "metodologías de innovación" |
+| Servicios + metodologías (cards con CTA) | `components/sections/ServicesSection.tsx` |
 | Testimonios | `components/sections/TestimonialsSection.tsx` |
+| Carrusel reutilizable | `components/Carousel.tsx` (testimonios y secciones de `/recursos`) |
 | ¿Para quién trabajo? (segmentos) | `components/sections/ParaQuienSection.tsx` |
 | Cómo trabajo (proceso en 4 pasos) | `components/sections/ComoTrabajoSection.tsx` |
 | Banner PRIME-10 | `components/sections/Prime10Banner.tsx` |
@@ -321,7 +321,6 @@ augusto-ruiz-org/
 │       ├── HeroSection.tsx
 │       ├── StatsSection.tsx
 │       ├── ServicesSection.tsx
-│       ├── MetodologiasSection.tsx
 │       ├── TestimonialsSection.tsx
 │       ├── BlogPreviewSection.tsx   # Se oculta sola si el blog está vacío
 │       ├── AffiliationsSection.tsx

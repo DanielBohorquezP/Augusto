@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Carousel from "@/components/Carousel";
 import SchemaScript from "@/components/SchemaScript";
 import LastUpdated from "@/components/LastUpdated";
 import { breadcrumbSchema, globalSchemaNodes } from "@/lib/schema";
@@ -193,43 +194,41 @@ export default function RecursosPage() {
       </section>
 
       <Section id="lecturas-para-empezar" title="Cinco lecturas para empezar">
-        <ol className="max-w-4xl divide-y divide-border">
+        <Carousel label="Cinco lecturas para empezar">
           {inicial.map((r, i) => (
-            <li key={r.url} className="flex gap-5 py-5 first:pt-0">
-              <span className="font-heading font-bold text-3xl text-accent/70 leading-none w-10 shrink-0 tabular-nums">
+            <article key={r.url} className="card p-6 flex flex-col h-full">
+              <span className="font-heading font-bold text-3xl text-accent/70 leading-none tabular-nums mb-4">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <div className="min-w-0">
-                <h3 className="font-heading font-semibold text-foreground text-lg leading-snug">
-                  <ResourceLink r={r} className="hover:text-primary transition-colors" />{" "}
-                  <span className="font-normal text-muted-foreground text-sm">({r.autor})</span>
-                </h3>
-                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{r.descripcion}</p>
-                <div className="mt-3">
-                  <Tags r={r} />
-                </div>
+              <h3 className="font-heading font-semibold text-foreground text-base leading-snug">
+                <ResourceLink r={r} className="hover:text-primary transition-colors" />
+              </h3>
+              <p className="text-xs text-muted-foreground mt-1">{r.autor}</p>
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed flex-1">{r.descripcion}</p>
+              <div className="mt-4">
+                <Tags r={r} />
               </div>
-            </li>
+            </article>
           ))}
-        </ol>
+        </Carousel>
       </Section>
 
       <Section id="mas-lecturas" title="Más lecturas" muted>
-        <ul className="max-w-4xl space-y-6">
+        <Carousel label="Más lecturas">
           {lecturas.map((r) => (
-            <li key={r.url} className="bg-white rounded-xl p-5 border border-border">
-              <h3 className="font-heading font-semibold text-foreground leading-snug">
-                <ResourceLink r={r} className="hover:text-primary transition-colors" />{" "}
-                <span className="font-normal text-muted-foreground text-sm">({r.autor})</span>
+            <article key={r.url} className="card p-5 flex flex-col h-full">
+              <h3 className="font-heading font-semibold text-foreground text-base leading-snug">
+                <ResourceLink r={r} className="hover:text-primary transition-colors" />
               </h3>
-              <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{r.descripcion}</p>
+              <p className="text-xs text-muted-foreground mt-1">{r.autor}</p>
+              <p className="text-sm text-muted-foreground mt-3 leading-relaxed flex-1">{r.descripcion}</p>
               <ExtraLinks r={r} />
-              <div className="mt-3">
+              <div className="mt-4">
                 <Tags r={r} />
               </div>
-            </li>
+            </article>
           ))}
-        </ul>
+        </Carousel>
       </Section>
 
       {media.map(([id, items, kind], idx) => (
@@ -239,28 +238,31 @@ export default function RecursosPage() {
           title={kind === "video" ? "Videos" : "Podcasts"}
           muted={idx === 1}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+          <Carousel
+            label={kind === "video" ? "Videos" : "Podcasts"}
+            itemClassName="basis-full sm:basis-1/2 lg:basis-1/4"
+          >
             {items.map((r) => (
               <MediaCard key={r.url} r={r} />
             ))}
-          </div>
+          </Carousel>
         </Section>
       ))}
 
       <Section id="cursos" title="Cursos">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Carousel label="Cursos">
           {cursos.map((r) => (
             <CourseCard key={r.url} r={r} />
           ))}
-        </div>
+        </Carousel>
       </Section>
 
       <Section id="de-mi-autoria" title="De mi autoría" muted>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Carousel label="De mi autoría">
           {propios.map((r) => (
             <CourseCard key={r.url} r={r} />
           ))}
-        </div>
+        </Carousel>
       </Section>
 
       <section className="py-20 bg-primary relative overflow-hidden">

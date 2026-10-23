@@ -11,6 +11,7 @@ const services = [
     ),
     title: "PRIME-10 Assessment",
     href: "/prime-10",
+    cta: "Ver PRIME-10 Assessment",
     description:
       "Evaluación financiera probabilística de proyectos de innovación e inversión tecnológica. Más allá del VPN tradicional, identifico las variables de mayor incertidumbre, cuantifico el riesgo con simulación Monte Carlo y defino qué debe validarse experimentalmente antes de comprometer la inversión.",
     highlights: [
@@ -27,7 +28,8 @@ const services = [
       </svg>
     ),
     title: "Capacitación en IA generativa",
-    href: "/servicios/capacitacion-ia-generativa" as string | undefined,
+    href: "/servicios/capacitacion-ia-generativa",
+    cta: "Conocer la capacitación",
     description:
       "Programas de adopción de IA generativa para equipos corporativos, diseñados por área y reto de negocio. Cada participante parte de su propio problema real y termina la sesión con un artefacto funcional que puede usar al día siguiente.",
     highlights: [
@@ -44,7 +46,8 @@ const services = [
       </svg>
     ),
     title: "Beneficios tributarios I+D+i",
-    href: "/servicios/beneficios-tributarios-innovacion" as string | undefined,
+    href: "/servicios/beneficios-tributarios-innovacion",
+    cta: "Ver beneficios tributarios",
     description:
       "Acompañamiento en la estructuración y postulación de proyectos para acceder a [beneficios tributarios por inversiones en I+D+i](/blog/que-es-un-beneficio-tributario-colombia) ante Minciencias, e inversiones ambientales.",
     highlights: [
@@ -79,13 +82,9 @@ export default function ServicesSection() {
                 {service.icon}
               </div>
               <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
-                {service.href ? (
-                  <Link href={service.href} className="hover:text-primary transition-colors">
-                    {service.title}
-                  </Link>
-                ) : (
-                  service.title
-                )}
+                <Link href={service.href} className="hover:text-primary transition-colors">
+                  {service.title}
+                </Link>
               </h3>
               <p className="text-muted-foreground text-sm leading-relaxed flex-1">
                 {renderInlineText(service.description)}
@@ -100,6 +99,12 @@ export default function ServicesSection() {
                   </li>
                 ))}
               </ul>
+              <Link href={service.href} className="btn-primary text-sm mt-6 w-full">
+                {service.cta}
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </div>
           ))}
         </div>

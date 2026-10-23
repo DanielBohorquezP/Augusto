@@ -57,6 +57,14 @@ const metodologia = [
   },
 ];
 
+const herramientas = [
+    {
+      name: "Adopción de IA por reto de negocio",
+      description:
+        "La formación parte de un reto real del área, no de un temario genérico. Cada participante termina con un artefacto funcional construido sobre las herramientas que la empresa ya tiene.",
+    },
+];
+
 const paraQuien = [
   "Equipos de cualquier área funcional (comercial, financiera, operaciones, talento humano) que ya tienen acceso a herramientas de IA pero no las han incorporado a su trabajo diario",
   "Niveles directivos que necesitan criterio propio para decidir dónde la IA generativa agrega valor en su organización y dónde no",
@@ -116,6 +124,7 @@ export default function CapacitacionIaGenerativaPage() {
         problema={problema}
         incluye={incluye}
         metodologia={metodologia}
+        herramientas={herramientas}
         paraQuien={paraQuien}
         faqs={faqs}
         articulosRelacionados={[

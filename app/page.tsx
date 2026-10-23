@@ -5,7 +5,6 @@ import FAQAccordion from "@/components/FAQAccordion";
 import Reveal from "@/components/Reveal";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
-import MetodologiasSection from "@/components/sections/MetodologiasSection";
 import LogosCarousel from "@/components/sections/LogosCarousel";
 import Prime10Banner from "@/components/sections/Prime10Banner";
 import AffiliationsSection from "@/components/sections/AffiliationsSection";
@@ -94,10 +93,8 @@ export default function HomePage() {
       <ServicesSection />
       <LogosCarousel />
       <ParaQuienSection />
-      <MetodologiasSection />
       <Prime10Banner />
       <ComoTrabajoSection />
-      <AffiliationsSection />
       <TestimonialsSection />
       <BlogPreviewSection />
       <section className="py-16 bg-white">
@@ -111,6 +108,7 @@ export default function HomePage() {
         </div>
       </section>
       <CTASection />
+      <AffiliationsSection />
     </>
   );
 }

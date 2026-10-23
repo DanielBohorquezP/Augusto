@@ -96,6 +96,14 @@ const metodologia = [
   },
 ];
 
+const herramientas = [
+    {
+      name: "Formulación de proyectos I+D+i",
+      description:
+        "Estructuración técnica de proyectos según los criterios de la entidad competente (Minciencias, ANLA o UPME) para acceder a beneficios tributarios por inversión.",
+    },
+];
+
 const paraQuien = [
   "Empresas que ya tienen contador, revisor fiscal o firma de consultoría tributaria, pero ningún especialista en la formulación técnica del proyecto ante Minciencias, la UPME o la ANLA: este servicio complementa al asesor tributario, no lo reemplaza",
   "Empresas que invierten en proyectos de I+D+i (nuevos productos, procesos o desarrollos tecnológicos) y no están usando los beneficios de Minciencias",
@@ -194,6 +202,7 @@ export default function BeneficiosTributariosInnovacionPage() {
         incluyeNota="Tasa de aprobación en proyectos gestionados: 93%."
         comparativa={comparativa}
         metodologia={metodologia}
+        herramientas={herramientas}
         paraQuien={paraQuien}
         faqs={faqs}
         articulosRelacionados={[

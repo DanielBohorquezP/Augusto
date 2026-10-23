@@ -108,6 +108,29 @@ const metodologia = [
   },
 ];
 
+const herramientas = [
+    {
+      name: "Simulación Monte Carlo",
+      description:
+        "Reemplaza el VPN puntual por una distribución de probabilidad del valor del proyecto. En vez de un número que asume un futuro fijo, entrega el rango de resultados posibles y su probabilidad.",
+    },
+    {
+      name: "Valoración de opciones reales",
+      description:
+        "Valora la flexibilidad de la decisión: postergar, escalar o abandonar. Es lo que el flujo de caja descontado no captura y lo que hace que se rechacen proyectos que sí crean valor.",
+    },
+    {
+      name: "Diseño del experimento crítico",
+      description:
+        "Identifica la variable de mayor incertidumbre del proyecto y define qué debe validarse experimentalmente, con un piloto o un MVP, antes de comprometer la inversión completa.",
+    },
+    {
+      name: "Canvas de modelo de negocio ampliado",
+      description:
+        "El Canvas de Osterwalder con un décimo cuadrante: la evaluación financiera probabilística del modelo de negocio, que el lienzo original deja fuera.",
+    },
+];
+
 const paraQuien = [
   "Direcciones de innovación y tecnología que deben sustentar una decisión de inversión ante junta o comité",
   "CFOs y equipos financieros que evalúan proyectos de I+D+i con herramientas diseñadas para contextos predecibles",
@@ -190,6 +213,7 @@ export default function EvaluacionFinancieraInnovacionPage() {
         incluye={incluye}
         incluyeNota="Plazo de referencia: entre 3 y 5 días, según la información disponible del proyecto."
         metodologia={metodologia}
+        herramientas={herramientas}
         paraQuien={paraQuien}
         faqs={faqs}
         articulosRelacionados={[

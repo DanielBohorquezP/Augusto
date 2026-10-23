@@ -1,3 +1,5 @@
+import Carousel from "@/components/Carousel";
+
 const testimonials = [
   {
     quote:
@@ -56,9 +58,9 @@ export default function TestimonialsSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <Carousel label="Testimonios">
           {testimonials.map((t) => (
-            <figure key={t.name} className="card p-6 lg:p-8 flex flex-col">
+            <figure key={t.name} className="card p-6 lg:p-8 flex flex-col h-full">
               {/* Stars */}
               {/* role="img" es necesario: aria-label sobre un <div> generico
                   esta prohibido por ARIA y los lectores de pantalla lo ignoran. */}
@@ -90,7 +92,7 @@ export default function TestimonialsSection() {
               </figcaption>
             </figure>
           ))}
-        </div>
+        </Carousel>
       </div>
     </section>
   );

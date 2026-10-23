@@ -129,17 +129,21 @@ npm run start    # servidor de producción
 /blog/* → 0.75 (mensual)
 ```
 
+### Carrusel reutilizable (`components/Carousel.tsx`)
+
+Client component con scroll-snap nativo (las diapositivas quedan en el HTML), flechas y puntos; ancho por vista configurable con `itemClassName` (por defecto 1/2/3). Lo usan `TestimonialsSection` y cada sección de `/recursos` (lecturas para empezar, más lecturas, videos, podcasts, cursos, de mi autoría).
+
 ### Estructura de la Homepage (`/`)
 
 1. `<HeroSection>` — identidad, foto, stats (10+ años, 50+ org, PRIME-10)
-2. `<ServicesSection>` — los 3 servicios principales
+2. `<ServicesSection>` — los 3 servicios principales, cada tarjeta con CTA a su página
 3. `<LogosCarousel>` — logos de clientes
-4. `<MetodologiasSection>` — metodologías de innovación, con PRIME-10 destacada
-5. `<Prime10Banner>` — CTA al framework propietario
-6. `<AffiliationsSection>` — logos/sellos Uniandes + EAFIT
-7. `<TestimonialsSection>` — testimonios de clientes
-8. `<BlogPreviewSection>` — últimos artículos del blog
-9. `<CTASection>` — llamada a la acción final
+4. `<Prime10Banner>` — CTA al framework propietario
+5. `<TestimonialsSection>` — testimonios de clientes (carrusel)
+6. `<BlogPreviewSection>` — últimos artículos del blog
+7. FAQ
+8. `<CTASection>` — llamada a la acción final
+9. `<AffiliationsSection>` — credenciales y afiliaciones (PhD(c), CQRM, PMP…), al final de la página, justo antes del footer
 
 ### Posicionamiento de la homepage (desde 2026-08-21)
 
@@ -163,9 +167,13 @@ template `"%s | Augusto Ruiz"` del layout raíz — la marca ya va escrita al fi
 y así la frase a posicionar ocupa el arranque del title.
 
 **Diferenciador frente a la competencia:** los competidores dicen tener
-"metodologías propias" sin nombrarlas ni acreditarlas. `MetodologiasSection`
-hace lo contrario: nombra las seis y pone al frente PRIME-10™ como la única
-registrada ante la DNDA (2025). Es además el puente interno hacia `/prime-10`.
+"metodologías propias" sin nombrarlas ni acreditarlas. la antigua
+`MetodologiasSection` (eliminada del home por redundante con Servicios) hacía lo
+contrario: nombraba las seis metodologías. Ese contenido vive ahora en la sección
+"Metodologías que aplico" de cada página de servicio (prop opcional `herramientas`
+de `ServicioDetalle`): Monte Carlo, opciones reales, experimento crítico y Canvas
+ampliado en `/servicios/evaluacion-financiera-innovacion`; adopción de IA por reto
+en capacitación; formulación I+D+i en beneficios tributarios.
 
 ### Profundidad de `/servicios` (desde 2026-08-21)
 
@@ -601,13 +609,12 @@ refresca el suyo solo al volver a rastrear el sitio (puede tardar semanas).
 | Componente | Contenido |
 |-----------|-----------|
 | `HeroSection` | Foto profesional, headline, descripción, 2 CTAs, stats row |
-| `ServicesSection` | 3 servicios en cards con beneficios listados; las 3 enlazan a su página (PRIME-10 Assessment, Capacitación en IA generativa, Beneficios tributarios) |
+| `ServicesSection` | 3 servicios en cards con beneficios listados y CTA por tarjeta; las 3 enlazan a su página (PRIME-10 Assessment, Capacitación en IA generativa, Beneficios tributarios) |
 | `ParaQuienSection` | H2 "¿Para quién trabajo?": 4 segmentos por necesidad, cada uno enlazado a su servicio (sin sectores ni clientes inventados) |
-| `MetodologiasSection` | H2 "Metodologías de innovación que aplico"; tarjeta destacada de PRIME-10™ (registrada DNDA) + 6 metodologías etiquetadas por servicio |
 | `Prime10Banner` | Banner destacado con CTA al framework; H2 "PRIME-10™: evaluación financiera bajo incertidumbre" (distinto del H3 "PRIME-10™" de Metodologías) |
 | `ComoTrabajoSection` | H2 "Cómo trabajo": `<ol>` de 4 pasos (conversación, diagnóstico, propuesta, ejecución) + CTA de WhatsApp. No declara modalidad de precio |
 | `AffiliationsSection` | Uniandes + EAFIT + otras afiliaciones |
-| `TestimonialsSection` | 6 testimonios reales con nombre y cargo; H2 "Lo que dicen participantes y clientes" (son de talleres/masterclass, no resultados de consultoría) |
+| `TestimonialsSection` | carrusel (usa `components/Carousel.tsx`) con 6 testimonios reales con nombre y cargo; H2 "Lo que dicen participantes y clientes" (son de talleres/masterclass, no resultados de consultoría) |
 | `BlogPreviewSection` | Vista previa de últimos posts; pasa `headingLevel="h3"` a `BlogPostCard` para no romper la jerarquía bajo el H2 "Últimos artículos" |
 | `CTASection` | CTA final — "Agenda una consulta gratuita" |
 | `StatsSection` | Sección de stats (removida de homepage, existe el componente) |
