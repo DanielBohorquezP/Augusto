@@ -12,7 +12,6 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import BlogPreviewSection from "@/components/sections/BlogPreviewSection";
 import CTASection from "@/components/sections/CTASection";
 import ParaQuienSection from "@/components/sections/ParaQuienSection";
-import ComoTrabajoSection from "@/components/sections/ComoTrabajoSection";
 
 export const metadata: Metadata = {
   // `absolute` evita que se aplique el template "%s | Augusto Ruiz" del layout
@@ -69,7 +68,7 @@ const faqs = [
   },
   {
     q: "¿Cuánto tarda una evaluación con PRIME-10™?",
-    a: "El PRIME-10 Assessment genera resultados accionables en 2 a 3 semanas, y la evaluación completa del modelo toma de 3 a 5 días de trabajo. El resultado es una distribución de probabilidad del valor del proyecto, las variables de mayor incertidumbre y el experimento crítico que conviene hacer antes de comprometer la inversión completa.",
+    a: "El PRIME-10 Assessment genera resultados accionables en 2 a 3 semanas. El resultado es una distribución de probabilidad del valor del proyecto, las variables de mayor incertidumbre y el experimento crítico que conviene hacer antes de comprometer la inversión completa.",
   },
   {
     q: "¿Trabajas solo en Colombia o también en otros países?",
@@ -94,7 +93,6 @@ export default function HomePage() {
       <LogosCarousel />
       <ParaQuienSection />
       <Prime10Banner />
-      <ComoTrabajoSection />
       <TestimonialsSection />
       <BlogPreviewSection />
       <section className="py-16 bg-white">

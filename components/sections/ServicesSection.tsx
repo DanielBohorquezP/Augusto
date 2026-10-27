@@ -1,14 +1,30 @@
+import Image from "next/image";
 import Link from "next/link";
 import { renderInlineText } from "@/lib/inline-text";
+import { whatsappUrl } from "@/lib/site";
 
-const services = [
+type Service = {
+  id: string;
+  num: string;
+  tagline: string;
+  title: string;
+  href: string;
+  cta: string;
+  description: string;
+  highlights: string[];
+  image: string;
+  imageAlt: string;
+  statValue: string;
+  statLabel: string;
+  statAccent?: boolean;
+  secondaryCta: { label: string; href: string };
+};
+
+const services: Service[] = [
   {
     id: "evaluacion-financiera",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    ),
+    num: "01",
+    tagline: "Evaluación financiera bajo incertidumbre",
     title: "PRIME-10 Assessment",
     href: "/prime-10",
     cta: "Ver PRIME-10 Assessment",
@@ -19,14 +35,16 @@ const services = [
       "Simulación y análisis de riesgo",
       "Diseño del experimento crítico para reducir incertidumbre",
     ],
+    image: "/images/prime10-canvas.jpg",
+    imageAlt: "Canvas de modelo de negocio con el décimo cuadrante de PRIME-10 Assessment",
+    statValue: "2–3 sem",
+    statLabel: "para resultados accionables",
+    secondaryCta: { label: "Preguntar por WhatsApp", href: whatsappUrl("Hola Augusto, vengo de tu sitio web y quiero información sobre este servicio.") },
   },
   {
     id: "ia-generativa",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
+    num: "02",
+    tagline: "Adopción por área y reto de negocio",
     title: "Capacitación en IA generativa",
     href: "/servicios/capacitacion-ia-generativa",
     cta: "Conocer la capacitación",
@@ -37,82 +55,144 @@ const services = [
       "Basado en retos de negocio reales",
       "Cada participante construye su propio artefacto",
     ],
+    image: "/images/servicios-ia-generativa.jpg",
+    imageAlt: "Taller de capacitación en IA generativa para equipos corporativos",
+    statValue: "4–8 h",
+    statLabel: "por taller, con artefacto al final",
+    secondaryCta: { label: "Preguntar por WhatsApp", href: whatsappUrl("Hola Augusto, vengo de tu sitio web y quiero información sobre este servicio.") },
   },
   {
     id: "financiacion",
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    title: "Beneficios tributarios I+D+i",
+    num: "03",
+    tagline: "Minciencias, ANLA, UPME y ART",
+    title: "Beneficios tributarios y OxI",
     href: "/servicios/beneficios-tributarios-innovacion",
     cta: "Ver beneficios tributarios",
     description:
-      "Acompañamiento en la estructuración y postulación de proyectos para acceder a [beneficios tributarios por inversiones en I+D+i](/blog/que-es-un-beneficio-tributario-colombia) ante Minciencias, e inversiones ambientales.",
+      "Acompañamiento en la estructuración y postulación de proyectos para acceder a [beneficios tributarios por inversiones en I+D+i](/blog/que-es-un-beneficio-tributario-colombia) ante Minciencias, inversiones ambientales ante la ANLA y en el mecanismo de Obras por Impuestos (OxI), incluida su modalidad para la reconstrucción (OxI-R).",
     highlights: [
+      "Evaluación de elegibilidad antes de cualquier compromiso",
       "Estructuración y formulación del proyecto",
-      "Gestión ante Minciencias y entidades ambientales (ANLA, UPME)",
-      "93% tasa de aprobación Minciencias",
+      "Gestión ante Minciencias, ANLA, UPME y ART",
     ],
+    image: "/images/servicios-beneficios-tributarios.jpg",
+    imageAlt: "Documentos de un proyecto de beneficios tributarios I+D+i",
+    statValue: "93%",
+    statLabel: "tasa de aprobación Minciencias",
+    statAccent: true,
+    secondaryCta: { label: "Ver todos los servicios", href: "/servicios" },
   },
 ];
 
+const check = (
+  <svg className="w-5 h-5 text-accent shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+  </svg>
+);
+
 export default function ServicesSection() {
   return (
-    <section className="py-20 bg-muted" id="servicios">
-      <div className="container-site">
-        <div className="text-center mb-12">
-          <span className="inline-block text-accent font-body font-semibold text-sm uppercase tracking-widest mb-3">
+    <section className="py-20 lg:py-[120px] bg-white" id="servicios">
+      <div className="max-w-[1152px] mx-auto px-5 sm:px-8 lg:px-0">
+        <div className="flex flex-col items-center text-center gap-5 mb-14 lg:mb-24">
+          <span className="font-heading font-semibold text-xs uppercase tracking-[.18em] text-accent">
             Consultoría especializada
           </span>
-          <h2 className="section-heading text-3xl sm:text-4xl">
+          <h2 className="font-heading font-semibold text-[32px] sm:text-5xl lg:text-[52px] leading-[1.08] tracking-[-.03em] text-primary max-w-[760px] text-balance">
             Servicios para organizaciones innovadoras
           </h2>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
+          <p className="text-base lg:text-lg leading-[1.7] text-muted-foreground max-w-[620px]">
             Combino investigación de frontera con práctica organizacional para ofrecer
             soluciones concretas y medibles.
           </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service) => (
-            <div key={service.id} className="card p-6 lg:p-8 flex flex-col">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-5">
-                {service.icon}
-              </div>
-              <h3 className="font-heading font-semibold text-lg text-foreground mb-3">
-                <Link href={service.href} className="hover:text-primary transition-colors">
-                  {service.title}
-                </Link>
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed flex-1">
-                {renderInlineText(service.description)}
-              </p>
-              <ul className="mt-4 space-y-2">
-                {service.highlights.map((h) => (
-                  <li key={h} className="flex items-center gap-2 text-xs text-foreground">
-                    <svg className="w-4 h-4 text-accent shrink-0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    {h}
-                  </li>
-                ))}
-              </ul>
-              <Link href={service.href} className="btn-primary text-sm mt-6 w-full">
-                {service.cta}
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+          <div className="flex flex-wrap justify-center gap-2 mt-3">
+            {services.map((s) => (
+              <Link
+                key={s.id}
+                href={s.href}
+                className="inline-flex items-center gap-2 px-4 py-2.5 border border-border rounded-full text-[13px] font-semibold text-primary hover:border-primary transition-colors"
+              >
+                <span className="text-accent font-heading">{s.num}</span>
+                {s.title}
               </Link>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div className="mt-10 text-center">
-          <Link href="/servicios" className="btn-primary">
-            Ver todos los servicios
-          </Link>
+        <div className="flex flex-col gap-16 lg:gap-28">
+          {services.map((s, i) => {
+            const imageRight = i % 2 === 1;
+            return (
+              <div
+                key={s.id}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-[88px] items-center"
+              >
+                <div className={`relative ${imageRight ? "lg:order-2" : ""}`}>
+                  <Image
+                    src={s.image}
+                    alt={s.imageAlt}
+                    width={800}
+                    height={640}
+                    sizes="(min-width: 1024px) 532px, 100vw"
+                    className="w-full aspect-[5/4] object-cover rounded-3xl"
+                  />
+                  <div
+                    className={`absolute bottom-6 lg:bottom-8 rounded-2xl px-5 py-4 lg:px-6 lg:py-5 flex flex-col gap-0.5 text-white ${
+                      imageRight ? "left-4 lg:-left-7" : "right-4 lg:-right-7"
+                    } ${
+                      s.statAccent
+                        ? "bg-accent shadow-[0_20px_40px_-16px_rgba(206,34,34,.5)]"
+                        : "bg-primary shadow-[0_20px_40px_-16px_rgba(14,28,61,.5)]"
+                    }`}
+                  >
+                    <span className="font-heading font-semibold text-2xl lg:text-[30px] leading-none">
+                      {s.statValue}
+                    </span>
+                    <span className={`text-[13px] ${s.statAccent ? "text-white" : "text-white/75"}`}>
+                      {s.statLabel}
+                    </span>
+                  </div>
+                </div>
+
+                <div className={`flex flex-col gap-5 ${imageRight ? "lg:order-1" : ""}`}>
+                  <span className="font-heading font-semibold text-[13px] text-accent tracking-[.04em]">
+                    {s.num} — {s.tagline}
+                  </span>
+                  <h3 className="font-heading font-semibold text-[28px] sm:text-4xl lg:text-[40px] leading-[1.1] tracking-[-.025em] text-primary">
+                    {s.title}
+                  </h3>
+                  <p className="text-base lg:text-[17px] leading-[1.7] text-muted-foreground [text-wrap:pretty]">
+                    {renderInlineText(s.description)}
+                  </p>
+                  <ul className="flex flex-col gap-3 mt-1">
+                    {s.highlights.map((h) => (
+                      <li key={h} className="flex gap-3 items-start text-[15px] text-foreground">
+                        {check}
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-x-6 gap-y-3 items-center mt-3">
+                    <Link
+                      href={s.href}
+                      className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-heading font-semibold text-sm px-6 py-3.5 rounded-lg whitespace-nowrap transition-colors"
+                    >
+                      {s.cta}
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                    <Link
+                      href={s.secondaryCta.href}
+                      className="font-heading font-semibold text-sm text-primary hover:text-accent transition-colors"
+                    >
+                      {s.secondaryCta.label}
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

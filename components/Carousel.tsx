@@ -8,10 +8,15 @@ type CarouselProps = {
   children: React.ReactNode;
   /** Ancho de cada diapositiva segun breakpoint. Por defecto 1 / 2 / 3 por vista. */
   itemClassName?: string;
+  /** "soft": flechas blancas con sombra, para usar sobre fondos claros de color. */
+  variant?: "default" | "soft";
 };
 
-const arrowClass =
-  "w-11 h-11 rounded-full border border-border bg-white text-primary flex items-center justify-center transition-colors hover:bg-primary hover:text-white focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-40 disabled:pointer-events-none";
+const arrowClasses = {
+  default:
+    "w-11 h-11 rounded-full border border-border bg-white text-primary flex items-center justify-center transition-colors hover:bg-primary hover:text-white focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-40 disabled:pointer-events-none",
+  soft: "w-12 h-12 rounded-full bg-white text-primary shadow-[0_1px_2px_rgba(14,28,61,.1)] flex items-center justify-center transition-colors hover:bg-primary hover:text-white focus-visible:ring-2 focus-visible:ring-accent disabled:opacity-40 disabled:pointer-events-none",
+};
 
 /*
   Carrusel con scroll-snap nativo: todas las diapositivas quedan en el HTML
@@ -22,11 +27,14 @@ export default function Carousel({
   label,
   children,
   itemClassName = "basis-full md:basis-1/2 lg:basis-1/3",
+  variant = "default",
 }: CarouselProps) {
+  const arrowClass = arrowClasses[variant];
   const items = Children.toArray(children);
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const [atEnd, setAtEnd] = useState(false);
+  const [perView, setPerView] = useState(1);
 
   const cardStep = useCallback(() => {
     const first = trackRef.current?.firstElementChild as HTMLElement | null;
@@ -48,7 +56,10 @@ export default function Carousel({
     if (!track) return;
     const onScroll = () => {
       const step = cardStep();
-      if (step) setActive(Math.round(track.scrollLeft / step));
+      if (step) {
+        setActive(Math.round(track.scrollLeft / step));
+        setPerView(Math.max(1, Math.round(track.clientWidth / step)));
+      }
       setAtEnd(track.scrollLeft + track.clientWidth >= track.scrollWidth - 2);
     };
     onScroll();
@@ -60,7 +71,9 @@ export default function Carousel({
     };
   }, [cardStep]);
 
-  const current = atEnd ? items.length - 1 : active;
+  // Un punto por posicion de scroll posible (no uno por tarjeta).
+  const dots = Math.max(1, items.length - perView + 1);
+  const current = atEnd ? dots - 1 : Math.min(active, dots - 1);
   // Si todo cabe en una vista, no hace falta navegacion.
   const fits = atEnd && active === 0;
 
@@ -95,7 +108,7 @@ export default function Carousel({
             </svg>
           </button>
           <div className="flex items-center gap-2" aria-hidden="true">
-            {items.map((_, i) => (
+            {Array.from({ length: dots }, (_, i) => (
               <span
                 key={i}
                 className={`h-2 rounded-full transition-all ${i === current ? "w-6 bg-accent" : "w-2 bg-border"}`}

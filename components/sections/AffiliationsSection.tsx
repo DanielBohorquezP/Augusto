@@ -11,7 +11,7 @@ export default function AffiliationsSection() {
     <section className="py-14 bg-white border-b border-border">
       <div className="container-site">
         <p className="text-center text-xs font-body font-semibold uppercase tracking-widest text-muted-foreground mb-8">
-          Afiliaciones académicas e institucionales
+          Credenciales académicas y profesionales
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {credentials.map((cred) => (

@@ -47,47 +47,45 @@ const testimonials = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-20 bg-white" id="testimonios">
-      <div className="container-site">
-        <div className="text-center mb-12">
-          <span className="inline-block text-accent font-body font-semibold text-sm uppercase tracking-widest mb-3">
+    <section className="py-20 lg:py-28 bg-muted" id="testimonios">
+      <div className="max-w-[1152px] mx-auto px-5 sm:px-8 lg:px-0">
+        <div className="flex flex-col items-center text-center gap-4 mb-10 lg:mb-14">
+          <span className="font-heading font-semibold text-xs uppercase tracking-[.18em] text-accent">
             Testimonios
           </span>
-          <h2 className="section-heading text-3xl sm:text-4xl">
+          <h2 className="font-heading font-semibold text-[30px] sm:text-4xl lg:text-5xl leading-[1.1] tracking-[-.025em] text-primary">
             Lo que dicen participantes y clientes
           </h2>
         </div>
 
-        <Carousel label="Testimonios">
+        <Carousel label="Testimonios" variant="soft">
           {testimonials.map((t) => (
-            <figure key={t.name} className="card p-6 lg:p-8 flex flex-col h-full">
-              {/* Stars */}
-              {/* role="img" es necesario: aria-label sobre un <div> generico
-                  esta prohibido por ARIA y los lectores de pantalla lo ignoran. */}
-              <div className="flex gap-1 mb-4" role="img" aria-label="5 estrellas">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} className="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-
-              <blockquote className="text-sm text-foreground leading-relaxed flex-1 italic">
-                &ldquo;{t.quote}&rdquo;
+            <figure
+              key={t.name}
+              className="bg-white rounded-[20px] p-7 lg:p-9 flex flex-col gap-6 h-full shadow-[0_1px_2px_rgba(14,28,61,.06)]"
+            >
+              <span
+                className="font-heading font-bold text-[56px] leading-[.5] text-[#E2E8F0] h-6 self-end"
+                aria-hidden="true"
+              >
+                ”
+              </span>
+              <blockquote className="text-base leading-[1.7] text-foreground flex-1 [text-wrap:pretty]">
+                {t.quote}
               </blockquote>
-
-              <figcaption className="mt-6 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <span className="font-heading font-bold text-primary text-sm">
-                    {t.name.charAt(0)}
-                  </span>
-                </div>
-                <div>
-                  <p className="font-heading font-semibold text-sm text-foreground">{t.name}</p>
-                  <p className="text-xs text-muted-foreground">
+              <figcaption className="flex items-center gap-3 pt-5 border-t border-[#E2E8F0]">
+                <span
+                  className="w-11 h-11 shrink-0 rounded-full bg-primary text-white font-heading font-semibold text-[15px] flex items-center justify-center"
+                  aria-hidden="true"
+                >
+                  {t.name.charAt(0)}
+                </span>
+                <div className="flex flex-col gap-0.5">
+                  <span className="font-heading font-semibold text-sm text-foreground">{t.name}</span>
+                  <span className="text-xs text-muted-foreground">
                     {t.title}
                     {t.company ? ` · ${t.company}` : ""}
-                  </p>
+                  </span>
                 </div>
               </figcaption>
             </figure>
