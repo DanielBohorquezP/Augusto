@@ -131,23 +131,26 @@ export default function Prime10Page() {
                 </a>
               </div>
             </div>
-            <div className="grid grid-cols-3 gap-3" aria-hidden="true">
-              {prime10Phases.map((p) => (
-                <div
-                  key={p.letter}
-                  className="aspect-square rounded-[20px] p-3.5 sm:p-5 flex flex-col justify-between text-primary"
-                  style={{ background: p.color, boxShadow: `0 12px 24px -12px ${p.color}` }}
-                >
-                  <span className="font-heading font-bold text-3xl sm:text-[44px] leading-none">{p.letter}</span>
-                  <span className="text-[11px] sm:text-[13px] leading-[1.3] font-semibold">{p.title}</span>
-                </div>
-              ))}
-              <div className="aspect-square bg-white rounded-[20px] p-3.5 sm:p-5 flex flex-col justify-between">
-                <span className="font-heading font-bold text-3xl sm:text-[44px] leading-none text-primary">10</span>
-                <span className="text-[11px] sm:text-[13px] leading-[1.3] font-semibold text-primary">
-                  Cuadrante de evaluación financiera
-                </span>
-              </div>
+            <div className="flex flex-col items-center gap-6">
+              <Image
+                src="/images/guia-prime-10.webp"
+                alt="Portada de la guía PRIME-10: 15 habilidades para llevar Claude, Gemini o Copilot al nivel de una junta directiva"
+                width={1024}
+                height={1536}
+                sizes="(min-width: 1024px) 340px, 60vw"
+                priority
+                className="w-[60%] max-w-[340px] h-auto drop-shadow-[0_30px_40px_rgba(0,0,0,.45)]"
+              />
+              <a
+                href="/descargas/guia-15-habilidades-prime-10.pdf"
+                download
+                className="inline-flex items-center gap-2.5 bg-white hover:bg-[#F5F7FB] text-primary font-heading font-semibold text-[15px] px-7 py-4 rounded-[10px] transition-colors"
+              >
+                <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 4v12m0 0l-4-4m4 4l4-4" />
+                </svg>
+                Descargar la guía gratis (PDF)
+              </a>
             </div>
           </div>
           <dl className="grid grid-cols-2 lg:grid-cols-4 border-t border-white/15">
