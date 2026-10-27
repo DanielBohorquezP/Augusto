@@ -169,8 +169,8 @@ export default function Prime10Page() {
         <div className={`${wrap} grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-10 lg:gap-20 items-center`}>
           <div className="relative w-full aspect-square rounded-3xl overflow-hidden">
             <Image
-              src="/images/prime10-canvas.jpg"
-              alt="Estructura del framework PRIME-10"
+              src="/images/prime10-pizarra.webp"
+              alt="Augusto Ruiz explicando el canvas de 10 cuadrantes de PRIME-10 en una pizarra"
               fill
               sizes="(min-width: 1024px) 520px, 100vw"
               className="object-cover"
@@ -322,8 +322,8 @@ export default function Prime10Page() {
           </div>
           <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-3xl overflow-hidden">
             <Image
-              src="/images/prime10-investigacion.jpg"
-              alt="Investigación académica presentada en conferencias internacionales"
+              src="/images/prime10-ponencia-balas.webp"
+              alt="Augusto Ruiz presentando la investigación sobre PRIME-10 en la conferencia BALAS 2026"
               fill
               sizes="(min-width: 1152px) 1152px, 100vw"
               className="object-cover"

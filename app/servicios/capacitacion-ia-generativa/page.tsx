@@ -120,8 +120,8 @@ export default function CapacitacionIaGenerativaPage() {
         breadcrumbLabel="Capacitación en IA generativa"
         routePath="/servicios/capacitacion-ia-generativa"
         imagen={{
-          src: "/images/IMG_5823.png",
-          alt: "Sesión de trabajo con un equipo frente a un tablero de estrategia e innovación",
+          src: "/images/servicio-ia-hero.webp",
+          alt: "Augusto Ruiz con participantes de un workshop de IA generativa para equipos corporativos",
         }}
         hechos={hechos}
         lead={lead}

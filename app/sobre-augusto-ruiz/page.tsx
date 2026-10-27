@@ -159,8 +159,8 @@ export default function SobrePage() {
         <div className="container-site max-w-4xl">
           <div className="relative w-full aspect-[21/9] rounded-xl overflow-hidden">
             <Image
-              src="/images/sobre-secundaria.jpg"
-              alt="Decisiones estratégicas bajo incertidumbre"
+              src="/images/sobre-ital.webp"
+              alt="Augusto Ruiz frente al Instituto de Tecnología de Alimentos (ITAL) en São Paulo"
               fill
               sizes="100vw"
               className="object-cover"

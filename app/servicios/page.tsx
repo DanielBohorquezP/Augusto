@@ -191,16 +191,16 @@ const shortNames: Record<string, string> = {
 
 const serviceImages: Record<string, { src: string; alt: string }> = {
   "evaluacion-financiera": {
-    src: "/images/prime10-canvas.jpg",
-    alt: "Canvas de modelo de negocio con el décimo cuadrante de PRIME-10",
+    src: "/images/prime10-evaluacion.webp",
+    alt: "Augusto Ruiz analizando una simulación Monte Carlo del flujo de caja de un proyecto",
   },
   "ia-generativa": {
-    src: "/images/servicios-ia-generativa.jpg",
-    alt: "Workshop de aplicaciones de inteligencia artificial generativa",
+    src: "/images/servicio-ia-taller.webp",
+    alt: "Participantes de un workshop de IA generativa junto a Augusto Ruiz",
   },
   financiacion: {
-    src: "/images/servicios-beneficios-tributarios.jpg",
-    alt: "Documentación de beneficios tributarios",
+    src: "/images/servicio-tributarios-reunion.webp",
+    alt: "Reunión de trabajo para estructurar un proyecto de beneficios tributarios I+D+i",
   },
 };
 
