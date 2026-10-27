@@ -11,16 +11,16 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Texto de la página de inicio | `app/page.tsx` + secciones en `components/sections/` |
 | Hero (título, subtítulo, CTA) | `components/sections/HeroSection.tsx` |
 | Estadísticas (años, proyectos...) | `components/sections/StatsSection.tsx` |
-| Servicios + metodologías (cards con CTA) | `components/sections/ServicesSection.tsx` |
+| Servicios en zigzag (imagen + estadística + CTA) | `components/sections/ServicesSection.tsx` |
 | Testimonios | `components/sections/TestimonialsSection.tsx` |
 | Carrusel reutilizable | `components/Carousel.tsx` (testimonios y secciones de `/recursos`) |
-| ¿Para quién trabajo? (segmentos) | `components/sections/ParaQuienSection.tsx` |
-| Cómo trabajo (proceso en 4 pasos) | `components/sections/ComoTrabajoSection.tsx` |
+| Situaciones / «Por qué me buscan las empresas» (selector interactivo, primer caso abierto) | `components/sections/ParaQuienSection.tsx` |
+| Cómo trabajo (proceso en 4 pasos); ya NO se usa en la home, se conserva el componente | `components/sections/ComoTrabajoSection.tsx` |
 | Banner PRIME-10 | `components/sections/Prime10Banner.tsx` |
 | Preview de blog en home | `components/sections/BlogPreviewSection.tsx` |
 | Afiliaciones (logos) | `components/sections/AffiliationsSection.tsx` |
 | CTA final de home | `components/sections/CTASection.tsx` |
-| Plantilla de las 3 páginas de servicio | `components/sections/ServicioDetalle.tsx` — props en `ServicioDetalleProps`; `comparativa` es opcional (con `enlace` opcional dentro) y hoy la usan beneficios tributarios y evaluación financiera; `articulosRelacionados` (slugs de `content/blog/`, opcional) pinta el bloque "Artículos relacionados" tras las FAQ y omite en silencio los slugs que no existen, así que se pueden listar posts aún sin publicar |
+| Plantilla de las 3 páginas de servicio | `components/sections/ServicioDetalle.tsx` — props en `ServicioDetalleProps` (incl. `hechos`, `lead`, `clave`, `seccionExtra` para la sección OxI); `comparativa` es opcional (con `enlace` opcional dentro) y hoy la usan beneficios tributarios y evaluación financiera; `articulosRelacionados` (slugs de `content/blog/`, opcional) pinta el bloque "Artículos relacionados" tras las FAQ y omite en silencio los slugs que no existen, así que se pueden listar posts aún sin publicar |
 | **Publicar un artículo nuevo** | `content/blog/COMO-PUBLICAR.md` — instrucciones para Claude |
 | **Artículos del blog** | `content/blog/*.md` — un archivo por artículo |
 | **Fotos de los artículos** | `public/blog/<slug>.jpg` — se declara en el frontmatter con `image` + `imageAlt`; sale en la tarjeta y en el hero del post |
