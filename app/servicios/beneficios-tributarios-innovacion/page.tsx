@@ -8,23 +8,23 @@ import ServicioDetalle from "@/components/sections/ServicioDetalle";
 // familias de terminos ("consultoria tributaria para empresas" + "beneficios I+D+i")
 // dentro del limite de 65 caracteres que sigue el resto del sitio.
 export const metadata: Metadata = {
-  title: { absolute: "Consultoría en Beneficios Tributarios para Empresas I+D+i" },
+  title: { absolute: "Beneficios Tributarios y OxI para Empresas en Colombia" },
   description:
-    "Consultoría en beneficios tributarios para empresas en Colombia: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
+    "Beneficios tributarios y Obras por Impuestos (OxI) para empresas en Colombia: proyectos de I+D+i ante Minciencias, inversiones ambientales ante la ANLA y UPME, y OxI-R.",
   alternates: { canonical: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion" },
   openGraph: {
-    title: "Consultoría en Beneficios Tributarios para Empresas I+D+i | Augusto Ruiz",
+    title: "Beneficios Tributarios y OxI para Empresas en Colombia | Augusto Ruiz",
     description:
-      "Consultoría en beneficios tributarios para empresas en Colombia: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
+      "Beneficios tributarios y Obras por Impuestos (OxI) para empresas en Colombia: proyectos de I+D+i ante Minciencias, inversiones ambientales ante la ANLA y UPME, y OxI-R.",
     url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion",
     type: "website",
     images: [{ url: "https://www.augustoruiz.org/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Consultoría en Beneficios Tributarios para Empresas I+D+i | Augusto Ruiz",
+    title: "Beneficios Tributarios y OxI para Empresas en Colombia | Augusto Ruiz",
     description:
-      "Consultoría en beneficios tributarios para empresas en Colombia: proyectos de I+D+i ante Minciencias y FNCE ante la UPME y la ANLA.",
+      "Beneficios tributarios y Obras por Impuestos (OxI) para empresas en Colombia: proyectos de I+D+i ante Minciencias, inversiones ambientales ante la ANLA y UPME, y OxI-R.",
   },
 };
 
@@ -170,13 +170,13 @@ export default function BeneficiosTributariosInnovacionPage() {
     breadcrumbSchema([
       { name: "Inicio", url: "https://www.augustoruiz.org" },
       { name: "Servicios", url: "https://www.augustoruiz.org/servicios" },
-      { name: "Beneficios tributarios", url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion" },
+      { name: "Beneficios tributarios y OxI", url: "https://www.augustoruiz.org/servicios/beneficios-tributarios-innovacion" },
     ]),
     serviceSchema({
       slug: "servicios/beneficios-tributarios-innovacion",
-      name: "Consultoría Tributaria para Empresas en Beneficios Tributarios I+D+i, FNCE y Eficiencia Energética",
+      name: "Beneficios tributarios y OxI",
       description:
-        "Consultoría tributaria para empresas especializada en beneficios tributarios: identificación, formulación y gestión de proyectos de I+D+i ante Minciencias y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA, en Colombia y Latinoamérica.",
+        "Acompañamiento en la estructuración y postulación de proyectos para acceder a beneficios tributarios por inversiones en I+D+i ante Minciencias, inversiones ambientales ante la ANLA y el mecanismo de Obras por Impuestos (OxI), incluida su modalidad para la reconstrucción (OxI-R), en Colombia y Latinoamérica.",
       serviceType: "Consultoría tributaria para empresas — beneficios tributarios por inversión",
     }),
   ];
@@ -185,13 +185,13 @@ export default function BeneficiosTributariosInnovacionPage() {
       <SchemaScript schema={schemas} />
       <ServicioDetalle
         badge="Consultoría tributaria especializada"
-        h1="Consultoría en beneficios tributarios para empresas I+D+i"
+        h1="Beneficios tributarios y Obras por Impuestos"
         // Hero corto a proposito: dos lineas. La identidad del consultor la cubre
         // <AutoridadConsultor> justo debajo, y el detalle de entidades y regimenes
         // vive en "El problema" y en las FAQ. Sin enlaces aqui: las menciones a
         // otras paginas van en las secciones de contenido, no en el encabezado.
         intro="Estructuración y gestión de proyectos de I+D+i ante Minciencias y el CNBT, y de energía y medio ambiente ante la UPME y la ANLA. Tasa de aprobación del 93% en los proyectos gestionados."
-        breadcrumbLabel="Beneficios tributarios"
+        breadcrumbLabel="Beneficios tributarios y OxI"
         routePath="/servicios/beneficios-tributarios-innovacion"
         imagen={{
           src: "/images/20221126_083837.jpg",

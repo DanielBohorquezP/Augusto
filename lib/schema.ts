@@ -45,7 +45,6 @@ export const professionalServiceSchema = {
     "consultoría en innovación estratégica",
     "consultoría en innovación para pymes",
     "evaluación financiera de proyectos de innovación",
-    "transferencia tecnológica",
     "PRIME-10 Assessment",
     "innovación en Colombia",
     "consultoría tributaria para empresas",
@@ -68,7 +67,7 @@ export const professionalServiceSchema = {
           "@type": "Service",
           "@id": `${BASE_URL}/servicios/evaluacion-financiera-innovacion#service`,
           url: `${BASE_URL}/servicios/evaluacion-financiera-innovacion`,
-          name: "Consultoría en Transferencia Tecnológica para Empresas",
+          name: "Evaluación financiera de proyectos de innovación (PRIME-10)",
           // Debe coincidir con la `description` que emite serviceSchema() en la
           // propia pagina del servicio: es el mismo @id. Quedo desincronizada en
           // el commit 94088d5 (reposicionamiento hacia transferencia tecnologica),
@@ -97,9 +96,9 @@ export const professionalServiceSchema = {
           "@type": "Service",
           "@id": `${BASE_URL}/servicios/beneficios-tributarios-innovacion#service`,
           url: `${BASE_URL}/servicios/beneficios-tributarios-innovacion`,
-          name: "Consultoría Tributaria para Empresas en Beneficios Tributarios I+D+i, FNCE y Eficiencia Energética",
+          name: "Beneficios tributarios y OxI",
           description:
-            "Consultoría tributaria para empresas especializada en beneficios tributarios: identificación, formulación y gestión de proyectos de I+D+i ante Minciencias y de FNCE, eficiencia energética y control ambiental ante la UPME y la ANLA, en Colombia y Latinoamérica.",
+            "Acompañamiento en la estructuración y postulación de proyectos para acceder a beneficios tributarios por inversiones en I+D+i ante Minciencias, inversiones ambientales ante la ANLA y el mecanismo de Obras por Impuestos (OxI), incluida su modalidad para la reconstrucción (OxI-R), en Colombia y Latinoamérica.",
         },
       },
       {
@@ -167,7 +166,6 @@ export const personSchema = {
     "Consultoría de Innovación",
     "Metodologías de Innovación",
     "Gestión de Innovación Tecnológica",
-    "Transferencia Tecnológica",
     "Evaluación Financiera de Innovación",
     "Modelos Probabilísticos",
     "Inteligencia Artificial Generativa",

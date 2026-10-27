@@ -15,9 +15,9 @@ const navLinks = [
 
 const serviciosLinks = [
   { label: "Todos los servicios", href: "/servicios" },
-  { label: "Evaluación financiera de innovación", href: "/servicios/evaluacion-financiera-innovacion" },
+  { label: "Evaluación financiera de proyectos (PRIME-10)", href: "/servicios/evaluacion-financiera-innovacion" },
   { label: "Capacitación en IA generativa", href: "/servicios/capacitacion-ia-generativa" },
-  { label: "Beneficios tributarios", href: "/servicios/beneficios-tributarios-innovacion" },
+  { label: "Beneficios tributarios y OxI", href: "/servicios/beneficios-tributarios-innovacion" },
 ];
 
 export default function Navbar() {

@@ -6,7 +6,7 @@ import { trackEvent } from "@/lib/analytics";
 const services = [
   "PRIME-10 Assessment",
   "Formación corporativa en IA generativa",
-  "Beneficios tributarios I+D+i y ambientales",
+  "Beneficios tributarios y OxI",
   "Charla / Taller",
   "Otro",
 ];
