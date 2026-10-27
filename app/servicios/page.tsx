@@ -191,15 +191,15 @@ const shortNames: Record<string, string> = {
 
 const serviceImages: Record<string, { src: string; alt: string }> = {
   "evaluacion-financiera": {
-    src: "/images/prime10-evaluacion.webp",
+    src: "/images/prime10-evaluacion-v2.webp",
     alt: "Augusto Ruiz analizando una simulación Monte Carlo del flujo de caja de un proyecto",
   },
   "ia-generativa": {
-    src: "/images/servicio-ia-taller.webp",
+    src: "/images/servicio-ia-taller-v2.webp",
     alt: "Participantes de un workshop de IA generativa junto a Augusto Ruiz",
   },
   financiacion: {
-    src: "/images/servicio-tributarios-reunion.webp",
+    src: "/images/servicio-tributarios-reunion-v2.webp",
     alt: "Reunión de trabajo para estructurar un proyecto de beneficios tributarios I+D+i",
   },
 };
@@ -354,6 +354,7 @@ export default function ServiciosPage() {
                       alt={serviceImages[service.id].alt}
                       fill
                       sizes="(min-width: 1024px) 520px, 100vw"
+                      quality={90}
                       className="object-cover"
                     />
                   </div>

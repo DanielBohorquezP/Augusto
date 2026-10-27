@@ -138,6 +138,7 @@ export default function Prime10Page() {
                 width={1024}
                 height={1536}
                 sizes="(min-width: 1024px) 340px, 60vw"
+                quality={90}
                 priority
                 className="w-[60%] max-w-[340px] h-auto drop-shadow-[0_30px_40px_rgba(0,0,0,.45)]"
               />
@@ -169,10 +170,11 @@ export default function Prime10Page() {
         <div className={`${wrap} grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] gap-10 lg:gap-20 items-center`}>
           <div className="relative w-full aspect-square rounded-3xl overflow-hidden">
             <Image
-              src="/images/prime10-pizarra.webp"
+              src="/images/prime10-pizarra-v2.webp"
               alt="Augusto Ruiz explicando el canvas de 10 cuadrantes de PRIME-10 en una pizarra"
               fill
               sizes="(min-width: 1024px) 520px, 100vw"
+              quality={90}
               className="object-cover"
             />
           </div>
@@ -322,10 +324,11 @@ export default function Prime10Page() {
           </div>
           <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-3xl overflow-hidden">
             <Image
-              src="/images/prime10-ponencia-balas.webp"
+              src="/images/prime10-ponencia-balas-v2.webp"
               alt="Augusto Ruiz presentando la investigación sobre PRIME-10 en la conferencia BALAS 2026"
               fill
               sizes="(min-width: 1152px) 1152px, 100vw"
+              quality={90}
               className="object-cover"
             />
           </div>

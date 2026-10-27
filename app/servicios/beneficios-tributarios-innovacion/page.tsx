@@ -204,7 +204,7 @@ export default function BeneficiosTributariosInnovacionPage() {
         breadcrumbLabel="Beneficios tributarios y OxI"
         routePath="/servicios/beneficios-tributarios-innovacion"
         imagen={{
-          src: "/images/servicio-tributarios-hero.webp",
+          src: "/images/servicio-tributarios-hero-v2.webp",
           alt: "Augusto Ruiz en una reunión de ingeniería sobre un prototipo tecnológico y su elegibilidad tributaria",
         }}
         hechos={hechos}

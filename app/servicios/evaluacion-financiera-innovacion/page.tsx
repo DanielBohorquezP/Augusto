@@ -208,7 +208,7 @@ export default function EvaluacionFinancieraInnovacionPage() {
         breadcrumbLabel="Evaluación financiera de innovación"
         routePath="/servicios/evaluacion-financiera-innovacion"
         imagen={{
-          src: "/images/servicio-evaluacion-hero.webp",
+          src: "/images/servicio-evaluacion-hero-v2.webp",
           alt: "Augusto Ruiz revisando con un equipo directivo el análisis de una decisión de inversión",
         }}
         hechos={hechos}

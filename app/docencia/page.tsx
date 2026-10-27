@@ -89,10 +89,11 @@ export default function DocenciaPage() {
             </div>
             <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden">
               <Image
-                src="/images/docencia-aula.webp"
+                src="/images/docencia-aula-v2.webp"
                 alt="Augusto Ruiz con estudiantes en un aula de formación ejecutiva"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={90}
                 className="object-cover"
               />
             </div>
@@ -159,10 +160,11 @@ export default function DocenciaPage() {
           <h2 className="section-heading text-2xl sm:text-3xl mb-6">Charlas y talleres</h2>
           <div className="relative mb-8 w-full aspect-[21/9] rounded-xl overflow-hidden">
             <Image
-              src="/images/docencia-ponencia.webp"
+              src="/images/docencia-ponencia-v2.webp"
               alt="Augusto Ruiz durante una ponencia sobre evaluación financiera con IA generativa"
               fill
               sizes="100vw"
+              quality={90}
               className="object-cover"
             />
           </div>

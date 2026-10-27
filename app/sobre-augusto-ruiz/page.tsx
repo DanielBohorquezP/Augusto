@@ -110,6 +110,7 @@ export default function SobrePage() {
                   height={480}
                   priority
                   sizes="(max-width: 640px) 256px, (max-width: 1024px) 288px, 384px"
+                  quality={90}
                   className="w-64 h-80 sm:w-72 sm:h-96 lg:w-[24rem] lg:h-[30rem] object-cover object-top block"
                 />
               </div>
@@ -159,10 +160,11 @@ export default function SobrePage() {
         <div className="container-site max-w-4xl">
           <div className="relative w-full aspect-[21/9] rounded-xl overflow-hidden">
             <Image
-              src="/images/sobre-ital.webp"
+              src="/images/sobre-ital-v2.webp"
               alt="Augusto Ruiz frente al Instituto de Tecnología de Alimentos (ITAL) en São Paulo"
               fill
               sizes="100vw"
+              quality={90}
               className="object-cover"
             />
           </div>

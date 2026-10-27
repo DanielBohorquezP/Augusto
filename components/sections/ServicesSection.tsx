@@ -35,8 +35,8 @@ const services: Service[] = [
       "Simulación y análisis de riesgo",
       "Diseño del experimento crítico para reducir incertidumbre",
     ],
-    image: "/images/prime10-canvas.jpg",
-    imageAlt: "Canvas de modelo de negocio con el décimo cuadrante de PRIME-10 Assessment",
+    image: "/images/prime10-evaluacion-v2.webp",
+    imageAlt: "Augusto Ruiz analizando una simulación Monte Carlo del flujo de caja de un proyecto",
     statValue: "2–3 sem",
     statLabel: "para resultados accionables",
     secondaryCta: { label: "Preguntar por WhatsApp", href: whatsappUrl("Hola Augusto, vengo de tu sitio web y quiero información sobre este servicio.") },
@@ -55,8 +55,8 @@ const services: Service[] = [
       "Basado en retos de negocio reales",
       "Cada participante construye su propio artefacto",
     ],
-    image: "/images/servicios-ia-generativa.jpg",
-    imageAlt: "Taller de capacitación en IA generativa para equipos corporativos",
+    image: "/images/servicio-ia-taller-v2.webp",
+    imageAlt: "Participantes de un workshop de IA generativa junto a Augusto Ruiz",
     statValue: "4–8 h",
     statLabel: "por taller, con artefacto al final",
     secondaryCta: { label: "Preguntar por WhatsApp", href: whatsappUrl("Hola Augusto, vengo de tu sitio web y quiero información sobre este servicio.") },
@@ -75,8 +75,8 @@ const services: Service[] = [
       "Estructuración y formulación del proyecto",
       "Gestión ante Minciencias, ANLA, UPME y ART",
     ],
-    image: "/images/servicios-beneficios-tributarios.jpg",
-    imageAlt: "Documentos de un proyecto de beneficios tributarios I+D+i",
+    image: "/images/servicio-tributarios-reunion-v2.webp",
+    imageAlt: "Reunión de trabajo para estructurar un proyecto de beneficios tributarios I+D+i",
     statValue: "93%",
     statLabel: "tasa de aprobación Minciencias",
     statAccent: true,
@@ -131,9 +131,10 @@ export default function ServicesSection() {
                   <Image
                     src={s.image}
                     alt={s.imageAlt}
-                    width={800}
-                    height={640}
+                    width={1000}
+                    height={800}
                     sizes="(min-width: 1024px) 532px, 100vw"
+                    quality={90}
                     className="w-full aspect-[5/4] object-cover rounded-3xl"
                   />
                   <div
