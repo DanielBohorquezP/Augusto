@@ -24,11 +24,13 @@ export const metadata: Metadata = {
   },
 };
 
-const problema = [
-  "Su empresa ya pagó las licencias. Copilot, ChatGPT, Gemini o Claude están disponibles para los equipos, y sin embargo el uso real es bajo, superficial o desigual: algunas personas las usan para redactar correos, la mayoría no las usa, y nadie las ha conectado con los problemas que de verdad consumen tiempo en cada área.",
-  "El error habitual es tratar la adopción de IA como un curso genérico de herramientas. Una capacitación igual para todos, con ejemplos ajenos al negocio, produce asistentes entretenidos y cero cambio en la forma de trabajar. La semana siguiente, cada quien vuelve a sus métodos de siempre.",
-  "La adopción funciona cuando se invierte la lógica: primero el reto de negocio, después la herramienta. Cada área identifica problemas concretos de su operación y la formación se diseña alrededor de ellos, con las herramientas que la empresa ya tiene. El resultado no es un equipo de desarrollo: son personas con criterio para usar IA en su trabajo diario.",
-];
+const lead = "Su empresa ya pagó las licencias. Copilot, ChatGPT, Gemini o Claude están disponibles para los equipos, y sin embargo el uso real es bajo, superficial o desigual: algunas personas las usan para redactar correos, la mayoría no las usa, y nadie las ha conectado con los problemas que de verdad consumen tiempo en cada área.";
+
+const problema = ["El error habitual es tratar la adopción de IA como un curso genérico de herramientas. Una capacitación igual para todos, con ejemplos ajenos al negocio, produce asistentes entretenidos y cero cambio en la forma de trabajar. La semana siguiente, cada quien vuelve a sus métodos de siempre."];
+
+const clave = "Primero el reto de negocio, después la herramienta. El resultado no es un equipo de desarrollo: son personas con criterio para usar IA en su trabajo diario.";
+
+const hechos = [{"valor": "Por área y reto", "etiqueta": "No existen dos programas iguales"}, {"valor": "Copilot · ChatGPT · Gemini · Claude", "etiqueta": "Las herramientas que ya tiene"}, {"valor": "1 artefacto", "etiqueta": "Por participante, con demo day"}];
 
 const incluye = [
   "Diagnóstico previo de retos de negocio por área, antes de la primera sesión",
@@ -121,7 +123,10 @@ export default function CapacitacionIaGenerativaPage() {
           src: "/images/IMG_5823.png",
           alt: "Sesión de trabajo con un equipo frente a un tablero de estrategia e innovación",
         }}
+        hechos={hechos}
+        lead={lead}
         problema={problema}
+        clave={clave}
         incluye={incluye}
         metodologia={metodologia}
         herramientas={herramientas}

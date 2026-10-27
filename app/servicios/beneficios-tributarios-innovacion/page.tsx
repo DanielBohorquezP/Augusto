@@ -28,12 +28,22 @@ export const metadata: Metadata = {
   },
 };
 
-const problema = [
-  "Su empresa invierte en innovación, en energías renovables o en mejoras ambientales, y paga el impuesto de renta como si esas inversiones no existieran. Colombia ofrece [varios tipos de beneficio tributario](/blog/que-es-un-beneficio-tributario-colombia) por esas mismas inversiones: hasta un 30% de descuento en renta o un crédito fiscal del 50% por proyectos de I+D+i ante Minciencias, y una deducción del 50% más exclusión de IVA por inversiones en energías renovables y eficiencia energética. La mayoría de las empresas que califican no los usa.",
-  "Y casi siempre ocurre con un contador, un revisor fiscal o una firma tributaria ya trabajando en la empresa. No es negligencia de ellos: la consultoría tributaria general se ocupa del cumplimiento —renta, IVA, precios de transferencia, requerimientos de la DIAN— y estos beneficios no se ganan en la declaración, sino antes, en la formulación técnica del proyecto ante la entidad que lo certifica. Son dos oficios distintos que rara vez viven en la misma persona.",
-  "Las razones se repiten: no saben que su proyecto puede calificar, asumen que el trámite es solo para grandes empresas o intentaron una postulación sin la formulación técnica que exige la misma y fueron rechazadas. El resultado es el mismo: dinero que la ley permite recuperar y que se queda sin reclamar, año tras año.",
-  "El problema rara vez es la elegibilidad del proyecto. Es la formulación. Un proyecto real de innovación mal estructurado se rechaza igual que uno que no califica. Por eso este servicio empieza por la pregunta correcta: antes de cualquier compromiso formal, establecer si su proyecto califica y bajo qué régimen.",
-];
+const lead = "Su empresa invierte en innovación, en energías renovables o en mejoras ambientales, y paga el impuesto de renta como si esas inversiones no existieran. Colombia ofrece [varios tipos de beneficio tributario](/blog/que-es-un-beneficio-tributario-colombia) por esas mismas inversiones: hasta un 30% de descuento en renta o un crédito fiscal del 50% por proyectos de I+D+i ante Minciencias, y una deducción del 50% más exclusión de IVA por inversiones en energías renovables y eficiencia energética. La mayoría de las empresas que califican no los usa.";
+
+const problema = ["Y casi siempre ocurre con un contador, un revisor fiscal o una firma tributaria ya trabajando en la empresa. No es negligencia de ellos: la consultoría tributaria general se ocupa del cumplimiento —renta, IVA, precios de transferencia, requerimientos de la DIAN— y estos beneficios no se ganan en la declaración, sino antes, en la formulación técnica del proyecto ante la entidad que lo certifica.", "Las razones se repiten: no saben que su proyecto puede calificar, asumen que el trámite es solo para grandes empresas o intentaron una postulación sin la formulación técnica que exige y fueron rechazadas. El resultado es el mismo: dinero que la ley permite recuperar y que se queda sin reclamar, año tras año."];
+
+const clave = "El problema rara vez es la elegibilidad del proyecto. Es la formulación. Por eso este servicio empieza por establecer, antes de cualquier compromiso formal, si su proyecto califica y bajo qué régimen.";
+
+const hechos = [{"valor": "93%", "etiqueta": "Tasa de aprobación en proyectos gestionados"}, {"valor": "Minciencias · UPME · ANLA", "etiqueta": "Los dos regímenes de beneficio"}, {"valor": "Todo Colombia", "etiqueta": "Sin importar la ciudad donde opere"}];
+
+const seccionOxi = {
+  etiqueta: "Mecanismo",
+  titulo: "Obras por Impuestos (OxI y OxI-R)",
+  parrafos: [
+    "Además de los beneficios por I+D+i y ambientales, acompaño la estructuración y postulación de proyectos bajo el mecanismo de Obras por Impuestos (OxI), incluida su modalidad para la reconstrucción (OxI-R), con gestión ante las entidades competentes, entre ellas la ART.",
+    // TODO: contenido completo de OxI y OxI-R, pendiente de envío por parte del cliente.
+  ],
+};
 
 const incluye = [
   "Evaluación de elegibilidad del proyecto antes de cualquier compromiso formal: si califica, bajo qué régimen y por cuál beneficio",
@@ -185,7 +195,7 @@ export default function BeneficiosTributariosInnovacionPage() {
       <SchemaScript schema={schemas} />
       <ServicioDetalle
         badge="Consultoría tributaria especializada"
-        h1="Beneficios tributarios y Obras por Impuestos"
+        h1="Consultoría en beneficios tributarios para empresas I+D+i"
         // Hero corto a proposito: dos lineas. La identidad del consultor la cubre
         // <AutoridadConsultor> justo debajo, y el detalle de entidades y regimenes
         // vive en "El problema" y en las FAQ. Sin enlaces aqui: las menciones a
@@ -197,8 +207,12 @@ export default function BeneficiosTributariosInnovacionPage() {
           src: "/images/20221126_083837.jpg",
           alt: "Reunión institucional de gestión de proyectos de innovación con entidades del sector",
         }}
+        hechos={hechos}
+        lead={lead}
         problema={problema}
+        clave={clave}
         incluye={incluye}
+        seccionExtra={seccionOxi}
         incluyeNota="Tasa de aprobación en proyectos gestionados: 93%."
         comparativa={comparativa}
         metodologia={metodologia}

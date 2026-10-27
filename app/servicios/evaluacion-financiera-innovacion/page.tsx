@@ -30,11 +30,13 @@ export const metadata: Metadata = {
   },
 };
 
-const problema = [
-  "Su organización tiene sobre la mesa una decisión de inversión en innovación o tecnología. El equipo financiero corrió el modelo, el VPN dio positivo y aun así nadie en el comité está tranquilo. La razón es conocida: ese número único asume un futuro predecible, y en proyectos de innovación ese futuro no existe.",
-  "El resultado son errores de selección en dos direcciones. Se aprueban proyectos que parecen viables porque las variables críticas se fijaron con valores optimistas, y terminan destruyendo valor. Y se rechazan proyectos que sí crean valor, porque el modelo no captura la flexibilidad de la decisión ni la posibilidad de validar antes de comprometer toda la inversión.",
-  "El problema no es el proyecto. Es la herramienta con la que se evalúa. Una evaluación PRIME-10 reemplaza el número único por una distribución de probabilidad del valor del proyecto, identifica las variables que realmente mueven la decisión y define qué debe validarse experimentalmente antes de invertir.",
-];
+const lead = "Su organización tiene sobre la mesa una decisión de inversión en innovación o tecnología. El equipo financiero corrió el modelo, el VPN dio positivo y aun así nadie en el comité está tranquilo. La razón es conocida: ese número único asume un futuro predecible, y en proyectos de innovación ese futuro no existe.";
+
+const problema = ["El resultado son errores de selección en dos direcciones. Se aprueban proyectos que parecen viables porque las variables críticas se fijaron con valores optimistas, y terminan destruyendo valor. Y se rechazan proyectos que sí crean valor, porque el modelo no captura la flexibilidad de la decisión ni la posibilidad de validar antes de comprometer toda la inversión."];
+
+const clave = "El problema no es el proyecto: es la herramienta con la que se evalúa. PRIME-10 reemplaza el número único por una distribución de probabilidad, identifica las variables que mueven la decisión y define qué validar antes de invertir.";
+
+const hechos = [{"valor": "3–5 días", "etiqueta": "Plazo de referencia de la evaluación"}, {"valor": "PRIME-10™", "etiqueta": "Metodología registrada DNDA 2025"}, {"valor": "Go / no-go", "etiqueta": "Decisión sustentada antes de invertir"}];
 
 const incluye = [
   "Canvas de 10 cuadrantes del proyecto: los 9 del modelo de negocio más la evaluación financiera probabilística",
@@ -209,7 +211,10 @@ export default function EvaluacionFinancieraInnovacionPage() {
           src: "/images/20200117_083026.jpg",
           alt: "Augusto Ruiz presentando una metodología de evaluación de proyectos ante un auditorio",
         }}
+        hechos={hechos}
+        lead={lead}
         problema={problema}
+        clave={clave}
         incluye={incluye}
         incluyeNota="Plazo de referencia: entre 3 y 5 días, según la información disponible del proyecto."
         metodologia={metodologia}
