@@ -7,14 +7,57 @@ type FAQ = { q: string; a: string };
 
 type Props = {
   faqs: FAQ[];
-  /** "plus": tarjetas blancas con icono +/x, el estilo de las paginas de servicio. */
-  variant?: "default" | "plus";
+  /** "plus": tarjetas blancas con icono +/x (paginas de servicio). "lines": filas separadas por lineas (PRIME-10). */
+  variant?: "default" | "plus" | "lines";
   /** Indice de la pregunta abierta al cargar. Por defecto, todas cerradas. */
   initialOpen?: number | null;
 };
 
 export default function FAQAccordion({ faqs, variant = "default", initialOpen = null }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(initialOpen);
+
+  if (variant === "lines") {
+    return (
+      <dl className="flex flex-col border-t border-border">
+        {faqs.map((faq, index) => {
+          const isOpen = openIndex === index;
+          return (
+            <div key={faq.q} className="border-b border-border">
+              <dt>
+                <h3 className="m-0">
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center justify-between gap-4 sm:gap-6 py-7 text-left"
+                  >
+                    <span className="font-heading font-semibold text-lg text-primary">{faq.q}</span>
+                    <span
+                      aria-hidden="true"
+                      className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center font-heading text-[22px] transition-all duration-200 ${
+                        isOpen ? "bg-accent text-white rotate-45" : "bg-white text-primary"
+                      }`}
+                    >
+                      +
+                    </span>
+                  </button>
+                </h3>
+              </dt>
+              <dd
+                className={`grid transition-all duration-200 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
+              >
+                <div className="overflow-hidden">
+                  <p className="pb-7 sm:pr-16 text-base leading-[1.7] text-muted-foreground">
+                    {renderInlineText(faq.a)}
+                  </p>
+                </div>
+              </dd>
+            </div>
+          );
+        })}
+      </dl>
+    );
+  }
 
   if (variant === "plus") {
     return (

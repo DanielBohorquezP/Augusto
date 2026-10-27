@@ -1,4 +1,4 @@
-const phases = [
+export const prime10Phases = [
   {
     letter: "P",
     title: "Problem framing",
@@ -31,44 +31,52 @@ const phases = [
   },
 ];
 
-const gradientLine = `linear-gradient(to right, ${phases.map((p) => p.color).join(", ")})`;
-
+/** Linea de tiempo vertical de las cinco fases (solo vive en /prime-10). */
 export default function Prime10Phases() {
   return (
-    <div>
-      <h3 className="font-heading font-semibold text-xl sm:text-2xl text-foreground mb-10">
-        Las cinco fases de PRIME-10™
-      </h3>
-      <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-4 gap-y-8">
-        {/* Gradient connector line behind the nodes, desktop only */}
-        <div
-          className="hidden lg:block absolute top-7 left-[10%] right-[10%] h-[3px] rounded-full opacity-70"
-          style={{ backgroundImage: gradientLine }}
+    <div className="grid grid-cols-1 lg:grid-cols-[360px_minmax(0,1fr)] gap-10 lg:gap-20 items-start">
+      <div className="lg:sticky lg:top-[120px] flex flex-col gap-4">
+        <span className="font-heading font-semibold text-xs uppercase tracking-[.18em] text-accent">
+          El proceso
+        </span>
+        <h2 className="font-heading font-semibold text-[30px] sm:text-4xl lg:text-[44px] leading-[1.1] tracking-[-.025em] text-primary">
+          Las cinco fases de PRIME-10™
+        </h2>
+        <p className="text-base leading-[1.7] text-muted-foreground">
+          Del encuadre de la decisión al aprendizaje después del experimento. Una evaluación
+          completa toma entre 3 y 5 días.
+        </p>
+      </div>
+      <ol className="relative flex flex-col">
+        <span
+          className="absolute left-[27px] sm:left-[35px] top-9 bottom-9 w-0.5 bg-[#E2E8F0]"
           aria-hidden="true"
         />
-        {phases.map((phase) => (
-          <div key={phase.letter} className="relative flex flex-col items-center text-center">
-            {/* Node */}
-            <div
-              className="relative z-10 w-14 h-14 rounded-full flex items-center justify-center font-heading font-bold text-xl text-white ring-4 ring-white shadow-md"
-              style={{ backgroundColor: phase.color, boxShadow: `0 8px 18px -6px ${phase.color}90` }}
+        {prime10Phases.map((p, i) => (
+          <li
+            key={p.letter}
+            className="relative grid grid-cols-[56px_minmax(0,1fr)] sm:grid-cols-[72px_minmax(0,1fr)] gap-5 sm:gap-8 pb-5"
+          >
+            <span
+              className="relative z-[1] w-14 h-14 sm:w-[72px] sm:h-[72px] rounded-[20px] text-primary font-heading font-bold text-2xl sm:text-3xl flex items-center justify-center shadow-[0_0_0_6px_#fff]"
+              style={{ background: p.color }}
+              aria-hidden="true"
             >
-              {phase.letter}
-            </div>
-
-            {/* Card */}
+              {p.letter}
+            </span>
             <div
-              className="mt-4 w-full bg-white rounded-lg border-t-4 shadow-sm hover:shadow-md transition-shadow duration-200 p-4 flex-1"
-              style={{ borderTopColor: phase.color }}
+              className="bg-[#F5F7FB] rounded-[18px] px-5 py-5 sm:px-7 sm:py-6 flex flex-col gap-1.5 border-t-[3px]"
+              style={{ borderTopColor: p.color }}
             >
-              <h4 className="font-heading font-semibold text-sm text-foreground mb-1.5">
-                {phase.title}
-              </h4>
-              <p className="text-xs text-muted-foreground leading-relaxed">{phase.desc}</p>
+              <span className="font-heading font-semibold text-xs tracking-[.08em] text-muted-foreground">
+                FASE {i + 1}
+              </span>
+              <h3 className="font-heading font-semibold text-[21px] text-primary">{p.title}</h3>
+              <p className="text-[15px] leading-[1.65] text-muted-foreground [text-wrap:pretty]">{p.desc}</p>
             </div>
-          </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 }
