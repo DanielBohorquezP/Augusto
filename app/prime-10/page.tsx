@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import Prime10Phases, { prime10Phases } from "@/components/sections/Prime10Phases";
+import Prime10Phases from "@/components/sections/Prime10Phases";
 import SchemaScript from "@/components/SchemaScript";
 import FAQAccordion from "@/components/FAQAccordion";
 import { faqSchema, breadcrumbSchema, serviceSchema, prime10MethodologySchema, globalSchemaNodes } from "@/lib/schema";
