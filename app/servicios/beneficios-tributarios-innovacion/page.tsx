@@ -37,7 +37,7 @@ const clave = "El problema rara vez es la elegibilidad del proyecto. Es la formu
 const hechos = [{"valor": "93%", "etiqueta": "Tasa de aprobación en proyectos gestionados"}, {"valor": "Minciencias · UPME · ANLA", "etiqueta": "Los dos regímenes de beneficio"}, {"valor": "Todo Colombia", "etiqueta": "Sin importar la ciudad donde opere"}];
 
 const seccionOxi = {
-  etiqueta: "Mecanismo",
+  etiqueta: "Servicio adicional",
   titulo: "Obras por Impuestos (OxI y OxI-R)",
   parrafos: [
     "Además de los beneficios por I+D+i y ambientales, acompaño la estructuración y postulación de proyectos bajo el mecanismo de Obras por Impuestos (OxI), incluida su modalidad para la reconstrucción (OxI-R), con gestión ante las entidades competentes, entre ellas la ART.",
@@ -45,66 +45,56 @@ const seccionOxi = {
   ],
 };
 
-const incluye = [
-  "Evaluación de elegibilidad del proyecto antes de cualquier compromiso formal: si califica, bajo qué régimen y por cuál beneficio",
-  "Estructuración técnica y formulación del proyecto según la tipología del CNBT o los requisitos de la entidad certificadora",
-  "Gestión ante la entidad competente: Minciencias para I+D+i; ANLA y UPME para inversiones ambientales y energéticas",
-  "Preparación de la documentación requerida para la postulación o la certificación",
-  "Seguimiento al proceso hasta la resolución",
+const pasosIntro = "Cinco pasos, de principio a fin: desde saber si su proyecto califica hasta tener el beneficio aprobado.";
+
+const destacado = { valor: "93%", etiqueta: "de aprobación en los proyectos gestionados" };
+
+const problemaCta = "¿Su proyecto podría calificar? Lo revisamos sin compromiso.";
+
+const pasos = [
+  { titulo: "Diagnóstico de elegibilidad", desc: "Sabrá si su proyecto califica, en qué régimen y por cuál beneficio, antes de comprometerse." },
+  { titulo: "Formulación técnica", desc: "Estructuro el proyecto con los criterios exactos del CNBT o de la entidad certificadora." },
+  { titulo: "Gestión ante la entidad", desc: "Postulo por el canal correspondiente: SIGP en Minciencias para I+D+i; UPME y ANLA para energía y medio ambiente." },
+  { titulo: "Documentación completa", desc: "Preparo todos los soportes que exige la postulación o la certificación." },
+  { titulo: "Acompañamiento hasta el final", desc: "Respondo requerimientos y subsanaciones hasta la decisión final y el soporte del beneficio." },
 ];
 
 const comparativa = {
-  titulo: "Consultoría tributaria general y consultoría en beneficios: en qué se diferencian",
+  titulo: "Su contador y este servicio no compiten: se complementan",
   columnaGeneral: "Consultoría tributaria general",
   columnaEspecializada: "Consultoría en beneficios tributarios",
   filas: [
     {
       criterio: "Qué resuelve",
-      general: "Cumplimiento y planeación fiscal: renta, IVA, precios de transferencia, requerimientos de la DIAN, revisoría fiscal.",
-      especializada: "Que una inversión concreta en I+D+i, energía o medio ambiente se convierta en un beneficio tributario efectivo.",
+      general: "Cumplir con la DIAN: renta, IVA y revisoría fiscal.",
+      especializada: "Convertir su inversión en I+D+i, energía o ambiente en ahorro tributario.",
     },
     {
-      criterio: "Dónde se decide el resultado",
-      general: "En la declaración: en la correcta aplicación de la norma sobre hechos ya ocurridos.",
-      especializada: "En la formulación técnica del proyecto ante la entidad certificadora, meses antes de declarar.",
+      criterio: "Cuándo actúa",
+      general: "Al declarar, sobre lo que ya pasó.",
+      especializada: "Meses antes, al formular el proyecto.",
     },
     {
-      criterio: "Ante quién se gestiona",
-      general: "Ante la DIAN.",
-      especializada: "Ante Minciencias y el CNBT (I+D+i), o ante la UPME y la ANLA (FNCE, eficiencia energética, ambiental). La DIAN entra después, con la certificación ya emitida.",
+      criterio: "Ante quién",
+      general: "DIAN",
+      especializada: "Minciencias, UPME y ANLA",
     },
     {
-      criterio: "Cuándo se activa",
-      general: "De forma permanente, con el calendario tributario.",
-      especializada: "Con la convocatoria vigente o el cronograma de la inversión: fuera de esa ventana, el beneficio del año se pierde.",
+      criterio: "Plazo",
+      general: "Todo el año, con el calendario tributario.",
+      especializada: "Solo en la convocatoria. Si se pasa, el beneficio del año se pierde.",
     },
     {
-      criterio: "Qué perfil lo ejecuta",
-      general: "Contador, revisor fiscal o abogado tributarista.",
-      especializada: "Perfil técnico en gestión de innovación o ingeniería, capaz de sustentar la novedad y la incertidumbre del proyecto ante evaluadores técnicos.",
+      criterio: "Quién lo hace",
+      general: "Contador o abogado tributarista.",
+      especializada: "Especialista técnico en innovación e ingeniería.",
     },
   ],
-  nota: "Los dos servicios son complementarios y conviven sin problema: este servicio no reemplaza a su contador ni a su firma tributaria, se ocupa del tramo que ellos normalmente no cubren.",
+  etiquetas: { general: "Lo que ya tiene", especializada: "Lo que le falta" },
+  pasosTitulo: "Cómo trabajamos juntos:",
+  pasos: ["Yo formulo y certifico el proyecto", "Su contador aplica el beneficio en la renta"] as [string, string],
+  cta: "¿Quiere saber qué beneficio aplica a su inversión?",
 };
-
-const metodologia = [
-  {
-    title: "Evaluación de elegibilidad",
-    desc: "Analizamos el proyecto o la inversión y establecemos si califica, bajo qué régimen (Minciencias, ANLA o UPME) y por cuál beneficio conviene postular.",
-  },
-  {
-    title: "Estructuración y formulación",
-    desc: "Formulamos el proyecto según los criterios de la entidad: tipología del CNBT para I+D+i, o requisitos técnicos de certificación para inversiones energéticas y ambientales.",
-  },
-  {
-    title: "Postulación y gestión",
-    desc: "Presentamos el proyecto por el canal correspondiente (plataforma SIGP en el caso de Minciencias) y gestionamos el proceso ante la entidad.",
-  },
-  {
-    title: "Seguimiento hasta la resolución",
-    desc: "Acompañamos las subsanaciones y requerimientos hasta la decisión final y la obtención del soporte del beneficio.",
-  },
-];
 
 const faqs = [
   {
@@ -171,11 +161,12 @@ export default function BeneficiosTributariosInnovacionPage() {
         lead={lead}
         problema={problema}
         clave={clave}
-        incluye={incluye}
+        problemaCta={problemaCta}
+        pasos={pasos}
+        pasosIntro={pasosIntro}
+        destacado={destacado}
         seccionExtra={seccionOxi}
-        incluyeNota="Tasa de aprobación en proyectos gestionados: 93%."
         comparativa={comparativa}
-        metodologia={metodologia}
         faqs={faqs}
         articulosRelacionados={[
           "que-es-un-beneficio-tributario-colombia",

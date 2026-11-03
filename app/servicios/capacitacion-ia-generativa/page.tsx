@@ -32,31 +32,17 @@ const clave = "Primero el reto de negocio, después la herramienta. El resultado
 
 const hechos = [{"valor": "Por área y reto", "etiqueta": "No existen dos programas iguales"}, {"valor": "Copilot · ChatGPT · Gemini · Claude", "etiqueta": "Las herramientas que ya tiene"}, {"valor": "1 artefacto", "etiqueta": "Por participante, con demo day"}];
 
-const incluye = [
-  "Diagnóstico previo de retos de negocio por área, antes de la primera sesión",
-  "Formación contextualizada al lenguaje y la dinámica de cada área o nivel jerárquico",
-  "Trabajo sobre las herramientas de IA que la empresa ya tiene disponibles (Copilot, ChatGPT, Gemini, Claude)",
-  "Para áreas de I+D+i: incorporación de herramientas especializadas y enfoque basado en método científico",
-  "Un artefacto funcional construido por cada participante, con mentoría durante el proceso y demo day de cierre",
-];
+const pasosIntro = "Cuatro pasos, del reto de negocio a una solución funcional que cada persona usa al día siguiente.";
 
-const metodologia = [
-  {
-    title: "Diagnóstico de retos",
-    desc: "Antes de cada sesión, el área identifica retos de negocio concretos que podrían resolverse con IA.",
-  },
-  {
-    title: "Fundamentos aplicados",
-    desc: "La sesión parte de las generalidades de IA generativa y avanza rápidamente hacia las herramientas que ya usa la empresa, aplicadas al reto específico.",
-  },
-  {
-    title: "Construcción del artefacto",
-    desc: "Cada participante desarrolla una solución funcional para su propio problema real, con mentoría durante el proceso.",
-  },
-  {
-    title: "Demo day",
-    desc: "El cierre es una presentación de los artefactos construidos: cada persona muestra qué resolvió y cómo lo va a usar al día siguiente.",
-  },
+const destacado = { valor: "1 artefacto", etiqueta: "funcional por participante, con mentoría y demo day" };
+
+const problemaCta = "¿Sus equipos tienen las licencias pero no las usan? Diseñemos el programa para su empresa.";
+
+const pasos = [
+  { titulo: "Diagnóstico de retos", desc: "Antes de la primera sesión, cada área identifica retos de negocio concretos que la IA podría resolver." },
+  { titulo: "Formación a la medida", desc: "Contextualizada al lenguaje de cada área y nivel, con Copilot, ChatGPT, Gemini o Claude. En I+D+i, con herramientas especializadas y método científico." },
+  { titulo: "Construcción del artefacto", desc: "Cada participante crea una solución funcional para su propio problema, con mentoría durante el proceso." },
+  { titulo: "Demo day", desc: "Cada persona muestra qué resolvió y cómo lo va a usar al día siguiente." },
 ];
 
 const faqs = [
@@ -112,8 +98,10 @@ export default function CapacitacionIaGenerativaPage() {
         lead={lead}
         problema={problema}
         clave={clave}
-        incluye={incluye}
-        metodologia={metodologia}
+        problemaCta={problemaCta}
+        pasos={pasos}
+        pasosIntro={pasosIntro}
+        destacado={destacado}
         faqs={faqs}
         articulosRelacionados={[
           "desafios-adopcion-ia-generativa-empresas-colombianas",

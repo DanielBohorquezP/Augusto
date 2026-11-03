@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { whatsappUrl } from "@/lib/site";
@@ -9,7 +10,7 @@ import { renderInlineText } from "@/lib/inline-text";
 import { getPostBySlug, type Post } from "@/lib/posts";
 
 type Faq = { q: string; a: string };
-type MetodologiaStep = { title: string; desc: string };
+type Paso = { titulo: string; desc: string };
 type Imagen = { src: string; alt: string };
 type ComparativaFila = { criterio: string; general: string; especializada: string };
 type Comparativa = {
@@ -17,12 +18,16 @@ type Comparativa = {
   columnaGeneral: string;
   columnaEspecializada: string;
   filas: ComparativaFila[];
-  nota?: string;
-  enlace?: { href: string; texto: string };
+  etiquetas: { general: string; especializada: string };
+  /** Título del bloque de las dos píldoras, p. ej. "Cómo trabajamos juntos:". */
+  pasosTitulo: string;
+  pasos: [string, string];
+  /** Frase que acompaña al botón de WhatsApp bajo la cuadrícula. */
+  cta: string;
 };
 
 export type Hecho = { valor: string; etiqueta: string };
-/** Seccion extra opcional entre "Qué incluye" y la comparativa (p. ej. OxI). */
+/** Seccion extra opcional entre "El problema" y la comparativa (p. ej. OxI). */
 export type SeccionExtra = { etiqueta: string; titulo: string; parrafos: string[] };
 
 export type ServicioDetalleProps = {
@@ -43,13 +48,17 @@ export type ServicioDetalleProps = {
   problema: string[];
   /** Recuadro oscuro "La clave" junto al problema. */
   clave?: string;
-  incluye: string[];
-  incluyeNota?: string;
-  /** Seccion adicional despues de "Qué incluye". */
+  /** Frase del CTA de WhatsApp al final de "El problema". */
+  problemaCta: string;
+  /** Pasos de "Qué incluye y cómo funciona". */
+  pasos: Paso[];
+  pasosIntro: string;
+  /** Tarjeta oscura con una cifra destacada bajo la introducción. */
+  destacado?: Hecho;
+  /** Seccion adicional despues de "El problema". */
   seccionExtra?: SeccionExtra;
-  /** Tabla comparativa opcional. Solo la usan beneficios tributarios y evaluacion financiera. */
+  /** Comparativa opcional. Solo la usan beneficios tributarios y evaluacion financiera. */
   comparativa?: Comparativa;
-  metodologia: MetodologiaStep[];
   faqs: Faq[];
   /** Slugs de posts del blog que respaldan este servicio. Solo se muestran los que
    *  existen en content/blog/, asi que se pueden listar posts aun sin publicar. */
@@ -61,6 +70,20 @@ const h2Class =
   "font-heading font-semibold text-[30px] sm:text-4xl lg:text-[40px] leading-[1.1] tracking-[-.025em] text-primary";
 const wrap = "max-w-[1152px] mx-auto px-5 sm:px-8 lg:px-0";
 const num = (i: number) => String(i + 1).padStart(2, "0");
+
+const waBtn =
+  "inline-flex items-center gap-2.5 bg-accent hover:bg-accent-hover text-white font-heading font-semibold text-[15px] px-6 py-3.5 rounded-[10px] transition-colors whitespace-nowrap";
+
+function WaButton({ href }: { href: string }) {
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={waBtn}>
+      <svg className="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d={WA_PATH} />
+      </svg>
+      Escríbame por WhatsApp
+    </a>
+  );
+}
 
 export default function ServicioDetalle({
   badge,
@@ -74,17 +97,19 @@ export default function ServicioDetalle({
   lead,
   problema,
   clave,
-  incluye,
-  incluyeNota,
+  problemaCta,
+  pasos,
+  pasosIntro,
+  destacado,
   seccionExtra,
   comparativa,
-  metodologia,
   faqs,
   articulosRelacionados = [],
 }: ServicioDetalleProps) {
   const posts = articulosRelacionados
     .map((slug) => getPostBySlug(slug))
-    .filter((p): p is Post => Boolean(p));
+    .filter((p): p is Post => Boolean(p))
+    .slice(0, 3);
   const whatsapp = whatsappUrl(`Hola Augusto, quiero información sobre "${whatsappTema ?? h1}".`);
 
   return (
@@ -174,8 +199,55 @@ export default function ServicioDetalle({
       {/* Ficha de autoridad: quien presta el servicio, antes de explicar el problema. */}
       <AutoridadConsultor />
 
+      {/* Qué incluye y cómo funciona */}
+      <section id="incluye" className="bg-muted pt-16 pb-20 lg:pb-28 scroll-mt-20">
+        <div className={`${wrap} grid grid-cols-1 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] gap-10 lg:gap-14 items-start`}>
+          <div className="flex flex-col gap-4">
+            <span className={eyebrow}>Alcance y metodología</span>
+            <h2 className={h2Class}>Qué incluye y cómo funciona</h2>
+            <p className="text-base leading-[1.7] text-muted-foreground max-w-[400px] [text-wrap:pretty]">
+              {pasosIntro}
+            </p>
+            {destacado && (
+              <div className="mt-4 relative overflow-hidden bg-primary rounded-[20px] p-8 flex flex-col gap-2">
+                <div
+                  className="absolute inset-0 opacity-[.08] [background-image:radial-gradient(circle_at_2px_2px,white_1px,transparent_0)] [background-size:24px_24px]"
+                  aria-hidden="true"
+                />
+                <div className="absolute top-0 left-0 w-2/5 h-[3px] bg-accent" aria-hidden="true" />
+                <span className="relative font-heading font-bold text-[64px] leading-none tracking-[-.04em] text-white">
+                  {destacado.valor}
+                </span>
+                <span className="relative font-heading font-medium text-base text-white/80">
+                  {destacado.etiqueta}
+                </span>
+              </div>
+            )}
+          </div>
+          <ol className="bg-white rounded-[20px] shadow-[0_24px_48px_-32px_rgba(14,28,61,.35)]">
+            {pasos.map((paso, i) => (
+              <li
+                key={paso.titulo}
+                className={`flex gap-5 items-start px-7 py-6 ${i > 0 ? "border-t border-[#E2E8F0]" : ""}`}
+              >
+                <span
+                  className="font-heading font-bold text-[28px] leading-none text-accent min-w-10"
+                  aria-hidden="true"
+                >
+                  {num(i)}
+                </span>
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="font-heading font-semibold text-lg text-primary">{paso.titulo}</h3>
+                  <p className="text-[15px] leading-[1.6] text-muted-foreground [text-wrap:pretty]">{paso.desc}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       {/* El problema */}
-      <section className="pt-10 lg:pt-6 pb-20 lg:pb-28 bg-white">
+      <section className="py-20 lg:py-28 bg-white">
         <div className={`${wrap} grid grid-cols-1 lg:grid-cols-[minmax(0,.85fr)_minmax(0,1.15fr)] gap-10 lg:gap-[72px] items-start`}>
           <div className="flex flex-col gap-4">
             <span className={eyebrow}>Contexto</span>
@@ -202,51 +274,39 @@ export default function ServicioDetalle({
                 {renderInlineText(p)}
               </p>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Qué incluye */}
-      <section id="incluye" className="py-20 lg:py-28 bg-muted scroll-mt-20">
-        <div className={wrap}>
-          <div className="flex flex-wrap justify-between items-end gap-6 lg:gap-10 mb-10">
-            <div className="flex flex-col gap-4">
-              <span className={eyebrow}>Alcance</span>
-              <h2 className={h2Class}>Qué incluye el servicio</h2>
+            <div className="mt-2 flex flex-wrap items-center justify-between gap-5 bg-muted rounded-2xl px-7 py-6 border-l-4 border-accent">
+              <p className="font-heading font-semibold text-[17px] leading-[1.45] text-primary flex-1 min-w-[260px]">
+                {problemaCta}
+              </p>
+              <WaButton href={whatsapp} />
             </div>
-            {incluyeNota && (
-              <div className="bg-white rounded-[14px] px-5 py-3.5 font-heading font-semibold text-sm text-primary max-w-[420px]">
-                {incluyeNota}
-              </div>
-            )}
           </div>
-          <ol className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
-            {incluye.map((item, i) => (
-              <li key={i} className="bg-white rounded-[18px] p-7 flex flex-col gap-3.5">
-                <span className="w-9 h-9 rounded-[10px] bg-primary text-white font-heading font-semibold text-sm flex items-center justify-center">
-                  {num(i)}
-                </span>
-                <p className="text-[15px] leading-[1.65] text-foreground [text-wrap:pretty]">{item}</p>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
       {/* Seccion extra opcional (OxI y OxI-R en beneficios tributarios) */}
       {seccionExtra && (
-        <section className="py-20 lg:py-28 bg-white">
-          <div className={`${wrap} grid grid-cols-1 lg:grid-cols-[minmax(0,.85fr)_minmax(0,1.15fr)] gap-10 lg:gap-[72px] items-start`}>
-            <div className="flex flex-col gap-4">
-              <span className={eyebrow}>{seccionExtra.etiqueta}</span>
-              <h2 className={h2Class}>{seccionExtra.titulo}</h2>
-            </div>
-            <div className="flex flex-col gap-6 max-w-[640px]">
-              {seccionExtra.parrafos.map((p, i) => (
-                <p key={i} className="text-base leading-[1.8] text-muted-foreground [text-wrap:pretty]">
-                  {renderInlineText(p)}
-                </p>
-              ))}
+        <section className="bg-muted py-20 lg:py-28 mt-20 lg:mt-28">
+          <div className={wrap}>
+            <div className="relative overflow-hidden bg-white border border-[#E2E8F0] rounded-[20px] p-6 sm:p-10">
+              <div className="absolute left-0 inset-y-0 w-1 bg-accent" aria-hidden="true" />
+              <div className="flex flex-wrap gap-10 items-center">
+                <div className="flex flex-col gap-4 flex-1 min-w-[260px]">
+                  <span className="bg-accent-light text-accent-hover font-heading font-semibold text-[11px] tracking-[.12em] uppercase px-3 py-1.5 rounded-full self-start">
+                    {seccionExtra.etiqueta}
+                  </span>
+                  <h2 className="font-heading font-semibold text-[28px] leading-[1.2] text-primary">
+                    {seccionExtra.titulo}
+                  </h2>
+                </div>
+                <div className="flex flex-col gap-4 flex-[1.4] min-w-[260px]">
+                  {seccionExtra.parrafos.map((p, i) => (
+                    <p key={i} className="text-base leading-[1.75] text-muted-foreground [text-wrap:pretty]">
+                      {renderInlineText(p)}
+                    </p>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -254,98 +314,77 @@ export default function ServicioDetalle({
 
       {/* Comparativa (opcional) */}
       {comparativa && (
-        <section className="py-20 lg:py-28 bg-white">
+        <section className="bg-white py-20 lg:py-28 border-t border-[#E2E8F0]">
           <div className={wrap}>
             <div className="flex flex-col gap-4 max-w-[760px] mb-10">
               <span className={eyebrow}>Comparativa</span>
-              <h2 className="font-heading font-semibold text-[28px] sm:text-4xl leading-[1.15] tracking-[-.025em] text-primary text-balance">
+              <h2 className="font-heading font-semibold text-[30px] sm:text-[40px] leading-[1.1] text-primary text-balance">
                 {comparativa.titulo}
               </h2>
             </div>
-            <div className="border border-[#E2E8F0] rounded-[20px] overflow-x-auto">
-              <table className="w-full min-w-[40rem] text-left border-collapse">
-                <thead>
-                  <tr>
-                    <th scope="col" className="w-[200px] p-5 bg-[#F5F7FB] font-heading font-semibold text-[15px] text-muted-foreground">
-                      <span className="sr-only">Criterio</span>
-                    </th>
-                    <th scope="col" className="p-5 bg-[#F5F7FB] font-heading font-semibold text-[15px] text-muted-foreground">
-                      {comparativa.columnaGeneral}
-                    </th>
-                    <th scope="col" className="p-5 bg-primary font-heading font-semibold text-[15px] text-white">
-                      {comparativa.columnaEspecializada}
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparativa.filas.map((fila) => (
-                    <tr key={fila.criterio} className="border-t border-[#E2E8F0] align-top">
-                      <th scope="row" className="px-6 py-[22px] font-heading font-semibold text-sm text-primary text-left">
-                        {fila.criterio}
-                      </th>
-                      <td className="px-6 py-[22px] text-sm leading-[1.6] text-muted-foreground">{fila.general}</td>
-                      <td className="px-6 py-[22px] text-sm leading-[1.6] text-foreground bg-[#F8FAFF] border-l-[3px] border-l-accent">
-                        {fila.especializada}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            {(comparativa.nota || comparativa.enlace) && (
-              <p className="mt-5 text-[15px] leading-[1.7] text-muted-foreground max-w-[820px]">
-                {comparativa.nota}
-                {comparativa.enlace && (
-                  <>
-                    {comparativa.nota ? " " : null}
-                    <Link
-                      href={comparativa.enlace.href}
-                      className="font-semibold text-primary underline underline-offset-2"
+            <div className="grid grid-cols-2 rounded-[20px] shadow-[0_24px_48px_-28px_rgba(14,28,61,.4)]">
+              <div className="bg-[#F5F7FB] rounded-tl-[20px] px-5 sm:px-8 py-7 flex flex-col gap-1.5">
+                <span className="text-[13px] font-semibold text-slate-500">{comparativa.etiquetas.general}</span>
+                <h3 className="font-heading font-semibold text-lg sm:text-[22px] leading-[1.25] text-primary">
+                  {comparativa.columnaGeneral}
+                </h3>
+              </div>
+              <div className="relative bg-primary rounded-tr-[20px] px-5 sm:px-8 py-7 flex flex-col gap-1.5">
+                <div className="absolute top-0 left-0 w-full h-1 bg-accent rounded-tr-[20px]" aria-hidden="true" />
+                <span className="text-[13px] font-semibold text-[#FCA5A5]">{comparativa.etiquetas.especializada}</span>
+                <h3 className="font-heading font-semibold text-lg sm:text-[22px] leading-[1.25] text-white">
+                  {comparativa.columnaEspecializada}
+                </h3>
+              </div>
+              {comparativa.filas.map((fila, i) => {
+                const last = i === comparativa.filas.length - 1;
+                return (
+                  <Fragment key={fila.criterio}>
+                    <div
+                      className={`bg-[#F5F7FB] border-t border-[#E2E8F0] px-5 sm:px-8 py-[22px] flex flex-col gap-1.5 ${last ? "rounded-bl-[20px]" : ""}`}
                     >
-                      {comparativa.enlace.texto}
-                    </Link>
-                    .
-                  </>
-                )}
-              </p>
-            )}
+                      <span className="text-[11px] font-heading font-semibold tracking-[.14em] uppercase text-slate-500">
+                        {fila.criterio}
+                      </span>
+                      <p className="text-base text-muted-foreground [text-wrap:pretty]">{fila.general}</p>
+                    </div>
+                    <div
+                      className={`bg-primary border-t border-white/10 px-5 sm:px-8 py-[22px] flex flex-col gap-1.5 ${last ? "rounded-br-[20px]" : ""}`}
+                    >
+                      <span className="text-[11px] font-heading font-semibold tracking-[.14em] uppercase text-[#FCA5A5]">
+                        {fila.criterio}
+                      </span>
+                      <p className="font-heading font-medium text-[17px] leading-[1.45] text-white [text-wrap:pretty]">
+                        {fila.especializada}
+                      </p>
+                    </div>
+                  </Fragment>
+                );
+              })}
+            </div>
+            <div className="mt-7 flex flex-wrap items-center gap-4 bg-muted rounded-2xl px-7 py-5">
+              <strong className="font-heading font-semibold text-[15px] text-primary">{comparativa.pasosTitulo}</strong>
+              <span className="inline-flex items-center gap-2.5 bg-white rounded-full py-2 pl-2 pr-4 text-sm font-semibold text-primary">
+                <span className="w-[26px] h-[26px] rounded-full bg-primary text-white text-xs flex items-center justify-center">
+                  1
+                </span>
+                {comparativa.pasos[0]}
+              </span>
+              <span className="text-accent font-bold" aria-hidden="true">→</span>
+              <span className="inline-flex items-center gap-2.5 bg-white rounded-full py-2 pl-2 pr-4 text-sm font-semibold text-primary">
+                <span className="w-[26px] h-[26px] rounded-full bg-accent text-white text-xs flex items-center justify-center">
+                  2
+                </span>
+                {comparativa.pasos[1]}
+              </span>
+            </div>
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-4 text-center">
+              <p className="font-heading font-semibold text-xl text-primary">{comparativa.cta}</p>
+              <WaButton href={whatsapp} />
+            </div>
           </div>
         </section>
       )}
-
-      {/* Cómo funciona */}
-      <section className="py-20 lg:py-28 bg-white border-t border-[#E2E8F0]">
-        <div className={wrap}>
-          <div className="flex flex-col items-center text-center gap-4 mb-12 lg:mb-14">
-            <span className={eyebrow}>Metodología</span>
-            <h2 className={h2Class}>Cómo funciona</h2>
-          </div>
-          <ol
-            className={`grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 lg:gap-x-0 ${
-              metodologia.length >= 5
-                ? "lg:grid-cols-5"
-                : metodologia.length === 4
-                  ? "lg:grid-cols-4"
-                  : "lg:grid-cols-3"
-            }`}
-          >
-            {metodologia.map((step, i) => (
-              <li key={step.title} className="flex flex-col gap-4">
-                <div className="relative h-11 flex items-center">
-                  <span className="absolute left-0 right-0 h-0.5 bg-[#E2E8F0]" aria-hidden="true" />
-                  <span className="relative w-11 h-11 rounded-full bg-primary text-white font-heading font-semibold text-[15px] flex items-center justify-center shadow-[0_0_0_6px_#fff]">
-                    {num(i)}
-                  </span>
-                </div>
-                <h3 className="font-heading font-semibold text-lg leading-[1.3] text-primary pr-4 [overflow-wrap:anywhere]">
-                  {step.title}
-                </h3>
-                <p className="text-sm leading-[1.65] text-muted-foreground pr-4 [text-wrap:pretty]">{step.desc}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
 
       {/* FAQ */}
       <section className="py-20 lg:py-28 bg-muted">

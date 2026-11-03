@@ -38,12 +38,18 @@ const clave = "El problema no es el proyecto: es la herramienta con la que se ev
 
 const hechos = [{"valor": "3–5 días", "etiqueta": "Plazo de referencia de la evaluación"}, {"valor": "PRIME-10™", "etiqueta": "Metodología registrada DNDA 2025"}, {"valor": "Go / no-go", "etiqueta": "Decisión sustentada antes de invertir"}];
 
-const incluye = [
-  "Canvas de 10 cuadrantes del proyecto: los 9 del modelo de negocio más la evaluación financiera probabilística",
-  "Modelo de flujo de caja con simulación Monte Carlo y distribuciones calibradas con la información disponible del proyecto",
-  "Identificación de las variables de mayor incertidumbre y su efecto sobre la decisión (análisis de sensibilidad tipo tornado)",
-  "Diseño del experimento crítico: hipótesis a validar, métricas y valores mínimos aceptables para la decisión go/no-go",
-  "Informe ejecutivo con la recomendación de inversión sustentada",
+const pasosIntro = "Cinco pasos con la metodología PRIME-10™, desde plantear la decisión hasta tener una recomendación de inversión sustentada.";
+
+const destacado = { valor: "3–5 días", etiqueta: "plazo de referencia, según la información disponible del proyecto" };
+
+const problemaCta = "¿Tiene una decisión de inversión sobre la mesa? Conversemos antes de comprometer el capital.";
+
+const pasos = [
+  { titulo: "Plantear la decisión", desc: "Definimos la decisión de inversión y construimos el canvas de 10 cuadrantes del proyecto." },
+  { titulo: "Validar la madurez", desc: "Evaluamos la madurez tecnológica y comercial e identificamos las incertidumbres que mueven la decisión." },
+  { titulo: "Modelar la inversión", desc: "Flujo de caja con simulación Monte Carlo y análisis de sensibilidad tipo tornado." },
+  { titulo: "Diseñar el experimento crítico", desc: "Valoramos las opciones reales y definimos hipótesis, métricas y umbrales go/no-go." },
+  { titulo: "Decidir con evidencia", desc: "Informe ejecutivo con la recomendación: seguir, escalar, pivotar o abandonar." },
 ];
 
 // La SERP de "consultoria financiera para proyectos de innovacion" esta ocupada por
@@ -56,59 +62,35 @@ const comparativa = {
   filas: [
     {
       criterio: "Qué produce",
-      general: "Un proyecto documentado y postulable ante la entidad: marco lógico, cronograma, presupuesto, indicadores.",
-      especializada: "Una decisión de inversión sustentada: invertir, no invertir, o validar primero una hipótesis crítica.",
+      general: "Un proyecto documentado para postular.",
+      especializada: "Una decisión: invertir, no invertir o validar primero.",
     },
     {
       criterio: "Qué pregunta responde",
-      general: "¿Cómo presento este proyecto para que lo aprueben?",
-      especializada: "¿Este proyecto merece la inversión, en qué monto y bajo qué condiciones?",
+      general: "¿Cómo lo presento para que lo aprueben?",
+      especializada: "¿Merece la inversión, en qué monto y con qué condiciones?",
     },
     {
       criterio: "Cuándo ocurre",
-      general: "Cuando la organización ya decidió hacer el proyecto y necesita presentarlo.",
-      especializada: "Antes de decidir, cuando todavía es barato cambiar de rumbo.",
+      general: "Cuando ya se decidió hacer el proyecto.",
+      especializada: "Antes de decidir, cuando cambiar de rumbo es barato.",
     },
     {
-      criterio: "Qué pasa si el proyecto no conviene",
-      general: "Se presenta igual: la formulación no evalúa la conveniencia económica, la documenta.",
-      especializada: "Se detecta antes de comprometer el capital, que es donde está el ahorro real.",
+      criterio: "Si el proyecto no conviene",
+      general: "Se presenta igual.",
+      especializada: "Se detecta antes de comprometer el capital.",
     },
     {
-      criterio: "Con qué herramientas",
-      general: "Marco lógico, cadena de valor del proyecto, presupuesto y cronograma.",
-      especializada: "Distribuciones de probabilidad, simulación Monte Carlo, valoración de opciones reales y diseño del experimento crítico.",
+      criterio: "Herramientas",
+      general: "Marco lógico, presupuesto y cronograma.",
+      especializada: "Monte Carlo, opciones reales y experimento crítico.",
     },
   ],
-  nota: "Los dos pasos son secuenciales y complementarios, no alternativas: primero se evalúa si el proyecto merece la inversión, después se formula para postularlo. Ambos se pueden contratar juntos —",
-  enlace: {
-    href: "/servicios/beneficios-tributarios-innovacion",
-    texto: "ver el servicio de formulación y beneficios tributarios",
-  },
+  etiquetas: { general: "Lo que suele contratarse", especializada: "Lo que decide la inversión" },
+  pasosTitulo: "El orden correcto:",
+  pasos: ["Evaluar si el proyecto merece la inversión", "Formularlo para postularlo"] as [string, string],
+  cta: "¿Quiere evaluar su proyecto antes de invertir?",
 };
-
-const metodologia = [
-  {
-    title: "Problem framing",
-    desc: "Definimos la decisión de inversión y construimos el canvas de 10 cuadrantes del proyecto.",
-  },
-  {
-    title: "Readiness validation",
-    desc: "Evaluamos la madurez tecnológica y comercial e identificamos las incertidumbres que afectan la decisión.",
-  },
-  {
-    title: "Investment modeling",
-    desc: "Construimos el flujo de caja, determinamos el costo de capital y corremos la simulación Monte Carlo.",
-  },
-  {
-    title: "Market experimentation",
-    desc: "Valoramos las opciones reales disponibles y diseñamos el experimento crítico con métricas de decisión.",
-  },
-  {
-    title: "Ex post learning",
-    desc: "Con los resultados del experimento, actualizamos el modelo y respondemos: seguir, escalar, pivotar o abandonar.",
-  },
-];
 
 const faqs = [
   {
@@ -169,9 +151,10 @@ export default function EvaluacionFinancieraInnovacionPage() {
         lead={lead}
         problema={problema}
         clave={clave}
-        incluye={incluye}
-        incluyeNota="Plazo de referencia: entre 3 y 5 días, según la información disponible del proyecto."
-        metodologia={metodologia}
+        problemaCta={problemaCta}
+        pasos={pasos}
+        pasosIntro={pasosIntro}
+        destacado={destacado}
         faqs={faqs}
         articulosRelacionados={[
           "tasa-interna-de-retorno-tir-que-es-y-por-que-falla-en-innovacion",

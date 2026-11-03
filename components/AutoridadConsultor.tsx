@@ -35,7 +35,7 @@ const universidades = [
 export default function AutoridadConsultor() {
   return (
     <section
-      className="relative z-10 bg-white px-5 sm:px-8 lg:px-0"
+      className="relative z-10 bg-muted px-5 sm:px-8 lg:px-0"
       aria-label="Quién presta este servicio"
     >
       <div className="max-w-[1152px] mx-auto -mt-16">
