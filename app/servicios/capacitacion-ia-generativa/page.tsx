@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
 import { faqSchema, breadcrumbSchema, serviceSchema, globalSchemaNodes } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
+import { logosCapacitacionIA } from "@/lib/service-logos";
 
 export const metadata: Metadata = {
   title: "Capacitación en IA Generativa para Empresas",
@@ -85,6 +86,7 @@ export default function CapacitacionIaGenerativaPage() {
     <>
       <SchemaScript schema={schemas} />
       <ServicioDetalle
+        logos={logosCapacitacionIA}
         badge="Formación corporativa"
         h1="Capacitación en IA generativa para empresas"
         intro="Formación corporativa en IA generativa aplicada a tu negocio: diseñada por área y por reto concreto, con las herramientas de IA que tu empresa ya usa."

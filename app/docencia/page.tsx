@@ -4,6 +4,8 @@ import Link from "next/link";
 import CTASection from "@/components/sections/CTASection";
 import SchemaScript from "@/components/SchemaScript";
 import { breadcrumbSchema, courseListSchema, docenciaAffiliationsSchema, globalSchemaNodes } from "@/lib/schema";
+import ServiceLogosCarousel from "@/components/sections/ServiceLogosCarousel";
+import { logosDocencia } from "@/lib/service-logos";
 import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = {
@@ -100,6 +102,8 @@ export default function DocenciaPage() {
           </div>
         </div>
       </section>
+
+      <ServiceLogosCarousel logos={logosDocencia} title="Instituciones y organizaciones con las que he trabajado en docencia" />
 
       {/* Programas académicos */}
       <section className="py-16 bg-white">

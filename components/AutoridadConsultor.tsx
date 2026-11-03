@@ -32,13 +32,14 @@ const universidades = [
   "Universidad de América",
 ];
 
-export default function AutoridadConsultor() {
+/** `solapado={false}` cuando algo (p. ej. el carrusel de logos) va entre el hero y la tarjeta. */
+export default function AutoridadConsultor({ solapado = true }: { solapado?: boolean }) {
   return (
     <section
       className="relative z-10 bg-muted px-5 sm:px-8 lg:px-0"
       aria-label="Quién presta este servicio"
     >
-      <div className="max-w-[1152px] mx-auto -mt-16">
+      <div className={`max-w-[1152px] mx-auto ${solapado ? "-mt-16" : "pt-10"}`}>
         <div className="bg-white rounded-[20px] shadow-[0_24px_48px_-24px_rgba(14,28,61,.35)] px-5 py-6 sm:px-8 sm:py-7 grid grid-cols-1 sm:grid-cols-[88px_minmax(0,1fr)] md:grid-cols-[88px_minmax(0,1fr)_auto] gap-5 sm:gap-6 items-center">
           <Image
             src="/profile-photo.jpg"

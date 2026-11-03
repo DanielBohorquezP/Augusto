@@ -133,6 +133,10 @@ npm run start    # servidor de producción
 
 Client component con scroll-snap nativo (las diapositivas quedan en el HTML), flechas y puntos; ancho por vista configurable con `itemClassName` (por defecto 1/2/3). Lo usan `TestimonialsSection` y cada sección de `/recursos` (lecturas para empezar, más lecturas, videos, podcasts, cursos, de mi autoría).
 
+### Carrusel de logos en servicios y docencia (2026-11-03)
+
+Cada página de servicio y `/docencia` lleva un carrusel `<ServiceLogosCarousel>` justo debajo del hero, con los clientes de ese servicio (beneficios tributarios, evaluación financiera/PRIME, capacitación en IA, docencia). Listas en `lib/service-logos.ts`; imágenes en `public/logos/servicios/`. Pendientes: Meals de Colombia, Uniandinos y ProColombia vienen en el zip de IA con ≤120 px de ancho y no se incluyeron hasta tener versiones de mayor resolución.
+
 ### Estructura de la Homepage (`/`)
 
 1. `<HeroSection>` — identidad, foto, stats (10+ años, 50+ org, PRIME-10)

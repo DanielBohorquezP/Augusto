@@ -14,6 +14,43 @@ const logos = [
   { file: "esenttia_hq.png", name: "Esenttia" },
   { file: "maria_salome_hq.png", name: "María Salomé" },
   { file: "logo_barras_hq.png", name: "Organización aliada" },
+  // Clientes de los servicios y la docencia (public/logos/servicios/)
+  ...[
+    ["corona", "Corona"],
+    ["sodimac", "Sodimac Homecenter"],
+    ["sura", "SURA"],
+    ["veolia", "Veolia"],
+    ["megalabs", "Megalabs"],
+    ["colgas", "Colgas"],
+    ["fncafeteros", "Federación Nacional de Cafeteros"],
+    ["alfa", "Alfa"],
+    ["exito", "Grupo Éxito"],
+    ["ecopetrol", "Ecopetrol"],
+    ["belcorp", "Belcorp"],
+    ["odl", "Oleoducto de los Llanos Orientales"],
+    ["totto", "Totto"],
+    ["zfb", "Grupo ZFB"],
+    ["lafayette", "Lafayette"],
+    ["gabrica", "Gabrica"],
+    ["sucroal", "Sucroal"],
+    ["apiros", "Apiros"],
+    ["bimedco", "Bimedco"],
+    ["carboquimica", "Carboquímica"],
+    ["soletanche", "Soletanche Bachy"],
+    ["vecol", "Vecol"],
+    ["proquinal", "Proquinal"],
+    ["almacafe", "Almacafé"],
+    ["biod", "BioD"],
+    ["alianza-team", "Alianza Team"],
+    ["team-foods", "Team Foods"],
+    ["espumlatex", "Espumlátex"],
+    ["ght", "Growers Hub Trading"],
+    ["cenit", "Cenit"],
+    ["sena", "SENA"],
+    ["uis", "Universidad Industrial de Santander"],
+    ["u-america", "Universidad de América"],
+    ["uniandes-nodo", "Universidad de los Andes · Nodo de Innovación"],
+  ].map(([slug, name]) => ({ file: `servicios/${slug}.webp`, name })),
 ];
 
 export default function LogosCarousel() {
@@ -23,7 +60,10 @@ export default function LogosCarousel() {
         Organizaciones con las que he trabajado
       </p>
       <div className="relative [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <div className="flex w-max animate-logos-scroll motion-reduce:animate-none">
+        <div
+          className="flex w-max animate-logos-scroll motion-reduce:animate-none"
+          style={{ animationDuration: `${logos.length * 2.5}s` }}
+        >
           {[...logos, ...logos].map((logo, i) => (
             <div
               key={`${logo.file}-${i}`}

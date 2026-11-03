@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
 import { faqSchema, breadcrumbSchema, serviceSchema, globalSchemaNodes } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
+import { logosEvaluacionFinanciera } from "@/lib/service-logos";
 
 // "Evaluación financiera de proyectos" tiene una SERP educativa (cursos, programas y
 // PDFs universitarios): Google no quiere una pagina de servicio ahi. La meta description
@@ -136,6 +137,7 @@ export default function EvaluacionFinancieraInnovacionPage() {
     <>
       <SchemaScript schema={schemas} />
       <ServicioDetalle
+        logos={logosEvaluacionFinanciera}
         badge="Evaluación financiera de innovación"
         h1="Evaluación financiera de proyectos de innovación bajo incertidumbre"
         intro="Evaluación financiera de proyectos de innovación y tecnología bajo incertidumbre, donde el VPN y la TIR se quedan cortos. Con la metodología PRIME-10™: modelos probabilísticos con simulación Monte Carlo, valoración de opciones reales y diseño del experimento crítico antes de comprometer la inversión."

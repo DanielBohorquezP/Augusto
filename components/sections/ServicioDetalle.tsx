@@ -5,6 +5,8 @@ import { whatsappUrl } from "@/lib/site";
 import { WA_PATH } from "@/lib/whatsapp-icon";
 import FAQAccordion from "@/components/FAQAccordion";
 import AutoridadConsultor from "@/components/AutoridadConsultor";
+import ServiceLogosCarousel from "@/components/sections/ServiceLogosCarousel";
+import type { ServiceLogo } from "@/lib/service-logos";
 import LastUpdated from "@/components/LastUpdated";
 import { renderInlineText } from "@/lib/inline-text";
 import { getPostBySlug, type Post } from "@/lib/posts";
@@ -41,6 +43,8 @@ export type ServicioDetalleProps = {
   /** Nombre del servicio en el mensaje prellenado de WhatsApp. Por defecto, el h1. */
   whatsappTema?: string;
   imagen?: Imagen;
+  /** Carrusel de logos de clientes del servicio, justo debajo del hero. */
+  logos?: ServiceLogo[];
   /** Tres datos clave bajo el hero (valor destacado + etiqueta). */
   hechos?: Hecho[];
   /** Parrafo de apertura de "El problema", en tamano grande. */
@@ -93,6 +97,7 @@ export default function ServicioDetalle({
   routePath,
   whatsappTema,
   imagen,
+  logos,
   hechos,
   lead,
   problema,
@@ -196,8 +201,10 @@ export default function ServicioDetalle({
         </div>
       </section>
 
+      {logos && logos.length > 0 && <ServiceLogosCarousel logos={logos} />}
+
       {/* Ficha de autoridad: quien presta el servicio, antes de explicar el problema. */}
-      <AutoridadConsultor />
+      <AutoridadConsultor solapado={!logos?.length} />
 
       {/* Qué incluye y cómo funciona */}
       <section id="incluye" className="bg-muted pt-16 pb-20 lg:pb-28 scroll-mt-20">

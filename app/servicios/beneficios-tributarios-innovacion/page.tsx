@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SchemaScript from "@/components/SchemaScript";
 import { faqSchema, breadcrumbSchema, serviceSchema, globalSchemaNodes } from "@/lib/schema";
 import ServicioDetalle from "@/components/sections/ServicioDetalle";
+import { logosBeneficiosTributarios } from "@/lib/service-logos";
 
 // El template de app/layout.tsx anade " | Augusto Ruiz" (15 caracteres). Aqui se usa
 // `absolute` para prescindir de ese sufijo: es la unica forma de que quepan las dos
@@ -144,6 +145,7 @@ export default function BeneficiosTributariosInnovacionPage() {
     <>
       <SchemaScript schema={schemas} />
       <ServicioDetalle
+        logos={logosBeneficiosTributarios}
         badge="Consultoría tributaria especializada"
         h1="Consultoría en beneficios tributarios para empresas I+D+i"
         // Hero corto a proposito: dos lineas. La identidad del consultor la cubre
