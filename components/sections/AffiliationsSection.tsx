@@ -8,17 +8,18 @@ const credentials = [
 
 export default function AffiliationsSection() {
   return (
-    <section className="py-14 bg-white border-b border-border">
+    <section className="py-6 bg-white border-b border-border">
       <div className="container-site">
-        <p className="text-center text-xs font-body font-semibold uppercase tracking-widest text-muted-foreground mb-8">
+        <p className="text-center text-[10px] font-body uppercase tracking-widest text-muted-foreground/60 mb-3">
           Credenciales académicas y profesionales
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-2 opacity-60">
           {credentials.map((cred) => (
-            <div key={cred.label} className="card p-5">
-              <p className="font-heading font-bold text-primary text-sm">{cred.label}</p>
-              <p className="font-heading font-semibold text-foreground text-base mt-1">{cred.title}</p>
-              <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{cred.detail}</p>
+            <div key={cred.label} className="text-center">
+              <p className="font-heading font-semibold text-muted-foreground text-[10px]">
+                {cred.label} · {cred.title}
+              </p>
+              <p className="text-[10px] text-muted-foreground/70 leading-snug">{cred.detail}</p>
             </div>
           ))}
         </div>

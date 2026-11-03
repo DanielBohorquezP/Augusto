@@ -21,7 +21,6 @@ type Comparativa = {
   enlace?: { href: string; texto: string };
 };
 
-export type Herramienta = { name: string; description: string };
 export type Hecho = { valor: string; etiqueta: string };
 /** Seccion extra opcional entre "Qué incluye" y la comparativa (p. ej. OxI). */
 export type SeccionExtra = { etiqueta: string; titulo: string; parrafos: string[] };
@@ -51,9 +50,6 @@ export type ServicioDetalleProps = {
   /** Tabla comparativa opcional. Solo la usan beneficios tributarios y evaluacion financiera. */
   comparativa?: Comparativa;
   metodologia: MetodologiaStep[];
-  /** Metodologias y tecnicas concretas que usa el servicio (opcional). */
-  herramientas?: Herramienta[];
-  paraQuien: string[];
   faqs: Faq[];
   /** Slugs de posts del blog que respaldan este servicio. Solo se muestran los que
    *  existen en content/blog/, asi que se pueden listar posts aun sin publicar. */
@@ -83,8 +79,6 @@ export default function ServicioDetalle({
   seccionExtra,
   comparativa,
   metodologia,
-  herramientas,
-  paraQuien,
   faqs,
   articulosRelacionados = [],
 }: ServicioDetalleProps) {
@@ -347,59 +341,6 @@ export default function ServicioDetalle({
                   {step.title}
                 </h3>
                 <p className="text-sm leading-[1.65] text-muted-foreground pr-4 [text-wrap:pretty]">{step.desc}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* Metodologías y herramientas (opcional) */}
-      {herramientas && herramientas.length > 0 && (
-        <section className="py-20 lg:py-28 bg-primary">
-          <div className={`${wrap} grid grid-cols-1 lg:grid-cols-[minmax(0,.8fr)_minmax(0,1.2fr)] gap-10 lg:gap-16 items-start`}>
-            <div className="flex flex-col gap-4">
-              <span className="font-heading font-semibold text-xs uppercase tracking-[.18em] text-[#FCA5A5]">
-                Herramientas
-              </span>
-              <h2 className="font-heading font-semibold text-[30px] sm:text-4xl lg:text-[40px] leading-[1.1] tracking-[-.025em] text-white">
-                Metodologías que aplico
-              </h2>
-              <p className="text-base leading-[1.7] text-white/75">
-                Cada una con nombre propio y con el criterio para saber cuándo aplica.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-4">
-              {herramientas.map((h) => (
-                <div
-                  key={h.name}
-                  className="bg-white/[.06] border border-white/[.12] rounded-[18px] p-7 flex flex-col gap-2.5"
-                >
-                  <h3 className="font-heading font-semibold text-lg text-white">{h.name}</h3>
-                  <p className="text-sm leading-[1.65] text-white/[.78] [text-wrap:pretty]">{h.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Para quién es */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className={wrap}>
-          <div className="flex flex-col gap-4 mb-10">
-            <span className={eyebrow}>Para quién</span>
-            <h2 className={h2Class}>Para quién es</h2>
-          </div>
-          <ol className="grid grid-cols-1 md:grid-cols-2 border-t border-[#E2E8F0]">
-            {paraQuien.map((item, i) => (
-              <li
-                key={i}
-                className="grid grid-cols-[44px_minmax(0,1fr)] gap-4 py-7 md:pr-8 border-b border-[#E2E8F0]"
-              >
-                <span className="font-heading font-semibold text-sm text-accent pt-0.5">{num(i)}</span>
-                <p className="text-[15px] leading-[1.65] text-foreground [text-wrap:pretty]">
-                  {renderInlineText(item)}
-                </p>
               </li>
             ))}
           </ol>

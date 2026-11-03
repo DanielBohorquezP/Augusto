@@ -138,12 +138,19 @@ Client component con scroll-snap nativo (las diapositivas quedan en el HTML), fl
 1. `<HeroSection>` — identidad, foto, stats (10+ años, 50+ org, PRIME-10)
 2. `<ServicesSection>` — los 3 servicios principales, cada tarjeta con CTA a su página
 3. `<LogosCarousel>` — logos de clientes
-4. `<Prime10Banner>` — CTA al framework propietario
-5. `<TestimonialsSection>` — testimonios de clientes (carrusel)
-6. `<BlogPreviewSection>` — últimos artículos del blog
-7. FAQ
-8. `<CTASection>` — llamada a la acción final
-9. `<AffiliationsSection>` — credenciales y afiliaciones (PhD(c), CQRM, PMP…), al final de la página, justo antes del footer
+4. `<TestimonialsSection>` — testimonios de clientes (carrusel)
+5. `<BlogPreviewSection>` — últimos artículos del blog
+6. FAQ (5 preguntas)
+7. `<CTASection>` — llamada a la acción final
+8. `<AffiliationsSection>` — credenciales y afiliaciones (PhD(c), CQRM, PMP…), al final de la página, justo antes del footer; desde 2026-11-03 va en letra pequeña y casi invisible, sin tarjetas
+
+> 2026-11-03: se quitó `<Prime10Banner>` de la home (el componente sigue en `components/sections/` sin uso). PRIME-10 sigue visible en `/prime-10` y en los servicios.
+> También se recortaron las FAQ: home 10→5, `/servicios` 11→6, beneficios tributarios 12→6, evaluación financiera 9→5. Las de los artículos del blog (por slug) no se tocaron.
+
+> **Actualización 2026-11-03:** el H1 del hero pasó a
+> **"Consultoría de Innovación y Evaluación financiera"** (decisión del usuario),
+> para reflejar el servicio principal. Title y meta description no cambiaron.
+> Lo que sigue describe la estrategia original del 2026-08-21.
 
 ### Posicionamiento de la homepage (desde 2026-08-21)
 
@@ -169,11 +176,11 @@ y así la frase a posicionar ocupa el arranque del title.
 **Diferenciador frente a la competencia:** los competidores dicen tener
 "metodologías propias" sin nombrarlas ni acreditarlas. la antigua
 `MetodologiasSection` (eliminada del home por redundante con Servicios) hacía lo
-contrario: nombraba las seis metodologías. Ese contenido vive ahora en la sección
-"Metodologías que aplico" de cada página de servicio (prop opcional `herramientas`
-de `ServicioDetalle`): Monte Carlo, opciones reales, experimento crítico y Canvas
-ampliado en `/servicios/evaluacion-financiera-innovacion`; adopción de IA por reto
-en capacitación; formulación I+D+i en beneficios tributarios.
+contrario: nombraba las seis metodologías. Ese contenido vivió en la sección
+"Metodologías que aplico" de cada página de servicio, pero **el 2026-11-03 se
+quitaron de las 3 páginas de servicio las secciones "Metodologías que aplico" y
+"Para quién es"** (se eliminaron de `ServicioDetalle` junto con las props
+`herramientas` y `paraQuien` y sus datos en cada página).
 
 ### Profundidad de `/servicios` (desde 2026-08-21)
 
@@ -610,8 +617,8 @@ refresca el suyo solo al volver a rastrear el sitio (puede tardar semanas).
 |-----------|-----------|
 | `HeroSection` | Foto profesional, headline, descripción, 2 CTAs, stats row |
 | `ServicesSection` | 3 servicios en cards con beneficios listados y CTA por tarjeta; las 3 enlazan a su página (PRIME-10 Assessment, Capacitación en IA generativa, Beneficios tributarios) |
-| `ParaQuienSection` | H2 "¿Para quién trabajo?": 4 segmentos por necesidad, cada uno enlazado a su servicio (sin sectores ni clientes inventados) |
-| `Prime10Banner` | Banner destacado con CTA al framework; H2 "PRIME-10™: evaluación financiera bajo incertidumbre" (distinto del H3 "PRIME-10™" de Metodologías) |
+| `ParaQuienSection` | (sin uso desde 2026-11-03, quitada de la home) H2 "¿Para quién trabajo?": 4 segmentos por necesidad, cada uno enlazado a su servicio (sin sectores ni clientes inventados) |
+| `Prime10Banner` | (sin uso desde 2026-11-03, quitado de la home) Banner destacado con CTA al framework; H2 "PRIME-10™: evaluación financiera bajo incertidumbre" (distinto del H3 "PRIME-10™" de Metodologías) |
 | `ComoTrabajoSection` | H2 "Cómo trabajo": `<ol>` de 4 pasos (conversación, diagnóstico, propuesta, ejecución) + CTA de WhatsApp. No declara modalidad de precio |
 | `AffiliationsSection` | Uniandes + EAFIT + otras afiliaciones |
 | `TestimonialsSection` | carrusel (usa `components/Carousel.tsx`) con 6 testimonios reales con nombre y cargo; H2 "Lo que dicen participantes y clientes" (son de talleres/masterclass, no resultados de consultoría) |

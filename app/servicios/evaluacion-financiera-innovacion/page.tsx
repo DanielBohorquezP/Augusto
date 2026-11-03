@@ -110,48 +110,10 @@ const metodologia = [
   },
 ];
 
-const herramientas = [
-    {
-      name: "Simulación Monte Carlo",
-      description:
-        "Reemplaza el VPN puntual por una distribución de probabilidad del valor del proyecto. En vez de un número que asume un futuro fijo, entrega el rango de resultados posibles y su probabilidad.",
-    },
-    {
-      name: "Valoración de opciones reales",
-      description:
-        "Valora la flexibilidad de la decisión: postergar, escalar o abandonar. Es lo que el flujo de caja descontado no captura y lo que hace que se rechacen proyectos que sí crean valor.",
-    },
-    {
-      name: "Diseño del experimento crítico",
-      description:
-        "Identifica la variable de mayor incertidumbre del proyecto y define qué debe validarse experimentalmente, con un piloto o un MVP, antes de comprometer la inversión completa.",
-    },
-    {
-      name: "Canvas de modelo de negocio ampliado",
-      description:
-        "El Canvas de Osterwalder con un décimo cuadrante: la evaluación financiera probabilística del modelo de negocio, que el lienzo original deja fuera.",
-    },
-];
-
-const paraQuien = [
-  "Direcciones de innovación y tecnología que deben sustentar una decisión de inversión ante junta o comité",
-  "CFOs y equipos financieros que evalúan proyectos de I+D+i con herramientas diseñadas para contextos predecibles",
-  "Equipos de proyectos tecnológicos que necesitan un criterio claro de go/no-go antes de comprometer recursos",
-  "Organizaciones que ya aprobaron o rechazaron un proyecto con base en un VPN puntual y quieren una segunda opinión metodológicamente fundamentada",
-];
-
 const faqs = [
   {
     q: "¿Cuál es la diferencia entre formular un proyecto de innovación y evaluarlo financieramente?",
     a: "Formular es documentar el proyecto para que una entidad lo apruebe: marco lógico, objetivos, cronograma, presupuesto e indicadores, en el formato que exige Minciencias, una convocatoria o un inversionista. Evaluar financieramente es responder una pregunta anterior y distinta: si ese proyecto merece la inversión, en qué monto y bajo qué condiciones. Son dos oficios complementarios que el mercado suele confundir, porque la mayoría de las consultorías de innovación en Colombia se dedica a formular. La consecuencia práctica es que un proyecto puede estar impecablemente formulado, ser aprobado, y aun así destruir valor para la empresa: la formulación no evalúa la conveniencia económica, la documenta. El orden correcto es evaluar primero y formular después, cuando ya se sabe que el proyecto vale la pena.",
-  },
-  {
-    q: "¿Necesito una evaluación financiera antes de postular a beneficios tributarios o a una convocatoria?",
-    a: "No es un requisito de la entidad, pero cambia dos cosas. Primero, la calidad del proyecto que se postula: los evaluadores del CNBT y de las convocatorias valoran que la incertidumbre técnica esté identificada y que el presupuesto responda a una lógica de decisión, no a una cifra redonda. Segundo, y más importante, evita el peor escenario posible, que no es que le rechacen el proyecto: es que se lo aprueben y resulte ser una mala inversión. El beneficio tributario recupera una fracción de lo invertido; si el proyecto en sí destruye valor, ese descuento no compensa la pérdida. Por eso el orden que recomiendo es evaluar la decisión primero y formular después.",
-  },
-  {
-    q: "¿En qué se diferencia esta consultoría financiera de la de una firma de consultoría tradicional?",
-    a: "Las grandes firmas de consultoría financiera trabajan sobre negocios en marcha: transformación de la función financiera, procesos, reporting, fusiones y adquisiciones, transacciones. Su instrumental está diseñado para contextos donde existe historia y las proyecciones se apoyan en datos comparables. Esta consultoría se ocupa de la decisión de inversión en proyectos de innovación y tecnología, donde por definición no hay serie histórica: no se sabe si la tecnología va a funcionar, ni si el mercado va a responder. Ahí el flujo de caja descontado con valores puntuales deja de ser una herramienta de decisión y se vuelve un ejercicio de confirmación de lo que ya se quería hacer. El reemplazo es metodológico: distribuciones de probabilidad en vez de valores fijos, valoración de la flexibilidad mediante opciones reales, y diseño del experimento que reduce la incertidumbre crítica antes de comprometer el capital.",
   },
   {
     q: "¿Por qué el VPN y la TIR no son suficientes para evaluar un proyecto de innovación?",
@@ -162,16 +124,8 @@ const faqs = [
     a: "La simulación Monte Carlo es una técnica que recalcula el modelo financiero miles de veces, tomando en cada iteración valores distintos de las variables inciertas según distribuciones de probabilidad calibradas. Aplicada a un proyecto de innovación, convierte el VPN puntual en una distribución de resultados posibles: en lugar de un solo número, la organización obtiene la probabilidad de que el proyecto cree o destruya valor y la identificación de las variables que más afectan ese resultado. En PRIME-10™, esa información define qué debe validarse experimentalmente antes de invertir.",
   },
   {
-    q: "¿Qué son las opciones reales en la valoración de un proyecto de inversión?",
-    a: "Las opciones reales son la flexibilidad que tiene una organización para modificar una decisión de inversión a medida que se resuelve la incertidumbre: diferir, expandir, contraer, abandonar o ejecutar por etapas. Un VPN tradicional ignora esa flexibilidad y por eso puede subvalorar proyectos de innovación donde la posibilidad de validar con un piloto antes de escalar tiene valor económico propio. En la evaluación PRIME-10, la valoración de opciones reales hace parte de la fase de experimentación de mercado: se identifica si el proyecto tiene opciones relevantes y se valora la más material antes de la decisión go/no-go.",
-  },
-  {
     q: "¿Cuánto dura el proceso de evaluación financiera de un proyecto?",
     a: "Una evaluación PRIME-10 completa toma típicamente entre 3 y 5 días, incluyendo la recopilación de información, el análisis y la presentación de resultados. El plazo depende principalmente de la disponibilidad de la información del proyecto: cifras del modelo de negocio, supuestos de inversión y datos de mercado. Proyectos con información dispersa o incompleta pueden requerir una etapa previa de levantamiento.",
-  },
-  {
-    q: "¿Qué necesito tener listo antes de una evaluación financiera de innovación?",
-    a: "Necesita una descripción clara del proyecto y las cifras disponibles de su modelo de negocio: inversión estimada, supuestos de ingresos y costos, y el estado de madurez tecnológica y comercial. No se requiere un modelo financiero terminado; parte del trabajo de la evaluación es construirlo con rigor probabilístico. Lo que sí es indispensable es acceso a las personas que conocen el proyecto, porque las distribuciones de probabilidad se calibran con la mejor información disponible de la organización.",
   },
   {
     q: "¿Para qué tipo de proyectos aplica este servicio (etapa, sector, tamaño)?",
@@ -218,8 +172,6 @@ export default function EvaluacionFinancieraInnovacionPage() {
         incluye={incluye}
         incluyeNota="Plazo de referencia: entre 3 y 5 días, según la información disponible del proyecto."
         metodologia={metodologia}
-        herramientas={herramientas}
-        paraQuien={paraQuien}
         faqs={faqs}
         articulosRelacionados={[
           "tasa-interna-de-retorno-tir-que-es-y-por-que-falla-en-innovacion",

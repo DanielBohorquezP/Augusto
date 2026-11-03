@@ -30,20 +30,13 @@ export default function HeroSection() {
                 Console y a cambio diluyo el termino de cabeza "consultoria de
                 innovacion" (pos. ~54, fuera de las primeras paginas). Se quita la
                 repeticion de "innovacion" para que el H1 favorezca ese termino de
-                cabeza, alineado con el title ya acortado. */}
+                cabeza, alineado con el title ya acortado. Desde 2026-11-03 el H1
+                suma "Evaluacion financiera" para reflejar el servicio principal. */}
             <h1 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight text-balance">
-              Consultoría de innovación y metodologías
+              Consultoría de Innovación y Evaluación financiera de proyectos
             </h1>
 
-            {/* El lema de marca baja del H1 a esta linea: sigue siendo lo primero
-                que se lee despues del titulo, pero deja el H1 libre para la frase
-                que se quiere posicionar. */}
-            <p className="mt-5 font-heading font-medium text-white text-lg sm:text-xl leading-snug text-balance">
-              Evaluación financiera para{" "}
-              <span className="text-accent">proyectos I+D+i</span>
-            </p>
-
-            <p className="mt-3 text-white/80 text-base leading-relaxed">
+            <p className="mt-5 text-white/80 text-base leading-relaxed">
               Investigador · Consultor · Formador en{" "}
               <strong className="text-white font-semibold">
                 Gestión de Innovación Tecnológica

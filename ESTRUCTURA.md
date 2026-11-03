@@ -14,9 +14,9 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 | Servicios en zigzag (imagen + estadística + CTA) | `components/sections/ServicesSection.tsx` |
 | Testimonios | `components/sections/TestimonialsSection.tsx` |
 | Carrusel reutilizable | `components/Carousel.tsx` (testimonios y secciones de `/recursos`) |
-| Situaciones / «Por qué me buscan las empresas» (selector interactivo, primer caso abierto) | `components/sections/ParaQuienSection.tsx` |
+| Situaciones / «Por qué me buscan las empresas» (selector interactivo; sin uso, quitada de la home el 2026-11-03) | `components/sections/ParaQuienSection.tsx` |
 | Cómo trabajo (proceso en 4 pasos); ya NO se usa en la home, se conserva el componente | `components/sections/ComoTrabajoSection.tsx` |
-| Banner PRIME-10 | `components/sections/Prime10Banner.tsx` |
+| Banner PRIME-10 (sin uso, quitado de la home el 2026-11-03) | `components/sections/Prime10Banner.tsx` |
 | Preview de blog en home | `components/sections/BlogPreviewSection.tsx` |
 | Afiliaciones (logos) | `components/sections/AffiliationsSection.tsx` |
 | CTA final de home | `components/sections/CTASection.tsx` |

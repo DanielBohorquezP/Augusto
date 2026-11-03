@@ -142,10 +142,6 @@ const faqs = [
     a: "Una consultoría de innovación acompaña a una organización a decidir en qué innovar y cómo hacerlo con criterio, no a generar ideas. En mi práctica el trabajo se concentra en tres frentes: evaluar financieramente proyectos de innovación bajo incertidumbre, la [asesoría en beneficios tributarios para empresas](/servicios/beneficios-tributarios-innovacion) que invierten en I+D+i, y formar equipos en el uso de IA generativa. No es una agencia creativa, no es un taller de ideación y no reemplaza al área de innovación de la empresa: le da métodos y criterio para sustentar sus decisiones.",
   },
   {
-    q: "¿Qué metodologías de innovación existen y cuál necesita mi empresa?",
-    a: "Depende de la decisión que tenga enfrente. Si el problema es determinar si un proyecto crea o destruye valor, aplican la simulación Monte Carlo, la valoración de opciones reales y el diseño del experimento crítico — las tres integradas en PRIME-10™, mi metodología propia registrada ante la Dirección Nacional de Derecho de Autor (2025). Si el problema es acceder a beneficios tributarios, aplica la formulación de proyectos según los criterios de Minciencias, la ANLA o la UPME. Si el problema es que el equipo no sabe usar IA en su trabajo, aplica la adopción por reto de negocio. El diagnóstico inicial sirve precisamente para determinar cuál corresponde.",
-  },
-  {
     q: "¿En qué se diferencia de una consultoría estratégica tradicional?",
     a: "La consultoría estratégica tradicional trabaja con proyecciones puntuales: un VPN, una TIR, un escenario base. Eso funciona cuando el futuro es razonablemente predecible. En proyectos de innovación no lo es, y ese supuesto produce errores de selección documentados en mi investigación doctoral: se aprueban proyectos que destruyen valor y se rechazan proyectos que sí lo crean. Mi trabajo parte de rangos de incertidumbre en vez de valores fijos, y define qué debe validarse experimentalmente antes de comprometer la inversión.",
   },
@@ -164,22 +160,6 @@ const faqs = [
   {
     q: "¿Qué es PRIME-10™ y en qué se diferencia de una evaluación financiera tradicional?",
     a: "El VPN y el TIR producen un único número que asume un futuro predecible. PRIME-10™ es una metodología propia de evaluación financiera probabilística que trabaja con rangos de incertidumbre, no con valores fijos. Incorpora simulación Monte Carlo, análisis de opciones reales y diseño del experimento crítico que debe ejecutarse antes de comprometer la inversión. Está registrada en la Dirección Nacional de Derecho de Autor de Colombia (2025).",
-  },
-  {
-    q: "¿Trabaja con organizaciones fuera de Colombia?",
-    a: "Sí. El trabajo de investigación doctoral incluyó visitas de campo y entrevistas con organizaciones en Brasil, Uruguay, Argentina y Chile. Para proyectos de I+D+i, el acompañamiento en beneficios tributarios aplica a Colombia y a otros países de la región con regímenes similares. La formación corporativa en IA se puede desarrollar de forma remota con organizaciones en cualquier país.",
-  },
-  {
-    q: "¿La formación en IA generativa requiere conocimientos técnicos previos?",
-    a: "No. El programa está diseñado para equipos y líderes de cualquier área funcional, independientemente de su nivel técnico. Cada sesión parte de un reto de negocio concreto del área y usa las herramientas que la organización ya tiene disponibles — Copilot, ChatGPT, Gemini o Claude. El objetivo es que el empleado eleve su productividad con IA, no que desarrolle software.",
-  },
-  {
-    q: "¿Cómo funciona el proceso para acceder a beneficios tributarios por I+D+i?",
-    a: "El primer paso es establecer si el proyecto califica y bajo qué régimen, antes de cualquier compromiso formal. Si es elegible, se estructura técnicamente el proyecto, se prepara la documentación requerida y se gestiona la postulación ante la entidad competente: Minciencias para proyectos de I+D+i, o la ANLA y la UPME para inversiones ambientales y energéticas. La tasa de aprobación en proyectos gestionados en mi práctica actual de consultoría es del 93%.",
-  },
-  {
-    q: "¿Con qué tipo de organizaciones ha trabajado?",
-    a: "Con empresas del sector real, universidades y organismos multilaterales en Colombia y América Latina. Entre los clientes y aliados se cuentan organizaciones como Ecopetrol, Connect Bogotá, SwissContact, el Instituto Humboldt y el BID-PRODEM, entre otros. Los proyectos cubren sectores como energía, alimentos, bioeconomía, manufactura y servicios.",
   },
 ];
 
@@ -252,7 +232,7 @@ export default function ServiciosPage() {
                 cabeza de la marca); "en Colombia" diferencia esta pagina como el
                 hub de servicios sin diluir el match exacto. */}
             <h1 className="font-heading font-bold text-[34px] sm:text-5xl lg:text-[56px] leading-[1.08] tracking-[-.03em] text-white text-balance">
-              Servicios de consultoría de innovación en Colombia
+              Servicios de consultoría de innovación
             </h1>
             <p className="font-heading font-medium text-lg lg:text-[19px] leading-[1.45] text-white/90 [text-wrap:pretty]">
               Especializada en gestión de la innovación, evaluación financiera bajo

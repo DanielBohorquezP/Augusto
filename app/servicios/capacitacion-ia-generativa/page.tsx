@@ -59,21 +59,6 @@ const metodologia = [
   },
 ];
 
-const herramientas = [
-    {
-      name: "Adopción de IA por reto de negocio",
-      description:
-        "La formación parte de un reto real del área, no de un temario genérico. Cada participante termina con un artefacto funcional construido sobre las herramientas que la empresa ya tiene.",
-    },
-];
-
-const paraQuien = [
-  "Equipos de cualquier área funcional (comercial, financiera, operaciones, talento humano) que ya tienen acceso a herramientas de IA pero no las han incorporado a su trabajo diario",
-  "Niveles directivos que necesitan criterio propio para decidir dónde la IA generativa agrega valor en su organización y dónde no",
-  "Áreas de I+D+i que requieren un enfoque especializado, con herramientas de investigación y método científico",
-  "Organizaciones que ya intentaron capacitaciones genéricas en IA sin cambio observable en la forma de trabajar",
-];
-
 const faqs = [
   {
     q: "¿Qué habilidades necesita mi equipo para trabajar con IA generativa?",
@@ -129,8 +114,6 @@ export default function CapacitacionIaGenerativaPage() {
         clave={clave}
         incluye={incluye}
         metodologia={metodologia}
-        herramientas={herramientas}
-        paraQuien={paraQuien}
         faqs={faqs}
         articulosRelacionados={[
           "desafios-adopcion-ia-generativa-empresas-colombianas",
