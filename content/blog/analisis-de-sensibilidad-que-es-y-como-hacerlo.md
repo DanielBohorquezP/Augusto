@@ -6,6 +6,8 @@ metaDescription: "Análisis de sensibilidad: qué es, cómo hacerlo paso a paso 
 date: "2026-11-16"
 readTime: "8 min"
 featured: false
+image: "/blog/gestion-de-la-innovacion-sistema-empresa-tecnologica.jpg"
+imageAlt: "Mesa de reuniones con un portátil que muestra un gráfico y una hoja impresa con un histograma sobre la que una mano marca un punto con un bolígrafo."
 ---
 
 El análisis de sensibilidad mide cuánto cambia el resultado de un proyecto (por ejemplo, su valor presente neto) cuando se modifica una variable incierta, dejando las demás constantes. Responde a una pregunta práctica: ¿qué supuesto, si me equivoco, me hace perder más? Es el paso que separa un modelo financiero que solo entrega un número de uno que muestra dónde está el riesgo, y es el puente natural hacia la simulación Monte Carlo.

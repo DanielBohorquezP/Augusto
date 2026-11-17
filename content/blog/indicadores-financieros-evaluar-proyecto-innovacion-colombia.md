@@ -6,6 +6,8 @@ metaDescription: "Indicadores financieros para evaluar un proyecto de innovació
 date: "2026-11-16"
 readTime: "9 min"
 featured: false
+image: "/blog/credito-fiscal-idi-amortizacion-colombia.jpg"
+imageAlt: "Dos personas revisan informes financieros impresos con gráficos, una calculadora y notas adhesivas sobre una mesa de trabajo."
 ---
 
 Los indicadores financieros para evaluar un proyecto de innovación en Colombia son los mismos que usa cualquier proyecto de inversión: valor presente neto (VPN), tasa interna de retorno (TIR), período de recuperación (payback) e índice de rentabilidad. Lo que cambia es cómo se leen. En innovación, las ventas, los costos y los plazos son inciertos desde el primer día, y un indicador calculado con un solo escenario puede dar una falsa sensación de precisión. La práctica que mejor funciona es combinar los indicadores clásicos con una medida del riesgo: la probabilidad de que el proyecto pierda dinero.

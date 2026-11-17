@@ -34,15 +34,15 @@ export type StaticRoute = {
 };
 
 export const staticRoutes: StaticRoute[] = [
-  { path: "", lastModified: "2026-09-08", priority: 1.0, changeFrequency: "weekly" },
+  { path: "", lastModified: "2026-11-03", priority: 1.0, changeFrequency: "weekly" },
   { path: "/sobre-augusto-ruiz", lastModified: "2026-09-03", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/servicios", lastModified: "2026-09-03", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/servicios/beneficios-tributarios-innovacion", lastModified: "2026-09-03", priority: 0.9, changeFrequency: "monthly" },
-  { path: "/servicios/evaluacion-financiera-innovacion", lastModified: "2026-09-29", priority: 0.85, changeFrequency: "monthly" },
-  { path: "/servicios/capacitacion-ia-generativa", lastModified: "2026-08-18", priority: 0.85, changeFrequency: "monthly" },
+  { path: "/servicios", lastModified: "2026-11-03", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/servicios/beneficios-tributarios-innovacion", lastModified: "2026-11-03", priority: 0.9, changeFrequency: "monthly" },
+  { path: "/servicios/evaluacion-financiera-innovacion", lastModified: "2026-11-03", priority: 0.85, changeFrequency: "monthly" },
+  { path: "/servicios/capacitacion-ia-generativa", lastModified: "2026-11-03", priority: 0.85, changeFrequency: "monthly" },
   { path: "/prime-10", lastModified: "2026-08-15", priority: 0.85, changeFrequency: "monthly" },
-  { path: "/docencia", lastModified: "2026-08-15", priority: 0.8, changeFrequency: "monthly" },
-  { path: "/blog", lastModified: "2026-09-08", priority: 0.85, changeFrequency: "weekly" },
+  { path: "/docencia", lastModified: "2026-11-03", priority: 0.8, changeFrequency: "monthly" },
+  { path: "/blog", lastModified: "2026-11-16", priority: 0.85, changeFrequency: "weekly" },
   { path: "/recursos", lastModified: "2026-10-10", priority: 0.7, changeFrequency: "monthly" },
   { path: "/medios", lastModified: "2026-08-12", priority: 0.7, changeFrequency: "monthly" },
   { path: "/contacto", lastModified: "2026-08-12", priority: 0.8, changeFrequency: "yearly" },

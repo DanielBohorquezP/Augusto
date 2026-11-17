@@ -6,6 +6,8 @@ metaDescription: "Tasa interna de retorno (TIR): qué es, fórmula, cálculo en 
 date: "2026-11-16"
 readTime: "9 min"
 featured: false
+image: "/blog/que-es-un-beneficio-tributario-colombia.jpg"
+imageAlt: "Escritorio oscuro de oficina con una carpeta azul marino, una calculadora, un portátil con una hoja de cálculo y un clip rojo."
 ---
 
 La tasa interna de retorno (TIR) es la tasa de descuento que hace que el valor presente neto (VPN) de un proyecto sea igual a cero. Dicho de forma sencilla, es la rentabilidad anual que rinde la inversión a lo largo de su vida. Un proyecto se considera atractivo si su TIR supera la rentabilidad mínima que exige la empresa (su costo de capital más una prima por riesgo). La TIR es popular porque entrega un solo porcentaje fácil de comparar; es también un indicador que engaña con frecuencia, y más aún en proyectos de innovación, donde los flujos son inciertos.

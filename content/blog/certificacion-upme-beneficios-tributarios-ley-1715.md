@@ -6,6 +6,8 @@ metaDescription: "Certificación UPME: qué es, quién la solicita y cómo se re
 date: "2026-11-16"
 readTime: "9 min"
 featured: false
+image: "/blog/beneficios-tributarios-ambientales-colombia-paso-a-paso.jpg"
+imageAlt: "Mano con pluma señalando un gráfico impreso junto a una carpeta con documentos de un parque solar, una planta, un panel solar pequeño y un vaso de agua sobre un escritorio."
 ---
 
 La certificación UPME es el aval que emite la Unidad de Planeación Minero Energética para confirmar que un proyecto de fuentes no convencionales de energía (FNCE) o de eficiencia energética califica para los incentivos tributarios de la Ley 1715 de 2014. Sin ella, la empresa no puede usar la deducción en renta, la exclusión de IVA ni la exención de aranceles: la DIAN exige el documento para reconocer el beneficio. Esta guía explica qué incentivos hay detrás de la certificación, quién la solicita, cómo organizar el trámite y cuáles son los errores que más retrasan o tumban una solicitud.

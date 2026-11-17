@@ -6,6 +6,8 @@ metaDescription: "Simulación Monte Carlo: qué es, cómo funciona paso a paso, 
 date: "2026-11-16"
 readTime: "9 min"
 featured: false
+image: "/blog/monte-carlo-ia-generativa-lecciones-proyectos-innovacion.jpg"
+imageAlt: "Manos sobre un informe impreso con una curva de distribución de probabilidad, junto a un portátil que muestra un histograma."
 ---
 
 La simulación Monte Carlo es una técnica que evalúa una decisión incierta ejecutando su modelo miles de veces, cada una con valores aleatorios tomados de las distribuciones de probabilidad de las variables inciertas. En lugar de un único resultado, entrega una **distribución de resultados posibles** con su probabilidad: cuál es el valor esperado, qué tan dispersos son los resultados y qué probabilidad hay de perder dinero. Es especialmente útil para decisiones de inversión e innovación, donde ventas, costos y plazos no se conocen con certeza.

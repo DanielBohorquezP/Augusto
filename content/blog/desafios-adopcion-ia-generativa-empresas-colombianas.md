@@ -6,6 +6,8 @@ metaDescription: "Desafíos de las empresas colombianas al adoptar IA generativa
 date: "2026-11-16"
 readTime: "8 min"
 featured: false
+image: "/blog/asesoria-proyectos-innovacion-colombia-donde-buscar.jpg"
+imageAlt: "Escritorio con un mapa impreso de América Latina con chinchetas, una tableta con gráficos, un cuaderno y un bolígrafo."
 ---
 
 Los principales desafíos de las empresas colombianas al adoptar IA generativa en sus equipos de trabajo no son tecnológicos. La herramienta está disponible para cualquier empleado en minutos. Lo difícil es lo que viene después: decidir en qué tareas usarla, verificar lo que produce, proteger la información de la empresa y demostrar que genera valor. Este artículo ordena siete desafíos que aparecen una y otra vez, con base en lo que observamos al capacitar equipos y al dictar un curso de evaluación financiera de proyectos de innovación asistida con IA.

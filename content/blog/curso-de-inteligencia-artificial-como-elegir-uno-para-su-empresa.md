@@ -6,6 +6,8 @@ metaDescription: "Curso de inteligencia artificial: tipos, criterios para elegir
 date: "2026-11-16"
 readTime: "8 min"
 featured: false
+image: "/blog/como-estructurar-proyecto-idi-beneficios-tributarios-colombia.jpg"
+imageAlt: "Equipo de trabajo alrededor de una matriz de proyecto con cronograma y notas adhesivas de colores, vista desde arriba."
 ---
 
 Un buen curso de inteligencia artificial es el que termina con algo que usted usa al día siguiente en su trabajo, no el que más herramientas nombra ni el que más horas dura. La oferta es enorme (cursos gratuitos, certificados universitarios, bootcamps, programas corporativos) y casi todos prometen lo mismo. Lo que los diferencia es para quién están hechos, qué parte de la IA enseñan y si el aprendizaje se queda en el tablero o termina aplicado a un problema real. Esta guía ordena los tipos de curso, da siete criterios para comparar y plantea las preguntas que conviene hacer antes de pagar, tanto si elige para usted como para un equipo.

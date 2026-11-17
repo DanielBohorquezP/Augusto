@@ -26,7 +26,10 @@ export function generateMetadata({
   return {
     title,
     description,
-    alternates: { canonical: "https://www.augustoruiz.org/blog" },
+    alternates: {
+      canonical: "https://www.augustoruiz.org/blog",
+      types: { "application/rss+xml": "https://www.augustoruiz.org/blog/feed.xml" },
+    },
     openGraph: {
       title: `${title} | Augusto Ruiz`,
       description,

@@ -69,6 +69,8 @@ Stack: **Next.js 14 (App Router) + TypeScript + Tailwind CSS**
 
 ## Blog — cómo funciona
 
+**El blog expone un feed RSS en `/blog/feed.xml` (`app/blog/feed.xml/route.ts`, estático, derivado de `content/blog/`).**
+
 **El blog tiene 21 artículos publicados al 2026-11-16** (la tabla lista solo algunos de Beneficios Tributarios; el sexto es `monte-carlo-ia-generativa-lecciones-proyectos-innovacion`) en `content/blog/`:
 
 | Slug | Categoría | Publicado |

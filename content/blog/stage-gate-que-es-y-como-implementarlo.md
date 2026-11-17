@@ -6,6 +6,8 @@ metaDescription: "Stage-Gate: qué es, etapas y compuertas, criterios de decisi�
 date: "2026-11-16"
 readTime: "9 min"
 featured: false
+image: "/blog/metodologias-de-innovacion-empresas.jpg"
+imageAlt: "Equipo de trabajo alrededor de una mesa con un tablero impreso de columnas y notas adhesivas de colores, junto a portátiles y cuadernos."
 ---
 
 El Stage-Gate es un proceso para llevar una idea desde su origen hasta el mercado dividiéndola en etapas, separadas por compuertas (gates) donde un comité decide si el proyecto continúa, se corrige o se detiene. Su valor no está en las etapas, que cualquier equipo sabe recorrer, sino en las compuertas: obligan a la empresa a tomar decisiones explícitas sobre dónde seguir invirtiendo. El modelo fue desarrollado por el investigador Robert G. Cooper a partir de estudios sobre por qué fracasan los nuevos productos, y es una de las referencias más usadas en la gestión de portafolios de innovación.
